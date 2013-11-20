@@ -30,8 +30,7 @@ INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
 VALUES (608,"*","*","*", "en",604); 
 
  INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
- VALUES (609,"*",
-"*","S*", "de",604); 
+ VALUES (609,"*","*","S*", "de",604); 
 
 /* query  */
 
