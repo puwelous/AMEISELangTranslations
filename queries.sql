@@ -43,6 +43,9 @@ VALUES (2,"Zielvorgabe: Dauer","de",1);
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (500,"La durÈe du project","fr",1);
 
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5000,"Trvanie projektu","sk",1);
+
 /* xxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid(spaidid,description,qualification,diagram,aiddid)
 VALUES (1,"project duration - positive",'T',0,1);
@@ -57,7 +60,11 @@ VALUES (2,"ZV Dauer - positiv","ZV Dauer - positiv","Sehr gut! Sie haben die vor
 
 INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
 VALUES (700,"DurÈe - positif","DurÈe - positif","Excellent! Vous n'avez pas dÈpassÈ la limite de 270 jours.",
-"fr",1); 
+"fr",1);
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
+VALUES (7000,"Trvanie - pozitÌvne","Trvanie - pozitÌvne","Excelentne! Limit 270 dnÌ ste neprekroËili.",
+"fr",1);
 /* xxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid)
 VALUES (1,"*",null,1,1,1);
@@ -69,6 +76,8 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (20001,"*","*","de",1);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (200,"*","*","fr",1);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50000,"*","*","sk",1);
 /* ENDE RIETA TOOL */
 
 INSERT INTO rule (rlid,zort,basic_op,value_ref_point,text_ref_point)
@@ -87,8 +96,10 @@ VALUES (4,"ZV Dauer negativ","ZV Dauer negativ","Achtung! Sie haben die vorgegeb
 "de",2);
 
 INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
-VALUES (701,"DurÈe - nÈgatif","DurÈe - nÈgatif","Attention! Vous avez dÈj‡ dÈpassÈ la limite des 270 jours",
-"fr",2);
+VALUES (701,"DurÈe - nÈgatif","DurÈe - nÈgatif","Attention! Vous avez dÈj‡ dÈpassÈ la limite des 270 jours.","fr",2);
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
+VALUES (7001,"Trvanie - negatÌvne","Trvanie - negatÌvne","Pozor! PrekroËili ste limit 270 dnÌ.","sk",2);
 /* xxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid)
 VALUES (2,"*",null,2,1,2);
@@ -100,6 +111,8 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (20003,"*","*","de",2);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (201,"*","*","fr",2);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50001,"*","*","sk",2);
 /* ENDE RIETA TOOL */
 
 INSERT INTO rule (rlid,zort,basic_op,value_ref_point,text_ref_point)
@@ -131,6 +144,8 @@ VALUES (4,"Zielvorgabe: Kosten","de",2);
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (501,"Co˚ts du projet","fr",2);
 
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5001,"N·klady na projekt","sk",2);
 /* xxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid(spaidid,description,qualification,diagram,aiddid)
 VALUES (3,"project cost - positive",'T',0,2);
@@ -144,9 +159,12 @@ VALUES (6,"ZV Kosten - positiv","ZV Kosten positiv","Sehr gut! Sie haben * EUR d
 "de",3);
 
 INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
-VALUES (702,"Co˚ts du projet - positif","Co˚ts - positif","Excellent! Vous avez dÈpensÈ * EUR du budget allouÈ (225000 EUR). ",
+VALUES (702,"Co˚ts du projet - positif","Co˚ts - positif","Excellent! Vous avez dÈpensÈ * EUR du budget allouÈ (225000 EUR).",
 "fr",3);
 
+INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
+VALUES (7002,"N·klady na projekt - pozitÌvne","N·klady - pozitÌvne"," V˝borne! Minuli ste * EUR z celÈho rozpoËtu (225000 EUR).",
+"sk",3);
 /* xxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid)
 VALUES (3,"*",null,3,2,3);
@@ -158,6 +176,8 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (20005,"*","*","de",3);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (202,"*","*","fr",3);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50002,"*","*","sk",3);
 /* ENDE RIETA TOOL */
 
 INSERT INTO rule (rlid,zort,basic_op,value_ref_point,text_ref_point)
@@ -178,6 +198,10 @@ VALUES (8,"ZV Kosten - negativ","ZV Kosten negativ","Achtung, Sie haben die Budg
 INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
 VALUES (703,"Co˚ts du projet - nÈgatif","Co˚ts - nÈgatif","Attention! Vous avez dÈpensÈ * EUR dÈpassant ainsi le budget allouÈ (225000 EUR).",
 "fr",4);
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
+VALUES (7003,"N·klady na projekt - negatÌvne","N·klady - negatÌvne","Pozor! Minuli ste * EUR a prekroËili stanoven˝ rozpoËet (225000 EUR).",
+"sk",4);
 /* xxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid)
 VALUES (4,"*",null,4,2,4);
@@ -189,6 +213,8 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (20007,"*","*","de",4);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (203,"*","*","fr",4);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50003,"*","*","sk",4);
 /* ENDE RIETA TOOL */
 
 INSERT INTO rule (rlid,zort,basic_op,value_ref_point,text_ref_point)
@@ -231,6 +257,9 @@ VALUES (6,"Zielvorgabe: AFPs Code","de",3);
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (502,"PFAs rÈalisÈs dans le code","fr",3);
 
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5002,"ZrealizovanÈ AFPs v kÛde","sk",3);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid(spaidid,description,qualification,diagram,aiddid)
 VALUES (5,"AFP Code - negative",'F',0,3);
@@ -245,6 +274,10 @@ VALUES (10,"ZV AFP Code - negativ","ZV AFP Code negativ","Achtung! Sie haben * %
 
 INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
 VALUES (704,"PFAs rÈalisÈs - nÈgatif","PFAs rÈalisÈs - nÈgatif","Attention! Vous n'avez implÈmentÈ que *% de PFAs alors qu'au moins 95% de PFAs doivent Ítre implÈmentÈs!",
+"sk",5);
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
+VALUES (7004,"AFPs v kÛde - negatÌvne","AFPs v kÛde - negatÌvne","Pozor! Zimplementovali ste len * % AFPs v zdrojovom kÛde. Poûadovan˝ limit je 95 %!",
 "fr",5);
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid)
@@ -257,6 +290,8 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (20009,"*","*","de",5);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (204,"*","*","fr",5);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50004,"*","*","sk",5);
 /* ENDE RIETA TOOL */
 
 INSERT INTO rule (rlid,zort,basic_op,value_ref_point,text_ref_point)
@@ -276,6 +311,9 @@ VALUES (12,"ZV AFP Code - positiv","ZV AFP Code positiv","Sehr gut! Sie haben be
 
 INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
 VALUES (705,"PFAs rÈalisÈs - positif","PFAs rÈalisÈs - positif","TrËs bien! Vous avez implÈmentÈ *% de PFAs atteignant ainsi la limite exigÈe qui est 95%.","fr",6);
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
+VALUES (7005,"ZrealizovanÈ AFP - pozitÌvne","ZrealizovanÈ AFP - pozitÌvne","Veæmi dobre! Zimplementovali ste * % AFPs v zdrojovom kÛde, takûe sa V·m podarilo splniù poûadovan˝ch 95 %.","sk",6);
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid)
 VALUES (6,"*",null,6,3,6);
@@ -287,6 +325,8 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (20011,"*","*","de",6);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (205,"*","*","fr",6);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50005,"*","*","sk",6);
 /* ENDE RIETA TOOL */
 
 INSERT INTO rule (rlid,zort,basic_op,value_ref_point,text_ref_point)
@@ -329,6 +369,9 @@ VALUES (8,"Zielvorgabe: Fehler pro KLOC","de",4);
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (503,"Nombre des erreurs dans le code (par KLOC)","fr",4);
 
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5003,"PoËet ch˝b v kÛde (na KLOC)","sk",4);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid(spaidid,description,qualification,diagram,aiddid)
 VALUES (7,"errors per KLOC - positive",'T',0,4);
@@ -342,8 +385,12 @@ VALUES (14,"ZV Fehler pro KLOC - positiv","ZV Fehler pro KLOC positiv","Sehr gut
 "de",7);
 
 INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
-VALUES (706,"Erreurs par KLOC - positif","Erreurs par KLOC positif","TrËs bien! Le code ne contient que * erreurs par KLOC.  Vous n'avez pas dÈpassÈ la limite exigÈe qui est de 12 erreurs par KLOC au maximum.",
+VALUES (706,"Erreurs par KLOC - positif","Erreurs par KLOC positif","TrËs bien! Le code ne contient que * erreurs par KLOC. Vous n'avez pas dÈpassÈ la limite exigÈe qui est de 12 erreurs par KLOC au maximum.",
 "fr",7);
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
+VALUES (7006,"Chyby na KLOC - pozitÌvne","Chyby na KLOC pozitÌvne","Super! Zdrojov˝ kÛd obsahuje len * ch˝b na KLOC. Podarilo sa V·m ostaù pod hranicou 12 ch˝b na KLOC.",
+"sk",7);
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid)
 VALUES (7,"*",null,7,4,7);
@@ -355,6 +402,8 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (20013,"*","*","de",7);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (206,"*","*","fr",7);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50006,"*","*","sk",7);
 /* ENDE RIETA TOOL */
 
 INSERT INTO rule (rlid,zort,basic_op,value_ref_point,text_ref_point)
@@ -370,6 +419,8 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (20015,"*","*","de",110);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (207,"*","*","fr",110);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50007,"*","*","sk",110);
 /* ENDE RIETA TOOL */
 
 INSERT INTO rule (rlid,zort,basic_op,value_ref_point,text_ref_point,expression)
@@ -390,6 +441,10 @@ VALUES (16,"ZV Fehler pro KLOC - negativ","ZV Fehler pro KLOC negativ","Achtung!
 INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
 VALUES (707,"Erreurs par KLOC - nÈgatif","Erreurs par KLOC nÈgatif","Attention! Le code contient * erreurs par KLOC.  Vous avez dÈpassÈ la limite exigÈe qui est de 12 erreurs par KLOC au maximum. ",
 "fr",8);
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
+VALUES (7007,"Chyby na KLOC - negatÌvne","Chyby na KLOC negatÌvne","Pozor! Zdrojov˝ kÛd obsahuje * ch˝b prisl˙chaj˙cich na KLOC. Nepodarilo sa V·m splniù poûiadavku maxim·lneho poËtu 12 ch˝b na KLOC.",
+"sk",8);
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid)
 VALUES (8,"*",null,8,4,8);
@@ -401,6 +456,8 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (20017,"*","*","de",8);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (208,"*","*","fr",8);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50008,"*","*","sk",8);
 /* ENDE RIETA TOOL */
 
 INSERT INTO rule (rlid,zort,basic_op,value_ref_point,text_ref_point)
@@ -441,6 +498,10 @@ Sie sollten die gew¸nschte Grenze von 12 Fehlern pro KLOC erreichen.",
 INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
 VALUES (708,"Erreurs par KLOC - nÈgatif","Erreurs par KLOC nÈgatif","Attention! Vous n'avez pas encore commencÈ l'implÈmentation. Le code ne doit pas contenir plus de 12 erreurs par KLOC.",
 "fr",60);
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
+VALUES (7008,"Chyby na KLOC - negatÌvne","Chyby na KLOC negatÌvne","Pozor! Eöte ste nezaËali s implement·ciou.",
+"sk",60);
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid)
 VALUES (111,"*",null,60,4,21);
@@ -452,6 +513,8 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (20019,"*","*","de",111);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (209,"*","*","fr",111);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50009,"*","*","sk",111);
 /* ENDE RIETA TOOL */
 
 INSERT INTO rule (rlid,zort,basic_op,value_ref_point,text_ref_point)
@@ -475,6 +538,8 @@ VALUES (10,"Zielvorgabe: AFPs Handbuch","de",5);
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (504,"PFAs rÈalisÈs dans le manuel","fr",5);
 
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5004,"ZrealizovanÈ AFPs v prÌruËke","sk",5);
 /* xxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid(spaidid,description,qualification,diagram,aiddid)
 VALUES (9,"AFP manual - positive",'T',0,5);
@@ -490,6 +555,10 @@ VALUES (20,"ZV AFP HB - positiv","ZV AFP HB positiv","Sehr gut! Sie haben * % de
 INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
 VALUES (709,"PFAs rÈalisÈs dans le manuel - positif","PFAs rÈalisÈs dans le manuel: positif","TrËs bien! Le manuel couvre *% des PFAs alors que la limite est de 95% des FPAs.",
 "fr",9);
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
+VALUES (7009,"AFPs v prÌruËke - pozitÌvne","AFPs v prÌruËke: pozitÌvne","Brav˙rne! PrÌruËka pokr˝va * % poûadovan˝ch AFPs. Stanoven˝ limit bol 95 % AFPs.",
+"sk",9);
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid)
@@ -502,6 +571,8 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (20021,"*","*","de",9);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (210,"*","*","fr",9);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50010,"*","*","sk",9);
 /* ENDE RIETA TOOL */
 
 /* rule gleich wie 6 */
@@ -520,6 +591,10 @@ VALUES (22,"ZV AFP HB - negativ","ZV AFP HB negativ","Achtung! Sie haben * % der
 INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
 VALUES (710,"PFAs rÈalisÈs dans le manuel - nÈgatif","PFAs rÈalisÈs dans le manuel: nÈgatif","Attention! Le manuel ne couvre que * % des PFAs alors que la limite exigÈe est de 95% des PFAs.",
 "fr",10);
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
+VALUES (7010,"AFPs v prÌruËke - negatÌvne","AFPs v prÌruËke: negatÌvne","Pozor! PrÌruËka pokr˝va * % poûadovan˝ch AFPs. Limit bol stanoven˝ na 95 %.",
+"sk",10);
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid)
@@ -532,6 +607,8 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (20023,"*","*","de",10);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (211,"*","*","fr",10);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50011,"*","*","sk",10);
 /* ENDE RIETA TOOL */
 
 /* rule gleich wie 5 */
@@ -572,12 +649,15 @@ VALUES (12,"Zielvorgabe: Fehler pro Seite im Handbuch","de",6);
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (505,"Nombre des erreurs dans le manuel (par page)","fr",6);
 
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5005,"PoËet ch˝b v prÌruËke (pripadaj˙cich na stranu)","sk",6);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid(spaidid,description,qualification,diagram,aiddid)
 VALUES (11,"errors per page - positive",'T',0,6);
 
 INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
-VALUES (23,"errors per page - positive","errors per page positive","Very good! The manual contains only * errors per page. You   the required limit of 0.5 errors per page in the manual.",
+VALUES (23,"errors per page - positive","errors per page positive","Very good! The manual contains only * errors per page. You have achieved the required limit of 0.5 errors per page in the manual.",
 "en",11);
 
 INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
@@ -587,6 +667,10 @@ VALUES (24,"ZV Fehler pro Seite - positiv","ZV Fehler pro Seite positiv","Sehr g
 INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
 VALUES (711,"erreurs par page - positif","erreurs par page positif","TrËs bien! Le manuel ne contient que * erreurs par page. Vous Ítes en dessous de la limite maximale de 0.5 erreurs par page.",
 "fr",11);
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
+VALUES (7011,"poËet ch˝b na stranu - pozitÌvne","poËet ch˝b na str·nku pozitÌvny","Veæmi dobre! PrÌruËka obsahuje len * ch˝b pripadaj˙cich na jednu stranu. Podarilo sa V·m zmestiù pod poûadovan˝ch 0.5 ch˝b na 1 stranu prÌruËky.",
+"sk",11);
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid)
 VALUES (11,"*",null,11,6,9);
@@ -598,6 +682,8 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (20025,"*","*","de",11);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (212,"*","*","fr",11);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50012,"*","*","sk",11);
 /* ENDE RIETA TOOL */
 
 INSERT INTO rule (rlid,zort,basic_op,value_ref_point,text_ref_point)
@@ -613,6 +699,8 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (20027,"*","*","de",112);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (213,"*","*","fr",112);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50013,"*","*","sk",112);
 /* ENDE RIETA TOOL */
 
 /* weiterer Fall */
@@ -630,6 +718,10 @@ VALUES (26,"ZV Fehler pro Seite - negativ","ZV Fehler pro Seite negativ","Achtun
 INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
 VALUES (712,"erreurs par page - nÈgatif","erreurs par page: nÈgatif","Attention! Le manuel contient * erreurs par page. Vous avez dÈpassÈ la limite maximale qui est de l'ordre de 0.5 erreurs par page.",
 "fr",12);
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
+VALUES (7012,"poËet ch˝b na stranu - negatÌvne","poËet ch˝b na str·nku negatÌvny","Pozor! PrÌruËka obsahuje * ch˝b pripadaj˙cich na jednu stranu. PrekraËujete stanoven˝ limit 0.5 ch˝b na 1 stranu prÌruËky.",
+"sk",11);
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid)
 VALUES (12,"*",null,12,6,10);
@@ -641,6 +733,8 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (20029,"*","*","de",12);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (214,"*","*","fr",12);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50014,"*","*","sk",12);
 /* ENDE RIETA TOOL */
 
 INSERT INTO rule (rlid,zort,basic_op,value_ref_point,text_ref_point)
@@ -681,6 +775,10 @@ Vergessen Sie nicht! Sie sollten die gew¸nschte Grenze von 0,5 Fehlern pro Seite
 INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
 VALUES (713,"erreurs par page - nÈgatif","erreurs par page nÈgatif","Attention! Vous n'avez pas encore commencÈ la rÈdaction du manuel. Il ne faut pas dÈpasser la limite maximale qui est de l'ordre de 0.5 erreurs par page.",
 "fr",61);
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
+VALUES (7013,"poËet ch˝b na stranu - negatÌvne","poËet ch˝b na stranu negatÌvny","Pozor! NezaËali ste pÌsaù prÌruËku.",
+"sk",61);
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid)
 VALUES (113,"*",null,61,6,21);
@@ -692,6 +790,8 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (20031,"*","*","de",113);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (215,"*","*","fr",113);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50015,"*","*","sk",113);
 /* ENDE RIETA TOOL */
 
 
@@ -710,6 +810,8 @@ VALUES (14,"Vollst‰ndigkeit der Dokumente","de",7);
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (506,"ComplÈtude des documents","fr",7);
 
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5006,"⁄plnosù dokumentov","sk",7);
 /* xxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid(spaidid,description,diagram,layout,aiddid) 
 VALUES (13,"Completeness of documents",1,'V',7);
@@ -735,6 +837,15 @@ VALUES (714,"ComplÈtude des documents","ComplÈtude des documents","Le diagramme 
 
 Une documentation de refÈrence est acceptable si l'exhaustivitÈ des documents de la spÈcification et de la conception est ÈlevÈe (~ 200 PFAs). 
 Si pour la conception des modules, elle est insuffisante (inf. ‡ 190 PFAs), alors probablement vous avez oubliÈ de corriger les documents prÈcÈdents.","fr","PFAs","Documents",13);
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,yaxis,xaxis,spaidid)
+VALUES (7014,"⁄plnosù dokumentov","⁄plnosù dokumentov","Popis: 
+Diagram zn·zorÚuje ˙plnosù dokumentov projektu. (Hodnoty: *)
+
+Vysvetlenie/Odpor˙Ëania:
+Kvalita postupne kles· od dokumentu k dokumentu. Avöak, ËÌm vyööia kvalita (v zmysle realizovan˝ch AFPs) öpecifik·cie, t˝m jednoduchöie je udrûaù kvalitu dokumentov, ktorÈ nasleduj˙. DodatoËn˝m vynaloûenÌm snahy poËas testovacej f·zy mÙûe tieû dÙjsù k zv˝öeniu kvality zdrojovÈho kÛdu.",
+"sk","AFPs","Documents",13);
+
 /* xxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (13,"specification",null,13,7,null );
@@ -747,6 +858,9 @@ VALUES (2,"Spezifikation","S","de",13);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (250,"spÈcification","S","fr",13);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50050,"öpecifik·cia","S","sk",13);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (7,'specification',
@@ -778,6 +892,9 @@ VALUES (4,"Systemdesign","SD","de",14);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (251,"conception du systËme","CS","fr",14);
 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50051,"n·vrh systÈmu","NS","sk",14);
+
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (8,'system design',
 'select distinct s_entity.value
@@ -807,6 +924,9 @@ VALUES (6,"Moduledesign","MD","de",15);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (252,"conception des modules","CM","fr",15);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50052,"n·vrh modulov","NM","sk",15);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (9,'module design',
@@ -838,6 +958,9 @@ VALUES (8,"Code","C","de",16);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (253,"code","I","fr",16);
 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50053,"kÛd","K","sk",16);
+
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (10,'code',
 'select distinct s_entity.value
@@ -867,6 +990,9 @@ VALUES (10,"Manuals","M","de",17);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (254,"manuel","M","fr",17);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50054,"prÌruËka","P","sk",17);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (11,'manual',
@@ -903,6 +1029,9 @@ VALUES (16,"Restfehler der Dokumente","de",8);
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (507,"Erreurs dans les documents","fr",8);
 
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5007,"Chyby v dokumentoch","sk",8);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid(spaidid,description,diagram,layout,aiddid) 
 VALUES (14,'Errors in documents',1,'V',8);
@@ -938,6 +1067,14 @@ Pour plus d'information sur les differentes phases du project, consulter les dia
    => Erreurs dans le code et 
    => Erreurs dans la documentation.",
 "fr","erreurs","Documents",14);
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,yaxis,xaxis,spaidid)
+VALUES (7015,'Chyby v dokumentoch','Chyby v dokumentoch',"Popis: 
+Tento diagram zn·zorÚuje chyby zost·vaj˙ce v dokumentoch. (Hodnoty: *)
+
+Vzsvetlenie/Odpor˙Ëania:
+Ak öpecifik·cia obsahuje viac ako 30 ch˝b, potom ste tento dokument neprezreli poriadne. V neskoröÌch f·zach je oprava dokumentov drahöia nielen finanËne ale aj Ëasovo paralelne s narastaj˙cim poËtom ch˝b poËas projektu. Uû v skoröÌch f·zach projektu by ste mali vytv·raù dokumenty, ktorÈ s˙ spr·vne(korektnÈ) a ˙plnÈ.",
+"sk","Errors","Documents",14);
 /* xxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (18,"specification",null,14,12,null);
@@ -950,6 +1087,9 @@ VALUES (12,"Spezifikation","S","de",18);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (255,"spÈcification","S","fr",18);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50055,"öpecifik·cia","S","sk",18);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (12,'specification',
@@ -981,6 +1121,9 @@ VALUES (14,"Systemdesign","SD","de",19);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (256,"conception du systËme","CS","fr",19);
 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50056,"n·vrh systÈmu","NS","sk",19);
+
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (13,'system design',
 'select distinct s_entity.value
@@ -1010,6 +1153,9 @@ VALUES (16,"Moduldesign","MD","de",20);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (257,"conception des modules","CM","fr",20);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50057,"n·vrh modulov","NM","sk",20);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (14,'module design',
@@ -1042,6 +1188,9 @@ VALUES (18,"Code","C","de",21);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (258,"code","I","fr",21);
 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50058,"kÛd","K","sk",21);
+
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (15,'code',
 'select distinct s_entity.value
@@ -1071,6 +1220,9 @@ VALUES (20,"Manuals","M","de",22);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (259,"manuel","M","fr",22);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50059,"prÌruËky","P","sk",22);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (16,'manual',
@@ -1107,6 +1259,9 @@ VALUES (18,"Restfehler in der Spezifikation","de",9);
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (508,"Erreurs dans la spÈcification","fr",9);
 
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5008,"Chyby v öpecifik·cii","sk",9);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid(spaidid,description,diagram,layout,aiddid) 
 VALUES (15,'Errors in the spezifikation',1,'V',9);
@@ -1140,6 +1295,14 @@ NB:
 Le document des spÈcifications ne contient que les erreurs d'analyse (EA).",
 "fr","Erreurs","Type d'erreur",15);
 
+INSERT INTO spec_aid_lang(said,description,title,text,language,yaxis,xaxis,spaidid)
+VALUES (7016,'Chyby v öpecifik·cii','Chyby v öpecifik·cii',"Popis: 
+Diagram zachyt·va ost·vaj˙ce chyby v öpecifik·cii. (Hodnoty: *)
+
+Vysvetlenie/Odpor˙Ëania
+KeÔ öpecifik·cie obsahuje viac ako 30 ch˝b z anal˝zy, potom ste neprezreli/neprekontrolovali dokument dostatoËne. Moûno ste zabudli poûiadaù samotnÈho z·kaznÌka o prekontrolovanie öpecifik·cie. Z·kaznÌk by sa mal st·le z˙Ëastniù prehodnotenia öpecifik·cie, pretoûe zistÌ mnoho ch˝b, ktorÈ by v opaËnom prÌpade neboli n·jdenÈ. V prv˝ch f·zach projektu taktieû z·kaznÌk pom·ha pouk·zaù na ch˝baj˙cu funkcionalitu, ktor· mÙûe byù jednoducho zaËlenen· do systÈmu. Ak öpecifik·cie bola prehodnoten· viac ako raz, no napriek tomu je prÌtomnosù ch˝b preuk·zan·, mali by ste sa bliûöie pozrieù na tÌm, ktor˝ prehodnocoval öpecifik·ciu. Alebo ste zvolili nespr·vnych v˝voj·rov. Berte na vedomie, prosÌm, ûe öpecifik·cie zah‡Úa len chyby z f·zy anal˝zy (AE).",
+"sk","Chyby","Typ chyby",15);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (23,"errors",null,15,17,null);
@@ -1152,6 +1315,9 @@ VALUES (22,"Gesamtfehler","GES","de",23);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (260,"Nombre total des erreurs","Total","fr",23);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50060,"chyby dokopy","Total","sk",23);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (17,'all errors',
@@ -1182,6 +1348,9 @@ VALUES (24,"Analysefehler","AF","de",24);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (261,"Erreurs d'analyse","EA","fr",24);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50061,"Chyby anal˝zy","ChA","sk",24);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (18,'analysis errors',
@@ -1217,6 +1386,9 @@ VALUES (20,"Restfehler im Systemdesign","de",10);
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (509,"Erreurs dans la conception du systËme","fr",10);
 
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5009,"Chyby v n·vrhu systÈmu","sk",10);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid(spaidid,description,diagram,layout,aiddid) 
 VALUES (16,'Errors in the system design',1,'V',10);
@@ -1250,6 +1422,15 @@ Il ne faut pas oublier que le nombre d'erreurs augmente tout au long du projet.
 
 Si le document relatif ‡ la conception du systËme a ÈtÈ revu plusieurs fois et qu'il contient toujours des erreurs, alors il faut revoir la composante du groupe de rÈvision. Probablement, vous avez choisi pour la rÈvision des personnes moins compÈtentes.",
 "fr","erreurs","Type d'erreur",16);
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,yaxis,xaxis,spaidid)
+VALUES (7017,'Chyby v n·vrhu systÈmu','Chyby v n·vrhu systÈmu',"Popis:
+Diagram popisuje chyby zotrv·vaj˙ce v systÈmovom n·vrhu. (Values: *)
+
+Vysvetliene/Odpor˙Ëania:
+Ak n·vrh systÈmu obsahuje mnoûstvo ch˝b, potom ste neprekontrolovali dokument dostatoËne. Nezab˙dajte, ûe poËet ch˝b sa poËas projektu zvyöuje. Ak n·vrh systÈmu bol prekontrolovan˝ viac ako raz a st·le obsahuje mnoho ch˝b, potm by ste sa mali zameraù na odliönÈ tÌmy, ktorÈ mali na starosti kontrolu(dokumentu). Moûno ste poverili neadekv·tnych v˝voj·rov.",
+"sk","Chyby","Typ chyby",16);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (25,"errors",null,16,19,null);
@@ -1262,6 +1443,9 @@ VALUES (26,"Gesamtfehler","GES","de",25);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (262,"Nombre total des erreurs","Total","fr",25);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50062,"chyby dokopy","total","sk",25);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (19,"all errors",
@@ -1293,6 +1477,9 @@ VALUES (28,"Analysefehler","AF","de",26);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (263,"Erreurs d'analyse","EA","fr",26);
 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50063,"Chyby anal˝zy","ChA","sk",26);
+
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (20,'analysis errors',
 'select distinct s_entity.value
@@ -1322,6 +1509,9 @@ VALUES (30,"Grobentwurfsfehler","GF","de",27);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (264,"Erreurs dans la conception du systËme","ECS","fr",27);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50064,"chyby n·vrhu systÈmu","ChNS","sk",27);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (21,'system design errors',
@@ -1357,6 +1547,9 @@ VALUES (22,"Restfehler im Moduldesign","de",11);
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (510,"Erreurs dans la conception des modules","fr",11);
 
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5010,"Chyby v n·vrhu modulov","sk",11);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid(spaidid,description,diagram,layout,aiddid) 
 VALUES (17,'Errors in the module design',1,'V',11);
@@ -1389,6 +1582,15 @@ Si la conception des modules contient beaucoup d¥erreurs, ceci est peut Ítre d˚ 
 Il ne faut pas oublier que le nombre des erreurs augmente tout au long du projet.
 S¥il y a toujours des erreurs aprËs plusieurs rÈvisions du document de conception des modules, alors il faut revoir la composante des groupes de rÈvision. Probablement, vous avez choisi des personnes moins compÈtentes.",
 "fr","Erreurs","Type d'erreur",17);
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,yaxis,xaxis,spaidid)
+VALUES (7018,'Chyby v n·vrhu modulov','Chyby v n·vrhu modulov',"Popis: 
+Diagram zobrazuje zost·vaj˙ce chyby v n·vrhu modulov. Chyby s˙ zoskupen˙ na z·klade typu. (Hodnoty: *)
+
+Vysvetlenie/Odpor˙Ëania:
+Ak n·vrh modulov obsahuje veæa ch˝b, potom ste pravdepodobne nenechali prekontrolovaù/prehodnotiù dokument dostatoËne. Nezab˙dajte, ûe poËet ch˝b postupne s neskoröÌmi f·zami projektu narast·. Ak n·vrh modulov bol prehodnoten˝ viac ako raz, no napriek tomu sa chyby v dokumente vyskytuj˙, potom by ste sa mali zameraù na inÈ tÌmy, ktorÈ (by) mali na starosti prehodnotenie dokumentu. Moûno ste siahli po neadekv·tnych v˝voj·roch.",
+"sk","Chyby","Typ chyby",17);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (28,"errors",null,17,22,null);
@@ -1401,6 +1603,9 @@ VALUES (32,"Gesamtfehler","GES","de",28);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (365,"Nombre  total des erreurs","Total","fr",28);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50065,"Chyby dokopy","Chyby total","sk",28);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (22,'all errors',
@@ -1432,6 +1637,9 @@ VALUES (34,"Analysefehler","AF","de",29);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (366,"Erreurs d¥analyse","EA","fr",29);
 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50066,"Chyby anal˝zy","ChA","sk",29);
+
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (23,'analysis errors',
 'select distinct s_entity.value
@@ -1462,6 +1670,9 @@ VALUES (36,"Grobentwurfsfehler","GF","de",30);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (367,"Erreurs de la conception du systËme","ECS","fr",30);
 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50067,"Chyby v n·vrhu systÈmu","ChNS","sk",30);
+
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (24,'system design errors',
 'select distinct s_entity.value
@@ -1491,6 +1702,9 @@ VALUES (38,"Feinentwurfsfehler","FF","de",31);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (368,"Erreurs de la conception des modules","ECM","fr",31);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50068,"Chyby n·vrhu modulov","ChNM","sk",31);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (25,'module design errors',
@@ -1526,6 +1740,9 @@ VALUES (24,"Restfehler im Code","de",12);
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (511,"Erreurs dans le code","fr",12);
 
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5011,"Chyby v kÛde","sk",12);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid(spaidid,description,diagram,layout,aiddid) 
 VALUES (18,'Errors in the code',1,'V',12);
@@ -1559,6 +1776,14 @@ Si le code contient beaucoup d¥erreurs, ceci est peut Ítre d˚ ‡ la rÈvision non 
 Il ne faut pas oublier que le nombre des erreurs augmente tout au long du projet.
 S¥il y a toujours des erreurs aprËs plusieurs rÈvisions du code, alors il faut revoir la composante du groupe de rÈvision. Probablement, vous avez choisi des personnes moins compÈtentes.",
 "fr","Erreurs","Type d¥erreur",18);
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,yaxis,xaxis,spaidid)
+VALUES (7019,'Chyby v kÛde','Chyby v kÛde',"Popis: 
+Diagram zobrazuje zost·vaj˙ce chyby v kÛde. Chyby s˙ zoskupenÈ podæa typu. (Hodnoty: *)
+
+Vysvetlienie/Odpor˙Ëania:
+Ak kÛd obsahuje mnoho ch˝b, potom ste nenechali prekontrolovaù dokument dostatoËne. Nezab˙dajte, ûe poËet ch˝b s trvanÌm projektu narastaj˙. Ak zdrojov˝ kÛd bol prekontrolovan˝ viac neû raz a aj napriek tomu obsahje chyby, mali by ste sa zamyslieù nad in˝m zloûenÌm tÌmu, ktor˝ dokument prehodnocoval. Moûno ste nezvolili najvhodnejöÌch v˝voj·rov.",
+"sk","Chyby","Typ chyby",18);
 /* xxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (32,"error",null,18,26,null);
