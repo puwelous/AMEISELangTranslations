@@ -1,0 +1,2730 @@
+-- AMEISE-QS-Model
+-- Version: V1.6 (A-E-200)
+--
+-- Passend zu: AMEISE-QS-Model 200 AFP w/ Handbuch EURO
+-- Model-Version: qs_exp_200_pms_V3.b2
+-- 
+-- Autor: Andreas Bollin
+-- Datum: 11.11.2003
+-- History: 
+-- Aenderungen: Elke Hochmueller, 30.5.2006, command list for simulation+, help text
+--              Andreas Bollin, 10.6.2007, updated to new QS Model May 2007
+--              Andreas Bollin, 19.9.2011, changed start/end date
+--              Andreas Bollin, 13.3.2012, changed start/end date
+--              Andreas Bollin, 28.3.2013, changed start/end date
+
+dictionary for QS in english is
+
+  map for Entwickler is
+    "Axel"  => "Axel" ,"A","1",pronoun "he";
+    "Bernd"  => "Bernd" ,"B","2",pronoun "he";
+    "Christine"  => "Christine" ,"C","3",pronoun "she";
+    "Diana"  => "Diana" ,"D","4",pronoun "she";
+    "Richard"  => "Richard" ,"R","5",pronoun "he";
+    "Stefanie" => "Stefanie","S","6",pronoun "she";    
+    "Thomas" => "Thomas","T","7",pronoun "he";
+  end map;
+  
+--nikoo start
+
+map for Dokument is
+    "Analysis" => "Analysis";
+    "Code" => "Code";
+    "Manuals" => "Manuals";
+    "Moduledesign" => "Moduledesign";
+    "Specification" => "Specification";
+    "Systemdesign" => "Systemdesign";
+end map;
+
+map for Testbericht is
+    "Acceptancetestreport" => "Acceptancetestreport";
+    "Integrationtestreport" => "Integrationtestreport";
+    "Moduletestreport" => "Moduletestreport";
+    "Systemtestreport" => "Systemtestreport";
+end map;
+
+map for Pruefbericht is
+    "Acceptancetestreport" => "Acceptancetestreport";
+    "Codereviewreport" => "Codereviewreport";
+    "Manualsreviewreport" => "Manualsreviewreport";
+    "Integrationtestreport" => "Integrationtestreport";
+    "Moduledesignreviewreport" => "Moduledesignreviewreport";
+    "Moduletestreport" => "Moduletestreport";
+    "Specificationreviewreport" => "Specificationreviewreport";
+    "Systemdesignreviewreport" => "Systemdesignreviewreport";
+    "Systemtestreport" => "Systemtestreport";
+end map;
+
+map for Notation is
+    "Ada 95" => "Ada 95";
+    "C" => "C";
+    "C++" => "C++";
+    "English" => "English";
+    "German_in_Analysis" => "German_in_Analysis";
+    "German_in_Manuals" => "German_in_Manuals";
+    "German_in_Module_design" => "German_in_Module_design";
+    "German_in_Spec" => "German_in_Spec";
+    "German_in_System_design" => "German_in_System_design";
+    "SA" => "SA";
+    "Z" => "Z";
+end map;
+--nikoo end
+
+  message Interpreter.Do_not_Understand is
+     "unfortunately SESAM does not understand you!";
+  end message;
+
+--====== Produktions-Kommandos ================================
+
+  command lasse_mit_Kunden_sprechen(ein_Entwickler: Entwickler) is
+    "[ask] [to] (talk|speak) [to|with] [the] customer", ask "Who should talk to the customer?" => ein_Entwickler;
+    "[ask] %(ein_Entwickler) [to] (talk|speak) [to|with] [the] customer";
+    diary_entry "Told %(ein_Entwickler) to interview the customer.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_spezifizieren(ein_Entwickler : Entwickler) is
+    "[ask] [to] specify", ask "Who should work on the specification?" => ein_Entwickler;
+    "[ask] [to] (write|work on) [the] specification", ask "Who should work on the specification?" => ein_Entwickler;
+    "[ask] %(ein_Entwickler) [to] specify";
+    "[ask] %(ein_Entwickler) [to] (write|work on) [the] specification";
+    diary_entry "Told %(ein_Entwickler) to work on the specification.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_System_entwerfen(ein_Entwickler : Entwickler) is
+    "design system", ask "Who should design the system?" => ein_Entwickler;
+    "([ask] [to] (write|do|work on) [the] system design)", ask "Who should design the system?" => ein_Entwickler;
+    "[ask] [to] design [the] system", ask "Who should design the system?" => ein_Entwickler;
+    "[ask] %(ein_Entwickler) [to] (write|do|work on) [the] system design";
+    "[ask] %(ein_Entwickler) [to] design [the] system";
+    diary_entry "Told %(ein_Entwickler) to work on the system design.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_Module_spezifizieren(ein_Entwickler : Entwickler) is
+    "design modules", ask "Who should specify the modules?" => ein_Entwickler;
+    "([ask] [to] (write|do|work on) [the] module (design|specification|spec|specs))", ask "Who should specify the modules?" => ein_Entwickler;
+    "[ask] [to] (design|specify) [the] modules", ask "Who should work on the module specification?" => ein_Entwickler;
+    "[ask] %(ein_Entwickler) [to] (write|do|work on) [the] module (design|specification|spec|specs)";
+    "[ask] %(ein_Entwickler) [to] (design|specify) [the] modules";
+    diary_entry "Told %(ein_Entwickler) to work on the module design.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_codieren(ein_Entwickler : Entwickler) is
+    "[ask] [to] [write] [the] code", ask "Who should write the code?" => ein_Entwickler;
+    "[ask] [to] (work|do) [on] [the] implementation", ask "Who should work on the implementation?" => ein_Entwickler;
+    "[ask] %(ein_Entwickler) [to] write [the] code";
+    "[ask] %(ein_Entwickler) [to] implement";
+    diary_entry "Told %(ein_Entwickler) to work on the implementation.";
+  end command;
+
+-----------------------------------------------------
+--
+--  command lasse_Anzahl_Module_codieren
+--   (ein_Entwickler : Entwickler;
+--          Anzahl_Module  : integer;
+--   bis_Termin     : date) is
+--    "[ask] [to] (implement|code) [some] modules", 
+--      ask "Who should implement the modules?" => ein_Entwickler,
+--      ask "How many modules must be implemented?" => Anzahl_Module,
+--      ask "When must the implementation be finished?" => bis_Termin;
+--    "[ask] %(ein_Entwickler) [to] (implement|code) [some] modules",
+--      ask "How many modules must be implemented?" => Anzahl_Module,
+--      ask "When must the implementation be finished?" => bis_Termin;
+--    "[ask] %(ein_Entwickler) [to] (implement|code) %(Anzahl_Module) modules",
+--      ask "When must the implementation be finished?" => bis_Termin;
+--    "[ask] [to] (implement|code) %(Anzahl_Module) modules", 
+--      ask "Who should implement the modules?" => ein_Entwickler,
+--      ask "When must the implementation be finished?" => bis_Termin;
+--    "[ask] [to] (implement|code) %(Anzahl_Module) modules until %(bis_Termin)",
+--      ask "Who should implement the modules?" => ein_Entwickler;
+--    "[ask] %(ein_Entwickler) [to] (implement|code) %(Anzahl_Module) modules until %(bis_Termin)";
+--  end command;
+--
+-----------------------------------------------------
+
+  command lasse_integrieren(ein_Entwickler : Entwickler) is
+    "[ask] [to] integrate [the] [system]", ask "Who should do the integration?" => ein_Entwickler;
+    "[ask] %(ein_Entwickler) [to] integrate [the] [system]";
+    "[ask] %(ein_Entwickler) [to] (do|make) [the] [system] integration";
+    diary_entry "Told %(ein_Entwickler) to work on the system integration.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_Handbuch_erstellen(ein_Entwickler : Entwickler) is
+    "[ask] [to] (write|work on) [the] ([system] documentation|[user] manual|[user] manuals)", ask "Who should write the documentation?" => ein_Entwickler;
+    "[ask] %(ein_Entwickler) [to] (write|work on) [the] ([system] documentation|[user] manual|[user] manuals)";
+    diary_entry "Told %(ein_Entwickler) to write the user manual/ system documentation.";
+  end command;
+
+--====== Pruef-Kommandos ======================================
+
+  command lasse_Module_testen(ein_Entwickler : Entwickler) is
+    "[ask] [to] test [the] modules", ask "Who should work on the module test?" => ein_Entwickler;
+    "[ask] [to] do [the] module test", ask "Who should work on the module test?" => ein_Entwickler;
+    "[ask] %(ein_Entwickler) [to] test [the] modules";
+    "[ask] %(ein_Entwickler) [to] do [the] module test";
+    diary_entry "Told %(ein_Entwickler) to do the module test.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_Integrationstest_durchfuehren(ein_Entwickler : Entwickler) is
+    "test integration", ask "Who should do the system integration test?" => ein_Entwickler;
+    "([ask] [to] (do|work on) [the] [system] integration test)", ask "Who should do the system integration test?" => ein_Entwickler;
+    "[ask] %(ein_Entwickler) [to] (do|work on) [the] [system] integration test";
+    diary_entry "Told %(ein_Entwickler) to work on the integration test.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_Systemtest_durchfuehren(ein_Entwickler : Entwickler) is
+    "[ask] [to] test [the] system", ask "Who should work on the system test?" => ein_Entwickler;
+    "[ask] [to] do [the] system test", ask "Who should work on the system test?" => ein_Entwickler;
+    "[ask] %(ein_Entwickler) [to] test [the] system";
+    "[ask] %(ein_Entwickler) [to] do [the] system test";
+    diary_entry "Told %(ein_Entwickler) to work on the system test.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_Kunde_Abnahmetest_durchfuehren is
+    "[ask] [the] customer [to] (perform|do) [the] acceptance test";
+    diary_entry "Told customer that the product is ready for doing an acceptance test.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_Reviews_stattfinden
+   (ein_Dokument : Dokument;
+   Gutachter_1  : Entwickler;
+   Gutachter_2  : Entwickler) is
+    "[ask] (two|2) (developers|reviewers) [to] [perform|undertake] [a] review", 
+      ask "Which document must be reviewed?" => ein_Dokument,
+      ask "Who is the first reviewer?" => Gutachter_1,
+      ask "Who is the second reviewer?" => Gutachter_2;
+    "[ask] [two|2] (developers|reviewers) [to] review [the] %(ein_Dokument)",
+      ask "Who is the first reviewer?" => Gutachter_1,
+      ask "Who is the second reviewer?" => Gutachter_2;
+    "[ask] %(Gutachter_1) and %(Gutachter_2) [to] [perform|undertake] [a] review",
+      ask "Which document must be reviewed?" => ein_Dokument;
+    "[ask] %(Gutachter_1) (and|,) %(Gutachter_2) [to] review [the] %(ein_Dokument)";
+    diary_entry "Told %(Gutachter_1) and %(Gutachter_2) to perform a review on the %(ein_Dokument)";
+  end command;
+
+-----------------------------------------------------
+--
+--  command lasse_Reviews_stattfinden_von_Seiten
+--   (ein_Dokument  : Dokument;
+--   Anzahl_Seiten : integer;
+--   Gutachter_1   : Entwickler;
+--   Gutachter_2   : Entwickler) is
+--    "[ask] [two|2] (developers|reviewers) [to] review %(Anzahl_Seiten) pages", 
+--      ask "Which document must be reviewed?" => ein_Dokument,
+--      ask "Who is the first reviewer?" => Gutachter_1,
+--      ask "Who is the second reviewer?" => Gutachter_2;
+--    "[ask] [to] review %(Anzahl_Seiten) pages of [the] %(ein_Dokument)",
+--      ask "Who is the first reviewer?" => Gutachter_1,
+--      ask "Who is the second reviewer?" => Gutachter_2;
+--    "[ask] %(Gutachter_1) (and|,) %(Gutachter_2) [to] review %(Anzahl_Seiten)",
+--      ask "Which document must be reviewed?" => ein_Dokument;
+--    "[ask] %(Gutachter_1) [to] review %(Anzahl_Seiten)",
+--      ask "Who is the second reviewer?" => Gutachter_2, 
+--      ask "Which document must be reviewed?" => ein_Dokument;
+--    "[ask] %(Gutachter_2) [to] review %(Anzahl_Seiten)",
+--      ask "Who is the second reviewer?" => Gutachter_1,
+--      ask "Which document must be reviewed?" => ein_Dokument;
+--    "[ask] %(Gutachter_1) [to] review %(Anzahl_Seiten) pages of [the] %(ein_Dokument)",
+--      ask "Who is the second reviewer?" => Gutachter_2;
+--    "[ask] %(Gutachter_2) [to] review  %(Anzahl_Seiten) pages of [the] %(ein_Dokument)",
+--      ask "Who is the second reviewer?" => Gutachter_1;
+--    "[ask] %(Gutachter_1) (and|,) %(Gutachter_2) [to] review %(Anzahl_Seiten) pages [of] [the] %(ein_Dokument)";
+--  end command;
+--
+-----------------------------------------------------
+--
+--  command lasse_Reviews_stattfinden_von_Modulen
+--   (Anzahl_Module : integer;
+--   Gutachter_1   : Entwickler;
+--   Gutachter_2   : Entwickler) is
+--    "[ask] [to] review [some] modules",
+--      ask "Who is the first reviewer?" => Gutachter_1,
+--      ask "Who is the second reviewer?" => Gutachter_2,
+--      ask "How many modules should be reviewed?" => Anzahl_Module;
+--    "[ask] [to] review %(Anzahl_Module) modules",
+--      ask "Who is the first reviewer?" => Gutachter_1,
+--      ask "Who is the second reviewer?" => Gutachter_2;
+--    "[ask] %(Gutachter_1) (and|,) %(Gutachter_2) [to] review [some] modules",
+--      ask "How many modules should be reviewed?" => Anzahl_Module;
+--    "[ask] %(Gutachter_1) [to] review [some] modules",
+--      ask "Who is the second reviewer?" => Gutachter_2,
+--      ask "How many modules should be reviewed?" => Anzahl_Module;
+--    "[ask] %(Gutachter_2) [to] review [some] modules",
+--      ask "Who is the second reviewer?" => Gutachter_1,
+--      ask "How many modules should be reviewed?" => Anzahl_Module;
+--    "[ask] %(Gutachter_1) [to] review %(Anzahl_Module) modules",
+--      ask "Who is the second reviewer?" => Gutachter_2;
+--    "[ask] %(Gutachter_2) [to] review %(Anzahl_Module) modules",
+--      ask "Who is the second reviewer?" => Gutachter_1;
+--    "[ask] %(Gutachter_1) (and|,) %(Gutachter_2) [to] review %(Anzahl_Module) modules";
+--  end command;
+--
+-----------------------------------------------------
+
+  command lasse_Reviews_3_stattfinden
+   (ein_Dokument : Dokument;
+   Gutachter_1  : Entwickler;
+   Gutachter_2  : Entwickler;
+   Gutachter_3  : Entwickler) is
+    "(three|3) (developers|reviewers) [to] [perform|undertake] [a] review", 
+      ask "Which document must be reviewed?" => ein_Dokument,
+      ask "Who is the first reviewer?" => Gutachter_1,
+      ask "Who is the second reviewer?" => Gutachter_2,
+      ask "Who is the third reviewer?" => Gutachter_3;
+    "instruct (three|3) (developers|reviewers) [to] review [the] %(ein_Dokument)",
+      ask "Who is the first reviewer?" => Gutachter_1,
+      ask "Who is the second reviewer?" => Gutachter_2,
+      ask "Who is the third reviewer?" => Gutachter_3;
+    "instruct %(Gutachter_1) (and|,) %(Gutachter_2) (and|,) %(Gutachter_3) [to] [perform|undertake] [a] review",
+      ask "Which document must be reviewed?" => ein_Dokument;
+    "instruct %(Gutachter_1) (and|,) %(Gutachter_2) (and|,) %(Gutachter_3) [to] review [the] %(ein_Dokument)";
+    diary_entry "Told %(Gutachter_1), %(Gutachter_2) and %(Gutachter_3) to perform a review on the %(ein_Dokument)";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_SpezReviews_mit_Kunde_stattfinden
+   (Gutachter_1 : Entwickler;
+   Gutachter_2 : Entwickler) is
+    "[ask] [the] customer [to] participate in [a] review [of] [the] specification",
+      ask "Who is the first reviewer?" => Gutachter_1,
+      ask " Who is the second reviewer?" => Gutachter_2;
+    "[ask] [the] customer [to] review [the] specification with %(Gutachter_1)",
+      ask " Who is the second reviewer?" => Gutachter_2;
+    "[ask] [the] customer (and|,) %(Gutachter_1) [to] review [the] specification",
+      ask " Who is the second reviewer?" => Gutachter_2;
+    "[ask] [the] customer (and|,) %(Gutachter_1) (and|,) %(Gutachter_2) [to] review [the] specification";
+    "[ask] [the] customer [to] review [the] specification [together] with %(Gutachter_1) (and|,) %(Gutachter_2)";
+    diary_entry "Told %(Gutachter_1) and %(Gutachter_2) to perform a review on the Specification together with the customer.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_HandbuchReviews_mit_Kunde_stattfinden
+   (Gutachter_1 : Entwickler;
+   Gutachter_2 : Entwickler) is
+    "[ask] [the] customer [to] participate in [a] review [of] [the] ([system] documentation|handbook|[user] manuals)",
+      ask "Who is the first reviewer?" => Gutachter_1,
+      ask "Who is the second reviewer?" => Gutachter_2;
+    "[ask] [the] customer [to] review [the] ([system] documentation|handbook|[user] manuals) with %(Gutachter_1)",
+      ask "Who is the second reviewer?" => Gutachter_2;
+    "[ask] [the] customer (and|,) %(Gutachter_1) [to] review [the] ([system] documentation|handbook|[user] manuals)",
+      ask " Who is the second reviewer?" => Gutachter_2;
+    "[ask] [the] customer (and|,) %(Gutachter_1) (and|,) %(Gutachter_2) [to] review [the] ([system] documentation|handbook|[user] manuals)";
+    "[ask] [the] customer [to] review [the] ([system] documentation|handbook|[user] manuals) with %(Gutachter_1) (and|,) %(Gutachter_2)";
+    diary_entry "Told %(Gutachter_1) and %(Gutachter_2) to perform a review on the User Manuals together with the customer.";
+  end command;
+
+--====== Korrektur-Kommandos ==================================
+
+  command lasse_Spezifikation_nach_Review_korrigieren(ein_Entwickler : Entwickler) is
+    "[ask] [to] correct [the] [reviewed] specification",
+      ask "Who should work on the correction of the specification?" => ein_Entwickler;
+    "[ask] [to] correct [the] specification [after review]",
+      ask "Who should work on the correction of the specification?" => ein_Entwickler;
+    "[ask] %(ein_Entwickler) [to] correct [the] ([reviewed] specification|specification [after review])";
+    diary_entry "Told %(ein_Entwickler) to work on the correction of the reviewed specification.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_Systementwurf_nach_Review_korrigieren(ein_Entwickler : Entwickler) is
+    "[ask] [to] correct [the] [reviewed] system design",
+      ask "Who should work on the correction of the system design?" => ein_Entwickler;
+    "[ask] [to] correct [the] system design [after review]",
+      ask "Who should work on the correction of the system design?" => ein_Entwickler;
+    "[ask] %(ein_Entwickler) [to] correct [the] ([reviewed] system design|system design [after review])";
+    diary_entry "Told %(ein_Entwickler) to work on the correction of the reviewed System Design.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_Modulspez_nach_Review_korrigieren(ein_Entwickler : Entwickler) is
+    "[ask] [to] correct [the] [reviewed] module (design|specification|spec)",
+      ask "Who should work on the correction of the module design?" => ein_Entwickler;
+    "[ask] [to] correct [the] module (design|specification|spec) [after review]",
+      ask "Who should work on the correction of the module design?" => ein_Entwickler;
+    "[ask] %(ein_Entwickler) [to] correct [the] [reviewed] module (design|specification|spec)";
+    "[ask] %(ein_Entwickler) [to] correct [the] module (design|specification|spec) [after review]";
+    diary_entry "Told %(ein_Entwickler) to work on the correction of the reviewed module design.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_Code_nach_Review_korrigieren(ein_Entwickler : Entwickler) is
+    "[ask] [to] correct [the] reviewed (code|implementation)",
+      ask "Who should work on the correction of the code?" => ein_Entwickler;
+    "[ask] [to] correct [the] (code|implementation) after review",
+      ask "Who should work on the correction of the code?" => ein_Entwickler;
+    "[ask] %(ein_Entwickler) [to] correct [the] ([reviewed] code|code [after review])";
+    diary_entry "Told %(ein_Entwickler) to correct Bugs found in the implementation during review.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_Handbuch_nach_Review_korrigieren(ein_Entwickler : Entwickler) is
+    "[ask] [to] correct [the] [reviewed] ([system] documentation|handbook|[user] manuals)",
+      ask "Who should work on the correction of the documentation?" => ein_Entwickler;
+    "[ask] [to] correct [the] ([system] documentation|handbook|[user] manuals) [after review]",
+      ask "Who should work on the correction of the documentation?" => ein_Entwickler;
+    "[ask] %(ein_Entwickler) [to] correct [the] [reviewed] ([system] documentation|handbook|[user] manuals)";
+    "[ask] %(ein_Entwickler) [to] correct [the] ([system] documentation|handbook|[user] manuals) [after review]";
+    diary_entry "Told %(ein_Entwickler) to work on the correction of mistakes found while reviewing the documentation.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_Code_nach_Test_korrigieren
+   (ein_Entwickler : Entwickler;
+   ein_Bericht     : Testbericht) is
+    "[ask] [to] correct [the] tested code",
+      ask "Who should correct the code?" => ein_Entwickler,
+      ask "Which test report should be used?" => ein_Bericht;
+    "[ask] [to] correct [the] code after test",
+      ask "Who should correct the code?" => ein_Entwickler,
+      ask "Which test report should be used?" => ein_Bericht;
+    "[ask] %(ein_Entwickler) [to] correct [the] tested code",
+      ask "Which test report should be used?" => ein_Bericht;
+    "[ask] %(ein_Entwickler) [to] correct [the] code after test",
+      ask "Which test report should be used?" => ein_Bericht;
+    "[ask] [to] correct [the] tested code using [the] [test] [report] %(ein_Bericht)",
+      ask "Who should correct the code?" => ein_Entwickler;
+    "[ask] [to] correct [the] code after test using [the] [test] [report] %(ein_Bericht)",
+      ask "Who should correct the code?" => ein_Entwickler;
+    "[ask] %(ein_Entwickler) [to] correct [the] tested code using [the] [test] [report] %(ein_Bericht)";
+    "[ask] %(ein_Entwickler) [to] correct [the] code after test using [the] [test] [report] %(ein_Bericht)";
+    diary_entry "Told %(ein_Entwickler) to correct all bugs in the code according to the report %(ein_Bericht).";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_alle_Dokumente_korrigieren
+   (ein_Entwickler : Entwickler;
+                         ein_Bericht    : Pruefbericht) is
+    "[ask] [to] correct all documents",
+      ask "Who should correct the documents?" => ein_Entwickler,
+      ask "Which report should be used?" => ein_Bericht;
+    "[ask] [to] correct all documents using [the] [report] %(ein_Bericht)",
+      ask "Who should correct the code?" => ein_Entwickler;
+     "[ask] %(ein_Entwickler) [to] correct all documents using [the] [report] %(ein_Bericht)";
+     diary_entry "Told %(ein_Entwickler) to correct all failures in all documents according to the test report %(ein_Bericht).";
+  end command;
+
+
+--====== Inspektoren ==========================================
+
+
+  command stelle_verbrauchte_Ressourcen_fest is
+    "information about [the] (spent|used|consumed) resources";
+    "(determine|list) [the] (spent|used|consumed) resources";
+    diary_entry "Determined spent resources.";
+  end command;
+
+-----------------------------------------------------
+
+  command inspiziere_Spezifikation is
+    "show me [the] specification";
+    "inspect [the] specification";
+    "(determine|list) [the] properties [of] [the] specification";
+    "(determine|list) [the] specification attributes";
+    diary_entry "Inspected specifications properties.";
+  end command;
+
+-----------------------------------------------------
+
+  command inspiziere_Systementwurf is
+    "show me [the] system design";
+    "inspect [the] system design";
+    "(list|determine) [the] properties [of] [the] system design";
+    diary_entry "Inspected properties of the  system design.";
+  end command;
+
+-----------------------------------------------------
+
+  command inspiziere_Modulspezifikation is
+    "show me [the] module (design|specification|spec)";
+    "inspect [the] module (design|specification|spec)";
+    "(list|determine) [the] properties [of] [the] module (design|specification|spec)";
+    diary_entry "Inspected module design.";
+  end command;
+
+-----------------------------------------------------
+
+  command inspiziere_Handbuch is
+    "show me [the] ([system] documentation|handbook|[user] manuals)";
+    "(list|determine) [the] properties [of] [the] ([system] documentation|handbook|[user] manuals)";
+    diary_entry "Inspected properties of the user manuals.";
+  end command;
+
+-----------------------------------------------------
+
+  command inspiziere_Code is
+    "show me [the] (code|modules)";
+    "inspect [the] (code|modules)";
+    "(list|determine) [the] properties [of] [the] (code|modules)";
+    diary_entry "Inspected properties of the Source Code.";
+  end command;
+
+-----------------------------------------------------
+
+  command inspiziere_Pruefbericht(ein_Bericht : Pruefbericht) is
+    "show me [a] review report",
+      ask "Which review report do you want to inspected?" => ein_Bericht;
+    "[ask] inspect [a] review report",
+      ask "Which review report do you want to inspected?" => ein_Bericht;
+    "[ask] show me [the] review report %(ein_Bericht)";
+    diary_entry "Inspected the review report %(ein_Bericht).";
+  end command;
+
+-----------------------------------------------------
+
+  command zeige_verfuegbare_Entwickler is
+    "(show me|print|give [me]) [the|a] [list of] available developers";
+    "[Which] developers [are] available[?]";
+    diary_entry "Listed available developers.";
+  end command;
+
+-----------------------------------------------------
+
+  command zeige_zugeteilte_Mitarbeiter is
+    "show me my team members";
+    "(show me|list|print|determine) [the] hired (employees|persons|people|workers|developers)";
+    "[who is] hired[?]";
+    "who is [employed] in the project[?]";
+    "which (employees|persons|people|workers|developers) [are] [employed] in [the] project[?]";
+    diary_entry "Listed employed persons in the project.";
+  end command;
+
+-----------------------------------------------------
+
+  command erfrage_Informationen_zu_Entwickler(ein_Entwickler : Entwickler) is
+    "[give [me]|ask for] information about [a] developer",
+      ask "About whom do you want to be informed?" => ein_Entwickler;
+    "[give [me]|ask for] information about %(ein_Entwickler)";
+    diary_entry "Recovered information about %(ein_Entwickler)";
+  end command;
+
+-----------------------------------------------------
+
+  command erfrage_alle_Taetigkeiten(ein_Entwickler : Entwickler) is
+    "show me tasks of developer",
+      ask "Whoes tasks do you want to know?" => ein_Entwickler;
+    "show me [all] tasks of %(ein_Entwickler)";
+    diary_entry "Requesting task list of %(ein_Entwickler)";
+  end command;
+
+-----------------------------------------------------
+
+  command erfrage_Taetigkeit_von_Entwickler(ein_Entwickler : Entwickler) is
+    "(show me|inspect) (activity|job|work)",
+      ask "Whose job do you want to know?" => ein_Entwickler;
+    "show me (activity|job|work) of %(ein_Entwickler)";
+    "request information about %(ein_Entwickler) (activity|job|work)";
+    "request (activity|job|work) information",
+      ask "Whose job do you want to know?" => ein_Entwickler;
+    "[ask] what is %(ein_Entwickler) (doing|working on)[?]";
+    "[ask] %(ein_Entwickler) about [his|her] (activity|job|work)";
+    diary_entry "Requested information about the job %(ein_Entwickler) is working on.";
+  end command;
+
+
+--====== sonstige Kommandos ===================================
+
+
+  command lasse_Taetigkeit_beenden(ein_Entwickler : Entwickler) is
+    "[ask] [to] (finish|terminate) [the|your] [current] (activity|task|job|work)",
+      ask "Who should finish its current work?" => ein_Entwickler;
+    "[ask] %(ein_Entwickler) finish [the] [current] (activity|task|job|work)";
+    diary_entry "Told %(ein_Entwickler) to come to an end with its current work.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_Taetigkeit_abbrechen(ein_Entwickler : Entwickler) is
+    "[ask] [to] quit [the|your] [current] (activity|task|job|work)",
+      ask "Who should quit its current work?" => ein_Entwickler;
+    "[ask] %(ein_Entwickler) [to] quit [its] [current] (activity|task|job|work)";
+    diary_entry "Told %(ein_Entwickler) to quit its current work.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_Reviews_beenden(ein_Dokument : Dokument) is
+    "[ask] [to] finish [the] review [of] [a] document",
+      ask "Finish the review of which document?" => ein_Dokument;
+    "[ask] [to] finish [the] review [of] [the] document %(ein_Dokument)";
+    diary_entry "Told developers to come to an end with the review of %(ein_Dokument)";
+  end command;
+
+-----------------------------------------------------
+
+  command teile_dem_Projekt_zu(ein_Entwickler : Entwickler) is
+    "hire",
+      ask "Whom do you want to hire?" => ein_Entwickler;
+    "hire %(ein_Entwickler)";
+    diary_entry "Hired %(ein_Entwickler) for the project.";
+  end command;
+
+-----------------------------------------------------
+
+  command entlasse_aus_Projekt(ein_Entwickler : Entwickler) is
+    "release",
+       ask "Whom do you want to release?" => ein_Entwickler;
+    "fire",
+       ask "Whom do you want to release?" => ein_Entwickler;
+    "release %(ein_Entwickler)";
+    diary_entry "Released %(ein_Entwickler) off the project.";
+  end command;
+
+-----------------------------------------------------
+
+  command setze_Notation_ein_fuer(eine_Notation : Notation;
+                                  ein_Dokument  : Dokument) is
+    "use notation",
+     ask "Which notation should be used?" => eine_Notation,
+     ask "For which document should this notation be used?" => ein_Dokument;
+    "use [the] %(eine_Notation) [notation]",
+     ask "For which document should this notation be used?" => ein_Dokument;
+    "use [the] %(eine_Notation) [notation] for [the] [document] %(ein_Dokument)";
+    diary_entry "Told developers to use %(eine_Notation) notation for %(ein_Dokument).";
+  end command;
+
+
+
+--====== das Projektende ===================================
+
+
+  command beende_Projekt is
+    "(finish|stop|cancel|quit|abort) project";
+    diary_entry "Finished the project.";
+  end command;
+
+-----------------------------------------------------
+
+  command uebergib_System_an_Kunden is
+    "(deliver|install|ship|roll out) system";
+    diary_entry "Deliverd system to the customer.";
+  end command;
+
+-----------------------------------------------------
+
+
+
+--===============================================================
+--
+--    Spielerausgaben
+--
+--===============================================================
+
+---- Entwickler beginnt mit einer Taetigkeit --------------------
+
+  message begonnen_mit_Kunde_zu_sprechen(wer: Entwickler) is
+    "%(wer): First of all I have to find out which functionality the customer really needs. I have already made an appointment for a interview with him or one of his employees.";
+    "%(wer): I just had a phone call with our customer. We made an appointment to talk about the needs of his software.";
+    "%(wer) also thinks it is a good idea to talk to the customer. Nobody knows better what he needs in his software. %(wer) immediately arranges a meeting with the customer.";
+    "%(wer) wents to the customer. %He(wer) made an appointment with the customer to talk about the project.";
+    diary_entry "%(wer) started to talk to the customer.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_zu_spezifizieren(wer: Entwickler) is
+    "%(wer): So, I have to specify the system requirements. This is a real challenge for me.";
+    "%(wer): Specifying the system requirements is not my favorite activity, nevertheless  I'll do my best.";
+    "%(wer): If you need somebody to specify the system requirements, I'll be happy to help out.";
+    "%(wer): OK. Specifying isn't that bad. There is worse to do, so I'm glad you gave me this.";
+    diary_entry "%(wer) started to specify the system requirements.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_System_zu_entwerfen(wer: Entwickler) is
+    "%(wer) reports that %he(wer) has started to work on the system design. %He(wer) is happy doing that, because system design is a very creative work.";
+    "%(wer): Making the system design is a very demanding and challenging job. But hey, I like challenges!";
+    "%(wer): Okay, I'll do the system design, and trust me, you won't regret choosing me.";
+    "%(wer): You finally recognized my talents. I am the best you can get for the system design";
+    diary_entry "%(wer) started to work on the system design.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_Module_zu_spezifizieren(wer: Entwickler) is
+    "%(wer): I will now begin to specify the modules. Hopefully, I will not forget any function or procedure.";
+    "%(wer) thinks of %him(wer)self more as a programmer, but %he(wer) won't object your decision and starts to specify the modules.";
+    "%(wer) immediately sprints off to work at the module design after you told %him(wer) to do so.";
+    "With a smile on %his(wer) face %(wer) leaves. It seems %he(wer) is happy with %his(wer) work.";
+    diary_entry "%(wer) started to specify the modules.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_zu_codieren(wer: Entwickler) is
+    "%(wer) is pleased about %his(wer) new job: writing code. Like almost every developer, %he(wer) really enjoys this work.";
+    "With a reassuring nod, %(wer) starts to write code in a speed that leaves no doubt that %he(wer) is the right person for that task.";
+    "%(wer) toddles off back in %his(wer) office. %He(wer) is not delighted to work on the code, %he(wer) prefers the early phases, but %he(wer) will do %his(wer) job.";
+    "%(wer): I can't see why you chose me for the coding. You know that I'm not happy about it, but I'll do my job.";
+    diary_entry "%(wer) started to work on the implementation.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_Handbuch_zu_schreiben(wer: Entwickler) is
+    "%(wer) started to write the documentation. %He(wer) thinks this task is very boring.";
+    "%(wer) believes %he(wer) is a new Shakespeare therefore writing the manuals is just perfect for %him(wer).";
+    "%(wer): Writing the documentation is a ungratefully job, but someone must do it.";
+    "%(wer) is a good choice. If %he(wer) writes with the same speed as %he(wer) speaks, %he(wer) will finish the job within a few days.";
+    diary_entry "%(wer) started to write the documentation.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_zu_integrieren(wer: Entwickler) is
+    "%(wer): Well, my next step is to integrate the system. It's not really exciting, but anyway better than testing.";
+    "%(wer): Integrating the system is like collecting the errors of all modules and combine them in one piece of work. Let's hope there aren't too many errors.";
+    "%(wer): I'm confident that the project is in a good shape. Integrating the system should be no problem.";
+    "%(wer): We're coming to an end. I'm starting to integrate. After that, we're almost done with the project.";
+    diary_entry "%(wer) started to integrate the system.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_mit_Modultest(wer: Entwickler) is
+    "Not very happy, %(wer) starts to test the modules.";
+    "%(wer): What did I do that you choosed me to do such an boring task as the module test?";
+    "%(wer) is confident that the quality of the modules is at top rank, but %he(wer) will test them anyway.";
+    "%(wer): Right. I'll look at each line of code and believe in me: I'll find some errors during the tests.";
+    diary_entry "%(wer) started to test the modules.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_mit_Integrationstest(wer: Entwickler) is
+    "%(wer) performs the system integration test, and as always, %he(wer) finds this kind of work depressing.";
+    "%(wer): I'm your man. Give me the components, I'll do the integration test.";
+    "%(wer): Integration testing? This is even more boring than fiddling about the code. Put it somewhere on my desk, I'll start soon.";
+    "You give %(wer) the job to do the integration test. %He(wer) won't talk with you for a day or two, because you gave %(wer) this uninteresting job. But that's not really a problem.";
+    diary_entry "%(wer) started to perform the system integration test.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_mit_Systemtest(wer: Entwickler) is
+    "%(wer): System test is not very creative, but somebody must do it. Now it's my turn to do that.";
+    "%(wer): System test isn't interesting at all, but I think it's an obligation towards our customer. I'll do it.";
+    "%(wer) takes it as a challenge to find as many bugs as possible in the system test. %He(wer) is a good choice.";
+    "You need someone, you can trust, to do the system test. %(wer) seems perfect for such an important job. You let %him(wer) do it.";
+    diary_entry "%(wer) started to perform the system test.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_mit_Abnahmetest is
+    "The customer started to do the acceptance test. As usual he is in a hurry, and cannot spend a lot of time for the acceptance test, even if he would like to do so.";
+    "The customer takes the product in his company to make the acceptance test. This will take some time, because he wants to be sure about the product quality.";
+    "The customer started with the acceptance test. The test will be a thorough one to show him, on what he had invested his money.";
+    "Sceptically, the customer examines your product, if it is, what he wants. He'll get back to you in a few days.";
+    diary_entry "The customer started to do the acceptance test.";
+  end message;
+
+------------------------------------------------------
+
+  message Letzter_Abnahmetest_vom_Kunden is
+     "The customer informs you that he isn't amused to perform the acceptance test a third time. He wants you to deliver the system soon, or he cancels the project.";
+     diary_entry "The customer has informed me that he isn't amused to perform the acceptance test a third time (currently it's the second acceptance test he performs)";
+  end message;
+
+------------------------------------------------------
+
+  message Kunde_fuehrt_Abnahmetest_gerade_durch is
+    "The customer actualy performs the acceptance test. He is angry about your call and asks if you spend enough time on managing the project.";
+    diary_entry "The customer actualy performs the acceptance test. He was angry about my call.";
+  end message;
+
+--------------------------------------------------------
+
+  message Abnahmetest_Befunde_erst_korrigieren is
+    "The customer asks if you have already corrected all the errors he has found during the last acceptance test. He is not willing to do another test before every error is removed from the product.";
+    diary_entry "The customer asked if we have corrected all errors he has found during the last acceptance test. He is not willing to do another test before every error he found is removed from the product.";
+  end message;
+
+------------------------------------------------------
+
+  message Kunde_fuehrt_keinen_weiteren_Abnahmetest_durch is
+    "The customer is angry. He tells you, that you are responsible for the products quality. He has already performed two acceptance tests and doesn't look ahead to do a third one. If you deliver the system, he wants that the product resides on an acceptable quality level.";
+    diary_entry "The customer doesn't plan doing a third acceptance test in the future. He wants the product delivered on an acceptable quality level.";
+  end message;
+
+
+-----------------------------------------------------
+
+  message begonnen_Dokument_zu_begutachten(wer: Entwickler;
+                                             was: Dokument) is
+    "%(wer) starts to review the %(was): I'm looking forward on how many bugs I'll find in the %(was)!";
+    "%(wer): I think the %(was) has a good quality level, but a review can be of no harm.";
+    "%(wer) is pleased to be in the review team for the %(was).";
+    "%(wer): As soon as I find the %(was) in the chaos on my desk, I'll start to review it.";
+    diary_entry "%(wer) started to review the %(was).";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_Dokument_mit_Kunde_zu_begutachten(wer: Entwickler;
+                                             was: Dokument) is
+    "%(wer) starts to review the %(was) together with the customer: we are looking forward on how many bugs we will find in the %(was)!";
+    "%(wer): I think the %(was) has a good quality level, but a review with the customer can be of no harm.";
+    "%(wer) is pleased to be in the review team with the customer for the %(was).";
+    "%(wer): As soon as I find the %(was) in the chaos on my desk, I'll start to review it together with the customer.";
+    diary_entry "%(wer) started to review the %(was) together with the customer.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_Spezifikation_zu_korrigieren(wer: Entwickler) is
+    "%(wer): I'll now correct the specification. Hopefully, I will not introduce new faults.";
+    "%(wer) starts to correct the specification. %He(wer) wonders how these errors could get into the specification in the first Version.";
+    "Nobody likes correcting a document, same goes with %(wer). But correcting the specification is an important work to do, everything is based on it.";
+    "As always, %(wer) has something to grumble about, when you tell %him(wer) to correct the specification.";
+    diary_entry "%(wer) started to correct the specification.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_Systementwurf_zu_korrigieren(wer: Entwickler) is
+    "Without enthusiasm %(wer) starts to correct the system design.";
+    "%(wer): There are some errrors in the system design, I'll correct them.";
+    "%(wer): I'll correct the system design. But be aware, I could introduce some new bugs.";
+    "Having done an even worse thing before, %(wer) is happy to help you with the correction of the system design.";
+    diary_entry "%(wer) started to correct the system design.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_Modulspez_zu_korrigieren(wer: Entwickler) is
+    "%(wer): Correcting the module specs is not exactly a passion of mine, but life is not a continuous pleasure.";
+    "%(wer): The module design has errors? Hand it over to me, I will eliminate them!";
+    "You give %(wer) the module design to correct it. %He(wer) is not pleased about, but you can rely on %him(wer).";
+    "%(wer): The module design must be free of errors before we start with the rest. Give me the review report, I'll correct it.";
+    diary_entry "%(wer) started to correct the module specification.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_Code_zu_korrigieren(wer: Entwickler) is
+    "%(wer): Correcting the code is like any other kind of correction activities: boring and unproductive.";
+    "%(wer): To correct the code somebody with special abilities is needed: That's Me!";
+    "%(wer): Correcting the code is a must, but not my favorite pastime.";
+    "%(wer) likes to correct something, because %he(wer) can show the others, what they did wrong. So, correcting the code is ok for %him(wer).";
+    diary_entry "%(wer) started to correct the code.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_Handbuch_zu_korrigieren(wer: Entwickler) is
+    "%(wer) reports that %he(wer) will correct the documentation. %He(wer) does not seem to be very happy with %his(wer) new task.";
+    "Correct the documentation is a boring job and %(wer) wants to do it quick, so that %he(wer) can do something more interesting.";
+    "%(wer) thinks of the manuals as a vital part of the product so %he(wer) puts a lot of effort in correcting it.";
+    "%(wer): Whow, who worked on the manuals first? Anyway, I'll correct the documentation.";
+    diary_entry "%(wer) started to correct the user manual.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_alles_zu_korrigieren(wer: Entwickler) is
+    "%(wer) reports that %he(wer) will correct the errors found in all documents. This will take a while. %he(wer) does not look very happy.";
+    "%(wer): There's a need to keep all documents consistent. If it's my job, so it is.";
+    "%(wer) thinks it is unfair that %he(wer) have to correct the errors the others had made.";
+    "%(wer): I'll think, we need to get all of our documents consistent. Bring them to me, I'll do it for you.";
+    diary_entry "%(wer) started to correct all of our documents to keep them in a consistent fashion.";
+  end message;
+
+-----------------------------------------------------
+
+---- Ausgaben waehrend der Ausuebung einer Taetigkeit -----------
+
+-----------------------------------------------------
+
+  message Reviewsitzung_findet_statt(Pruefling       : Dokument;
+                                       Anzahl_Seiten   : integer;
+                                       entdeckte_Fehler: integer;
+                                       entdeckte_AFP   : real) is
+    "%(entdeckte_Fehler) errors and %(entdeckte_AFP) missing function points were found while %(Anzahl_Seiten) pages of the %(Pruefling) were reviewed.";
+    "The review meeting for the %(Pruefling) revealed %(entdeckte_Fehler) errors and %(entdeckte_AFP) missing function points while having reviewed %(Anzahl_Seiten) pages.";
+    "The %(Pruefling) review showed, that there are %(entdeckte_Fehler) errors and %(entdeckte_AFP) missing function points in the %(Anzahl_Seiten) pages reviewed.";
+    "%(entdeckte_AFP) missing function points, %(entdeckte_Fehler) errors in just %(Anzahl_Seiten) pages. The %(Pruefling) wasn't as good as you thought. Of greater importance is that the errors were found.";
+    diary_entry "The review of the %(Pruefling) revealed %(entdeckte_Fehler) errors and %(entdeckte_AFP) missing function points while having reviewed %(Anzahl_Seiten) pages.";
+  end message;
+
+  message Codereviewsitzung_findet_statt(Pruefling       : Dokument;
+                                       Anzahl_Zeilen   : integer;
+                                       entdeckte_Fehler: integer;
+                                       entdeckte_AFP   : real) is
+    "%(entdeckte_Fehler) errors and %(entdeckte_AFP) missing function points were found while %(Anzahl_Zeilen) Lines of Code of the %(Pruefling) were reviewed.";
+    "The review meeting for the %(Pruefling) revealed %(entdeckte_Fehler) errors and %(entdeckte_AFP) missing function points while having reviewed %(Anzahl_Zeilen) LOC.";
+    "The %(Pruefling) review showed, that there are %(entdeckte_Fehler) errors and %(entdeckte_AFP) missing function points in the %(Anzahl_Zeilen) lines of code reviewed.";
+    "%(entdeckte_AFP) missing function points, %(entdeckte_Fehler) errors in just %(Anzahl_Zeilen) LOC. The %(Pruefling) wasn't as good as you thought. Of greater importance is that the errors were found.";
+    diary_entry "The review of the %(Pruefling) revealed %(entdeckte_Fehler) errors and %(entdeckte_AFP) missing function points while having reviewed %(Anzahl_Zeilen) LOC.";
+  end message;
+
+-----------------------------------------------------
+
+  message Gutachter_bereitet_sich_nicht_vor(wer: Entwickler) is
+    "%(wer) is again under time pressure, so it is impossible for %him(wer) to get prepared for the review.";
+    "%(wer): I'm sorry, I have no time to get prepared for the review.";
+    "There's too much work for %(wer) right now, so %he(wer) can't get prepared for the review.";
+    "%(wer): I can't get prepared for a review at the moment. I'm busy with other things as you know.";
+    diary_entry "%(wer) informed me that %he(wer) isn't able to get prepared for the review caused by time issues.";
+  end message;
+
+-----------------------------------------------------
+
+---- Entwickler beendet die Ausuebung einer Taetigkeit ----------
+
+-----------------------------------------------------
+
+  message aufgehoert_mit_Kunde_zu_sprechen(wer: Entwickler) is
+    "%(wer): My discussion with the customer and some of his employees were successfull. Now, I know which functionality is required. We will realize all these functions in the software product we are going to develop.";
+    "%(wer): I had a nice talk with the customer. I know now what he wants. We can realize it in the way he wants it.";
+    "%(wer) comes back from %his(wer) meeting with the customer. %He(wer) got a good idea of what the customer wants.";
+    "%(wer): I did talk to the customer. A tough guy in my opinion. But I have what we need. We can do it. Let's start right away.";
+    diary_entry "%(wer) came back from %his(wer) meeting with customer.";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_zu_spezifizieren(wer: Entwickler) is
+    "%(wer): Specification is one of my favourite activities, but unfortunately even a pleasant work must end some day.";
+    "%(wer): The specification was fun first, but then it became boring. I'm happy it's over.";
+    "%(wer) comes into your office and proudly gives you the specification %he(wer) made.";
+    "%(wer): What an interesting project. Here's the specification. I'll be happy to work more on the project. If you want me, of course.";
+    diary_entry "%(wer) completed to specify the system requirements.";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_System_zu_entwerfen(wer: Entwickler) is
+    "%(wer) lets you know that %he(wer) has finished the system design.";
+    "%(wer) has finished the system design. %He(wer) is satified with the work %he(wer) did.";
+    "System design is ready. It took its time, but %(wer) finally got it done.";
+    "After finishing the system design, %(wer) brings it to you.";
+    diary_entry "%(wer) completed the system design.";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_Module_zu_spezifizieren(wer: Entwickler) is
+    "%(wer): I have completed the module specification. I am curious what my next activity will be. I know, I know: curiosity killed the cat, but ...";
+    "With a sigh of relief %(wer) ends the module specification. It was hard work, but now it's done.";
+    "%(wer): The module specification is done. It was fun. Just give me the next job, I have some energy left.";
+    "%(wer): I finished the module specification. We should check it for errors. It's an important document.";
+    diary_entry "%(wer) completed the module specification.";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_zu_codieren(wer: Entwickler) is
+    "%(wer): It's a pity that even pleasant tasks, like writing code, must end one day.";
+    "%(wer): I'm glad the coding is done. It's a lot of work.";
+    "%(wer) tells you that the code is written. %He(wer) seems to be a bit depressed about that, because %he(wer) likes to write code.";
+    "%(wer): First, I found it boring. But as time passed, I saw the challenge in coding. But now, it's done.";
+    diary_entry "%(wer) told me that the code is written.";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_Handbuch_zu_schreiben(wer: Entwickler) is
+    "%(wer) reports that %he(wer) has finished the system documentation.";
+    "%(wer): I've done my job, the documentation is complete.";
+    "%(wer): The manuals won't go into literature history, but I think they're good enough the way they are.";
+    "%(wer): The handbook is ready. What a beauty, isn't it?";
+    diary_entry "%(wer) completed the user manual.";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_zu_integrieren(wer: Entwickler) is
+    "%(wer): Well, the system integration is finished. I am so happy...";
+    "%(wer): I have integrated the system, but it is very complex. We should think about testing the integration.";
+    "Another big step is done. %(wer) completed the system integration.";
+    "%(wer): The integration is done. Come on, step into next phase! We're in a hurry, remember?";
+    diary_entry "%(wer) completed the system integration.";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_mit_Modultest(wer: Entwickler) is
+    "%(wer): I finished the module test. I hope that I have found most of the bugs.";
+    "%(wer): I have tested the modules. They're okay, but I think the test could be done better.";
+    "%(wer): I finished the module test. Here is list of bugs, so you can correct them.";
+    "After some time, %(wer) shows you the report from the module test. %He(wer) found some errors.";
+    diary_entry "%(wer) finished the module test.";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_mit_Integrationstest(wer: Entwickler) is
+    "%(wer): I am so happy: integration test is complete. Hopefully, my next task will be more exciting.";
+    "%(wer): It looked easier as it really was, but the integration test is finally done.";
+    "Another test is done: %(wer) did the integration test.";
+    "%(wer): I'm glad to see you. I ended the integration test just a moment ago. We can go ahead with the project.";
+    diary_entry "%(wer) finished the integration test.";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_mit_Systemtest(wer: Entwickler) is
+    "%(wer): I want a new task; system test is finished!";
+    "After having done the system test, %(wer) thinks the system isn't that bad at all.";
+    "%(wer): I have finished the system test. I hope you are satisfied with the performance of the system.";
+    "As you come into your office, you see a new report on your desk. %(wer) made the system test and brought you the test report.";
+    diary_entry "%(wer) finished the system test.";
+  end message;
+
+-----------------------------------------------------
+
+  message Kunde_akzeptiert is
+    "The customer is very content with your product. He thinks that it meets the system requirements and he likes the graphical interface of the software product.";
+    "The customer is happy with the product. After having heard bad stories about software companies, he is surprised about the quality of the software.";
+    "The customer is satisfied with the product and your company. Maybe you will get another project from him later.";
+    "With a relief, the customer accepts your software. He needed it desperately and now he got it. He can replace the old system now.";
+    diary_entry "The customer told me that he accepts the product. He is very satisfied with the product and our company.";
+  end message;
+
+-----------------------------------------------------
+
+  message Kunde_akzeptiert_nicht_Termin is
+    "The customer could not accept the delivered software product. The customer is completely unsatisfied with the date of delivery. He had never thought that your company could work that bad.";
+    diary_entry "The customer did not accept the software product delivered. He said that he is completely unsatisfied with the delivery date";
+  end message;
+
+-----------------------------------------------------
+
+  message Kunde_akzeptiert_nicht_Kosten is
+    "The customer rejects the product because you exceeded the budget to much. He is very upset.";
+  diary_entry "The customer did not accept the software product delivered. He said that you exceeded the budget too much.";
+  end message;
+
+-----------------------------------------------------
+
+  message Kunde_akzeptiert_nicht_Voll_Code is
+    "The customers doesn't accept your system. Your code is too incomplete; there is too much funtionality missing.";
+    diary_entry "The customer did not accept the software product delivered. He said that there is too much required functionality missing.";
+  end message;
+
+-----------------------------------------------------
+
+  message Kunde_akzeptiert_nicht_Korr_Code is
+    "The customer could not believe that you only came up with a software full of errors. He declines to accept the product.";
+    diary_entry "The customer did not accept the software product delivered. He said that it has too many errors.";
+  end message;
+
+
+-----------------------------------------------------
+
+  message Kunde_akzeptiert_nicht_Voll_HB is
+    "The customers doesn't accept your system. Your documentation is too incomplete.";
+    diary_entry "The customer did not accept the software product delivered. He is very unsatisfied with your incomplete documentation.";
+  end message;
+
+-----------------------------------------------------
+
+  message Kunde_akzeptiert_nicht_Korr_HB is
+    "The customer rejects the product. It doesn't meet his quality standards at all. Your Documentation is full of errors.";
+    "The customers doesn't accept your system. He said that your documentation contains too many errors.";
+  end message;
+    
+
+-----------------------------------------------------
+
+--  message Kunde_akzeptiert_nicht is
+--    "The customer could not accept the delivered software product. He says that it has a lot of errors and there is als--o required functionality missing.";
+--    "The customer rejects the product. It doesn't meet his quality standards at all. There is functionality missing and-- a lot of errors are still in the software.";
+--    "The customer could not belief that you only came up with a software full of errors and missing functionality after-- all the money he spent on you. He declines to accept the product.";
+--    "The customers doesn't accept your system. It's a mess! Full of bugs. And quite short of the requirements he had.";
+--    diary_entry "The customer did not accept the software product delivered. He said that it has too many errors and th--ere is also required functionality missing";
+--  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_Dokument_zu_begutachten(wer: Entwickler;
+                                               was: Dokument) is
+    "%(wer) finished reviewing the %(was) and hopes to start with a new activity soon.";
+    "%(wer) reports that the review of the %(was) has ended. %He(wer) is available for working on something else.";
+    "The %(was) has been reviewed by %(wer). %He(wer) can be assigned to another task now.";
+    "%(wer): By the way, I did the review of the %(was). You should have my report by now.";
+    diary_entry "%(wer) finished reviewing the %(was).";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_Dokument_mit_Kunde_zu_begutachten(wer: Entwickler;
+                                               was: Dokument) is
+    "%(wer) and the customer finished reviewing the %(was). %(wer) hopes to start with a new activity soon.";
+    "%(wer) reports that the review of the %(was) together with the customer has ended. %He(wer) is available for working on something else.";
+    "The %(was) has been reviewed by %(wer) and the customer. %(wer) can be assigned to another task now.";
+    "%(wer): By the way, the customer and I did the review of the %(was). You should have my report by now.";
+    diary_entry "%(wer) and the customer finished reviewing the %(was).";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_Spezifikation_zu_korrigieren(wer: Entwickler) is
+    "%(wer): Well, I finished the rework of the specification. I've done my best; I hope there are sparsely errors left in the specification.";
+    "%(wer): The Specification needed a lot of rework, but I've done it all.";
+    "%(wer): I have corrected the specification, but I can't rule out the possibility that I introduced some new errors.";
+    "Having finished the correction of the specification, %(wer) can be assign a new job.";
+    diary_entry "%(wer) finished the rework of the specification.";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_Systementwurf_zu_korrigieren(wer: Entwickler) is
+    "%(wer) seems to be very happy: %he(wer) has corrected the system design and hopes to get assigned to a more pleasant task.";
+    "A long, long time ago, %(wer) started to correct the system design. Now, %he(wer) finally came to an end.";
+    "%(wer): I have done the rework of the system design. I hope, we now have a better chance to succeed.";
+    "%(wer): After all, the system design is corrected. I did my best.";
+    diary_entry "%(wer) finished the correction of the system design.";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_Modulspez_zu_korrigieren(wer: Entwickler) is
+    "%(wer): At last, I have corrected the module specification. I wonder what my next step will be? I hope something more interesting.";
+    "%(wer): Correcting the module design wasn't as tedious as I thought it would be. But now I want something really interesting.";
+    "%(wer) comes back with the corrected module design. %He(wer) asks for %his(wer) next assignment.";
+    "Finally, %(wer) has done the correction of the module specification. All known errors were corrected.";
+    diary_entry "%(wer) finished the rework of the module specification.";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_Code_zu_korrigieren(wer: Entwickler) is
+    "%(wer) has corrected the code. %He(wer) prefers producing new code in contrast to removing errors in existing code.";
+    "%(wer): Somebody must have messed up the code pretty hard, but I managed to correct it.";
+    "After %(wer) gave you the corrected code, you can now go on to the next phase.";
+    "%(wer): Correcting the code is a struggle. An even greater one than coding itself. I thought it would be easier. Anyway, it's done.";
+    diary_entry "%(wer) finished the correction of the code.";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_Handbuch_zu_korrigieren(wer: Entwickler) is
+    "%(wer): The system documentation is corrected. I hope the project leader will take my interests into consideration in the future. I am sick of these boring, uninteresting tasks!";
+    "%(wer): The manuals definitely needed some rework. It is good that I have done it.";
+    "The system documentation is back. %(wer) has corrected it.";
+    "%(wer): An illiterate must have done the manuals. So much to correct! There you go, it's corrected.";
+    diary_entry "%(wer) finished the rework the user manual.";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_alles_zu_korrigieren(wer: Entwickler) is
+    "All documents were corrected so that %(wer) is free to work on another task.";
+    "%(wer): It is tough to get all documents consistent, but I think I have done it.";
+    "After the correction of all documents, %(wer) is seeking a new challenge.";
+    "%(wer): I've reworked all documents. You won't recognize some of them now. There was so much to do.";
+    diary_entry "%(wer) finished the correction of all documents.";
+  end message;
+
+-----------------------------------------------------
+
+  message Neue_Aufgabe_akzeptiert (wer: Entwickler;
+       altes_Dokument: Dokument;
+       neues_Dokument: Dokument) is
+    "The developer %(wer) says: Ok, I will start working on the %(neues_Dokument) soon. However, I still need some time to finish my work on the %(altes_Dokument).";
+    "The developer %(wer) says: Hold it! First, I'll do the %(altes_Dokument), then I will work on the %(neues_Dokument).";
+    "The developer %(wer) says: One at a time. You gave me the %(neues_Dokument) while I haven't finished the %(altes_Dokument). I'll finish the old task first, then comes the new one. OK?";
+    "The developer %(wer) says: As you know, I work on the %(altes_Dokument). As soon as I'm done, I will go on to the %(neues_Dokument).";
+    diary_entry "The developer %(wer) has accepted the new job. However, he will not start with the %(neues_Dokument) before finishing the %(altes_Dokument)";
+  end message; 
+
+  message Neue_Aufgabe_gleiches_Dok_akzeptiert (wer: Entwickler;
+				                ein_Dokument: Dokument) is
+    "The developer %(wer) says: Ok, I will switch working on the %(ein_Dokument) soon. However, I still need some time to finish my previous work.";
+    "The developer %(wer) says: Hold it! First, I'll finish my previous work on the %(ein_Dokument).";
+    "The developer %(wer) says: One at a time. You gave me a task for the %(ein_Dokument) while I haven't finished my old task for the %(ein_Dokument). I'll finish the old task first, then comes the new one. OK?";
+    "The developer %(wer) says: As you know, I work already on the %(ein_Dokument). As soon as I'm done, I will begin with the new task on the %(ein_Dokument).";
+    diary_entry "The developer %(wer) has accepted the new job. However, he will not start with the new task for %(ein_Dokument) before finishing the previous task";
+  end message; 
+
+-----------------------------------------------------
+
+---- Ausgaben zu Beginn der Simulation --------------------
+
+-----------------------------------------------------
+
+  message Aufgabenstellung_beschreiben (Umfang_AFP  : real;
+                                        Liefertermin: date;
+                                        Budget      : real) is 
+    "QS200-v7 (c) AMEISE, March 2013 
+
+Good morning. Due to your excellent work as a software engineer in your company, Excellent-Software GmbH,  and your experience in the application field, you have been promoted to a software project leader. You could not gather too much experience in that area in the past, however, your boss is confident that you will manage the new project well. So, he expects you and your group to deliver the product on time and, of course, with the desired quality.
+
+Your first assignment is the development of a new accouting system for Meyers&Co. Besides others, they also want to get the accounting department ready for some important change-overs planned in spring next year.  
+
+A former colleague has already met the customer several times. He assumed to have collected all customer requirements. He has also taken some notes. Based on his requirements analysis, a cost estimation was performed. The system comprises about %(Umfang_AFP) Adjusted Function Points \(AFP\). Since the system should be implemented using Ada95 this corresponds to approximately 9800 lines of code \(LOC\).
+
+Since the system must reflect the change-overs planned in your customer's company, you must end the project at last on %(Liefertermin). This means you must complete the project in 9 months. An extension of time is hardly possible. Until then, the customer requires a product which satisfies his requirements concerning the completeness and correctness of the system \(see below\).
+
+Because of the narrow time plan, the customer will agree to a compromise and gives you a budget of %(Budget) EUR.
+
+There are a couple of developers available, i.e. they are currently not assigned to other projects. You can select and assign some of them to your project. 
+You don't need to choose notations for the different documents. The customer has already decided that the code must be written in Ada95 and the manuals must be written in German. This is also true for all possible internal documents. 
+
+And now: Good Luck!
+ ";
+
+diary_entry "We have to develop a new accouting system for Meyers&Co. Besides others, they also want to get the accounting department ready for some important change-overs planned in spring next year.
+A former colleague has already met the customer several times. He assumed to have collected all customer requirements.
+Based on this requirements analysis, a cost estimation was performed. The system comprises about %(Umfang_AFP) Adjusted Function Points \(AFP\). Since the system should be implemented using Ada95 this corresponds to approximately 9800 lines of code \(LOC\).
+The project must end at last on %(Liefertermin). \(That means we have a maximum of 9 months\).
+Because of the narrow time plan, the customer has agreed to a compromise and gives us a budget of %(Budget) EUR.
+The customer requires a product which satisfies his requirements concerning the completeness and correctness of the system \(see below\).
+
+There are a couple of developers available, i.e. they are currently not assigned to other projects.
+We don't need to choose notations for the different documents. The customer has already decided that the code must be written in Ada95 and the manuals must be written in German. This is also true for all possible internal documents.";
+  end message;
+
+-----------------------------------------------------
+
+  message mindestens_Prozent_AFP (in_was          : Dokument;
+                                  Vollstaendigkeit: real) is
+    "Since the accountancy is very important, the customer requires that the %(in_was) contains at least %(Vollstaendigkeit) percent of all his requirements.";
+    diary_entry "The customer requires that the %(in_was) contains at least %(Vollstaendigkeit) percent of all his requirements.";
+  end message;
+
+-----------------------------------------------------
+
+  message max_Fehler_im_Code_pro_KLOC(Korrektheit: real) is
+    "Furthermore, the customer demands that the code contains at most %(Korrektheit) error\(s\) per 1000 lines of code. He will control that by performing an acceptance test. In cases the accounting system produces wrong results caused by software errors, this may ruin your customer.";
+    diary_entry "The customer demands that the code must not contain more than %(Korrektheit) errors per 1000 lines of code.";
+  end message;
+
+
+-----------------------------------------------------
+
+  message max_Fehler_pro_Seite (in_was:       Dokument;
+                                Korrektheit : real) is
+    "Since the system will be used by different, partly unexperienced users, the customer requires that the %(in_was) hardly contains any error. Each page of the %(in_was) should contain at most %(Korrektheit) errors per page.
+ ";
+    diary_entry "The customer demands that the %(in_was) must not contain more than %(Korrektheit) errors per page.";
+  end message;
+
+
+-----------------------------------------------------
+
+---- Ausgaben am Ende der Simulation ----------------------
+
+-----------------------------------------------------
+
+  message Daten_ueber_Projekt(Projektdauer  : integer;
+                              Gesamtaufwand : real;
+                              Kosten        : real) is
+    "The project was stopped after %(Projektdauer) development days. The total effort for the system development reached %(Gesamtaufwand) man months. The amount of the costs thereby incurred is %(Kosten) EUR.";
+    diary_entry "The project was stopped after %(Projektdauer), took %(Gesamtaufwand) man months for development and costs about %(Kosten)";
+  end message;
+
+-----------------------------------------------------
+
+  message Aufwand_fuer_Phasen
+   (MM_Spezifikationsphase : real;
+   MM_Entwurfsphase        : real;
+   MM_Codierungsphase      : real;
+   MM_Testphase            : real;
+   MM_Handbucherstellung   : real) is
+    "The effort distribution among the particular phases of the software development process is as follows: analysis and specification required %(MM_Spezifikationsphase) man months, for system design there were %(MM_Entwurfsphase) man months needed, the implementation required %(MM_Codierungsphase) man months, the test %(MM_Testphase) man months and the system documentation %(MM_Handbucherstellung) man months.";
+    diary_entry "Effort distribution among the development phases was as follows: analysis and specification: %(MM_Spezifikationsphase) MM,
+    system design: %(MM_Entwurfsphase) MM,
+    implementation: %(MM_Codierungsphase) MM,
+    test %(MM_Testphase) MM and
+    system documentation %(MM_Handbucherstellung) MM.";
+  end message;
+
+-----------------------------------------------------
+
+  message Endzustand_von_Dokument (welches     : Dokument;
+                                   Seiten      : integer;
+                                   AFP         : real;
+                                   Prozent_AFP : real;
+                                   Fehler      : integer;
+                                   Fehler_pro_Seite: real) is
+    "The document %(welches) consists of %(Seiten) pages. It contains %(AFP) AFP. Thereby %(Prozent_AFP) percent of the customer requirements are covered. The %(welches) still contains %(Fehler) errors. This is an average of %(Fehler_pro_Seite) errors per page.";
+    diary_entry "Final status of document %(welches):
+     %(Seiten) pages, %(AFP) AFP \(%(Prozent_AFP) percent of the customer requirements\),
+     and it contains %(Fehler) errors \(this is an average of %(Fehler_pro_Seite) errors per page\).";
+  end message;
+
+-----------------------------------------------------
+
+  message Endzustand_des_Codes (LOC         : integer;
+                                AFP         : real;
+                                Prozent_AFP : real;
+                                Analysefehler      : integer;
+                                Grobentwurfsfehler : integer;
+                                Feinentwurfsfehler : integer;
+                                Implementierungsfehler: integer;
+                                Fehler_pro_KLOC : real) is
+    "The delivered code consists of %(LOC) lines of code. It contains %(AFP) AFP. This means %(Prozent_AFP) percent of the system requirements are fullfilled. The code still contains %(Analysefehler) errors resulting from analysis, %(Grobentwurfsfehler) errors resulting from system design, %(Feinentwurfsfehler) errors resulting from module design and %(Implementierungsfehler) errors resulting from implementation. This means %(Fehler_pro_KLOC) errors per 1000 lines of code.";
+    diary_entry "Final status of delivered code:
+     %(LOC) lines of code, %(AFP) AFP \(%(Prozent_AFP) percent of the customer requirements\),
+     and it contains %(Analysefehler) errors resulting from analysis, %(Grobentwurfsfehler) errors resulting from system design, %(Feinentwurfsfehler) errors resulting from module specification and %(Implementierungsfehler) errors resulting from implementation \(this means %(Fehler_pro_KLOC) errors per 1000 LOC\).";
+  end message;
+
+-----------------------------------------------------
+
+  message Aufwand_fuer_Pruefung_u_Korrektur
+   (ReviewAufwand        : real;
+      TestAufwand        : real;
+    ReviewKorrekturAufwand: real;
+    TestKorrekturAufwand  : real) is
+    "The reviews required an effort of %(ReviewAufwand) man months, the tests required %(TestAufwand) man months, the correction after review required %(ReviewKorrekturAufwand) man months and the correction after test %(TestKorrekturAufwand) man months.";
+    diary_entry "Effort distribution among quality assurance activities and corection of errors:
+    reviews: %(ReviewAufwand) MM,
+    tests: %(TestAufwand) MM,
+    correction after review: %(ReviewKorrekturAufwand) MM
+    correction after test: %(TestKorrekturAufwand) MM.";
+  end message;
+
+-----------------------------------------------------
+
+message Kunde_berichtet_nach_Abnahmetest (Fehler: integer; Verluste: integer) is
+  "The customer reports that he and his employees have completed the acceptance test. They have found %(Fehler) errors. They further estimate that there are still %(Verluste) Function Points missing in the system. The customer demands: \"Please improve the system as soon as possible.\"";
+  diary_entry "Customer reported that they completed the acceptance test. They found %(Fehler) errors and %(Verluste) missing function points.";
+end message;
+
+-----------------------------------------------------
+
+message Bewertung_Nicht_Moeglich is
+   "You invested no effort to develop the system. An evaluation is therefore not possible.";
+   diary_entry "No effort was invested in the system development process. It is impossible to evaluate it.";
+end message;
+
+-----------------------------------------------------
+
+  -- nur Hinweis darauf, dass Uebergabe des Systems erfolgen koennte.
+message Korrektur_nach_Abnahmetest_beendet is
+   "The customer has found some errors during the acceptance test. These errors are now corrected. It may be a good idea to deliver the system soon, since the customer is already pretty impatient.";
+   diary_entry "The errors the customer detected during the acceptance test are now corrected. It may be a good idea to deliver the system soon.";
+end message;
+
+-----------------------------------------------------
+
+message Projektabbruch_bei_Kostenueberlauf is
+  "The upper management has just cancelled the project. The actual costs are now more than twice as high as planned before. That is a pretty bad experience for you as a project manager.";
+  diary_entry "The upper management has cancelled the project. The actual costs are more than twice as high as planned before.";
+end message;
+
+-----------------------------------------------------
+
+message Projektabbruch_bei_Terminueberlauf is
+  "System development now takes more than twice as long as planned before. The upper management has just cancelled the project. They don't believe any longer that you are able to deliver the product in an acceptable timeframe. That is a pretty bad experience for you as a project manager.";
+  diary_entry "The upper management has cancelled the project. System development now takes more than twice as long as planned before.";
+end message;
+
+-------------------------------------------------------
+
+-- Hinweis, dass System noch nicht genuegend Anforderungen enthaelt
+message System_noch_nicht_auslieferbar is
+  "It is knocking on your office door. One of the more experienced developers enters. The developer says that it is much too early to deliver the system. There is too much functionality missing. The customer will be completely unsatisfied with the product. You are glad that the developer has provided that important information to you. You are determined to supervise the progress of the project more carefully.";
+  diary_entry "One of my more experienced developers told me that it is much too early to deliver the system. There is too much functionality missing.";
+end message;
+
+-------------------------------------------------------
+
+message Kundenreaktion_auf_Projektabbruch (Projektbeginn: Date; 
+        Heute: date; Soll_Kosten: real) is 
+  "The customer is upset: \"Is that true that the project is cancelled? Do you remember that you have signed a contract? Since %(Projektbeginn), we are waiting for the new product. Today is the %(Heute), and now you tell me that nothing will be delivered? That was the last time that I work with your company.\" At least the customer has saved %(Soll_Kosten) EUR. You don't know how to explain the situation to your manager.";
+end message;
+
+-------------------------------------------------------
+
+message Vorgesetztenreaktion_auf_Projektabbruch (Kosten: real; wer: Kunde) is
+  "Your manager gives you a call. He is really angry about the project cancellation. He reemphasises that the project cost have reached %(Kosten) up to now. All the money is lost for our software house. Additionally, the customer %(wer) has called him and complained about the project and your project management abilities. %(wer) is now our ex-customer.";
+end message;
+
+--------------------------------------------------------
+
+message Kundenreaktion (wer: Kunde) is
+  "The customer has tested the system carefully. %(wer) gives you a final statement about the project and the quality of the sofware produced.";
+end message;
+
+-------------------------------------------------------
+
+message Termineinhaltung (Soll_Termin: date; Projektende: date; Tage: integer) is
+  "Delivery of the system was planned for %(Soll_Termin). The actual delivery was at %(Projektende). This is a deviation of %(Tage) days.";
+  diary_entry "Delivery was planned for %(Soll_Termin). The actual delivery was at %(Projektende). This is a deviation of %(Tage) days.";
+end message;
+
+-------------------------------------------------------
+
+message Termineinhaltung_Gut (Tage: integer) is
+  "The customer is very satisfied with the delivery date. You delivered the system %(Tage) days earlier than required. This was extremely good.";
+  diary_entry "We delivered the system %(Tage) days earlier than required. Customer is very satisfied with the delivery date.";
+end message;
+
+--------------------------------------------------------
+
+message Termineinhaltung_Mittel (Tage: integer) is
+  "The customer is not completely satisfied with the delivery date. Delivery took place %(Tage) days too late. The customer had a number of disadvantages due to the late introduction of the new system.";
+  diary_entry "We delivered the system %(Tage) days too late. Of course, the customer is not completely satisfied with the delivery date";
+end message;
+
+---------------------------------------------------------
+
+message Termineinhaltung_Schlecht (Tage: integer) is
+  "The customer is completely unsatisfied with the date of delivery. Delivery was %(Tage) days late. He had never thought that your company could work that bad.";
+  diary_entry "We delivered the system %(Tage) days too late. Of course, the customer is completely unsatisfied with the delivery date";
+end message;
+
+---------------------------------------------------------
+
+message Kosteneinhaltung (Soll_Kosten: real; Kosten: real; Differenz: real) is
+  "The actual costs for developing the system amounts to %(Kosten) EUR. The planned costs amounted to %(Soll_Kosten) EUR. This is a deviation of %(Differenz) EUR.";
+  diary_entry "The actual development costs amount to %(Kosten) EUR. The planned costs amounted to %(Soll_Kosten) EUR. This is a deviation of %(Differenz) EUR.";
+end message;
+
+---------------------------------------------------------
+
+message Kosteneinhaltung_Gut (Differenz: real) is
+  "The customer is pleased: \"You spent %(Differenz) EUR less than planned in your budget. You must have a very efficient development process.\"";
+  diary_entry "We spent %(Differenz) Euros less than planned.  The customer is very pleased.";
+end message;
+
+---------------------------------------------------------
+
+message Kosteneinhaltung_Mittel (Differenz: real) is
+  "The customer states: \"You exceeded the budget by %(Differenz) EUR. I know that software development is expensive, however, try to improve your cost planning abilities.\"";
+  diary_entry "We exceeded the budget by %(Differenz) EUR.";
+end message;
+
+---------------------------------------------------------
+
+message Kosteneinhaltung_Schlecht (Differenz: real) is
+  "So, you exceeded the budget by %(Differenz) EUR. Don't think that I am going to pay for your bad performance in the project.";
+  diary_entry "We exceeded the budget by %(Differenz) EUR. The customer is very upset.";
+end message;
+
+---------------------------------------------------------
+
+message Vollstaendigkeit_Code (Loc: integer; AFP_Wunsch: real; AFP_Code: real) is
+  "The functionality requested by the customer amounted to %(AFP_Wunsch) Adjusted Function Points. The customer has found %(AFP_Code) Adjusted Function Points in the system. The code contains %(Loc) lines of code.";
+  diary_entry "The required functionality was %(AFP_Wunsch) adjusted function points. The customer has found %(AFP_Code) AFP in the system. The code contains %(Loc) lines of code.";
+end message;
+
+---------------------------------------------------------
+
+message Vollstaendigkeit_Code_Gut (Voll_Code: real) is
+  "The customer is very satisfied with the completeness of the code. The code contains %(Voll_Code) percent of the functionality required by the customer. ";
+  diary_entry "The code contains %(Voll_Code) percent of the functionality required. The customer is very satisfied.";
+end message;
+
+---------------------------------------------------------
+
+message Vollstaendigkeit_Code_Mittel (Voll_Code: real) is
+  "The customer is not completely satisfied with the system you delivered. The code only contains %(Voll_Code) percent of the functionality required by the customer.";
+  diary_entry "The code contains %(Voll_Code) percent of the functionality required. The customer is not completetely satisfied.";
+end message;
+
+---------------------------------------------------------
+
+message Vollstaendigkeit_Code_Schlecht (Voll_Code: real) is
+  "The customer complains about the completeness of the code. The system only contains %(Voll_Code) percent of the functionality originally required. This is a very bad result.";
+  diary_entry "The code contains %(Voll_Code) percent of the functionality required. The customer is very upset.";
+end message;
+
+---------------------------------------------------------
+
+message Korrektheit_Code (Soll_Korr_Code: real; Korr_Code: real) is
+  "The customers requirements for the system were that it does not contain more than %(Soll_Korr_Code) errors per thousand lines of code. The actual delivered system contains %(Korr_Code) errors per thousand lines of code.";
+  diary_entry "The actual system contains %(Korr_Code) errors per KLOC compared to the customer requirements of a maximum of %(Soll_Korr_Code) errors per KLOC).";
+end message;
+
+---------------------------------------------------------
+
+message Korrektheit_Code_Gut (Korr_Code: real; Differenz: real) is
+  "The correctness of the system is excellent. The system contains %(Korr_Code) errors per thousand lines of code. These are %(Differenz) less than originally required by the customer.";
+  diary_entry "The system contains %(Korr_Code) errors per KLOC. These are %(Differenz) less than originally required by the customer. The customer is very satisfied.";
+end message;
+
+---------------------------------------------------------
+
+message Korrektheit_Code_Mittel (Korr_Code: real; Differenz: real) is
+  "The correctness of the system is at least acceptable. It contains %(Korr_Code) errors per thousand lines of code \(KLOC\). These are %(Differenz) more errors per KLOC than required by the customer.";
+  diary_entry "The system contains %(Korr_Code) errors per KLOC. These are %(Differenz) less than originally required by the customer. This is at least acceptable.";
+end message;
+
+---------------------------------------------------------
+
+message Korrektheit_Code_Schlecht (Korr_Code: real; Differenz: real) is
+  "The correctness of the system is very bad. It contains %(Korr_Code) per KLOC \(1000 Lines of code\). These are %(Differenz) \(\!\) more errors per KLOC than specified by the customer. Think carefully about your software development process. It has to be improved significantly.";
+  diary_entry "The system contains %(Korr_Code) errors per KLOC. These are %(Differenz) less than originally specified by the customer. This is very bad.";
+end message;
+
+---------------------------------------------------------
+
+message Vollstaendigkeit_Handbuch (Seiten: integer; AFP_Wunsch: real; AFP_HB: real) is
+  "The customer has also asked for user documentation. The user manual comprises %(Seiten) pages. The user manual should cover %(AFP_Wunsch) Adjusted Function Points, in fact, it describes a functionality that equals %(AFP_HB) Adjusted Function Points.";
+  diary_entry "The user manual comprises %(Seiten) pages. It should cover %(AFP_Wunsch) AFP, in fact, it contains %(AFP_HB) AFP.";
+end message;
+
+---------------------------------------------------------
+
+message Vollstaendigkeit_Handbuch_Gut (Voll_HB: real) is
+  "The completeness of the user manual is excellent. %(Voll_HB) of the required functionality is described in the manual.";
+  diary_entry "%(Voll_HB) of the required functionality is described in the manual. Excellent.";
+end message;
+
+---------------------------------------------------------
+
+message Vollstaendigkeit_Handbuch_Mittel (Voll_HB: real) is
+  "The completeness of the user manual is acceptable. %(Voll_HB) of the required functionality is described in the manual.";
+  diary_entry "%(Voll_HB) of the required functionality is described in the manual. This is at least acceptable.";
+end message;
+
+---------------------------------------------------------
+
+message Vollstaendigkeit_Handbuch_Schlecht (Voll_HB: real) is
+  "The completeness of the user manual is extremely bad. Only %(Voll_HB) \(\!\) of the required functionality is described in the manual.";
+  diary_entry "%(Voll_HB) of the required functionality is described in the manual. This is extremely bad.";
+end message;
+
+---------------------------------------------------------
+
+message Korrektheit_Handbuch (Soll_Korr_HB: real; Korr_HB: real) is
+  "The correctness of the user manual required by the customer is %(Soll_Korr_HB) errors per page. The customer has found %(Korr_HB) errors per page.";
+  diary_entry "The customer required a maximum of %(Soll_Korr_HB) errors per page for the manuals. He has found %(Korr_HB) errors per page."; 
+end message;
+
+---------------------------------------------------------
+
+message Korrektheit_Handbuch_Gut (Korr_HB: real; Differenz: real) is
+  "The correctness of the user manual is very good \(%(Korr_HB) per page\). The user manual contains %(Differenz) errors per page less than specified.";
+  diary_entry "The user manual contains %(Korr_HB) per page. These are %(Differenz) errors per page less than specified. Very good.";
+end message;
+ 
+---------------------------------------------------------
+
+message Korrektheit_Handbuch_Mittel (Korr_HB: real; Differenz: real) is
+  "The correctness of the user manual is acceptable. The manual contains %(Korr_HB) per page. These are %(Differenz) errors per page more than originally specified by the customer.";
+  diary_entry "The user manual contains %(Korr_HB) per page. These are %(Differenz) errors per page less than specified. At least acceptable.";
+end message;
+
+---------------------------------------------------------
+
+message Korrektheit_Handbuch_Schlecht (Korr_HB: real; Differenz: real) is
+  "The correctness of the user manual is really bad. The manual contains %(Korr_HB) per page. These are %(Differenz) \(\!\) errors per page more than originally specified by the customer.";
+  diary_entry "The user manual contains %(Korr_HB) per page. These are %(Differenz) errors per page more than specified. Very bad.";
+end message;
+
+---------------------------------------------------------
+
+message Kunden_Score (Score: integer; Max_Score: integer) is
+  "The customer has applied his scoring system to evaluate software systems delivered by external software houses. You have got %(Score) points for your project. You can reach a maximum of %(Max_Score) points.";
+end message;
+
+---------------------------------------------------------
+
+message Aufwandsdaten_ausgeben(Gesamtaufwand : real;
+       Kosten_MM : real;
+       AufwVerteilung_Phasen1 : real;
+       AufwVerteilung_Phasen2 : real;
+       AufwVerteilung_Phasen3 : real;
+       AufwVerteilung_Phasen4 : real;
+       AufwVerteilung_Phasen5 : real) is
+    "To develop the system you invested a total effort of %(Gesamtaufwand) MM. In total you spent %(Kosten_MM) EUR per MM.
+ The effort was distributed among the different development phases as follows: specification phase: %(AufwVerteilung_Phasen1) percent, design phase: %(AufwVerteilung_Phasen2) percent, coding phase: %(AufwVerteilung_Phasen3) percent, testing phase: %(AufwVerteilung_Phasen4) percent and documentation phase: %(AufwVerteilung_Phasen5) percent of total effort.";
+end message; 
+
+---------------------------------------------------------
+
+message Performanz_ausgeben(Proz_Kosten_ZV : real;
+       Proz_Dauer_ZV : real;
+       Mittelwert_Vollst_ZV : real;
+       Mittelwert_Vollst : real;
+       Mittelwert_Korrekt_ZV : real) is
+    "Given the objectives as 100 percent and positive deviations (i.e. in case you performed better than required) with values greater than 100 and negative deviations with values less 100, respectively, compared to the customers's objectives you performed as follows: achievement of budget: %(Proz_Kosten_ZV) percent, achievement of deadline: %(Proz_Dauer_ZV) percent, achievement of functionality (compared to the objectives): %(Mittelwert_Vollst_ZV) percent, achievement of functionality (compared to total functionality): %(Mittelwert_Vollst) percent, achievement of quality (correctness): %(Mittelwert_Korrekt_ZV) percent.";
+end message; 
+
+---------------------------------------------------------
+
+message Simulation_beendet is
+  "The simulation is finished. Please try again and start a new simulation.";
+end message;
+
+
+-----------------------------------------------------
+
+---- Inspizieren ---------------------------------------
+
+-----------------------------------------------------
+
+  message verbrauchte_Ressourcen_ausgeben
+   (Dauer  : integer;
+                         Aufwand: real;
+                         Kosten : real;
+                         STermin: date;
+                         SKosten: real) is
+    "The software process took %(Dauer) days and required an effort of %(Aufwand) man months and costs of %(Kosten) EUR. The customers budget is %(SKosten) EUR and the product should be ready on %(STermin).";
+    "An up-to-date research revealed that you have already spent %(Aufwand) man months, which equals %(Kosten) EUR in the %(Dauer) days the project runs so far. The product is expected to be delivered on last at %(STermin) and costs shouldn't exceed %(SKosten) EUR.";
+    "After %(Dauer) days and an total effort of %(Aufwand) man months, you have spent %(Kosten) EUR out of %(SKosten) EUR on the project. Remember your deadline is %(STermin).";
+    "You already spent %(Kosten) EUR of the available %(SKosten) EUR. And all this after %(Dauer) days and an effort of %(Aufwand) man months. Remember, you must finish till %(STermin).";
+    diary_entry "The project took %(Dauer) days and required an effort of %(Aufwand) MM and costs of %(Kosten) EUR \(Remember: The customers budget is %(SKosten) EUR and the latest delivery date is %(STermin)\).";
+  end message;
+
+-----------------------------------------------------
+
+  message Anzahl_Seiten_von_Dokument(welches: Dokument;
+           Seiten : integer;
+           unten  : integer;
+           oben   : integer) is
+    "The document %(welches) comprises %(Seiten) pages. Given your experience, that should be between %(unten) percent and %(oben) percent of the functionality.";
+    "The %(welches) has a volume of %(Seiten) pages and between %(unten) percent to %(oben) percent of the functionality included.";
+    "At the current point of time, in the range from %(unten) percent to %(oben) percent of the functionality is integrated in the %(welches). It comprises %(Seiten) pages.";
+    "After a quick look at the %(welches), you guess, that between %(unten) percent and %(oben) percent of the functionality is done. By the way, the %(welches) already comprises %(Seiten) pages.";
+    diary_entry "The %(welches) has a volume of %(Seiten) pages and between %(unten) percent to %(oben) percent of the functionality included.";
+  end message;
+
+-----------------------------------------------------
+
+  message Null_Seiten_von_Dokument		 (welches: Dokument) is
+    "The document %(welches) is empty.";
+    diary_entry "The %(welches) contains 0 pages.";
+  end message;
+
+-----------------------------------------------------
+
+  message Null_Zeilen_Code is
+    "The Code is empty.";
+    diary_entry "The Code contains 0 LOC.";
+  end message;
+
+-----------------------------------------------------
+
+
+  message Anzahl_Zeilen_des_Codes(Zeilen: integer;
+        Module: integer;
+        unten : integer;
+        oben  : integer) is
+    "The code comprises %(Module) modules which make a total of %(Zeilen) lines of code. As an estimate, this is between %(unten) percent and %(oben) percent of the required functionality.";
+    "The code grew to %(Zeilen) lines of code in %(Module) modules. However, only between %(unten) and %(oben) percent of the total functionality is included.";
+    "The %(Module) modules of the code have altogether %(Zeilen) lines of code. You made the best of a bad job and managed to have between %(unten) percent and %(oben) percent of the functionality in the code.";
+    "Your configuration management tells you, that you have %(Module) modules, which consists of %(Zeilen) lines of code together. This is %(unten) percent to %(oben) percent of the functionality.";
+    diary_entry "The code comprises %(Zeilen) LOC in %(Module) modules. Between %(unten) and %(oben) percent of the total functionality is included.";
+  end message;
+
+-----------------------------------------------------
+
+  message Befunde_in_Pruefbericht
+   (welcher : Pruefbericht;
+                         Fehler  : integer;
+                         Verluste: real) is
+    "The review results given in the review report %(welcher) are: %(Fehler) errors and %(Verluste) missing function points.";
+    "The review report %(welcher) shows, that %(Fehler) errors and %(Verluste) missing function points have been found.";
+    "The review report %(welcher) indicates %(Fehler) errors and %(Verluste) missing functions points in the document.";
+    "%(Fehler) errors and %(Verluste) missing function points. A quite good result of the review report %(welcher).";
+    diary_entry "Review results given in the review report %(welcher): %(Fehler) errors and %(Verluste) missing FP.";
+  end message;
+
+-----------------------------------------------------
+
+  message Keine_Pruefung_stattgefunden is
+    "Until now no review/test was performed.";
+    diary_entry "Until now no review/test was performed.";
+  end message;
+
+-----------------------------------------------------
+
+  message Fehler_und_Verluste_in_Pruefbericht_ohne_Restfehler
+			(welcher : Pruefbericht;
+                         Fehler  : integer;
+                         Verluste: real) is
+    "%(Fehler) errors and %(Verluste) missing function points were found during the last review/test. All errors mentioned in  %(welcher) were corrected.";
+    diary_entry "%(Fehler) errors and %(Verluste) missing function points were found during the last review/test. All errors mentioned in  %(welcher) were corrected.";
+  end message;
+
+-----------------------------------------------------
+
+  message Fehler_und_Verluste_in_Pruefbericht_mit_Restfehler
+			(welcher : Pruefbericht;
+                         Fehler  : integer;
+                         Verluste: real) is
+    "%(Fehler) errors and %(Verluste) missing function points were found during the last review/test. Further mistakes mentioned in  %(welcher) must be corrected.";
+    diary_entry "%(Fehler) errors and %(Verluste) missing function points were found during the last review/test. Further mistakes mentioned in  %(welcher) must be corrected.";
+  end message;
+
+-----------------------------------------------------
+
+  message wieder_verfuegbaren_Entwickler_ausgeben(wer: Entwickler; ab_wann: date) is
+    "%(wer) is available again from today, %(ab_wann), and hopes to get an interesting task assigned.";
+    "%(wer) is free again from today, %(ab_wann), and waits to get something to do.";
+    diary_entry "%(wer) is available again from today, %(ab_wann)";
+  end message;
+
+-----------------------------------------------------
+
+  message verfuegbaren_Entwickler_ausgeben(wer: Entwickler; ab_wann: date) is
+    "%(wer) is available from %(ab_wann) and hopes to get an interesting task assigned.";
+    "%(wer) is free on %(ab_wann) and waits to get something to do.";
+    " Currently, %he(wer) is still busy. But %(wer) is eager to get a new job on %(ab_wann).";
+    "If you ask %(wer) to work on the project, %he(wer) won't say no, because %he(wer) will finish %his(wer) current job on %(ab_wann).";
+    diary_entry "%(wer) is available on %(ab_wann)";
+  end message;
+
+-----------------------------------------------------
+
+  message zugeteilten_Entwickler_ausgeben(wer: Entwickler) is
+    "%(wer) is assigned to your project.";
+    "You have hired %(wer).";
+    "You have signed %(wer) previously.";
+    "%(wer) is already on your pay roll for this project.";
+    diary_entry "%(wer) is assigned to your project.";
+  end message;
+
+-----------------------------------------------------
+
+  message Informationen_zu_Entwickler_ausgeben
+   (wer : Entwickler;
+                         Kosten : real;  -- EUR/h
+                         hohe_E : string;
+                         mittlere_E : string;
+                         geringe_E  : string) is
+    "For %(wer) you have to pay %(Kosten) EUR per hour.
+%(wer) is highly experienced in the following respects: %(hohe_E). 
+%He(wer) has medium experience %(mittlere_E). 
+However, %he(wer) has only verly little knowledge %(geringe_E).";
+    "%(wer) costs you %(Kosten) EUR per hour. 
+%(wer) is highly experienced in the following respects: %(hohe_E). 
+%He(wer) has medium experience %(mittlere_E). 
+However, %he(wer) has only very little knowledge %(geringe_E).";
+    "%(wer) is calculated with %(Kosten) EUR per hour. 
+%His(wer) primary abiltities are in the following areas: %(hohe_E).
+%He(wer) has also successfully applied the following notations and tasks: %(mittlere_E). 
+However, %he(wer) has only verly little knowledge about the following aspects: %(geringe_E).";
+    "Because of %his(wer) abilities, %(wer) gets %(Kosten) EUR per hour.
+%He(wer) is very familiar with this areas: %(hohe_E).
+%He(wer) has some knowledge in %(mittlere_E).
+Finally, little experience in %(geringe_E).";
+diary_entry "%(wer) gets %(Kosten) EUR per hour. %He(wer) is very familiar with this areas: %(hohe_E).
+%He(wer) has some knowledge %(mittlere_E).
+Finally, a little experience %(geringe_E).";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_macht_nichts(wer: Entwickler) is
+    "%(wer) has nothing to do at the moment and is very frustrated about it. Give %(wer) something to do, you must pay %him(wer) anyway!";
+    "%(wer) is just standing around, costing money. Give %him(wer) something to work on.";
+    "%(wer) has nothing to do at the moment and isn't unhappy about it.";
+    "Give %(wer) something to do. You have hired %him(wer) and now %he(wer) has nothing to do. Not that motivating, I can assure you.";
+    diary_entry "%(wer) has nothing to do at the moment";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_wird_begutachten(wer: Entwickler) is
+    "%(wer) will take part in a review.";
+    diary_entry "%(wer) will take part in a review";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_begutachtet(wer: Entwickler) is
+    "%(wer) spents at least some of %his(wer) time for a review.";
+    "%(wer): I'm busy with a review, but I can do something else besides.";
+    "You assigned %(wer) to a review, but %he(wer) can do something else besides of it.";
+    "%(wer): Me? Taking part in a review. Why do you ask?";
+    diary_entry "%(wer) takes part in a review";
+  end message;
+
+-----------------------------------------------------
+
+--  message Taetigkeit_des_Entwicklers(wer: Entwickler;
+--                                       was: Dokument) is
+--    "%(wer) is currently working on the %(was)";
+--    "%(wer): Me? I'm occupied with the %(was).";
+--    "Asked about %his(wer) activities, %(wer) says, %he(wer) is working at the %(was)";
+--    "%(wer): You assigned me to the %(was). Don't you remember?";
+--    diary_entry "%(wer) is currently working on the %(was)";
+--  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_wird_produzieren(wer: Entwickler;
+                                was: Dokument) is
+    "%(wer) will write the %(was).";
+    diary_entry "%(wer) will work on the %(was)";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_produziert(wer: Entwickler;
+                                was: Dokument) is
+    "%(wer) is writing the %(was)";
+    "%(wer) is currently working on the %(was)";
+    "%(wer): Me? I'm occupied with the %(was).";
+    "Asked about %his(wer) activities, %(wer) says, %he(wer) is working at the %(was)";
+    "%(wer): You assigned me to the %(was). Don't you remember?";
+    diary_entry "%(wer) is currently working on the %(was)";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_wird_integr(wer: Entwickler) is
+    "%(wer) will integrate the system.";
+    diary_entry "%(wer) will work on the system integration";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_integr(wer: Entwickler) is
+    "%(wer): Me? I'm occupied with integration.";
+    "Asked about %his(wer) activities, %(wer) says, %he(wer) is working at the system integration";
+    "%(wer): You assigned me to do system integration. Don't you remember?";
+    diary_entry "%(wer) is currently working on the system integration";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_wird_testen(wer: Entwickler) is
+    "%(wer) will test the code.";
+    diary_entry "%(wer) will test the code";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_testet(wer: Entwickler) is
+    "%(wer) is testing the code.";
+    "%(wer): Me? I'm occupied with testing.";
+    "Asked about %his(wer) activities, %(wer) says, %he(wer) is working at the test of the code";
+    "%(wer): You assigned me to the test of the code. Don't you remember?";
+    diary_entry "%(wer) is currently testing the code";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_wird_korrigieren(wer: Entwickler;
+                                was: Dokument) is
+    "%(wer) will correct the %(was).";
+    diary_entry "%(wer) will correct the %(was)";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_korrigiert(wer: Entwickler;
+                                was: Dokument) is
+    "%(wer) is currently correcting the %(was)";
+    "%(wer): Me? I'm occupied with the correction of %(was).";
+    "Asked about %his(wer) activities, %(wer) says, %he(wer) is correcting the %(was)";
+    "%(wer): You assigned me to the correction of %(was). Don't you remember?";
+    diary_entry "%(wer) is currently correcting the %(was)";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_wird_alles_korrigieren(wer: Entwickler) is
+    "%(wer) will correct the produced documents.";
+    diary_entry "%(wer) will correct all documents";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_korrigiert_alles(wer: Entwickler) is
+    "%(wer) is currently correcting the produced documents";
+    "%(wer): Me? I'm occupied with the correction of all documents.";
+    "Asked about %his(wer) activities, %(wer) says, %he(wer) is correcting the produced documents";
+    "%(wer): You assigned me to the correction of all documents. Don't you remember?";
+    diary_entry "%(wer) is currently correcting all documents";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_hat_erstellt    (wer: Entwickler) is
+    "%(wer) worked on:";
+    "%(wer) wrote:";
+  end message;
+
+  message Entwickler_hat_korrigiert    (wer: Entwickler) is
+    "%(wer) corrected:";
+  end message;
+
+  message Entwickler_hat_Erstellungsaufwand (was: Dokument; wielang: integer) is
+    "the %(was) for %(wielang) hours";
+  end message;
+  message Entwickler_hat_Korrekturaufwand (was: Dokument; wielang: integer) is
+    "the %(was) for %(wielang) hours";
+  end message;
+  message Entwickler_hat_Reviewaufwand (was: Dokument; wielang: integer) is
+    "the %(was) for %(wielang) hours";
+  end message;
+  message Entwickler_hat_begutachtet (wer: Entwickler) is
+    "%(wer) reviewed:";
+    "%(wer) participated in reviews of: ";
+  end message;
+  message Entwickler_hat_getestet (wer: Entwickler) is
+    "%(wer) participated in: ";
+  end message;
+  message Entwickler_testete_Module (wielang: integer) is
+    "the module test for %(wielang) hours";
+  end message;
+  message Entwickler_testete_Integration (wielang: integer) is
+    "the integration test for %(wielang) hours";
+  end message;
+  message Entwickler_testete_System (wielang: integer) is
+    "the system test for %(wielang) hours";
+  end message;
+
+
+-----------------------------------------------------
+
+---- sonstiges -----------------------------------------
+
+-----------------------------------------------------
+
+  message Entwickler_wurde_eingestellt(wer: Entwickler) is
+    "The developer %(wer) was hired. %He(wer) seems to be happy and hopes to be very productive soon";
+    "%(wer) is glad somebody recogniced %his(wer) talents and hired %him(wer).";
+    "%(wer) is confident that %he(wer) can convince you of having made the right choice.";
+    "%(wer): You have hired me. Now what? How can I help you?";
+    diary_entry "The developer %(wer) was hired.";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_wurde_entlassen(wer: Entwickler) is
+    "The developer %(wer) was released from the project.";
+    "You released %(wer) so %he(wer) can be assigned to another project.";
+    "You don't need the help of %(wer) anymore and took %him(wer) off the project.";
+    "%(wer): If you don't need me anymore...but you will regret it.";
+    diary_entry "The developer %(wer) was released from the project.";
+  end message;
+
+-----------------------------------------------------
+
+  message keine_Notation_vorgegeben(fuer: Dokument) is
+    "Which notation or language should be applied for the %(fuer)? Please specify a notation.";
+    "You must specify a notation or language for the %(fuer).";
+    "There is no notation defined for the %(fuer). Please specify a notation or language for the document.";
+    "We can't go on without a notation for the %(fuer). Please specify a notation.";
+  end message;
+
+-----------------------------------------------------
+
+  message Notation_wurde_vorgegeben(welche: Notation;
+                                      fuer  : Dokument) is
+    "The %(welche) notation must be used in the document %(fuer)";
+    "For the %(fuer) %(welche) must be used.";
+    "%(welche) must be used for the %(fuer).";
+    "Big Boss says: For the %(fuer) %(welche) must be used.";
+    diary_entry "For the %(fuer) %(welche) must be used.";
+  end message;
+
+-----------------------------------------------------
+
+  message Notation_ist_ungeeignet(welche: Notation;
+                                    fuer: Dokument) is
+    "The %(welche) notation is inappropriate for the %(fuer). It would be better to use another notation instead.";
+    "Didn't you notice, that %(welche) is inapplicable for the %(fuer)?";
+    "The notation you've chosen for the %(fuer), namely %(welche), can't be used in the %(fuer).";
+    "Even with the greatest effort, you can't use %(welche) for the %(fuer).";
+    diary_entry "The %(welche) notation is inappropriate for the %(fuer).";
+  end message;
+
+-----------------------------------------------------
+
+  message Notation_darf_nicht_mehr_geaendert_werden(fuer: Dokument) is
+    "Work on the %(fuer) has already started. You cannot change the notation for the %(fuer) anymore.";
+    "You cannot change the notation for the %(fuer) anymore. Your staff has already began working on the document.";
+    "Your staff has already began working at the %(fuer). They won't change to another notation anymore.";
+    "Someone works at the %(fuer). You can't change the notation, while someone's working at it.";
+    diary_entry "Notation for %(fuer) cannot be changed anymore.";
+  end message;
+
+
+-----------------------------------------------------
+
+---- Fehlermeldungen -----------------------------------------
+
+-----------------------------------------------------
+
+  message nicht_eingestellt(wer: Entwickler) is
+    "%(wer) was not hired yet.";
+    "Who? You haven't hired %(wer).";
+    "%(wer) is not assigned to your project.";
+    "Assigning %(wer) to your project and %he(wer) will be happy to help. But not without assigning %him(wer).";
+    diary_entry "%(wer) is not assigned to the project.";
+  end message;
+
+-----------------------------------------------------
+
+  message Fehlermeldung_illegale_Autor_ID(E: Entwickler) is
+    "Error message: Illegal Author-ID for the developer %(E).";
+  end message;
+
+-----------------------------------------------------
+
+  message Fehlermeldung_gleiche_Autor_IDs (E1: Entwickler;
+                                           E2: Entwickler) is
+    "Error message: Identical Author-IDs for developers %(E1) and %(E2).";
+  end message;
+
+-----------------------------------------------------
+
+  message Print_String(was: String) is
+    "%(was).";
+  end message;
+
+-----------------------------------------------------
+
+  message Print_String_Integer(was_s: String; was_i: Integer) is
+    "%(was_s): %(was_i).";
+  end message;
+
+-----------------------------------------------------
+
+  message Print_String_Real(was_s:String; was_r: Real) is
+    "%(was_s): %(was_r).";
+  end message;
+
+-----------------------------------------------------
+
+  message Print_Integer(was: Integer) is
+    "%(was).";
+  end message;
+
+-----------------------------------------------------
+
+  message Print_Real(was: Real) is
+    "%(was).";
+  end message;
+
+-----------------------------------------------------
+
+  message Print_Date(was: Date) is
+    "%(was):";
+  end message;
+
+-----------------------------------------------------
+
+  message Print_Aka(von_wem: Person) is
+    "%(von_wem).";
+  end message;
+
+
+-----------------------------------------------------
+
+--                        Tutorausgaben
+
+-----------------------------------------------------
+-- Bei den Nachrichten Zustand_von_Notizen und Zustand_von_*_Dok 
+-- wurden die verschiedenen Fehlerarten zum Typ integer umgewandelt
+-- da man bei der Ausgabe nur ganzzahlige Werte fuer Fehler haben soll
+
+  message Zustand_von_Notizen ( AFP     : real;
+                                Analysefehler          : integer;
+    Anzahl_Fehler_ges      : integer) is
+    "The document Analysenotizen contains %(AFP) adjusted function points, %(Analysefehler) analysis errors and  %(Anzahl_Fehler_ges) total errors.";
+  end message;
+
+-----------------------------------------------------
+
+  message Zustand_von_Spez_Dok ( AFP     : real;
+                                Analysefehler          : integer;
+    Anzahl_Fehler_ges      : integer) is
+    "The document Specification contains %(AFP) adjusted function points, %(Analysefehler) analysis errors and  %(Anzahl_Fehler_ges) total errors.";
+  end message;
+
+-----------------------------------------------------
+
+  message Zustand_von_Entw_Dok ( AFP     : real;
+                                Analysefehler          : integer;
+           Grobentwurfsfehler     : integer;
+    Anzahl_Fehler_ges      : integer) is
+    "The document System Design contains %(AFP) adjusted function points, %(Analysefehler) analysis errors, %(Grobentwurfsfehler) system design errors and  %(Anzahl_Fehler_ges) total errors.";
+  end message;
+
+-----------------------------------------------------
+
+  message Zustand_von_MSpez_Dok ( AFP     : real;
+                                Analysefehler          : integer;
+           Grobentwurfsfehler     : integer;
+           Feinentwurfsfehler     : integer;
+    Anzahl_Fehler_ges      : integer) is
+    "The document System Design contains %(AFP) adjusted function points, %(Analysefehler) analysis errors, %(Grobentwurfsfehler) system design errors, %(Feinentwurfsfehler) module design errors and  %(Anzahl_Fehler_ges) total errors.";
+  end message;
+
+-----------------------------------------------------
+
+  message Zustand_von_Code_Dok ( AFP     : real;
+                                Analysefehler          : integer;
+           Grobentwurfsfehler     : integer;
+           Feinentwurfsfehler     : integer;
+           Implementierungsfehler : integer;
+    Anzahl_Fehler_ges      : integer) is
+    "The Code contains %(AFP) adjusted function points, %(Analysefehler) analysis errors, %(Grobentwurfsfehler) system design errors, %(Feinentwurfsfehler) module design errors, %(Implementierungsfehler) implemetation errors and  %(Anzahl_Fehler_ges) total errors.";
+  end message;
+
+-----------------------------------------------------
+
+  message Zustand_von_HB_Dok ( AFP     : real;
+                               Analysefehler          : integer;
+                               Handbuchfehler         : integer;
+          Anzahl_Fehler_ges      : integer) is
+    "The document Handbuch contains %(AFP) adjusted function points, %(Analysefehler) analysis errors, %(Handbuchfehler) errors in the documentation and  %(Anzahl_Fehler_ges) total errors.";
+  end message;
+
+-----------------------------------------------------
+
+  message Zustand_von_Analyse(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message;
+
+-----------------------------------------------------
+
+  message Zustand_von_Spezifikation(Aufwand      : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Entwurf(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Modspez(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Code(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Handbuch(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Integration(Aufwand      : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_MTest(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_ITest(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_STest(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_ATest(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_MTest_K(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_ITest_K(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_STest_K(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_ATest_K(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Sreview(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Ereview(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Mreview(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Creview(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Hreview(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Sreview_K(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Ereview_K(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Mreview_K(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Creview_K(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Hreview_K(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Anzahl_AFP_Kundenwunsch(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Anzahl_AFP_Spezifikation(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Anzahl_AFP_Analyse(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Anzahl_AFP_Entwurf(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Anzahl_AFP_Modspez(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Anzahl_AFP_Code(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Anzahl_AFP_Handbuch(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Gepruefte_AFP_MTest(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Gepruefte_AFP_ITest(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Gepruefte_AFP_STest(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Gepruefte_AFP_ATest(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Gepruefte_AFP_Sreview(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Gepruefte_AFP_Ereview(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Gepruefte_AFP_Mreview(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Gepruefte_AFP_Creview(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Gepruefte_AFP_Hreview(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Konsistenz_Spez_Dok(Kons_AF : real) is
+    "%(Kons_AF)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Konsistenz_Entw_Dok(Kons_AF : real;
+       Kons_GF : real) is
+    "%(Kons_AF), %(Kons_GF)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Konsistenz_MSpez_Dok(Kons_AF : real;
+       Kons_GF : real;
+       Kons_FF : real) is
+    "%(Kons_AF), %(Kons_GF), %(Kons_FF)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Konsistenz_HB_Dok(Kons_AF : real) is
+    "%(Kons_AF)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_Fehler_pro_AFP_Notizen(AF_AFP : real;
+       Fehler_pro_AFP : real) is
+    "%(AF_AFP), %(Fehler_pro_AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_Fehler_pro_AFP_Spez_Dok(AF_AFP : real;
+       Fehler_pro_AFP : real;
+       Fehler_Seite : real) is
+    "%(AF_AFP), %(Fehler_pro_AFP), %(Fehler_Seite)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_Fehler_pro_AFP_Entw_Dok(AF_AFP : real;
+        GF_AFP : real;
+       Fehler_pro_AFP : real;
+       Fehler_Seite : real) is
+    "%(AF_AFP), %(GF_AFP), %(Fehler_pro_AFP), %(Fehler_Seite)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_Fehler_pro_AFP_MSpez_Dok(AF_AFP : real;
+        GF_AFP : real;
+        FF_AFP : real;
+       Fehler_pro_AFP : real;
+       Fehler_Seite : real) is
+    "%(AF_AFP), %(GF_AFP), %(FF_AFP), %(Fehler_pro_AFP), %(Fehler_Seite)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_Fehler_pro_AFP_Code_Dok(AF_AFP : real;
+        GF_AFP : real;
+        FF_AFP : real;
+        IF_AFP : real;
+       Fehler_pro_AFP : real;
+       Fehler_KLOC : real) is
+    "%(AF_AFP), %(GF_AFP), %(FF_AFP), %(IF_AFP), %(Fehler_pro_AFP), %(Fehler_KLOC)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_Fehler_pro_AFP_HB_Dok(AF_AFP : real;
+        HF_AFP : real;
+       Fehler_pro_AFP : real;
+       Fehler_Seite : real) is
+    "%(AF_AFP), %(HF_AFP), %(Fehler_pro_AFP), %(Fehler_Seite)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Einhaltung_ZV_Dok(welches: Dokument;
+       Proz_AFP_100 : real;
+       Proz_AFP_ZV : real;
+       Proz_Fehler_pro_Seite_ZV : real) is
+    "%(welches), %(Proz_AFP_100), %(Proz_AFP_ZV), %(Proz_Fehler_pro_Seite_ZV)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Einhaltung_ZV_Code(Proz_AFP_100 : real;
+       Proz_AFP_ZV : real;
+       Proz_Fehler_pro_KLOC_ZV : real) is
+    "%(Proz_AFP_100), %(Proz_AFP_ZV), %(Proz_Fehler_pro_KLOC_ZV)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_Pruefungen(welches: Pruefbericht;
+       Anz_Anf : integer;
+       Anz_Prf : integer;
+       Anz_Fehler_Pro_Prf1 : real;
+       Anz_Fehler_Pro_Prf2 : real;
+       Anz_Fehler_Pro_Prf3 : real;
+       Anz_Fehler_Pro_Prf4 : real;
+       Anz_Fehler_Pro_Prf5 : real;
+       Anz_Fehler_Pro_Prf6 : real;
+       Anz_Fehler_Pro_Prf7 : real;
+       Anz_Fehler_Pro_Prf8 : real;
+       Anz_Fehler_Pro_Prf9 : real;
+       Anz_Fehler_Pro_Prf10 : real) is
+    "%(welches), %(Anz_Anf); %(Anz_Prf), %(Anz_Fehler_Pro_Prf1), %(Anz_Fehler_Pro_Prf2), %(Anz_Fehler_Pro_Prf3), %(Anz_Fehler_Pro_Prf4), %(Anz_Fehler_Pro_Prf5), %(Anz_Fehler_Pro_Prf6), %(Anz_Fehler_Pro_Prf7), %(Anz_Fehler_Pro_Prf8), %(Anz_Fehler_Pro_Prf9), %(Anz_Fehler_Pro_Prf10)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_Korrektur(welches: Pruefbericht;
+       Ist_leer : boolean;
+       Anz_nicht_korr_Anf : integer;
+       Anz_korr_Fehler_pro_Prf1 : real;
+       Anz_korr_Fehler_pro_Prf2 : real;
+       Anz_korr_Fehler_pro_Prf3 : real;
+       Anz_korr_Fehler_pro_Prf4 : real;
+       Anz_korr_Fehler_pro_Prf5 : real;
+       Anz_korr_Fehler_pro_Prf6 : real;
+       Anz_korr_Fehler_pro_Prf7 : real;
+       Anz_korr_Fehler_pro_Prf8 : real;
+       Anz_korr_Fehler_pro_Prf9 : real;
+       Anz_korr_Fehler_pro_Prf10 : real) is
+    "%(welches), %(Ist_leer), %(Anz_nicht_korr_Anf), %(Anz_korr_Fehler_pro_Prf1), %(Anz_korr_Fehler_pro_Prf2), %(Anz_korr_Fehler_pro_Prf3), %(Anz_korr_Fehler_pro_Prf4), %(Anz_korr_Fehler_pro_Prf5), %(Anz_korr_Fehler_pro_Prf6), %(Anz_korr_Fehler_pro_Prf7), %(Anz_korr_Fehler_pro_Prf8), %(Anz_korr_Fehler_pro_Prf9), %(Anz_korr_Fehler_pro_Prf10)";
+  end message; 
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+--       Ausgabe zum Test auf doppelte Anforderungen
+
+-----------------------------------------------------
+ 
+  message Doppelte_Anforderungen_vorhanden (worin: Dokument;
+                                            welche: integer) is
+    "The document %(worin) contains the duplicated requirement %(welche).";
+  end message;
+
+----------------------------------------------------
+-- Hilfetexte fuer SimulationPlus
+----------------------------------------------------
+ help for "@specify@" is
+   "to write a specification";
+ end help; 
+ 
+ help for "@correctspecification@" is
+   "to correct the specification";
+ end help;
+ 
+ help for "@showmespecification@" is
+   "(*) to get information about the characteristics of the specification";
+ end help;
+ 
+ help for "@talkcustomer@" is
+   "to talk to the customer";
+ end help;
+ 
+ help for "@designsystem@" is
+   "to write the system design";
+ end help;
+ 
+ help for "@correctsystemdesign@" is
+   "to correct the system design";
+ end help;
+ 
+ help for "@showmesystemdesign@" is
+   "(*) to get information about the characteristics of the system design";
+ end help;
+ 
+ help for "@designmodules@" is
+   "to write the module design";
+ end help;
+ 
+ help for "@correctmoduledesign@" is
+   "to correct the module design";
+ end help;
+ 
+ help for "@showmemoduledesign@" is
+   "(*) to get information about the characteristics of the module design";
+ end help;
+ 
+ help for "@code@" is
+   "to write the code";
+ end help;
+ 
+ help for "@correctreviewedcode@" is
+   "to correct the code after a code review";
+ end help;
+ 
+ help for "@correcttestedcode@" is
+   "to correct the code after a code test";
+ end help;
+ 
+ help for "@showmecode@" is
+   "(*) to get information about the characteristics of the code";
+ end help;
+ 
+ help for "@testmodules@" is
+   "to carry out a test of the modules";
+ end help;
+ 
+ help for "@testsystem@" is
+   "to carry out a test of the system";
+ end help;
+ 
+ help for "@integrate@" is
+   "to integrate the system";
+ end help;
+ 
+ help for "@testintegration@" is
+   "to test the integration of the system";
+ end help;
+ 
+ help for "@twodevelopersreview@" is
+   "to carry out a review by two developers";
+ end help;
+ 
+ help for "@threedevelopersreview@" is
+   "to carry out a review by three developers";
+ end help;
+ 
+ help for "@customerparticipateinreviewspecification@" is
+   "to carry out a review of the specification by two developers and one representative of the customer";
+ end help;
+ 
+ help for "@customerparticipateinreviewdocumentation@" is
+   "to carry out a review of the documentation by two developers and one representative of the customer";
+ end help;
+ 
+ help for "@showmereviewreport@" is
+   "(*) to get information about the final report of a review";
+ end help;
+ 
+ help for "@finishreviewdocument@" is
+   "to finish a review";
+ end help;
+ 
+ help for "@writedocumentation@" is
+   "to write the documentation";
+ end help;
+ 
+ help for "@correctdocumentation@" is
+   "to correct the documentation after a review";
+ end help;
+ 
+ help for "@showmedocumentation@" is
+   "(*) to get information about the characteristics of the documentation";
+ end help;
+ 
+ help for "@customerperformacceptancetest@" is
+   "to initiate the acceptance test to be carried out by the customer without any developers' participation";
+ end help;
+ 
+ help for "@deliversystem@" is
+   "the software delivered to the customer who will be giving his/her feedback on the success";
+ end help;
+ 
+ help for "@finishproject@" is
+   "the project will be aborted without delivery; nevertheless, the customer gives some feedback";
+ end help;
+ 
+ help for "@informationaboutspentresources@" is
+   "(*) to show time and money spent so far";
+ end help;
+ 
+ help for "@quitactivity@" is
+   "to abort an activity immediately; reviews will *not* be finished";
+ end help;
+ 
+ help for "@finishactivity@" is
+  "the developer finishes the current activity as soon as possible and delivers the document (s)he was working on; this command is not valid for reviews";
+ end help;
+ 
+ help for "@release@" is
+   "(*) to release a developer";
+ end help;
+ 
+ help for "@hire@" is
+   "(*) to hire a developer";
+ end help;
+ 
+ help for "@showmemyteammembers@" is
+   "to show all hired developers";
+ end help;
+ 
+ help for "@showmeavailabledevelopers@" is
+   "to show a list of available developers";
+ end help;
+ 
+ help for "@showmetasksof@" is
+   "to get a list of all tasks";
+ end help;
+ 
+ help for "@correctalldocuments@" is
+   "to correct all documents using a selected (review/test) report";
+ end help;
+ 
+ help for "@informationaboutdeveloper@" is
+   "(*) to get the profile (qualification, cost) of a developer";
+ end help;
+ 
+ help for "@usenotation@" is
+   "to select a particular notation for the development of a document";
+ end help;
+ 
+ help for "@showmeactivity@" is
+   "(*) to get information about the kind of activity/activities the developer is carrying out at the moment";
+ end help;
+ 
+end dictionary;
