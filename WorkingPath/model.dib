@@ -1462,91 +1462,91 @@ end message;
 ---------------------------------------------------------
 
 message Korrektheit_Code (Soll_Korr_Code: real; Korr_Code: real) is
-  "The customers requirements for the system were that it does not contain more than %(Soll_Korr_Code) errors per thousand lines of code. The actual delivered system contains %(Korr_Code) errors per thousand lines of code.";
-  diary_entry "The actual system contains %(Korr_Code) errors per KLOC compared to the customer requirements of a maximum of %(Soll_Korr_Code) errors per KLOC).";
+  "Poiadavky zákazníka na systém boli, aby systém neobsahoval viac ne %(Soll_Korr_Code) chıb na tisíc riadkov kódu. Aktuálna verzia systému obsahuje %(Korr_Code) chıb na tisíc riadkov zdrojového kódu.";
+  diary_entry "Aktuálny systém obsahuje %(Korr_Code) chıb na KLOC v porovnaní s poiadavkou zákazníka, ktorú predstavuje %(Soll_Korr_Code) chıb pripadajúcich na KLOC.";
 end message;
 
 ---------------------------------------------------------
 
 message Korrektheit_Code_Gut (Korr_Code: real; Differenz: real) is
-  "The correctness of the system is excellent. The system contains %(Korr_Code) errors per thousand lines of code. These are %(Differenz) less than originally required by the customer.";
-  diary_entry "The system contains %(Korr_Code) errors per KLOC. These are %(Differenz) less than originally required by the customer. The customer is very satisfied.";
+  "Správnos systému je excelentná. Systém má %(Korr_Code) chıb na tisíc riadkov kódu, èo predstavuje o %(Differenz) menej ne pôvodne zákazník poadoval.";
+  diary_entry "Systém zahàòa %(Korr_Code) chıb na KLOC. To je o %(Differenz) menej ne pôvodne zákazník stanovil. Zákazník je ve¾mi spokojnı.";
 end message;
 
 ---------------------------------------------------------
 
 message Korrektheit_Code_Mittel (Korr_Code: real; Differenz: real) is
-  "The correctness of the system is at least acceptable. It contains %(Korr_Code) errors per thousand lines of code \(KLOC\). These are %(Differenz) more errors per KLOC than required by the customer.";
-  diary_entry "The system contains %(Korr_Code) errors per KLOC. These are %(Differenz) less than originally required by the customer. This is at least acceptable.";
+  "Správnos systému je minimálne akceptovate¾ná. Projekt má %(Korr_Code) chıb na tisíc riadkov kódu \(KLOC\). To je o %(Differenz) viac chıb ne pôvodne zákazník definoval.";
+  diary_entry "Systém zahàòa %(Korr_Code) chıb na KLOC. To je o %(Differenz) menej ne pôvodne zákazník stanovil. Je to prinajmenšom akceptovate¾né.";
 end message;
 
 ---------------------------------------------------------
 
 message Korrektheit_Code_Schlecht (Korr_Code: real; Differenz: real) is
-  "The correctness of the system is very bad. It contains %(Korr_Code) per KLOC \(1000 Lines of code\). These are %(Differenz) \(\!\) more errors per KLOC than specified by the customer. Think carefully about your software development process. It has to be improved significantly.";
-  diary_entry "The system contains %(Korr_Code) errors per KLOC. These are %(Differenz) less than originally specified by the customer. This is very bad.";
+  "Správnos systému je nedostatoèná. Systém má %(Korr_Code) chıb na KLOC \(1000 Lines of code\). To je o %(Differenz) \(\!\) viac chıb na KLOC ne sa zákazník oèakával. Poriadne prehodno postup pri vıvoji softvéru. Tento postup musí by znaène vylepšenı.";
+  diary_entry "Systém zahàòa %(Korr_Code) chıb na KLOC. To je o %(Differenz) viac ne pôvodne zákazník stanovil. Niet sa èím chváli.";
 end message;
 
 ---------------------------------------------------------
 
 message Vollstaendigkeit_Handbuch (Seiten: integer; AFP_Wunsch: real; AFP_HB: real) is
-  "The customer has also asked for user documentation. The user manual comprises %(Seiten) pages. The user manual should cover %(AFP_Wunsch) Adjusted Function Points, in fact, it describes a functionality that equals %(AFP_HB) Adjusted Function Points.";
-  diary_entry "The user manual comprises %(Seiten) pages. It should cover %(AFP_Wunsch) AFP, in fact, it contains %(AFP_HB) AFP.";
+  "Zákazník si taktie vypıtal dokumentáciu pre pouívate¾a. Pouívate¾ská príruèka pozostáva z(o) %(Seiten) strán. Pouívate¾ská príruèka pokrıva %(AFP_Wunsch) Adjusted Function Points, aj keï, v skutoènosti, predstavuje funkcionalitu rovnú %(AFP_HB) Adjusted Function Points.";
+  diary_entry "Pouívate¾ská príruèka pozostáva z(o) %(Seiten) strán. Mala by pokrıva %(AFP_Wunsch) AFP, v skutoènosti, pokrıva %(AFP_HB) AFP.";
 end message;
 
 ---------------------------------------------------------
 
 message Vollstaendigkeit_Handbuch_Gut (Voll_HB: real) is
-  "The completeness of the user manual is excellent. %(Voll_HB) of the required functionality is described in the manual.";
-  diary_entry "%(Voll_HB) of the required functionality is described in the manual. Excellent.";
+  "Úplnos pouívate¾skej príruèky je vıborná. %(Voll_HB) poadovanej funkcionality je popísanıch v príruèke.";
+  diary_entry "%(Voll_HB) poadovanej funkcionality je popísanıch v príruèke. Vıborne.";
 end message;
 
 ---------------------------------------------------------
 
 message Vollstaendigkeit_Handbuch_Mittel (Voll_HB: real) is
-  "The completeness of the user manual is acceptable. %(Voll_HB) of the required functionality is described in the manual.";
-  diary_entry "%(Voll_HB) of the required functionality is described in the manual. This is at least acceptable.";
+  "Úplnos pouívate¾skej príruèky je prijate¾ná. %(Voll_HB) poadovanej funkcionality je popísanıch v príruèke.";
+  diary_entry "%(Voll_HB) poadovanej funkcionality je popísanıch v príruèke. Úroveò je teda postaèujúca.";
 end message;
 
 ---------------------------------------------------------
 
 message Vollstaendigkeit_Handbuch_Schlecht (Voll_HB: real) is
-  "The completeness of the user manual is extremely bad. Only %(Voll_HB) \(\!\) of the required functionality is described in the manual.";
-  diary_entry "%(Voll_HB) of the required functionality is described in the manual. This is extremely bad.";
+  "Úplnos pouívate¾skej príruèky je extrémne zlá. Len %(Voll_HB) \(\!\) poadovanej funkcionality je popísanıch v príruèke.";
+  diary_entry "%(Voll_HB) poadovanej funkcionality je popísanıch v príruèke. Úroveò je extrémne zlá.";
 end message;
 
 ---------------------------------------------------------
 
 message Korrektheit_Handbuch (Soll_Korr_HB: real; Korr_HB: real) is
-  "The correctness of the user manual required by the customer is %(Soll_Korr_HB) errors per page. The customer has found %(Korr_HB) errors per page.";
-  diary_entry "The customer required a maximum of %(Soll_Korr_HB) errors per page for the manuals. He has found %(Korr_HB) errors per page."; 
+  "Správnos pouívate¾skej príruèky poadovanej zákazníkom je %(Soll_Korr_HB) chıb pripadajúcich na stranu. Zákazník našiel v priemere %(Korr_HB) chıb na stranu.";
+  diary_entry "Zákazník poadoval maximálne %(Soll_Korr_HB) chıb na stranu pre manuál. Zákazník našiel v priemere %(Korr_HB) chıb na stranu."; 
 end message;
 
 ---------------------------------------------------------
 
 message Korrektheit_Handbuch_Gut (Korr_HB: real; Differenz: real) is
-  "The correctness of the user manual is very good \(%(Korr_HB) per page\). The user manual contains %(Differenz) errors per page less than specified.";
-  diary_entry "The user manual contains %(Korr_HB) per page. These are %(Differenz) errors per page less than specified. Very good.";
+  "Správnos pouívate¾skej príruèky je ve¾mi dobrá. \(%(Korr_HB) na stranu\). Pouívate¾ská príruèka obsahuje o %(Differenz) chıb na stranu menej ne bolo poadované.";
+  diary_entry "Pouívate¾ská príruèka obsahuje %(Korr_HB) chıb na stranu. To predstavuje %(Differenz) chıb pripadajúcich na stranu menej ne bolo poadovanıch. Ve¾mi dobre.";
 end message;
  
 ---------------------------------------------------------
 
 message Korrektheit_Handbuch_Mittel (Korr_HB: real; Differenz: real) is
-  "The correctness of the user manual is acceptable. The manual contains %(Korr_HB) per page. These are %(Differenz) errors per page more than originally specified by the customer.";
-  diary_entry "The user manual contains %(Korr_HB) per page. These are %(Differenz) errors per page less than specified. At least acceptable.";
+  "Správnos pouívate¾skej príruèky je akceptovate¾ná. Príruèka obsahuje %(Korr_HB) chıb na stranu. To je o %(Differenz) chıb na stranu viac ne pôvodne zákazník poadoval.";
+  diary_entry "Pouívate¾ská príruèka obsahuje %(Korr_HB) chıb na stranu. To predstavuje %(Differenz) chıb pripadajúcich na stranu menej ne bolo poadovanıch. Vısledok je akceptovate¾nı.";
 end message;
 
 ---------------------------------------------------------
 
 message Korrektheit_Handbuch_Schlecht (Korr_HB: real; Differenz: real) is
-  "The correctness of the user manual is really bad. The manual contains %(Korr_HB) per page. These are %(Differenz) \(\!\) errors per page more than originally specified by the customer.";
-  diary_entry "The user manual contains %(Korr_HB) per page. These are %(Differenz) errors per page more than specified. Very bad.";
+  "Správnos pouívate¾skej príruèky je ve¾mi zlá. Príruèka obsahuje %(Korr_HB) chıb na stranu. To je o %(Differenz) \(\!\) chıb na stranu viac ne pôvodne zákazník poadoval.";
+  diary_entry "Pouívate¾ská príruèka obsahuje %(Korr_HB) chıb na stranu. To predstavuje %(Differenz) chıb pripadajúcich na stranu viac ne bolo poadovanıch. Ve¾mi zle.";
 end message;
 
 ---------------------------------------------------------
 
 message Kunden_Score (Score: integer; Max_Score: integer) is
-  "The customer has applied his scoring system to evaluate software systems delivered by external software houses. You have got %(Score) points for your project. You can reach a maximum of %(Max_Score) points.";
+  "External software houses hodnotili Váš systém na základe iadosti zákazníka. Dostali ste %(Score) bodov za Váš projekt. Najviac ste mohli dostiahnu %(Max_Score) bodov.";
 end message;
 
 ---------------------------------------------------------
@@ -1558,8 +1558,8 @@ message Aufwandsdaten_ausgeben(Gesamtaufwand : real;
        AufwVerteilung_Phasen3 : real;
        AufwVerteilung_Phasen4 : real;
        AufwVerteilung_Phasen5 : real) is
-    "To develop the system you invested a total effort of %(Gesamtaufwand) MM. In total you spent %(Kosten_MM) EUR per MM.
- The effort was distributed among the different development phases as follows: specification phase: %(AufwVerteilung_Phasen1) percent, design phase: %(AufwVerteilung_Phasen2) percent, coding phase: %(AufwVerteilung_Phasen3) percent, testing phase: %(AufwVerteilung_Phasen4) percent and documentation phase: %(AufwVerteilung_Phasen5) percent of total effort.";
+    "Na vıvoj celého systému ste vynaloili úsilie v podobe %(Gesamtaufwand) ÈM. Dokopy ste minuli %(Kosten_MM) EUR na ÈM.
+ Úsilie bolo rozdelené medzi rôzne fázy vıvoja nasledovne: fáza špecifikácie: %(AufwVerteilung_Phasen1) percent, fáza návrhu: %(AufwVerteilung_Phasen2) percent, implementaèná fáza: %(AufwVerteilung_Phasen3) percent, testovacia fáza: %(AufwVerteilung_Phasen4) percent a dokumentaèná fáza: %(AufwVerteilung_Phasen5) percent celého úsilia.";
 end message; 
 
 ---------------------------------------------------------
@@ -1569,13 +1569,13 @@ message Performanz_ausgeben(Proz_Kosten_ZV : real;
        Mittelwert_Vollst_ZV : real;
        Mittelwert_Vollst : real;
        Mittelwert_Korrekt_ZV : real) is
-    "Given the objectives as 100 percent and positive deviations (i.e. in case you performed better than required) with values greater than 100 and negative deviations with values less 100, respectively, compared to the customers's objectives you performed as follows: achievement of budget: %(Proz_Kosten_ZV) percent, achievement of deadline: %(Proz_Dauer_ZV) percent, achievement of functionality (compared to the objectives): %(Mittelwert_Vollst_ZV) percent, achievement of functionality (compared to total functionality): %(Mittelwert_Vollst) percent, achievement of quality (correctness): %(Mittelwert_Korrekt_ZV) percent.";
+    "Ak prisúdime cie¾om stanovenım zákazníkom hodnotu 100 percent a vezmeme do úvahy kladné odchılky(i.e. ak ste podúlohu zvládli lepšie ne bolo oèakávané) s hodnotami väèšími ne 100 a záporné odchılky s hodnotami menšími ne 100, v porovnaní s poiadavkami zákazníka ste si viedli nasledovne: splnenie rozpoètu: %(Proz_Kosten_ZV) percent, splnenie èasového limitu: %(Proz_Dauer_ZV) percent, naplnenie funkcionality (v porovnaní s cie¾mi zákazníka): %(Mittelwert_Vollst_ZV) percent, naplnenie funkcionality (v porovnaní s celou funkcionalitou): %(Mittelwert_Vollst) percent, splnenie kvality (správnostä): %(Mittelwert_Korrekt_ZV) percent.";
 end message; 
 
 ---------------------------------------------------------
 
 message Simulation_beendet is
-  "The simulation is finished. Please try again and start a new simulation.";
+  "Simulácie je privedená do konca. Prosím, skúste znovu a zaènite novú simuláciu.";
 end message;
 
 
@@ -1591,11 +1591,11 @@ end message;
                          Kosten : real;
                          STermin: date;
                          SKosten: real) is
-    "The software process took %(Dauer) days and required an effort of %(Aufwand) man months and costs of %(Kosten) EUR. The customers budget is %(SKosten) EUR and the product should be ready on %(STermin).";
-    "An up-to-date research revealed that you have already spent %(Aufwand) man months, which equals %(Kosten) EUR in the %(Dauer) days the project runs so far. The product is expected to be delivered on last at %(STermin) and costs shouldn't exceed %(SKosten) EUR.";
-    "After %(Dauer) days and an total effort of %(Aufwand) man months, you have spent %(Kosten) EUR out of %(SKosten) EUR on the project. Remember your deadline is %(STermin).";
-    "You already spent %(Kosten) EUR of the available %(SKosten) EUR. And all this after %(Dauer) days and an effort of %(Aufwand) man months. Remember, you must finish till %(STermin).";
-    diary_entry "The project took %(Dauer) days and required an effort of %(Aufwand) MM and costs of %(Kosten) EUR \(Remember: The customers budget is %(SKosten) EUR and the latest delivery date is %(STermin)\).";
+    "Vıvoj softvéru trval %(Dauer) dní a poadoval úsilie o %(Aufwand) èlovekomesiacoch a náklady v hodnote %(Kosten) EUR. Rozpoèet zákazníka je %(SKosten) EUR a produkt má by hotovı do %(STermin).";
+    "Doposia¾ ste strávili %(Aufwand) èlovekomesiacov, èo sa rovná %(Kosten) EUR poèas %(Dauer) dní vıvoja projektu. Oèakáva sa, e produkt doruèíte najneskôr %(STermin) a náklady neprekroèia %(SKosten) EUR.";
+    "Po %(Dauer) dòoch a celkového úsilia %(Aufwand) èlovekomesiacov ste minuli %(Kosten) EUR zo stanovenıch %(SKosten) EUR. Pamätajte na deadline: %(STermin).";
+    "U ste minuli %(Kosten) EUR z definovanıch %(SKosten) EUR. To všetko za %(Dauer) dní a úsilie o %(Aufwand) èlovekomesiacoch. Nezabudnite, e projekt musí by hotovı najneskôr do %(STermin).";
+    diary_entry "Trvanie projektu doposia¾ zabralo %(Dauer) dní a úsilie o %(Aufwand) èlovekomesiacoch, prièom náklady sa vyšplhali na %(Kosten) EUR \(Pamätajte: Zákazníkov rozpoèet je %(SKosten) EUR a najneskorší dátum dodania je %(STermin)\).";
   end message;
 
 -----------------------------------------------------
@@ -1604,25 +1604,25 @@ end message;
            Seiten : integer;
            unten  : integer;
            oben   : integer) is
-    "The document %(welches) comprises %(Seiten) pages. Given your experience, that should be between %(unten) percent and %(oben) percent of the functionality.";
-    "The %(welches) has a volume of %(Seiten) pages and between %(unten) percent to %(oben) percent of the functionality included.";
-    "At the current point of time, in the range from %(unten) percent to %(oben) percent of the functionality is integrated in the %(welches). It comprises %(Seiten) pages.";
-    "After a quick look at the %(welches), you guess, that between %(unten) percent and %(oben) percent of the functionality is done. By the way, the %(welches) already comprises %(Seiten) pages.";
-    diary_entry "The %(welches) has a volume of %(Seiten) pages and between %(unten) percent to %(oben) percent of the functionality included.";
+    "Dokument %(welches) pozostíva z %(Seiten) strán. S oh¾adom na vaše skúsenosti to vychádza na %(unten) a %(oben) percent celkovej funkcionality.";
+    "Dokument: %(welches) má ve¾kos %(Seiten) strán a predstavuje %(unten) a %(oben) percent poadovanej funkcionality.";
+    "Doposia¾ je v rozmedí od %(unten) percent do %(oben) percent celkovej funkcionality podchytenej v dokumente: %(welches). Dokument pozostáva z %(Seiten) strán.";
+    "Po rıchlom prehodnotení dokumentu: %(welches) sa odhaduje, e medzi %(unten) a %(oben) percentami poadovanej funkcionality je zavàšenej. Mimochodom, to predstavuje %(Seiten) strán.";
+    diary_entry "Dokument: %(welches) má ve¾kos %(Seiten) strán a predstavuje %(unten) a %(oben) percent poadovanej funkcionality.";
   end message;
 
 -----------------------------------------------------
 
   message Null_Seiten_von_Dokument		 (welches: Dokument) is
-    "The document %(welches) is empty.";
-    diary_entry "The %(welches) contains 0 pages.";
+    "Dokument %(welches) je prázdny.";
+    diary_entry "Dokument: %(welches) obsahuje 0 strán.";
   end message;
 
 -----------------------------------------------------
 
   message Null_Zeilen_Code is
-    "The Code is empty.";
-    diary_entry "The Code contains 0 LOC.";
+    "Neexistuje iaden zdrojovı kód.";
+    diary_entry "Zdrojovı kód obsahuje 0 LOC.";
   end message;
 
 -----------------------------------------------------
@@ -1632,11 +1632,11 @@ end message;
         Module: integer;
         unten : integer;
         oben  : integer) is
-    "The code comprises %(Module) modules which make a total of %(Zeilen) lines of code. As an estimate, this is between %(unten) percent and %(oben) percent of the required functionality.";
-    "The code grew to %(Zeilen) lines of code in %(Module) modules. However, only between %(unten) and %(oben) percent of the total functionality is included.";
-    "The %(Module) modules of the code have altogether %(Zeilen) lines of code. You made the best of a bad job and managed to have between %(unten) percent and %(oben) percent of the functionality in the code.";
-    "Your configuration management tells you, that you have %(Module) modules, which consists of %(Zeilen) lines of code together. This is %(unten) percent to %(oben) percent of the functionality.";
-    diary_entry "The code comprises %(Zeilen) LOC in %(Module) modules. Between %(unten) and %(oben) percent of the total functionality is included.";
+    "Zdrojovı kód pokrıva %(Module) modulov, èo predstavuje dokopy %(Zeilen) riadkov kódu. Odhadom to vıchádza na %(unten) a %(oben) percent poadovanej funkcionality.";
+    "Kód vzrástol na %(Zeilen) riadkov s oh¾adom na %(Module) modulov. Akoko¾vek, nieèo medzi %(unten) a %(oben) percentami celkovej funkcionality je pokrytej doposia¾.";
+    "%(Module) modulov, èo sa tıka zdrojového kódu, predstavujú dokopy %(Zeilen) riadkov kódu. Spravili ste zatia¾, èo sa dalo a podarilo sa Vám dosiahnu nieèo medzi %(unten) a %(oben) percentami celkovej funkcionality zdrojového kódu.";
+    "Aktuálny stav napovedá, e máte %(Module) modulov, ktoré pozostávajú z %(Zeilen) riadkov kódu. To je medzi %(unten) a %(oben) percentami celkovej funkcionality.";
+    diary_entry "Zdrojovı kód pokrıva %(Zeilen) LOC v %(Module) moduloch. Funkcionalita je pokrytá na %(unten) a %(oben) percent.";
   end message;
 
 -----------------------------------------------------
@@ -1645,18 +1645,18 @@ end message;
    (welcher : Pruefbericht;
                          Fehler  : integer;
                          Verluste: real) is
-    "The review results given in the review report %(welcher) are: %(Fehler) errors and %(Verluste) missing function points.";
-    "The review report %(welcher) shows, that %(Fehler) errors and %(Verluste) missing function points have been found.";
-    "The review report %(welcher) indicates %(Fehler) errors and %(Verluste) missing functions points in the document.";
-    "%(Fehler) errors and %(Verluste) missing function points. A quite good result of the review report %(welcher).";
-    diary_entry "Review results given in the review report %(welcher): %(Fehler) errors and %(Verluste) missing FP.";
+    "Vısledky posudzovania zahrnuté v reporte %(welcher) sú: %(Fehler) chıb a %(Verluste) chıbajúcich FP.";
+    "Report %(welcher) ukazuje, e bolo nájdenıch %(Fehler) chıb a %(Verluste) chıbajúcich FP.";
+    "Report %(welcher) naznaèuje, e v dokumente bolo nájdenıch %(Fehler) chıb a %(Verluste) chıbajúcich FP.";
+    "%(Fehler) chıb a %(Verluste) chıbajúcich FP. Celkom dobrı vısledok pre report: %(welcher).";
+    diary_entry "Vısledky posudzovania zahrnuté v reporte %(welcher) sú: %(Fehler) chıb a %(Verluste) chıbajúcich FP.";
   end message;
 
 -----------------------------------------------------
 
   message Keine_Pruefung_stattgefunden is
-    "Until now no review/test was performed.";
-    diary_entry "Until now no review/test was performed.";
+    "Doposia¾ iadny posudok/recenzia/test nebol(a) vykonanı/vykonaná.";
+    diary_entry "Doposia¾ iadny posudok/recenzia/test nebol(a) vykonanı/vykonaná.";
   end message;
 
 -----------------------------------------------------
@@ -1665,8 +1665,8 @@ end message;
 			(welcher : Pruefbericht;
                          Fehler  : integer;
                          Verluste: real) is
-    "%(Fehler) errors and %(Verluste) missing function points were found during the last review/test. All errors mentioned in  %(welcher) were corrected.";
-    diary_entry "%(Fehler) errors and %(Verluste) missing function points were found during the last review/test. All errors mentioned in  %(welcher) were corrected.";
+    "%(Fehler) chıb a %(Verluste) chıbajúcich FP bolo nájdenıch poèas poslednej revízie/posudku/testu. Všetky chyby, spomenuté v %(welcher), boli opravené.";
+    diary_entry "%(Fehler) chıb a %(Verluste) chıbajúcich FP bolo nájdenıch poèas poslednej revízie/posudku/testu. Všetky chyby, spomenuté v %(welcher), boli opravené.";
   end message;
 
 -----------------------------------------------------
@@ -1675,36 +1675,36 @@ end message;
 			(welcher : Pruefbericht;
                          Fehler  : integer;
                          Verluste: real) is
-    "%(Fehler) errors and %(Verluste) missing function points were found during the last review/test. Further mistakes mentioned in  %(welcher) must be corrected.";
-    diary_entry "%(Fehler) errors and %(Verluste) missing function points were found during the last review/test. Further mistakes mentioned in  %(welcher) must be corrected.";
+    "%(Fehler) chıb a %(Verluste) chıbajúcich FP bolo nájdenıch poèas poslednej revízie/posudku/testu. Ïalšie chyby, spomenuté v %(welcher), musia by opravené.";
+    diary_entry "%(Fehler) chıb a %(Verluste) chıbajúcich FP bolo nájdenıch poèas poslednej revízie/posudku/testu. Ïalšie chyby, spomenuté v %(welcher), musia by opravené";
   end message;
 
 -----------------------------------------------------
 
   message wieder_verfuegbaren_Entwickler_ausgeben(wer: Entwickler; ab_wann: date) is
-    "%(wer) is available again from today, %(ab_wann), and hopes to get an interesting task assigned.";
-    "%(wer) is free again from today, %(ab_wann), and waits to get something to do.";
-    diary_entry "%(wer) is available again from today, %(ab_wann)";
+    "%(wer) je znova dostupnı/á od dnes, %(ab_wann)a dúfa, e mu/jej bude pridelená nejaká zaujímavá úloha.";
+    "%(wer) je znova vo¾nı/vo¾ná od dnes, %(ab_wann) a èaká na najblišie úlohy.";
+    diary_entry "%(wer) je znova dostupnı/á od dnes, %(ab_wann)";
   end message;
 
 -----------------------------------------------------
 
   message verfuegbaren_Entwickler_ausgeben(wer: Entwickler; ab_wann: date) is
-    "%(wer) is available from %(ab_wann) and hopes to get an interesting task assigned.";
-    "%(wer) is free on %(ab_wann) and waits to get something to do.";
-    " Currently, %he(wer) is still busy. But %(wer) is eager to get a new job on %(ab_wann).";
-    "If you ask %(wer) to work on the project, %he(wer) won't say no, because %he(wer) will finish %his(wer) current job on %(ab_wann).";
-    diary_entry "%(wer) is available on %(ab_wann)";
+    "%(wer) je dostupnı/á od %(ab_wann) a dúfa, e mu/jej bude pridelená nejaká zaujímavá úloha.";
+    "%(wer) je od %(ab_wann) vo¾ná a èaká na Vaše rozkazy.";
+    " Zatia¾ je %he(wer) stále zaneprázdnenı/zaneprázdnená, no trúfa si na novı job od %(ab_wann).";
+    "Ak poiadate %(wer) o práce na Vašom projekte, urèite neodmietne, pretoe svoju aktuálnu prácu ukonèí %(ab_wann).";
+    diary_entry "%(wer) je dostupnı/á od %(ab_wann)";
   end message;
 
 -----------------------------------------------------
 
   message zugeteilten_Entwickler_ausgeben(wer: Entwickler) is
-    "%(wer) is assigned to your project.";
-    "You have hired %(wer).";
-    "You have signed %(wer) previously.";
-    "%(wer) is already on your pay roll for this project.";
-    diary_entry "%(wer) is assigned to your project.";
+    "%(wer) bol/a pridelenı/pridelená k Vášmu projektu.";
+    "Zamestnali ste %(wer).";
+    "%(wer) ste u predtım zamestnali.";
+    "%(wer) je u na vıplatnej páske Vášho projektu.";
+    diary_entry "%(wer) u na Vašom projekte pracuje.";
   end message;
 
 -----------------------------------------------------
@@ -1715,52 +1715,52 @@ end message;
                          hohe_E : string;
                          mittlere_E : string;
                          geringe_E  : string) is
-    "For %(wer) you have to pay %(Kosten) EUR per hour.
-%(wer) is highly experienced in the following respects: %(hohe_E). 
-%He(wer) has medium experience %(mittlere_E). 
-However, %he(wer) has only verly little knowledge %(geringe_E).";
-    "%(wer) costs you %(Kosten) EUR per hour. 
-%(wer) is highly experienced in the following respects: %(hohe_E). 
-%He(wer) has medium experience %(mittlere_E). 
-However, %he(wer) has only very little knowledge %(geringe_E).";
-    "%(wer) is calculated with %(Kosten) EUR per hour. 
-%His(wer) primary abiltities are in the following areas: %(hohe_E).
-%He(wer) has also successfully applied the following notations and tasks: %(mittlere_E). 
-However, %he(wer) has only verly little knowledge about the following aspects: %(geringe_E).";
-    "Because of %his(wer) abilities, %(wer) gets %(Kosten) EUR per hour.
-%He(wer) is very familiar with this areas: %(hohe_E).
-%He(wer) has some knowledge in %(mittlere_E).
-Finally, little experience in %(geringe_E).";
-diary_entry "%(wer) gets %(Kosten) EUR per hour. %He(wer) is very familiar with this areas: %(hohe_E).
-%He(wer) has some knowledge %(mittlere_E).
-Finally, a little experience %(geringe_E).";
+    "Za zamestnanca: %(wer) musíte plati %(Kosten) EUR na hodinu.
+%(wer) je ve¾mi skúsenı/skúsená v nasledujúcich oblastiach: %(hohe_E). 
+%He(wer) má priemerné skúsenosti s %(mittlere_E). 
+Akoko¾vek, %he(wer) má ve¾mi malé znalosti: %(geringe_E).";
+    "%(wer) Vás stojí %(Kosten) EUR na hodinu. 
+%(wer) je ve¾mi skúsenı/skúsená v nasledujúcich odvetviach: %(hohe_E). 
+%He(wer) má aké-také skúsenosti s: %(mittlere_E). 
+Avšak, %he(wer) má zanedbate¾né skúsenosti s: %(geringe_E).";
+    "Plat pre zamestnanca: %(wer) sa poèíta so šarou %(Kosten) EUR na hodinu. 
+%His(wer) primárne schopnosti siahajú do tıchto oblastí: %(hohe_E).
+%He(wer) má takisto urèité znalosti o: %(mittlere_E). 
+Na druhej strane, %he(wer) má len chabé skúsenosti s: %(geringe_E).";
+    "Na základe svojich schopností dostáva %(wer) %(Kosten) EUR na hodinu.
+%He(wer) je ve¾mi dobre oboznámenı s oblasami ako: %(hohe_E).
+%He(wer) má urèité znalosti v: %(mittlere_E).
+Nakoniec, poslabšie skúsenosti zamestnanca %He(wer) sú: %(geringe_E).";
+diary_entry "%(wer) dostáva %(Kosten) EUR na hodinu. %He(wer) je ve¾mi skusenı/skúsená v tıchto oblastiach: %(hohe_E).
+%He(wer) má priemerné vedomosti o: %(mittlere_E).
+Koniec koncov, aké-také, hoci poslabšie vedomosti má aj o: %(geringe_E).";
   end message;
 
 -----------------------------------------------------
 
   message Entwickler_macht_nichts(wer: Entwickler) is
-    "%(wer) has nothing to do at the moment and is very frustrated about it. Give %(wer) something to do, you must pay %him(wer) anyway!";
-    "%(wer) is just standing around, costing money. Give %him(wer) something to work on.";
-    "%(wer) has nothing to do at the moment and isn't unhappy about it.";
-    "Give %(wer) something to do. You have hired %him(wer) and now %he(wer) has nothing to do. Not that motivating, I can assure you.";
-    diary_entry "%(wer) has nothing to do at the moment";
+    "%(wer) nemá momentálne niè na práci a je kvoli tomu ve¾mi frustrovanı/frustrovaná. Pride¾te mu/jej nejaké úlohy, keï u ho/ju platíte!";
+    "%(wer) len postáva a niè nerobí. Pride¾te mu/jej nejakú prácu.";
+    "%(wer) momentálne nerobí niè a nie je z toho ve¾mi nadšenı/nadšená.";
+    "Dajte zamestnancovi: %(wer) nejakú prácu. Zamestnali ste ho/ju, no aj tak teraz niè nemá na práci. Urèite niè motivujúce, tım si môete by istı/á.";
+    diary_entry "%(wer) nerobí teraz vôbec niè";
   end message;
 
 -----------------------------------------------------
 
   message Entwickler_wird_begutachten(wer: Entwickler) is
-    "%(wer) will take part in a review.";
-    diary_entry "%(wer) will take part in a review";
+    "%(wer) bude pracova na posudku/recenzii.";
+    diary_entry "%(wer) bude pracova na posudku/recenzii";
   end message;
 
 -----------------------------------------------------
 
   message Entwickler_begutachtet(wer: Entwickler) is
-    "%(wer) spents at least some of %his(wer) time for a review.";
-    "%(wer): I'm busy with a review, but I can do something else besides.";
-    "You assigned %(wer) to a review, but %he(wer) can do something else besides of it.";
-    "%(wer): Me? Taking part in a review. Why do you ask?";
-    diary_entry "%(wer) takes part in a review";
+    "%(wer) strávi aspoò nejakı èas nad písaním posudku.";
+    "%(wer): Som zaneprázdnenı/zaneprázdnená s písaním posudku, ale môe pracova na nieèom inom popritom.";
+    "Zamestnancovi: %(wer) ste priradili prácu na posudku, ale %he(wer) môe robi nieèo iné popritom.";
+    "%(wer): Ja? Pracujem na posudku, preèo sa pıtate?";
+    diary_entry "%(wer) pracuje na posudku";
   end message;
 
 -----------------------------------------------------
@@ -1778,126 +1778,126 @@ Finally, a little experience %(geringe_E).";
 
   message Entwickler_wird_produzieren(wer: Entwickler;
                                 was: Dokument) is
-    "%(wer) will write the %(was).";
-    diary_entry "%(wer) will work on the %(was)";
+    "%(wer) napíše %(was).";
+    diary_entry "%(wer) bude pracova na: %(was)";
   end message;
 
 -----------------------------------------------------
 
   message Entwickler_produziert(wer: Entwickler;
                                 was: Dokument) is
-    "%(wer) is writing the %(was)";
-    "%(wer) is currently working on the %(was)";
-    "%(wer): Me? I'm occupied with the %(was).";
-    "Asked about %his(wer) activities, %(wer) says, %he(wer) is working at the %(was)";
-    "%(wer): You assigned me to the %(was). Don't you remember?";
-    diary_entry "%(wer) is currently working on the %(was)";
+    "%(wer) píše %(was)";
+    "%(wer) momentálne pracuje na: %(was)";
+    "%(wer): Ja? Ja som zaneprázdnenı/á s: %(was).";
+    "%(wer) tvrdí, e pracuje na: %(was)";
+    "%(wer): Priradili ste mi prácu na: %(was). U si to nepamätáte?";
+    diary_entry "%(wer) momentálne pracuje na: %(was)";
   end message;
 
 -----------------------------------------------------
 
   message Entwickler_wird_integr(wer: Entwickler) is
-    "%(wer) will integrate the system.";
-    diary_entry "%(wer) will work on the system integration";
+    "%(wer) bude integrova systém.";
+    diary_entry "%(wer) bude pracova na integrácii systému";
   end message;
 
 -----------------------------------------------------
 
   message Entwickler_integr(wer: Entwickler) is
-    "%(wer): Me? I'm occupied with integration.";
-    "Asked about %his(wer) activities, %(wer) says, %he(wer) is working at the system integration";
-    "%(wer): You assigned me to do system integration. Don't you remember?";
-    diary_entry "%(wer) is currently working on the system integration";
+    "%(wer): Ja? ja som zaneprázdnenı/zaneprázdnená s integráciou systému.";
+    "%(wer) tvrdí, e pracuje na integrácii systému.";
+    "%(wer): Pridelili ste mi integráciu systému. Èi u ste na to zabudli?";
+    diary_entry "%(wer) práve pracuje na integrácii systému.";
   end message;
 
 -----------------------------------------------------
 
   message Entwickler_wird_testen(wer: Entwickler) is
-    "%(wer) will test the code.";
-    diary_entry "%(wer) will test the code";
+    "%(wer) otestuje kód.";
+    diary_entry "%(wer) otestuje kód";
   end message;
 
 -----------------------------------------------------
 
   message Entwickler_testet(wer: Entwickler) is
-    "%(wer) is testing the code.";
-    "%(wer): Me? I'm occupied with testing.";
-    "Asked about %his(wer) activities, %(wer) says, %he(wer) is working at the test of the code";
-    "%(wer): You assigned me to the test of the code. Don't you remember?";
-    diary_entry "%(wer) is currently testing the code";
+    "%(wer) testuje zdrojovı kód.";
+    "%(wer): Ja? Veï ja som zaneprázdnenı testmi zdrojovıch kódov.";
+    "%(wer) tvrdí, e pracuje na testoch pre zdrojové kódy.";
+    "%(wer): Priradili ste mi testovanie zdrojovıch kódov. Èi ste na to zabudli?";
+    diary_entry "%(wer) práve testuje zdrojovı kód";
   end message;
 
 -----------------------------------------------------
 
   message Entwickler_wird_korrigieren(wer: Entwickler;
                                 was: Dokument) is
-    "%(wer) will correct the %(was).";
-    diary_entry "%(wer) will correct the %(was)";
+    "%(wer) bude pracova na oprave/korekcii %(was).";
+    diary_entry "%(wer) bude pracova na oprave/korekcii %(was)";
   end message;
 
 -----------------------------------------------------
 
   message Entwickler_korrigiert(wer: Entwickler;
                                 was: Dokument) is
-    "%(wer) is currently correcting the %(was)";
-    "%(wer): Me? I'm occupied with the correction of %(was).";
-    "Asked about %his(wer) activities, %(wer) says, %he(wer) is correcting the %(was)";
-    "%(wer): You assigned me to the correction of %(was). Don't you remember?";
-    diary_entry "%(wer) is currently correcting the %(was)";
+    "%(wer) práve pracuje na oprave/korekcii %(was)";
+    "%(wer): Ja? Ale veï ja som zaneprázdnenı/á s korekciou - %(was).";
+    "%(wer) tvrdí, e pracuje na korekcii %(was)";
+    "%(wer): Priradili ste mi opravu - %(was). Èi ste zabudli?";
+    diary_entry "%(wer) práve pracuje na oprave/korekcii %(was)";
   end message;
 
 -----------------------------------------------------
 
   message Entwickler_wird_alles_korrigieren(wer: Entwickler) is
-    "%(wer) will correct the produced documents.";
-    diary_entry "%(wer) will correct all documents";
+    "%(wer) bude opravova vytvorené dokumenty.";
+    diary_entry "%(wer) bude opravova všetky vytvorené dokumenty";
   end message;
 
 -----------------------------------------------------
 
   message Entwickler_korrigiert_alles(wer: Entwickler) is
-    "%(wer) is currently correcting the produced documents";
-    "%(wer): Me? I'm occupied with the correction of all documents.";
-    "Asked about %his(wer) activities, %(wer) says, %he(wer) is correcting the produced documents";
-    "%(wer): You assigned me to the correction of all documents. Don't you remember?";
-    diary_entry "%(wer) is currently correcting all documents";
+    "%(wer) práve pracuje na korekcii vytvorenıch dokumentov.";
+    "%(wer): Ja? Ja som zaneprázdnenı/zaneprázdnená s korekciou dokumentov.";
+    "%(wer) tvrdí, e pracuje na korektúre vyprodukovanıch dokumentov.";
+    "%(wer): Priradili ste mi korektúru všetkıch dokumentov. Èi ste u na to zabudli?";
+    diary_entry "%(wer) práve opravuje všetky dokumenty";
   end message;
 
 -----------------------------------------------------
 
   message Entwickler_hat_erstellt    (wer: Entwickler) is
-    "%(wer) worked on:";
-    "%(wer) wrote:";
+    "%(wer) pracoval(a) na:";
+    "%(wer) písal(a):";
   end message;
 
   message Entwickler_hat_korrigiert    (wer: Entwickler) is
-    "%(wer) corrected:";
+    "%(wer) opravoval(a):";
   end message;
 
   message Entwickler_hat_Erstellungsaufwand (was: Dokument; wielang: integer) is
-    "the %(was) for %(wielang) hours";
+    "%(was) (trvanie): %(wielang) hodín";
   end message;
   message Entwickler_hat_Korrekturaufwand (was: Dokument; wielang: integer) is
-    "the %(was) for %(wielang) hours";
+    "%(was) (trvanie): %(wielang) hodín";
   end message;
   message Entwickler_hat_Reviewaufwand (was: Dokument; wielang: integer) is
-    "the %(was) for %(wielang) hours";
+    "%(was) (trvanie): %(wielang) hodín";
   end message;
   message Entwickler_hat_begutachtet (wer: Entwickler) is
-    "%(wer) reviewed:";
-    "%(wer) participated in reviews of: ";
+    "%(wer) posudzoval:";
+    "%(wer) bol súèasou skupiny, ktorá posudzovala: ";
   end message;
   message Entwickler_hat_getestet (wer: Entwickler) is
-    "%(wer) participated in: ";
+    "%(wer) sa zúèastnil (prác na): ";
   end message;
   message Entwickler_testete_Module (wielang: integer) is
-    "the module test for %(wielang) hours";
+    "test modulov (trvanie): %(wielang) hodín";
   end message;
   message Entwickler_testete_Integration (wielang: integer) is
-    "the integration test for %(wielang) hours";
+    "integraènı test (trvanie): %(wielang) hodín";
   end message;
   message Entwickler_testete_System (wielang: integer) is
-    "the system test for %(wielang) hours";
+    "test systému (trvanie): %(wielang) hodín";
   end message;
 
 
@@ -1908,61 +1908,61 @@ Finally, a little experience %(geringe_E).";
 -----------------------------------------------------
 
   message Entwickler_wurde_eingestellt(wer: Entwickler) is
-    "The developer %(wer) was hired. %He(wer) seems to be happy and hopes to be very productive soon";
+    "Vıvojár(ka) bol(a) zamestnaná. Zdá sa, e %He(wer) je rád/rada a bude prínosom pre tím.";
     "%(wer) is glad somebody recogniced %his(wer) talents and hired %him(wer).";
-    "%(wer) is confident that %he(wer) can convince you of having made the right choice.";
-    "%(wer): You have hired me. Now what? How can I help you?";
-    diary_entry "The developer %(wer) was hired.";
+    "%(wer) si je istı/istá, e Vás presvedèí o správnosti Vašej vo¾by zamestna %him(wer).";
+    "%(wer): Zamestnali ste ma. Èo teraz? Ako môem pomôc?";
+    diary_entry "Vıvojár(ka) %(wer) bol(a) najatı/á.";
   end message;
 
 -----------------------------------------------------
 
   message Entwickler_wurde_entlassen(wer: Entwickler) is
-    "The developer %(wer) was released from the project.";
-    "You released %(wer) so %he(wer) can be assigned to another project.";
-    "You don't need the help of %(wer) anymore and took %him(wer) off the project.";
-    "%(wer): If you don't need me anymore...but you will regret it.";
-    diary_entry "The developer %(wer) was released from the project.";
+    "Vıvojár(ka) %(wer) bol(a) z projektu prepustenı/prepustená.";
+    "Uvo¾nili ste z pracovného pomeru %(wer), take %he(wer) môe by priradenı/priradená k inému projektu.";
+    "Pomoc od zamestanca %(wer) u oèividne nepotrebujete, keïe ste %him(wer) uvo¾nili z projektu.";
+    "%(wer): Tak èo u, keï ma nepotrebujete... ale to budete ešte ¾utova.";
+    diary_entry "Vıvojár(ka) %(wer) bol(a) prepustenı/prepustená z projektu.";
   end message;
 
 -----------------------------------------------------
 
   message keine_Notation_vorgegeben(fuer: Dokument) is
-    "Which notation or language should be applied for the %(fuer)? Please specify a notation.";
-    "You must specify a notation or language for the %(fuer).";
-    "There is no notation defined for the %(fuer). Please specify a notation or language for the document.";
-    "We can't go on without a notation for the %(fuer). Please specify a notation.";
+    "Ktorá notácia alebo jazyk má by pouitá pre %(fuer)? Prosím, blišie špecifikujte notáciu.";
+    "Pre dokument %(fuer) musíte blišie špecifikova notáciu alebo jazyk.";
+    "Pre dokument %(fuer) musí by definovaná notácia. Prosím, blišie špecifikujte notáciu alebo jazyk.";
+    "Nedá sa pokraèova ïalej, pokia¾ pre dokument %(fuer) nie je notácia špecifikovaná. Špecifikujte ju blišie, prosím.";
   end message;
 
 -----------------------------------------------------
 
   message Notation_wurde_vorgegeben(welche: Notation;
                                       fuer  : Dokument) is
-    "The %(welche) notation must be used in the document %(fuer)";
-    "For the %(fuer) %(welche) must be used.";
-    "%(welche) must be used for the %(fuer).";
-    "Big Boss says: For the %(fuer) %(welche) must be used.";
-    diary_entry "For the %(fuer) %(welche) must be used.";
+    "Notácia %(welche) musí by pouitá v prípade dokumentu %(fuer)";
+    "Pre dokument %(fuer) je potrebné poui notáciu %(welche).";
+    "%(welche) musí by pouitá pre %(fuer).";
+    "Ve¾kı Brat vraví: Pre dokument %(fuer) má by pouitá notácia %(welche).";
+    diary_entry "Pre dokument %(fuer) je potrebné poui notáciu %(welche).";
   end message;
 
 -----------------------------------------------------
 
   message Notation_ist_ungeeignet(welche: Notation;
                                     fuer: Dokument) is
-    "The %(welche) notation is inappropriate for the %(fuer). It would be better to use another notation instead.";
-    "Didn't you notice, that %(welche) is inapplicable for the %(fuer)?";
-    "The notation you've chosen for the %(fuer), namely %(welche), can't be used in the %(fuer).";
-    "Even with the greatest effort, you can't use %(welche) for the %(fuer).";
-    diary_entry "The %(welche) notation is inappropriate for the %(fuer).";
+    "%(welche) notácia neprislúcha %(fuer). Bolo by lepšie poui inú notáciu.";
+    "Nevšimli ste si, e %(welche) nie je aplikovate¾ná na %(fuer)?";
+    "Notáciu, ktorú ste pre %(fuer) zvolili, konkrétne %(welche), nemôe by pre %(fuer) pouitá.";
+    "Ani pri najväèšom úsilí nemôete poui %(welche) pre %(fuer).";
+    diary_entry "%(welche) notácia neprislúcha %(fuer).";
   end message;
 
 -----------------------------------------------------
 
   message Notation_darf_nicht_mehr_geaendert_werden(fuer: Dokument) is
-    "Work on the %(fuer) has already started. You cannot change the notation for the %(fuer) anymore.";
-    "You cannot change the notation for the %(fuer) anymore. Your staff has already began working on the document.";
-    "Your staff has already began working at the %(fuer). They won't change to another notation anymore.";
-    "Someone works at the %(fuer). You can't change the notation, while someone's working at it.";
+    "Práce na %(fuer) sa u zaèala. U nemôete zmeni notáciu pre %(fuer).";
+    " U nemôete zmeni notáciu pre %(fuer). Váš tím u zaèal na dokumente pracova.";
+    "Váš tím u zaèal na dokumente pracova na %(fuer) a tım pádom u notáciu nezmení.";
+    "Niekto u na %(fuer) pracuje. Nemôete zmeni notáciu, ked u niekto na dokumente pracuje.";
     diary_entry "Notation for %(fuer) cannot be changed anymore.";
   end message;
 
@@ -1974,24 +1974,24 @@ Finally, a little experience %(geringe_E).";
 -----------------------------------------------------
 
   message nicht_eingestellt(wer: Entwickler) is
-    "%(wer) was not hired yet.";
-    "Who? You haven't hired %(wer).";
-    "%(wer) is not assigned to your project.";
-    "Assigning %(wer) to your project and %he(wer) will be happy to help. But not without assigning %him(wer).";
-    diary_entry "%(wer) is not assigned to the project.";
+    "%(wer) ešte nie je zamestnanı/zamestnaná.";
+    "Koho zamestna? Doposia¾ ste %(wer)(a/u) nezamestnali.";
+    "%(wer) nie je zatia¾ pridelenı/pridelená k Vášmu projektu.";
+    "%(wer) bol(a) priradenı/priradená k Vášmu projektu a s radosou Vám s projektom pomôe. Najprv však musí by %him(wer) zamestnaná.";
+    diary_entry "%(wer) nie je zatia¾ pridelenı/pridelená k Vášmu projektu.";
   end message;
 
 -----------------------------------------------------
 
   message Fehlermeldung_illegale_Autor_ID(E: Entwickler) is
-    "Error message: Illegal Author-ID for the developer %(E).";
+    "Chyba: Neprípustné ID autora (Author-IDs) pre vıvojára %(E).";
   end message;
 
 -----------------------------------------------------
 
   message Fehlermeldung_gleiche_Autor_IDs (E1: Entwickler;
                                            E2: Entwickler) is
-    "Error message: Identical Author-IDs for developers %(E1) and %(E2).";
+    "Chyba: Identické ID (Author-IDs) pre vıvojárov %(E1) a %(E2).";	
   end message;
 
 -----------------------------------------------------
@@ -2049,7 +2049,7 @@ Finally, a little experience %(geringe_E).";
   message Zustand_von_Notizen ( AFP     : real;
                                 Analysefehler          : integer;
     Anzahl_Fehler_ges      : integer) is
-    "The document Analysenotizen contains %(AFP) adjusted function points, %(Analysefehler) analysis errors and  %(Anzahl_Fehler_ges) total errors.";
+	"Notifikácie (analızy) obsahujú %(AFP) AFP(adjusted function points), %(Analysefehler) chıb analızy a %(Anzahl_Fehler_ges) chıb dokopy.";
   end message;
 
 -----------------------------------------------------
@@ -2057,7 +2057,7 @@ Finally, a little experience %(geringe_E).";
   message Zustand_von_Spez_Dok ( AFP     : real;
                                 Analysefehler          : integer;
     Anzahl_Fehler_ges      : integer) is
-    "The document Specification contains %(AFP) adjusted function points, %(Analysefehler) analysis errors and  %(Anzahl_Fehler_ges) total errors.";
+    "Špecifikácia obsahuje %(AFP) AFP(adjusted function points), %(Analysefehler) chıb analızy a %(Anzahl_Fehler_ges) chıb dokopy.";	
   end message;
 
 -----------------------------------------------------
@@ -2066,7 +2066,7 @@ Finally, a little experience %(geringe_E).";
                                 Analysefehler          : integer;
            Grobentwurfsfehler     : integer;
     Anzahl_Fehler_ges      : integer) is
-    "The document System Design contains %(AFP) adjusted function points, %(Analysefehler) analysis errors, %(Grobentwurfsfehler) system design errors and  %(Anzahl_Fehler_ges) total errors.";
+	"Návrh systému obsahuje %(AFP) AFP(adjusted function points), %(Analysefehler) chıb analızy, %(Grobentwurfsfehler) chıb návrhu systému a %(Anzahl_Fehler_ges) chıb dokopy.";
   end message;
 
 -----------------------------------------------------
@@ -2076,7 +2076,7 @@ Finally, a little experience %(geringe_E).";
            Grobentwurfsfehler     : integer;
            Feinentwurfsfehler     : integer;
     Anzahl_Fehler_ges      : integer) is
-    "The document System Design contains %(AFP) adjusted function points, %(Analysefehler) analysis errors, %(Grobentwurfsfehler) system design errors, %(Feinentwurfsfehler) module design errors and  %(Anzahl_Fehler_ges) total errors.";
+    "Návrh systému obsahuje %(AFP) AFP(adjusted function points), %(Analysefehler) chıb analızy, %(Grobentwurfsfehler) chıb návrhu systému, %(Feinentwurfsfehler) chıb návrhu modulov a %(Anzahl_Fehler_ges) chıb dokopy.";
   end message;
 
 -----------------------------------------------------
@@ -2087,7 +2087,7 @@ Finally, a little experience %(geringe_E).";
            Feinentwurfsfehler     : integer;
            Implementierungsfehler : integer;
     Anzahl_Fehler_ges      : integer) is
-    "The Code contains %(AFP) adjusted function points, %(Analysefehler) analysis errors, %(Grobentwurfsfehler) system design errors, %(Feinentwurfsfehler) module design errors, %(Implementierungsfehler) implemetation errors and  %(Anzahl_Fehler_ges) total errors.";
+    "Zdrojovı kód obsahuje %(AFP) AFP(adjusted function points), %(Analysefehler) chıb analızy, %(Grobentwurfsfehler) chıb v návrhu systému, %(Feinentwurfsfehler) chıb v návrhu modulov, %(Implementierungsfehler) chıb implementácie a %(Anzahl_Fehler_ges) chıb dokopy.";
   end message;
 
 -----------------------------------------------------
@@ -2096,7 +2096,7 @@ Finally, a little experience %(geringe_E).";
                                Analysefehler          : integer;
                                Handbuchfehler         : integer;
           Anzahl_Fehler_ges      : integer) is
-    "The document Handbuch contains %(AFP) adjusted function points, %(Analysefehler) analysis errors, %(Handbuchfehler) errors in the documentation and  %(Anzahl_Fehler_ges) total errors.";
+    "Pouívate¾ská príruèka obsahuje %(AFP) AFP(adjusted function points), %(Analysefehler) chıb analızy(analysis errors), %(Handbuchfehler) chıb v dokumentácii a %(Anzahl_Fehler_ges) chıb dokopy.";
   end message;
 
 -----------------------------------------------------
