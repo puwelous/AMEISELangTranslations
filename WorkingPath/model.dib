@@ -16,13 +16,13 @@
 dictionary for QS in english is
 
   map for Entwickler is
-    "Axel"  => "Axel" ,"A","1",pronoun "he";
-    "Bernd"  => "Bernd" ,"B","2",pronoun "he";
-    "Christine"  => "Christine" ,"C","3",pronoun "she";
-    "Diana"  => "Diana" ,"D","4",pronoun "she";
-    "Richard"  => "Richard" ,"R","5",pronoun "he";
-    "Stefanie" => "Stefanie","S","6",pronoun "she";    
-    "Thomas" => "Thomas","T","7",pronoun "he";
+    "Axel"  => "Axel" ,"A","1",pronoun "on";
+    "Bernd"  => "Bernd" ,"B","2",pronoun "on";
+    "Christine"  => "Christine" ,"C","3",pronoun "ona";
+    "Diana"  => "Diana" ,"D","4",pronoun "ona";
+    "Richard"  => "Richard" ,"R","5",pronoun "on";
+    "Stefanie" => "Stefanie","S","6",pronoun "ona";    
+    "Thomas" => "Thomas","T","7",pronoun "on";
   end map;
   
 --nikoo start
@@ -71,57 +71,57 @@ end map;
 --nikoo end
 
   message Interpreter.Do_not_Understand is
-     "unfortunately SESAM does not understand you!";
+     "SESAM Vám, bohuia¾, nerozumie!";
   end message;
 
 --====== Produktions-Kommandos ================================
 
   command lasse_mit_Kunden_sprechen(ein_Entwickler: Entwickler) is
-    "[ask] [to] (talk|speak) [to|with] [the] customer", ask "Who should talk to the customer?" => ein_Entwickler;
+    "[ask] [to] (talk|speak) [to|with] [the] customer", ask "Kto má hovori so zákazníkom?" => ein_Entwickler;
     "[ask] %(ein_Entwickler) [to] (talk|speak) [to|with] [the] customer";
-    diary_entry "Told %(ein_Entwickler) to interview the customer.";
+    diary_entry "%(ein_Entwickler) u vie, e sa má porozpráva so zákazníkom.";
   end command;
 
 -----------------------------------------------------
 
   command lasse_spezifizieren(ein_Entwickler : Entwickler) is
-    "[ask] [to] specify", ask "Who should work on the specification?" => ein_Entwickler;
-    "[ask] [to] (write|work on) [the] specification", ask "Who should work on the specification?" => ein_Entwickler;
+    "[ask] [to] specify", ask "Kto má pracova na špecifikácii?" => ein_Entwickler;
+    "[ask] [to] (write|work on) [the] specification", ask "Kto má pracova na špeifikácii?" => ein_Entwickler;
     "[ask] %(ein_Entwickler) [to] specify";
     "[ask] %(ein_Entwickler) [to] (write|work on) [the] specification";
-    diary_entry "Told %(ein_Entwickler) to work on the specification.";
+    diary_entry "%(ein_Entwickler) u vie, e má pracova na špecifikácii.";
   end command;
 
 -----------------------------------------------------
 
   command lasse_System_entwerfen(ein_Entwickler : Entwickler) is
-    "design system", ask "Who should design the system?" => ein_Entwickler;
-    "([ask] [to] (write|do|work on) [the] system design)", ask "Who should design the system?" => ein_Entwickler;
-    "[ask] [to] design [the] system", ask "Who should design the system?" => ein_Entwickler;
+    "design system", ask "Kto má navrhova systém?" => ein_Entwickler;
+    "([ask] [to] (write|do|work on) [the] system design)", ask "Kto má navrhova systém?" => ein_Entwickler;
+    "[ask] [to] design [the] system", ask "Kto má navrhova systém?" => ein_Entwickler;
     "[ask] %(ein_Entwickler) [to] (write|do|work on) [the] system design";
     "[ask] %(ein_Entwickler) [to] design [the] system";
-    diary_entry "Told %(ein_Entwickler) to work on the system design.";
+    diary_entry "%(ein_Entwickler) u vie, e má pracova na návrhu systému.";
   end command;
 
 -----------------------------------------------------
 
   command lasse_Module_spezifizieren(ein_Entwickler : Entwickler) is
-    "design modules", ask "Who should specify the modules?" => ein_Entwickler;
-    "([ask] [to] (write|do|work on) [the] module (design|specification|spec|specs))", ask "Who should specify the modules?" => ein_Entwickler;
-    "[ask] [to] (design|specify) [the] modules", ask "Who should work on the module specification?" => ein_Entwickler;
+    "design modules", ask "Kto má pracova na špecifikácii modulov?" => ein_Entwickler;
+    "([ask] [to] (write|do|work on) [the] module (design|specification|spec|specs))", ask "Kto má pracova na špecifikácii modulov?" => ein_Entwickler;
+    "[ask] [to] (design|specify) [the] modules", ask "Kto má pracova na špecifikácii modulov?" => ein_Entwickler;
     "[ask] %(ein_Entwickler) [to] (write|do|work on) [the] module (design|specification|spec|specs)";
     "[ask] %(ein_Entwickler) [to] (design|specify) [the] modules";
-    diary_entry "Told %(ein_Entwickler) to work on the module design.";
+    diary_entry "%(ein_Entwickler) bol(a) oboznámenı/á, e má pracova na špecifikácii modulov.";
   end command;
 
 -----------------------------------------------------
 
   command lasse_codieren(ein_Entwickler : Entwickler) is
-    "[ask] [to] [write] [the] code", ask "Who should write the code?" => ein_Entwickler;
-    "[ask] [to] (work|do) [on] [the] implementation", ask "Who should work on the implementation?" => ein_Entwickler;
+    "[ask] [to] [write] [the] code", ask "Kto má písa kód?" => ein_Entwickler;
+    "[ask] [to] (work|do) [on] [the] implementation", ask "Kto má pracova na implementácii?" => ein_Entwickler;
     "[ask] %(ein_Entwickler) [to] write [the] code";
     "[ask] %(ein_Entwickler) [to] implement";
-    diary_entry "Told %(ein_Entwickler) to work on the implementation.";
+    diary_entry "%(ein_Entwickler) u vie, e má pracova na implementácii.";
   end command;
 
 -----------------------------------------------------
@@ -150,54 +150,54 @@ end map;
 -----------------------------------------------------
 
   command lasse_integrieren(ein_Entwickler : Entwickler) is
-    "[ask] [to] integrate [the] [system]", ask "Who should do the integration?" => ein_Entwickler;
+    "[ask] [to] integrate [the] [system]", ask "Kto má vykona integráciu?" => ein_Entwickler;
     "[ask] %(ein_Entwickler) [to] integrate [the] [system]";
     "[ask] %(ein_Entwickler) [to] (do|make) [the] [system] integration";
-    diary_entry "Told %(ein_Entwickler) to work on the system integration.";
+    diary_entry "%(ein_Entwickler) bol(a) oboznámenı/á, e má pracova na integrácii systému.";
   end command;
 
 -----------------------------------------------------
 
   command lasse_Handbuch_erstellen(ein_Entwickler : Entwickler) is
-    "[ask] [to] (write|work on) [the] ([system] documentation|[user] manual|[user] manuals)", ask "Who should write the documentation?" => ein_Entwickler;
+    "[ask] [to] (write|work on) [the] ([system] documentation|[user] manual|[user] manuals)", ask "Kto má písa dokumentáciu?" => ein_Entwickler;
     "[ask] %(ein_Entwickler) [to] (write|work on) [the] ([system] documentation|[user] manual|[user] manuals)";
-    diary_entry "Told %(ein_Entwickler) to write the user manual/ system documentation.";
+    diary_entry "%(ein_Entwickler)(ovi) bolo povedané, aby napísal(a) pouívate¾skú príruèku/ systémovú dokumentáciu.";
   end command;
 
 --====== Pruef-Kommandos ======================================
 
   command lasse_Module_testen(ein_Entwickler : Entwickler) is
-    "[ask] [to] test [the] modules", ask "Who should work on the module test?" => ein_Entwickler;
-    "[ask] [to] do [the] module test", ask "Who should work on the module test?" => ein_Entwickler;
+    "[ask] [to] test [the] modules", ask "Kto má testova modul(y)?" => ein_Entwickler;
+    "[ask] [to] do [the] module test", ask "Kto má testova modul(y)?" => ein_Entwickler;
     "[ask] %(ein_Entwickler) [to] test [the] modules";
     "[ask] %(ein_Entwickler) [to] do [the] module test";
-    diary_entry "Told %(ein_Entwickler) to do the module test.";
+    diary_entry "%(ein_Entwickler)(ovi) bolo povedané, aby pracoval(a) na testoch pre modul(y).";
   end command;
 
 -----------------------------------------------------
 
   command lasse_Integrationstest_durchfuehren(ein_Entwickler : Entwickler) is
-    "test integration", ask "Who should do the system integration test?" => ein_Entwickler;
-    "([ask] [to] (do|work on) [the] [system] integration test)", ask "Who should do the system integration test?" => ein_Entwickler;
+    "test integration", ask "Kto má testova integráciu systému?" => ein_Entwickler;
+    "([ask] [to] (do|work on) [the] [system] integration test)", ask "Kto má testova integráciu systému?" => ein_Entwickler;
     "[ask] %(ein_Entwickler) [to] (do|work on) [the] [system] integration test";
-    diary_entry "Told %(ein_Entwickler) to work on the integration test.";
+    diary_entry "%(ein_Entwickler) bol(a) oboznámenı(á) s tım, aby otestoval(a) integráciu systému.";
   end command;
 
 -----------------------------------------------------
 
   command lasse_Systemtest_durchfuehren(ein_Entwickler : Entwickler) is
-    "[ask] [to] test [the] system", ask "Who should work on the system test?" => ein_Entwickler;
-    "[ask] [to] do [the] system test", ask "Who should work on the system test?" => ein_Entwickler;
+    "[ask] [to] test [the] system", ask "Kto má pracova na testoch systému?" => ein_Entwickler;
+    "[ask] [to] do [the] system test", ask "Kto má pracova na testoch systému?" => ein_Entwickler;
     "[ask] %(ein_Entwickler) [to] test [the] system";
     "[ask] %(ein_Entwickler) [to] do [the] system test";
-    diary_entry "Told %(ein_Entwickler) to work on the system test.";
+    diary_entry "%(ein_Entwickler)(ovi) bolo povedané, aby pracoval(a) na systémovıch testoch.";
   end command;
 
 -----------------------------------------------------
 
   command lasse_Kunde_Abnahmetest_durchfuehren is
     "[ask] [the] customer [to] (perform|do) [the] acceptance test";
-    diary_entry "Told customer that the product is ready for doing an acceptance test.";
+    diary_entry "Zákazníkovi bolo povedané, e produkt je pripravenı pre vykonanie akceptaèného test.";
   end command;
 
 -----------------------------------------------------
@@ -207,16 +207,16 @@ end map;
    Gutachter_1  : Entwickler;
    Gutachter_2  : Entwickler) is
     "[ask] (two|2) (developers|reviewers) [to] [perform|undertake] [a] review", 
-      ask "Which document must be reviewed?" => ein_Dokument,
-      ask "Who is the first reviewer?" => Gutachter_1,
-      ask "Who is the second reviewer?" => Gutachter_2;
+      ask "Ktorı dokument má by prehodnotenı/posúdenı?" => ein_Dokument,
+      ask "Kto je prvou osobou, ktorá má vykona posudok?" => Gutachter_1,
+      ask "Kto je druhou osobou, ktorá má vykona posudok?" => Gutachter_2;
     "[ask] [two|2] (developers|reviewers) [to] review [the] %(ein_Dokument)",
-      ask "Who is the first reviewer?" => Gutachter_1,
-      ask "Who is the second reviewer?" => Gutachter_2;
+      ask "Kto je prvou osobou, ktorá má vykona posudok?" => Gutachter_1,
+      ask "Kto je druhou osobou, ktorá má vykona posudok?" => Gutachter_2;
     "[ask] %(Gutachter_1) and %(Gutachter_2) [to] [perform|undertake] [a] review",
-      ask "Which document must be reviewed?" => ein_Dokument;
+      ask "Ktorı dokument má by prehodnotenı/posúdenı?" => ein_Dokument;
     "[ask] %(Gutachter_1) (and|,) %(Gutachter_2) [to] review [the] %(ein_Dokument)";
-    diary_entry "Told %(Gutachter_1) and %(Gutachter_2) to perform a review on the %(ein_Dokument)";
+    diary_entry "%(Gutachter_1) a %(Gutachter_2) boli oboznámení s tım, e majú posúdi/recenzova dokument: %(ein_Dokument)";
   end command;
 
 -----------------------------------------------------
@@ -284,18 +284,18 @@ end map;
    Gutachter_2  : Entwickler;
    Gutachter_3  : Entwickler) is
     "(three|3) (developers|reviewers) [to] [perform|undertake] [a] review", 
-      ask "Which document must be reviewed?" => ein_Dokument,
-      ask "Who is the first reviewer?" => Gutachter_1,
-      ask "Who is the second reviewer?" => Gutachter_2,
-      ask "Who is the third reviewer?" => Gutachter_3;
+      ask "Ktorı dokument má by prehodnotenı/posúdenı?" => ein_Dokument,
+      ask "Kto je prvou osobou, ktorá má vykona posudok?" => Gutachter_1,
+      ask "Kto je druhou osobou, ktorá má vykona posudok?" => Gutachter_2,
+      ask "Kto je tretiou osobou, ktorá má vykona posudok?" => Gutachter_3;
     "instruct (three|3) (developers|reviewers) [to] review [the] %(ein_Dokument)",
-      ask "Who is the first reviewer?" => Gutachter_1,
-      ask "Who is the second reviewer?" => Gutachter_2,
-      ask "Who is the third reviewer?" => Gutachter_3;
+      ask "Kto je prvou osobou, ktorá má vykona posudok?" => Gutachter_1,
+      ask "Kto je druhou osobou, ktorá má vykona posudok?" => Gutachter_2,
+      ask "Kto je tretiou osobou, ktorá má vykona posudok?" => Gutachter_3;
     "instruct %(Gutachter_1) (and|,) %(Gutachter_2) (and|,) %(Gutachter_3) [to] [perform|undertake] [a] review",
-      ask "Which document must be reviewed?" => ein_Dokument;
+      ask "Ktorı dokument má by prehodnotenı/posúdenı?" => ein_Dokument;
     "instruct %(Gutachter_1) (and|,) %(Gutachter_2) (and|,) %(Gutachter_3) [to] review [the] %(ein_Dokument)";
-    diary_entry "Told %(Gutachter_1), %(Gutachter_2) and %(Gutachter_3) to perform a review on the %(ein_Dokument)";
+    diary_entry "%(Gutachter_1), %(Gutachter_2) a %(Gutachter_3) boli oboznámení s tım, e majú posúdi/recenzova dokument: %(ein_Dokument)";
   end command;
 
 -----------------------------------------------------
@@ -304,15 +304,15 @@ end map;
    (Gutachter_1 : Entwickler;
    Gutachter_2 : Entwickler) is
     "[ask] [the] customer [to] participate in [a] review [of] [the] specification",
-      ask "Who is the first reviewer?" => Gutachter_1,
-      ask " Who is the second reviewer?" => Gutachter_2;
+      ask "Kto je prvou osobou, ktorá má vykona posudok?" => Gutachter_1,
+      ask "Kto je druhou osobou, ktorá má vykona posudok?" => Gutachter_2;
     "[ask] [the] customer [to] review [the] specification with %(Gutachter_1)",
-      ask " Who is the second reviewer?" => Gutachter_2;
+      ask "Kto je druhou osobou, ktorá má vykona posudok?" => Gutachter_2;
     "[ask] [the] customer (and|,) %(Gutachter_1) [to] review [the] specification",
-      ask " Who is the second reviewer?" => Gutachter_2;
+      ask "Kto je druhou osobou, ktorá má vykona posudok?" => Gutachter_2;
     "[ask] [the] customer (and|,) %(Gutachter_1) (and|,) %(Gutachter_2) [to] review [the] specification";
     "[ask] [the] customer [to] review [the] specification [together] with %(Gutachter_1) (and|,) %(Gutachter_2)";
-    diary_entry "Told %(Gutachter_1) and %(Gutachter_2) to perform a review on the Specification together with the customer.";
+    diary_entry "%(Gutachter_1) a %(Gutachter_2) boli oboznámení s tım, e majú posúdi špecifikáciu spolu so zákazníkom.";
   end command;
 
 -----------------------------------------------------
@@ -321,72 +321,72 @@ end map;
    (Gutachter_1 : Entwickler;
    Gutachter_2 : Entwickler) is
     "[ask] [the] customer [to] participate in [a] review [of] [the] ([system] documentation|handbook|[user] manuals)",
-      ask "Who is the first reviewer?" => Gutachter_1,
-      ask "Who is the second reviewer?" => Gutachter_2;
+      ask "Kto je prvou osobou, ktorá má vykona posudok?" => Gutachter_1,
+      ask " Kto je druhou osobou, ktorá má vykona posudok?" => Gutachter_2;
     "[ask] [the] customer [to] review [the] ([system] documentation|handbook|[user] manuals) with %(Gutachter_1)",
-      ask "Who is the second reviewer?" => Gutachter_2;
+      ask " Kto je druhou osobou, ktorá má vykona posudok?" => Gutachter_2;
     "[ask] [the] customer (and|,) %(Gutachter_1) [to] review [the] ([system] documentation|handbook|[user] manuals)",
-      ask " Who is the second reviewer?" => Gutachter_2;
+      ask " Kto je druhou osobou, ktorá má vykona posudok?" => Gutachter_2;
     "[ask] [the] customer (and|,) %(Gutachter_1) (and|,) %(Gutachter_2) [to] review [the] ([system] documentation|handbook|[user] manuals)";
     "[ask] [the] customer [to] review [the] ([system] documentation|handbook|[user] manuals) with %(Gutachter_1) (and|,) %(Gutachter_2)";
-    diary_entry "Told %(Gutachter_1) and %(Gutachter_2) to perform a review on the User Manuals together with the customer.";
+    diary_entry "%(Gutachter_1) a %(Gutachter_2) boli oboznámení s tım, e majú posúdi  pouívate¾skú príruèku spolu so zákazníkom.";
   end command;
 
 --====== Korrektur-Kommandos ==================================
 
   command lasse_Spezifikation_nach_Review_korrigieren(ein_Entwickler : Entwickler) is
     "[ask] [to] correct [the] [reviewed] specification",
-      ask "Who should work on the correction of the specification?" => ein_Entwickler;
+      ask "Kto má pracova na oprave/korekcii špecifikácie?" => ein_Entwickler;
     "[ask] [to] correct [the] specification [after review]",
-      ask "Who should work on the correction of the specification?" => ein_Entwickler;
+      ask "Kto má pracova na oprave/korekcii špecifikácie?" => ein_Entwickler;
     "[ask] %(ein_Entwickler) [to] correct [the] ([reviewed] specification|specification [after review])";
-    diary_entry "Told %(ein_Entwickler) to work on the correction of the reviewed specification.";
+    diary_entry "%(ein_Entwickler) bol(a) oboznámenı(á) s tım, e má pracova na oprave/korekcii prehodnotenej špecifikácie.";
   end command;
 
 -----------------------------------------------------
 
   command lasse_Systementwurf_nach_Review_korrigieren(ein_Entwickler : Entwickler) is
     "[ask] [to] correct [the] [reviewed] system design",
-      ask "Who should work on the correction of the system design?" => ein_Entwickler;
+      ask "Kto má pracova na oprave/korekcii návrhu systému?" => ein_Entwickler;
     "[ask] [to] correct [the] system design [after review]",
-      ask "Who should work on the correction of the system design?" => ein_Entwickler;
+      ask "Kto má pracova na oprave/korekcii návrhu systému?" => ein_Entwickler;
     "[ask] %(ein_Entwickler) [to] correct [the] ([reviewed] system design|system design [after review])";
-    diary_entry "Told %(ein_Entwickler) to work on the correction of the reviewed System Design.";
+    diary_entry "%(ein_Entwickler) bol(a) oboznámenı(á) s tım, e má pracova na oprave/korekcii prehodnoteného návrhu systému.";
   end command;
 
 -----------------------------------------------------
 
   command lasse_Modulspez_nach_Review_korrigieren(ein_Entwickler : Entwickler) is
     "[ask] [to] correct [the] [reviewed] module (design|specification|spec)",
-      ask "Who should work on the correction of the module design?" => ein_Entwickler;
+      ask "Kto má pracova na oprave/korekcii návrhu modulov?" => ein_Entwickler;
     "[ask] [to] correct [the] module (design|specification|spec) [after review]",
-      ask "Who should work on the correction of the module design?" => ein_Entwickler;
+      ask "Kto má pracova na oprave/korekcii návrhu modulov?" => ein_Entwickler;
     "[ask] %(ein_Entwickler) [to] correct [the] [reviewed] module (design|specification|spec)";
     "[ask] %(ein_Entwickler) [to] correct [the] module (design|specification|spec) [after review]";
-    diary_entry "Told %(ein_Entwickler) to work on the correction of the reviewed module design.";
+    diary_entry "%(ein_Entwickler) bol(a) oboznámenı(á) s tım, e má pracova na oprave/korekcii prehodnoteného návrhu modulov.";
   end command;
 
 -----------------------------------------------------
 
   command lasse_Code_nach_Review_korrigieren(ein_Entwickler : Entwickler) is
     "[ask] [to] correct [the] reviewed (code|implementation)",
-      ask "Who should work on the correction of the code?" => ein_Entwickler;
+      ask "Kto má pracova na oprave/korekcii zdrojového kódu?" => ein_Entwickler;
     "[ask] [to] correct [the] (code|implementation) after review",
-      ask "Who should work on the correction of the code?" => ein_Entwickler;
+      ask "Kto má pracova na oprave/korekcii zdrojového kódu?" => ein_Entwickler;
     "[ask] %(ein_Entwickler) [to] correct [the] ([reviewed] code|code [after review])";
-    diary_entry "Told %(ein_Entwickler) to correct Bugs found in the implementation during review.";
+    diary_entry "%(ein_Entwickler) bol(a) oboznámenı(á) s tım, e má pracova na oprave/korekcii chıb nájdenıch v implementácii poèas vykonávania kontroly/prehodnocovania.";
   end command;
 
 -----------------------------------------------------
 
   command lasse_Handbuch_nach_Review_korrigieren(ein_Entwickler : Entwickler) is
     "[ask] [to] correct [the] [reviewed] ([system] documentation|handbook|[user] manuals)",
-      ask "Who should work on the correction of the documentation?" => ein_Entwickler;
+      ask "Kto má pracova na oprave/korekcii dokumentácie?" => ein_Entwickler;
     "[ask] [to] correct [the] ([system] documentation|handbook|[user] manuals) [after review]",
-      ask "Who should work on the correction of the documentation?" => ein_Entwickler;
+      ask "Kto má pracova na oprave/korekcii dokumentácie?" => ein_Entwickler;
     "[ask] %(ein_Entwickler) [to] correct [the] [reviewed] ([system] documentation|handbook|[user] manuals)";
     "[ask] %(ein_Entwickler) [to] correct [the] ([system] documentation|handbook|[user] manuals) [after review]";
-    diary_entry "Told %(ein_Entwickler) to work on the correction of mistakes found while reviewing the documentation.";
+    diary_entry "%(ein_Entwickler) bol(a) oboznámenı(á) s tım, e má pracova na oprave/korekcii chıb nájdenıch v dokumentácií.";
   end command;
 
 -----------------------------------------------------
@@ -395,22 +395,22 @@ end map;
    (ein_Entwickler : Entwickler;
    ein_Bericht     : Testbericht) is
     "[ask] [to] correct [the] tested code",
-      ask "Who should correct the code?" => ein_Entwickler,
-      ask "Which test report should be used?" => ein_Bericht;
+      ask "Kto má opravi kód?" => ein_Entwickler,
+      ask "Ktorı testovací report má by pouitı?" => ein_Bericht;
     "[ask] [to] correct [the] code after test",
-      ask "Who should correct the code?" => ein_Entwickler,
-      ask "Which test report should be used?" => ein_Bericht;
+      ask "Kto má opravi kód?" => ein_Entwickler,
+      ask "Ktorı testovací report má by pouitı?" => ein_Bericht;
     "[ask] %(ein_Entwickler) [to] correct [the] tested code",
-      ask "Which test report should be used?" => ein_Bericht;
+      ask "Ktorı testovací report má by pouitı?" => ein_Bericht;
     "[ask] %(ein_Entwickler) [to] correct [the] code after test",
-      ask "Which test report should be used?" => ein_Bericht;
+      ask "Ktorı testovací report má by pouitı?" => ein_Bericht;
     "[ask] [to] correct [the] tested code using [the] [test] [report] %(ein_Bericht)",
-      ask "Who should correct the code?" => ein_Entwickler;
+      ask "Kto má opravi kód?" => ein_Entwickler;
     "[ask] [to] correct [the] code after test using [the] [test] [report] %(ein_Bericht)",
-      ask "Who should correct the code?" => ein_Entwickler;
+      ask "Kto má opravi kód?" => ein_Entwickler;
     "[ask] %(ein_Entwickler) [to] correct [the] tested code using [the] [test] [report] %(ein_Bericht)";
     "[ask] %(ein_Entwickler) [to] correct [the] code after test using [the] [test] [report] %(ein_Bericht)";
-    diary_entry "Told %(ein_Entwickler) to correct all bugs in the code according to the report %(ein_Bericht).";
+    diary_entry "%(ein_Entwickler) bol(a) oboznámenı(á) s tım, e má pracova na oprave/korekcii všetkıch chıb v zdrojovom kóde na základe reportu %(ein_Bericht).";
   end command;
 
 -----------------------------------------------------
@@ -419,12 +419,12 @@ end map;
    (ein_Entwickler : Entwickler;
                          ein_Bericht    : Pruefbericht) is
     "[ask] [to] correct all documents",
-      ask "Who should correct the documents?" => ein_Entwickler,
-      ask "Which report should be used?" => ein_Bericht;
+      ask "Kto má opravi kód? dokumenty?" => ein_Entwickler,
+      ask "Ktorı report má by pouitı" => ein_Bericht;
     "[ask] [to] correct all documents using [the] [report] %(ein_Bericht)",
-      ask "Who should correct the code?" => ein_Entwickler;
+      ask "Kto má opravi kód?" => ein_Entwickler;
      "[ask] %(ein_Entwickler) [to] correct all documents using [the] [report] %(ein_Bericht)";
-     diary_entry "Told %(ein_Entwickler) to correct all failures in all documents according to the test report %(ein_Bericht).";
+     diary_entry "%(ein_Entwickler) bol(a) oboznámenı(á) s tım, e má pracova na oprave/korekcii všetkıch nezrovnalostí vo všetkıch dokumentoch na základe testovacieho reportu %(ein_Bericht).";
   end command;
 
 
@@ -434,7 +434,7 @@ end map;
   command stelle_verbrauchte_Ressourcen_fest is
     "information about [the] (spent|used|consumed) resources";
     "(determine|list) [the] (spent|used|consumed) resources";
-    diary_entry "Determined spent resources.";
+    diary_entry "Urèenie/kalkulácia minutıch zdrojov.";
   end command;
 
 -----------------------------------------------------
@@ -444,7 +444,7 @@ end map;
     "inspect [the] specification";
     "(determine|list) [the] properties [of] [the] specification";
     "(determine|list) [the] specification attributes";
-    diary_entry "Inspected specifications properties.";
+    diary_entry "Inšpekcia (stavu) špecifikácie.";
   end command;
 
 -----------------------------------------------------
@@ -453,7 +453,7 @@ end map;
     "show me [the] system design";
     "inspect [the] system design";
     "(list|determine) [the] properties [of] [the] system design";
-    diary_entry "Inspected properties of the  system design.";
+    diary_entry "Inšpekcia stavu, v akom je návrh systému.";
   end command;
 
 -----------------------------------------------------
@@ -462,7 +462,7 @@ end map;
     "show me [the] module (design|specification|spec)";
     "inspect [the] module (design|specification|spec)";
     "(list|determine) [the] properties [of] [the] module (design|specification|spec)";
-    diary_entry "Inspected module design.";
+    diary_entry "Inšpekcia (stavu) návrhu modulov.";
   end command;
 
 -----------------------------------------------------
@@ -470,7 +470,7 @@ end map;
   command inspiziere_Handbuch is
     "show me [the] ([system] documentation|handbook|[user] manuals)";
     "(list|determine) [the] properties [of] [the] ([system] documentation|handbook|[user] manuals)";
-    diary_entry "Inspected properties of the user manuals.";
+    diary_entry "Inšpekcia (stavu) pouívate¾skej príruèky.";
   end command;
 
 -----------------------------------------------------
@@ -479,18 +479,18 @@ end map;
     "show me [the] (code|modules)";
     "inspect [the] (code|modules)";
     "(list|determine) [the] properties [of] [the] (code|modules)";
-    diary_entry "Inspected properties of the Source Code.";
+    diary_entry "Inšpekcia (stavu) zdrojovıch kódov.";
   end command;
 
 -----------------------------------------------------
 
   command inspiziere_Pruefbericht(ein_Bericht : Pruefbericht) is
     "show me [a] review report",
-      ask "Which review report do you want to inspected?" => ein_Bericht;
+      ask "Pre ktorı posudok (report) chcete vykona revíziu?" => ein_Bericht;
     "[ask] inspect [a] review report",
-      ask "Which review report do you want to inspected?" => ein_Bericht;
+      ask "Pre ktorı posudok (report) chcete vykona revíziu?" => ein_Bericht;
     "[ask] show me [the] review report %(ein_Bericht)";
-    diary_entry "Inspected the review report %(ein_Bericht).";
+    diary_entry "Vykonanie revízie pre posudok (report) %(ein_Bericht).";
   end command;
 
 -----------------------------------------------------
@@ -498,7 +498,7 @@ end map;
   command zeige_verfuegbare_Entwickler is
     "(show me|print|give [me]) [the|a] [list of] available developers";
     "[Which] developers [are] available[?]";
-    diary_entry "Listed available developers.";
+    diary_entry "Urèenie zoznamu dostupnıch vıvojárov.";
   end command;
 
 -----------------------------------------------------
@@ -509,39 +509,39 @@ end map;
     "[who is] hired[?]";
     "who is [employed] in the project[?]";
     "which (employees|persons|people|workers|developers) [are] [employed] in [the] project[?]";
-    diary_entry "Listed employed persons in the project.";
+    diary_entry "Uká mi zamestnancov pracujúcich na projekte.";
   end command;
 
 -----------------------------------------------------
 
   command erfrage_Informationen_zu_Entwickler(ein_Entwickler : Entwickler) is
     "[give [me]|ask for] information about [a] developer",
-      ask "About whom do you want to be informed?" => ein_Entwickler;
+      ask "O kom chcete by informovanı?" => ein_Entwickler;
     "[give [me]|ask for] information about %(ein_Entwickler)";
-    diary_entry "Recovered information about %(ein_Entwickler)";
+    diary_entry "Získavanie informácií o zamestnancovi: %(ein_Entwickler)";
   end command;
 
 -----------------------------------------------------
 
   command erfrage_alle_Taetigkeiten(ein_Entwickler : Entwickler) is
     "show me tasks of developer",
-      ask "Whoes tasks do you want to know?" => ein_Entwickler;
+      ask "Èie úlohy Vás zaujímajú?" => ein_Entwickler;
     "show me [all] tasks of %(ein_Entwickler)";
-    diary_entry "Requesting task list of %(ein_Entwickler)";
+    diary_entry "iadanie o zoznam úloh zamestnanca: %(ein_Entwickler)";
   end command;
 
 -----------------------------------------------------
 
   command erfrage_Taetigkeit_von_Entwickler(ein_Entwickler : Entwickler) is
     "(show me|inspect) (activity|job|work)",
-      ask "Whose job do you want to know?" => ein_Entwickler;
+      ask "O èiej práci sa chcete informova?" => ein_Entwickler;
     "show me (activity|job|work) of %(ein_Entwickler)";
     "request information about %(ein_Entwickler) (activity|job|work)";
     "request (activity|job|work) information",
-      ask "Whose job do you want to know?" => ein_Entwickler;
+      ask "O èiej práci sa chcete informova?" => ein_Entwickler;
     "[ask] what is %(ein_Entwickler) (doing|working on)[?]";
     "[ask] %(ein_Entwickler) about [his|her] (activity|job|work)";
-    diary_entry "Requested information about the job %(ein_Entwickler) is working on.";
+    diary_entry "Získavanie informácií o úlohe, na ktorej práve %(ein_Entwickler) pracuje.";
   end command;
 
 
@@ -550,60 +550,71 @@ end map;
 
   command lasse_Taetigkeit_beenden(ein_Entwickler : Entwickler) is
     "[ask] [to] (finish|terminate) [the|your] [current] (activity|task|job|work)",
-      ask "Who should finish its current work?" => ein_Entwickler;
+      ask "Kto má dokonèi svoju aktuálnu prácu?" => ein_Entwickler;
     "[ask] %(ein_Entwickler) finish [the] [current] (activity|task|job|work)";
-    diary_entry "Told %(ein_Entwickler) to come to an end with its current work.";
+    diary_entry "%(ein_Entwickler)(ovi) bolo povedané, aby svoju aktuálnu úlohu priviedol do konca.";
   end command;
 
 -----------------------------------------------------
 
   command lasse_Taetigkeit_abbrechen(ein_Entwickler : Entwickler) is
     "[ask] [to] quit [the|your] [current] (activity|task|job|work)",
-      ask "Who should quit its current work?" => ein_Entwickler;
+      ask "Kto má preruši svoju aktuálnu úlohu?" => ein_Entwickler;
     "[ask] %(ein_Entwickler) [to] quit [its] [current] (activity|task|job|work)";
-    diary_entry "Told %(ein_Entwickler) to quit its current work.";
+    diary_entry "(ein_Entwickler)(ovi) bolo povedané, aby prerušil/ponechal svoju aktuálnu prácu.";
   end command;
 
 -----------------------------------------------------
 
   command lasse_Reviews_beenden(ein_Dokument : Dokument) is
     "[ask] [to] finish [the] review [of] [a] document",
-      ask "Finish the review of which document?" => ein_Dokument;
+      ask "Dokonèi posudok ktorého dokumentu?" => ein_Dokument;
     "[ask] [to] finish [the] review [of] [the] document %(ein_Dokument)";
-    diary_entry "Told developers to come to an end with the review of %(ein_Dokument)";
+    diary_entry "Poveda vıvojárom, aby dotiahli do konca posudok dokumentu: %(ein_Dokument)";
   end command;
 
 -----------------------------------------------------
 
   command teile_dem_Projekt_zu(ein_Entwickler : Entwickler) is
     "hire",
-      ask "Whom do you want to hire?" => ein_Entwickler;
+      ask "Koho chcete naja/zamestna?" => ein_Entwickler;
     "hire %(ein_Entwickler)";
-    diary_entry "Hired %(ein_Entwickler) for the project.";
+    diary_entry "%(ein_Entwickler) je pripravenı(á) spolupracova na projekte.";
   end command;
 
 -----------------------------------------------------
 
   command entlasse_aus_Projekt(ein_Entwickler : Entwickler) is
     "release",
-       ask "Whom do you want to release?" => ein_Entwickler;
+       ask "Koho chcete prepusti?" => ein_Entwickler;
     "fire",
-       ask "Whom do you want to release?" => ein_Entwickler;
+       ask "Koho chcete prepusti?" => ein_Entwickler;
     "release %(ein_Entwickler)";
-    diary_entry "Released %(ein_Entwickler) off the project.";
+    diary_entry "%(ein_Entwickler) bol(a) prepustenı(á).";
   end command;
 
 -----------------------------------------------------
+-- TODO: how to translate NOTATION???
+--  command setze_Notation_ein_fuer(eine_Notation : Notation;
+--                                  ein_Dokument  : Dokument) is
+--    "use notation",
+--     ask "Which notation should be used?" => eine_Notation,
+--     ask "For which document should this notation be used?" => ein_Dokument;
+--    "use [the] %(eine_Notation) [notation]",
+--   ask "For which document should this notation be used?" => ein_Dokument;
+--   "use [the] %(eine_Notation) [notation] for [the] [document] %(ein_Dokument)";
+--    diary_entry "Told developers to use %(eine_Notation) notation for %(ein_Dokument).";
+-- end command;
 
   command setze_Notation_ein_fuer(eine_Notation : Notation;
                                   ein_Dokument  : Dokument) is
     "use notation",
-     ask "Which notation should be used?" => eine_Notation,
-     ask "For which document should this notation be used?" => ein_Dokument;
+     ask "Ktorú notáciu poui?" => eine_Notation,
+     ask "Pre ktorı dokument notáciu poui?" => ein_Dokument;
     "use [the] %(eine_Notation) [notation]",
-     ask "For which document should this notation be used?" => ein_Dokument;
+     ask "Pre ktorı dokument notáciu poui?" => ein_Dokument;
     "use [the] %(eine_Notation) [notation] for [the] [document] %(ein_Dokument)";
-    diary_entry "Told developers to use %(eine_Notation) notation for %(ein_Dokument).";
+    diary_entry "Povedané vıvojárom, aby pouili notáciu: %(eine_Notation) pre dokument: %(ein_Dokument).";
   end command;
 
 
@@ -613,14 +624,14 @@ end map;
 
   command beende_Projekt is
     "(finish|stop|cancel|quit|abort) project";
-    diary_entry "Finished the project.";
+    diary_entry "Privies projekt do konca/ Ukonèi projekt.";
   end command;
 
 -----------------------------------------------------
 
   command uebergib_System_an_Kunden is
     "(deliver|install|ship|roll out) system";
-    diary_entry "Deliverd system to the customer.";
+    diary_entry "Doruèi projekt zákazníkovi.";
   end command;
 
 -----------------------------------------------------
@@ -2553,178 +2564,178 @@ Finally, a little experience %(geringe_E).";
  
   message Doppelte_Anforderungen_vorhanden (worin: Dokument;
                                             welche: integer) is
-    "The document %(worin) contains the duplicated requirement %(welche).";
+    "Dokument %(worin) obsahuje tie isté(duplikátne) poiadavky: %(welche).";
   end message;
 
 ----------------------------------------------------
 -- Hilfetexte fuer SimulationPlus
 ----------------------------------------------------
  help for "@specify@" is
-   "to write a specification";
+   "písa špecifikáciu";
  end help; 
  
  help for "@correctspecification@" is
-   "to correct the specification";
+   "opravi špecifikáciu";
  end help;
  
  help for "@showmespecification@" is
-   "(*) to get information about the characteristics of the specification";
+   "(*) poiada o informácie tıkajúce sa stave špecifikácie";
  end help;
  
  help for "@talkcustomer@" is
-   "to talk to the customer";
+   "porozpráva sa so zákazníkom";
  end help;
  
  help for "@designsystem@" is
-   "to write the system design";
+   "navrhnú systém";
  end help;
  
  help for "@correctsystemdesign@" is
-   "to correct the system design";
+   "opravi návrh systému";
  end help;
  
  help for "@showmesystemdesign@" is
-   "(*) to get information about the characteristics of the system design";
+   "(*) poiada o informácie tıkajúce sa stave návrhu systému";
  end help;
  
  help for "@designmodules@" is
-   "to write the module design";
+   "navrhnú moduly";
  end help;
  
  help for "@correctmoduledesign@" is
-   "to correct the module design";
+   "opravi návrh modulov";
  end help;
  
  help for "@showmemoduledesign@" is
-   "(*) to get information about the characteristics of the module design";
+   "(*) poiada o informácie tıkajúce sa stave návrhu modulov";
  end help;
  
  help for "@code@" is
-   "to write the code";
+   "písa zdrojovı kód";
  end help;
  
  help for "@correctreviewedcode@" is
-   "to correct the code after a code review";
+   "opravi zdrojovı kód po posúdení/prehodnotení";
  end help;
  
  help for "@correcttestedcode@" is
-   "to correct the code after a code test";
+   "opravi zdrojovı kód po vykonaní testu";
  end help;
  
  help for "@showmecode@" is
-   "(*) to get information about the characteristics of the code";
+   "(*) poiada o informácie tıkajúce sa stave, v ktorom sa nachádza zdrojovı kód";
  end help;
  
  help for "@testmodules@" is
-   "to carry out a test of the modules";
+   "vykona test modulov";
  end help;
  
  help for "@testsystem@" is
-   "to carry out a test of the system";
+   "vykona test systému";
  end help;
  
  help for "@integrate@" is
-   "to integrate the system";
+   "integrova systém";
  end help;
  
  help for "@testintegration@" is
-   "to test the integration of the system";
+   "otestova integráciu systému";
  end help;
  
  help for "@twodevelopersreview@" is
-   "to carry out a review by two developers";
+   "vykona posudok/recenziu/prehodnotenie dvomi vıvojarmi";
  end help;
  
  help for "@threedevelopersreview@" is
-   "to carry out a review by three developers";
+   "vykona posudok/recenziu/prehodnotenie tromi vıvojarmi";
  end help;
  
  help for "@customerparticipateinreviewspecification@" is
-   "to carry out a review of the specification by two developers and one representative of the customer";
+   "prehodnoti/prekontrolova špecifikáciu dvomi developérmi a zakazníkom";
  end help;
  
  help for "@customerparticipateinreviewdocumentation@" is
-   "to carry out a review of the documentation by two developers and one representative of the customer";
+   "prehodnoti/prekontrolova dokumentáciu dvomi vıvojármi a zakazníkom";
  end help;
  
  help for "@showmereviewreport@" is
-   "(*) to get information about the final report of a review";
+   "(*) poiada o informácie o stave koneèného reportu posudku/recenzie";
  end help;
  
  help for "@finishreviewdocument@" is
-   "to finish a review";
+   "dokonèi posudok/recenziu";
  end help;
  
  help for "@writedocumentation@" is
-   "to write the documentation";
+   "napísa dokumentáciu";
  end help;
  
  help for "@correctdocumentation@" is
-   "to correct the documentation after a review";
+   "opravi dokumentáciu po posúdení";
  end help;
  
  help for "@showmedocumentation@" is
-   "(*) to get information about the characteristics of the documentation";
+   "(*) poiada o informácie o stave dokumentácie";
  end help;
  
  help for "@customerperformacceptancetest@" is
-   "to initiate the acceptance test to be carried out by the customer without any developers' participation";
+   "iniciova vykonanie akceptaèného testu zákazníkom bez úèasti vıvojárov";
  end help;
  
  help for "@deliversystem@" is
-   "the software delivered to the customer who will be giving his/her feedback on the success";
+   "doruèi systém zákazníkovi, od ktorého sa následne oèakáva spätná väzba";
  end help;
  
  help for "@finishproject@" is
-   "the project will be aborted without delivery; nevertheless, the customer gives some feedback";
+   "prerui projekt, a to bez doruèenia; akoko¾vek, aspoò s nejakou spätnou väzbou od zákazníka";
  end help;
  
  help for "@informationaboutspentresources@" is
-   "(*) to show time and money spent so far";
+   "(*) ukáza strávenı èas a pouité finanèné prostriedky";
  end help;
  
  help for "@quitactivity@" is
-   "to abort an activity immediately; reviews will *not* be finished";
+   "preruši okamite vykonávanú èinnos; posudky NEbudú dokonèené";
  end help;
  
  help for "@finishactivity@" is
-  "the developer finishes the current activity as soon as possible and delivers the document (s)he was working on; this command is not valid for reviews";
+  "vıvojár dokonèí vykonávanú èinnos okamite, ako to bude moné a doruèí dokument(y), na ktorom/ktorıch pracoval; tento príkaz neplatí pre posudky/recenzie";
  end help;
  
  help for "@release@" is
-   "(*) to release a developer";
+   "(*) prepusti vıvojára";
  end help;
  
  help for "@hire@" is
-   "(*) to hire a developer";
+   "(*) naja/zamestna vıvojára";
  end help;
  
  help for "@showmemyteammembers@" is
-   "to show all hired developers";
+   "zobrazi všetkıch najatıch/zamestnanıch vıvojárov";
  end help;
  
  help for "@showmeavailabledevelopers@" is
-   "to show a list of available developers";
+   "zobrazi všetkıch dostupnıch vıvojárov";
  end help;
  
  help for "@showmetasksof@" is
-   "to get a list of all tasks";
+   "získa zoznam všetkıch úloh";
  end help;
  
  help for "@correctalldocuments@" is
-   "to correct all documents using a selected (review/test) report";
+   "opravi všetky dokumenty pouitím vybraného reportu (posudok/test)";
  end help;
  
  help for "@informationaboutdeveloper@" is
-   "(*) to get the profile (qualification, cost) of a developer";
+   "(*) zisti profil (špecializáciu, náklady) vıvojára";
  end help;
  
  help for "@usenotation@" is
-   "to select a particular notation for the development of a document";
+   "zvoli patriènú notáciu pre tvorbu dokumentu";
  end help;
  
  help for "@showmeactivity@" is
-   "(*) to get information about the kind of activity/activities the developer is carrying out at the moment";
+   "(*) získa informácie o druhu èinnosti, ktorú vıvojár práve vykonáva";
  end help;
  
 end dictionary;
