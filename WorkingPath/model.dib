@@ -647,139 +647,139 @@ end map;
 ---- Entwickler beginnt mit einer Taetigkeit --------------------
 
   message begonnen_mit_Kunde_zu_sprechen(wer: Entwickler) is
-    "%(wer): First of all I have to find out which functionality the customer really needs. I have already made an appointment for a interview with him or one of his employees.";
-    "%(wer): I just had a phone call with our customer. We made an appointment to talk about the needs of his software.";
-    "%(wer) also thinks it is a good idea to talk to the customer. Nobody knows better what he needs in his software. %(wer) immediately arranges a meeting with the customer.";
-    "%(wer) wents to the customer. %He(wer) made an appointment with the customer to talk about the project.";
-    diary_entry "%(wer) started to talk to the customer.";
+    "%(wer): Najsamprv musím zisti, akú funkcionalitu zákazník skutoène potrebuje. U som si s ním alebo s jeho zamestnanom zajednal(a) stretnutie.";
+    "%(wer): Práve som mal rozhovor so zákazníkom po telefóne. Dohodli sme si schôdzku, aby sme prebrali poiadavky na jeho softvér.";
+    "%(wer) si tie myslí, e rozhovor so zákazníkom je dobrı nápad. Nikto predsa o poiadavkách na jeho softvér nevie viac. %(wer) si okamite dohaduje sedenie so zákazníkom.";
+    "%(wer) je na ceste k zákazníkovi. Dohodl(a) si schôdzku so zákazníkom oh¾adom poiadaviek na projekt.";
+    diary_entry "%(wer) zaèal(a) komunikova so zákazníkom.";
   end message;
 
 -----------------------------------------------------
 
   message begonnen_zu_spezifizieren(wer: Entwickler) is
-    "%(wer): So, I have to specify the system requirements. This is a real challenge for me.";
-    "%(wer): Specifying the system requirements is not my favorite activity, nevertheless  I'll do my best.";
-    "%(wer): If you need somebody to specify the system requirements, I'll be happy to help out.";
-    "%(wer): OK. Specifying isn't that bad. There is worse to do, so I'm glad you gave me this.";
-    diary_entry "%(wer) started to specify the system requirements.";
+    "%(wer): Fú... Take špecifikácia poiadaviek, to je teda vızva.";
+    "%(wer): Špecifikáciu poiadaviek síce nemám ve¾mi v ob¾ube, napriek tomu spravím, èo bude v mojich silách.";
+    "%(wer): Ak potrebujete niekoho na špecifikáciu systémovıch poiadaviek, rád pomôem.";
+    "%(wer): OK. Špecifikovanie nie je a také zlé, sú aj horšie úlohy. Som rád/rada, e som obsiahol špecifikáciu.";
+    diary_entry "%(wer) zaèal(a) pracova na špecifikácii systémovıch poiadaviek.";
   end message;
 
 -----------------------------------------------------
 
   message begonnen_System_zu_entwerfen(wer: Entwickler) is
-    "%(wer) reports that %he(wer) has started to work on the system design. %He(wer) is happy doing that, because system design is a very creative work.";
-    "%(wer): Making the system design is a very demanding and challenging job. But hey, I like challenges!";
-    "%(wer): Okay, I'll do the system design, and trust me, you won't regret choosing me.";
-    "%(wer): You finally recognized my talents. I am the best you can get for the system design";
-    diary_entry "%(wer) started to work on the system design.";
+    "%(wer) hlási, e u zaèína pracova na návrhu systému. Má z toho rados, lebo navrhova systém povauje za kreatívnu èinnos.";
+    "%(wer): Pracova na systémovom návrhu je poadovaná záleitos, svojim spôsobom vızva. Ale áno, vızvy sú pre mòa ako stvorené!";
+    "%(wer): Okej, tak teda popracujem na systémovom návrhu, verte mi, neo¾utujete, e ste si vybrali práve mòa.";
+    "%(wer): Koneène ste rozpoznali môj talent. Pre návrh systému som tou najlepšou vo¾bou.";
+    diary_entry "%(wer) zaèal(a) pracova na systémovom návrhu.";
   end message;
 
 -----------------------------------------------------
 
   message begonnen_Module_zu_spezifizieren(wer: Entwickler) is
-    "%(wer): I will now begin to specify the modules. Hopefully, I will not forget any function or procedure.";
-    "%(wer) thinks of %him(wer)self more as a programmer, but %he(wer) won't object your decision and starts to specify the modules.";
-    "%(wer) immediately sprints off to work at the module design after you told %him(wer) to do so.";
-    "With a smile on %his(wer) face %(wer) leaves. It seems %he(wer) is happy with %his(wer) work.";
+    "%(wer): Špecifikácia modulov? Idme na to. Dúfam, e nezabudnem na iadnu funkciu èi procedúru.";
+    "%(wer) sa skôr povauje za vıvojarara, ale urèite mu/jej nevadí špecifikácia modulov.";
+    "%(wer) okamite štartuje práce na návrhu modulov, akonáhle sa o tejto pridelenej úlohe dozvedá.";
+    "%(wer) odchádza s úsmevom na tvári, po tom, ako sa dozvedá o pridelenej úlohe. Zajtra zaèína na špecifikácii modulov seriózne pracova.";
     diary_entry "%(wer) started to specify the modules.";
   end message;
 
 -----------------------------------------------------
 
   message begonnen_zu_codieren(wer: Entwickler) is
-    "%(wer) is pleased about %his(wer) new job: writing code. Like almost every developer, %he(wer) really enjoys this work.";
-    "With a reassuring nod, %(wer) starts to write code in a speed that leaves no doubt that %he(wer) is the right person for that task.";
-    "%(wer) toddles off back in %his(wer) office. %He(wer) is not delighted to work on the code, %he(wer) prefers the early phases, but %he(wer) will do %his(wer) job.";
-    "%(wer): I can't see why you chose me for the coding. You know that I'm not happy about it, but I'll do my job.";
-    diary_entry "%(wer) started to work on the implementation.";
+    "%(wer) je potešenı/potešená svojou novou prácou: implementova kód. Tak ako kadı vıvojár, uíva si svoju prácu.";
+    "S uisovacím prikıvnutím hlavy zaèína pracova na implementácii a nenecháva Vás na pochybách, èi ste na to zvolili správneho èloveka.";
+    "%(wer) odcupital(a) do svojej kancelárie. Nie je síce nadšenı/nadšenı z tejto úlohy, keïe skôr preferuje práce v skorších fázach projektu, napriek tomu na úlohe maká.";
+    "%(wer): Nie je mi ve¾mi jasné, preèo ste na implementáciu zvolili práve mòa. Viete, e nie som z toho nadšenı/á, ale spravím si svoju prácu.";
+    diary_entry "%(wer) zaèal(a) pracova na implementácii.";
   end message;
 
 -----------------------------------------------------
 
   message begonnen_Handbuch_zu_schreiben(wer: Entwickler) is
-    "%(wer) started to write the documentation. %He(wer) thinks this task is very boring.";
-    "%(wer) believes %he(wer) is a new Shakespeare therefore writing the manuals is just perfect for %him(wer).";
-    "%(wer): Writing the documentation is a ungratefully job, but someone must do it.";
-    "%(wer) is a good choice. If %he(wer) writes with the same speed as %he(wer) speaks, %he(wer) will finish the job within a few days.";
-    diary_entry "%(wer) started to write the documentation.";
+    "%(wer) zaèal(a) pracova na dokumentácii, no myslí si, e je to otravná robota.";
+    "%(wer) si myslí, e je rodenı Shakespeare, preto je pre neho/òu písanie príruèiek dokonalou úlohou.";
+    "%(wer): Písanie dokumentácie je nevïaènou prácou, ale niekto to spravi predsa musí .";
+    "%(wer) je dobrou vo¾bou. Ak naozaj tak rıchlo píše, ako tvrdí, dokonèí svoju úlohu do nieko¾kıch dní.";
+    diary_entry "%(wer) zaèal(a) písa dokumentáciu.";
   end message;
 
 -----------------------------------------------------
 
   message begonnen_zu_integrieren(wer: Entwickler) is
-    "%(wer): Well, my next step is to integrate the system. It's not really exciting, but anyway better than testing.";
-    "%(wer): Integrating the system is like collecting the errors of all modules and combine them in one piece of work. Let's hope there aren't too many errors.";
-    "%(wer): I'm confident that the project is in a good shape. Integrating the system should be no problem.";
-    "%(wer): We're coming to an end. I'm starting to integrate. After that, we're almost done with the project.";
-    diary_entry "%(wer) started to integrate the system.";
+    "%(wer): V poriadku, take mojou ïalšou povinnosou je integrova systém. Nie je to ve¾mi vzrušujúce, ale stále lepšie ne testovanie.";
+    "%(wer): Integrácia systému je ako zbieranie chıb zo všetkıch modulov a ich kombinácia do jednej jedinej práce. Dúfajme, e ich tam nie je a tak ve¾a.";
+    "%(wer): Som presvedèenı/presvedèená, e projekt je na dobrej ceste. Integrácia systému by nemala by problémom.";
+    "%(wer): Dostávame sa na koniec. Zaèína sa integrovanie systému, u nám toho ve¾a do úplneho konca nechıba.";
+    diary_entry "%(wer) zaèal(a) integrova systém.";
   end message;
 
 -----------------------------------------------------
 
   message begonnen_mit_Modultest(wer: Entwickler) is
-    "Not very happy, %(wer) starts to test the modules.";
-    "%(wer): What did I do that you choosed me to do such an boring task as the module test?";
-    "%(wer) is confident that the quality of the modules is at top rank, but %he(wer) will test them anyway.";
-    "%(wer): Right. I'll look at each line of code and believe in me: I'll find some errors during the tests.";
-    diary_entry "%(wer) started to test the modules.";
+    "Nie úplne šastnı/šastná %(wer) zaèína testova moduly.";
+    "%(wer): Èo som pobabral(a), e mi dávate takúto nudnú úlohu akou je testovanie modulov?";
+    "%(wer) je presvedèenı/presvedèená, e kvalita modulov je na najvyššej monej úrovni, napriek tomu ich však otestuje.";
+    "%(wer): V poriadku. Posvietim si na kadı riadok kódu a ver èi never, urèite nejaké chyby poèas testovania nájdem.";
+    diary_entry "%(wer) zaèal(a) testova moduly.";
   end message;
 
 -----------------------------------------------------
 
   message begonnen_mit_Integrationstest(wer: Entwickler) is
-    "%(wer) performs the system integration test, and as always, %he(wer) finds this kind of work depressing.";
-    "%(wer): I'm your man. Give me the components, I'll do the integration test.";
-    "%(wer): Integration testing? This is even more boring than fiddling about the code. Put it somewhere on my desk, I'll start soon.";
-    "You give %(wer) the job to do the integration test. %He(wer) won't talk with you for a day or two, because you gave %(wer) this uninteresting job. But that's not really a problem.";
-    diary_entry "%(wer) started to perform the system integration test.";
+    "%(wer) tesuje integráciu systému, a tak ako zvyèajne, povauje túto povinnos za deprimujúcu.";
+    "%(wer): Som Váš èlovek. Dodajte mi komponenty a ja spravím integraènı test.";
+    "%(wer): Testovanie integrácie? Toto je ešte nudnejšie ne babranie sa s kódom. Polote to na môj stol, ochví¾u na tom zaènem pracova.";
+    "Na spravenie integraènıch testov ste zvolili zamestnanca: %(wer). Asi s Vami deò alebo dva neprehovorí kvoli tejto nezaujímavej práci, ale to nie je teraz podstatné.";
+    diary_entry "%(wer) zaèal(a) testova integráciu systému.";
   end message;
 
 -----------------------------------------------------
 
   message begonnen_mit_Systemtest(wer: Entwickler) is
-    "%(wer): System test is not very creative, but somebody must do it. Now it's my turn to do that.";
-    "%(wer): System test isn't interesting at all, but I think it's an obligation towards our customer. I'll do it.";
-    "%(wer) takes it as a challenge to find as many bugs as possible in the system test. %He(wer) is a good choice.";
-    "You need someone, you can trust, to do the system test. %(wer) seems perfect for such an important job. You let %him(wer) do it.";
-    diary_entry "%(wer) started to perform the system test.";
+    "%(wer): Testovanie systému nepatrí medzi kretívne záleitosti, ale niekto to spravi predsa musí. Teraz som na rade ja.";
+    "%(wer): Testovanie systému vôbec nie je zaujímave, ale voèi nášmu zákazníkovi je to povinnos. Urobím to.";
+    "%(wer) povauje za vızvu nájs èím viac chıb prostredníctvom systémovıch testov. %He(wer) bol(a) správnou vo¾bou.";
+    "Potrebujete niekoho, komu môete veri v tejto záleitosti. %(wer) vyzerá by skvelı/skvelá v testovaní systému. Nechajte ho/ju na tom pracova.";
+    diary_entry "%(wer) zaèal(a) testova systém.";
   end message;
 
 -----------------------------------------------------
 
   message begonnen_mit_Abnahmetest is
-    "The customer started to do the acceptance test. As usual he is in a hurry, and cannot spend a lot of time for the acceptance test, even if he would like to do so.";
-    "The customer takes the product in his company to make the acceptance test. This will take some time, because he wants to be sure about the product quality.";
-    "The customer started with the acceptance test. The test will be a thorough one to show him, on what he had invested his money.";
-    "Sceptically, the customer examines your product, if it is, what he wants. He'll get back to you in a few days.";
-    diary_entry "The customer started to do the acceptance test.";
+    "Zákazník zaèal robi akceptaènı test. Ako vdy, aj teraz sa ponáh¾a a nemôe strávi nad tım ve¾a èasu, aj keby chcel.";
+    "Zákazník si berie produkt do svojej firmy, aby vykonal akceptarnı test. To nejakú chví¾u potrvá, keïe si chce by istı kvalitou Vášho produktu.";
+    "Zákazník zaèína s akceptaènımi testami. Je to jediná cesta, ako naozaj zisti, za èo vlastne zaplatil.";
+    "Zákazník skepticky preskúma Váš produkt - èi je takı, ako chcel. Za pár dní Vám ho vráti.";
+    diary_entry "Zákazník zaèal s akceptaènımi testami.";
   end message;
 
 ------------------------------------------------------
 
   message Letzter_Abnahmetest_vom_Kunden is
-     "The customer informs you that he isn't amused to perform the acceptance test a third time. He wants you to deliver the system soon, or he cancels the project.";
-     diary_entry "The customer has informed me that he isn't amused to perform the acceptance test a third time (currently it's the second acceptance test he performs)";
+     "Zákazník Vás informuje, e nie je nadšenı z opakovania akceptaèného testu po tretíkrát. Chce od Vás doruèi systém u èoskoro, inak projekt zruší.";
+     diary_entry "Zákazník ma informoval, e nie nie je nadšenı z vykonávania akceptaèného testu po tretíkrát(momentálne je to druhı vykonávanı akceptaènı test)";
   end message;
 
 ------------------------------------------------------
 
   message Kunde_fuehrt_Abnahmetest_gerade_durch is
-    "The customer actualy performs the acceptance test. He is angry about your call and asks if you spend enough time on managing the project.";
-    diary_entry "The customer actualy performs the acceptance test. He was angry about my call.";
+    "Zákazník práve vykonáva akceptaènı test. Je naštvanı kvoli Vášmu telefonátu a pıta sa, èi ste vôbec strávili dostatok èasu riadením projektu.";
+    diary_entry "Zákazník práve vykonáva akceptaènı test. Kvoli mojmu telefónatu je ve¾mi naštvanı.";
   end message;
 
 --------------------------------------------------------
 
   message Abnahmetest_Befunde_erst_korrigieren is
-    "The customer asks if you have already corrected all the errors he has found during the last acceptance test. He is not willing to do another test before every error is removed from the product.";
-    diary_entry "The customer asked if we have corrected all errors he has found during the last acceptance test. He is not willing to do another test before every error he found is removed from the product.";
+    "Zákazník sa pıta, èi ste u opravili všetky chyby, ktoré ste našli poèas posledného akceptaèného testu. Nie je ochotnı robi ïalší akceptraènı test predtım, ne odstránite všetky chyby v produkte.";
+    diary_entry "Zákazník sa pıta, èi ste u opravili všetky chyby, ktoré ste našli poèas posledného akceptaèného testu. Nie je ochotnı robi ïalší akceptraènı test predtım, ne odstránite všetky chyby v produkte.";
   end message;
 
 ------------------------------------------------------
 
   message Kunde_fuehrt_keinen_weiteren_Abnahmetest_durch is
-    "The customer is angry. He tells you, that you are responsible for the products quality. He has already performed two acceptance tests and doesn't look ahead to do a third one. If you deliver the system, he wants that the product resides on an acceptable quality level.";
-    diary_entry "The customer doesn't plan doing a third acceptance test in the future. He wants the product delivered on an acceptable quality level.";
+    "Zákazník je rozzúrenı. Vyèíta vám, e ste zodpovednı/zodpovedná za kvalitu produktu. Doposia¾ vykonal akceptaènı test dvakrát a nie je ve¾mi ochotnı opä ho zopakova. Ak doruèíte systém, urèite bude chcie, aby bol produkt na prijate¾nej úrovni.";
+    diary_entry "Zákazník nemá vpláne zopakova akceptaènı test tretíkrat v budúcnosti, poaduje akceptovate¾nú úroveò kvality.";
   end message;
 
 
@@ -787,82 +787,82 @@ end map;
 
   message begonnen_Dokument_zu_begutachten(wer: Entwickler;
                                              was: Dokument) is
-    "%(wer) starts to review the %(was): I'm looking forward on how many bugs I'll find in the %(was)!";
-    "%(wer): I think the %(was) has a good quality level, but a review can be of no harm.";
-    "%(wer) is pleased to be in the review team for the %(was).";
-    "%(wer): As soon as I find the %(was) in the chaos on my desk, I'll start to review it.";
-    diary_entry "%(wer) started to review the %(was).";
+    "%(wer) zaèína posudzova dokument: %(was): Teším sa na to, ko¾ko chıb sa mi podarí v %(was) nájs!";
+    "%(wer): Pod¾a mòa je %(was) kvalitou na dobrej úrovni, ale prekontrolovanie/posúdenie tomu urèite neuškodí.";
+    "%(wer) je poctenı/poctená by súèasou tímu, ktorı ma na starosti posudzovanie dokumentu: %(was).";
+    "%(wer): Akonáhle v tom neporiadku na svojom stole nájdem %(was), zaènem pracova na jeho/jej posudku.";
+    diary_entry "%(wer) zaèal robi posudok na dokumente: %(was).";
   end message;
 
 -----------------------------------------------------
 
   message begonnen_Dokument_mit_Kunde_zu_begutachten(wer: Entwickler;
                                              was: Dokument) is
-    "%(wer) starts to review the %(was) together with the customer: we are looking forward on how many bugs we will find in the %(was)!";
-    "%(wer): I think the %(was) has a good quality level, but a review with the customer can be of no harm.";
-    "%(wer) is pleased to be in the review team with the customer for the %(was).";
-    "%(wer): As soon as I find the %(was) in the chaos on my desk, I'll start to review it together with the customer.";
-    diary_entry "%(wer) started to review the %(was) together with the customer.";
+    "%(wer) zaèal robi posudok pre dokument - %(was) - spolu so zákazníkom: tešíme sa na to, ko¾ko nájdeme chıb!";
+    "%(wer): Pod¾a mòa je %(was) kvalitou na dobrej úrovni, ale prekontrolovanie/posúdenie tomu urèite neuškodí.";
+    "%(wer) je poctenı/poctená by spoloène so zákazníkom súèasou tímu, ktorı ma na starosti posudzovanie dokumentu: %(was).";
+    "%(wer): Akonáhle v tom neporiadku na svojom stole nájdem %(was), zaènem spolu so zákazníkom pracova na jeho/jej posudku.";
+    diary_entry "%(wer) zaèal robi posudok pre dokument - %(was) - spolu so zákazníkom.";
   end message;
 
 -----------------------------------------------------
 
   message begonnen_Spezifikation_zu_korrigieren(wer: Entwickler) is
-    "%(wer): I'll now correct the specification. Hopefully, I will not introduce new faults.";
-    "%(wer) starts to correct the specification. %He(wer) wonders how these errors could get into the specification in the first Version.";
-    "Nobody likes correcting a document, same goes with %(wer). But correcting the specification is an important work to do, everything is based on it.";
-    "As always, %(wer) has something to grumble about, when you tell %him(wer) to correct the specification.";
-    diary_entry "%(wer) started to correct the specification.";
+    "%(wer): Zaèínam teda opravova špecifikáciu dúfajúc, e do nej nezavediem iadne nové chyby.";
+    "%(wer) zaèína pracova na korekcii špecifikácie èudujúc sa, ako je moné, e sa tieto chyby mohli dosta do špecifikácie v predošlej verzii.";
+    "Nikto neopravuje dokumenty rád, to isté platí aj pre %(wer). Ale korekcia špecifikácie je dôleitou úlohou, keïe všetko na nej závisí.";
+    "Tak ako vdy, %(wer) sa bude ma na èo opä saova, keï mu/jej nakáete opravi špecifikáciu.";
+    diary_entry "%(wer) zaèal(a) opravova špecifikáciu.";
   end message;
 
 -----------------------------------------------------
 
   message begonnen_Systementwurf_zu_korrigieren(wer: Entwickler) is
-    "Without enthusiasm %(wer) starts to correct the system design.";
-    "%(wer): There are some errrors in the system design, I'll correct them.";
-    "%(wer): I'll correct the system design. But be aware, I could introduce some new bugs.";
-    "Having done an even worse thing before, %(wer) is happy to help you with the correction of the system design.";
-    diary_entry "%(wer) started to correct the system design.";
+    "%(wer) zaèína pracova na návrhu systému bez patrièného nadšenia.";
+    "%(wer): V návrhu systému sa vyskytli nejaké chyby, ale vporiadku, opravím ich.";
+    "%(wer): Opravím návrh systému, len si buïte vedomı toho, e teoreticky môem zavies nejaké nové chyby.";
+    "Keïe %(wer) u robil(a) na horších veciach, tentokrát pomôe s korektúrou návrhu systému s radosou.";
+    diary_entry "%(wer) zaèal(a) s opravou návrhu systému.";
   end message;
 
 -----------------------------------------------------
 
   message begonnen_Modulspez_zu_korrigieren(wer: Entwickler) is
-    "%(wer): Correcting the module specs is not exactly a passion of mine, but life is not a continuous pleasure.";
-    "%(wer): The module design has errors? Hand it over to me, I will eliminate them!";
-    "You give %(wer) the module design to correct it. %He(wer) is not pleased about, but you can rely on %him(wer).";
-    "%(wer): The module design must be free of errors before we start with the rest. Give me the review report, I'll correct it.";
-    diary_entry "%(wer) started to correct the module specification.";
+    "%(wer): Opravova špecifikáciu modulov nie síce je mojou vášòou, no ivot nie je jednım neprerušenım potešením.";
+    "%(wer): Návrh modulov obsahuje chyby? Pokojne mi ho doruète, odstránim ich!";
+    "Nakázali ste zamestnancovi: %(wer) opravi návrh modulov. Zamestnanec z toho síce nie je nadšenı, no môete sa naò spo¾ahnú.";
+    "%(wer): Návrh modulov musí by bezchybnı pred tım ako sa zaène s ïalšími fázami. Dodajte mi report z posudku, ja tie chyby opravím.";
+    diary_entry "%(wer) zaèal(a) pracova na oprave špecifikácie modulov.";
   end message;
 
 -----------------------------------------------------
 
   message begonnen_Code_zu_korrigieren(wer: Entwickler) is
-    "%(wer): Correcting the code is like any other kind of correction activities: boring and unproductive.";
-    "%(wer): To correct the code somebody with special abilities is needed: That's Me!";
-    "%(wer): Correcting the code is a must, but not my favorite pastime.";
-    "%(wer) likes to correct something, because %he(wer) can show the others, what they did wrong. So, correcting the code is ok for %him(wer).";
-    diary_entry "%(wer) started to correct the code.";
+    "%(wer): Korektúra zdrojového kódu je presne taká istá ako ostatné záleitosti tıkajúce sa opráv: nudná a neproduktívna.";
+    "%(wer): Na korekciu zdrojového kódu je potrebnı niekto so špeciálnymi schopnosami: To som ja!";
+    "%(wer): Oprava kódu je nevyhnutnosou, no urèite nie moje hobby.";
+    "%(wer) rád/rada nieèo opravuje, pretoe tak ukáe ostatnım, v èom sa mılili. Take korekcia kódu je pre neho/òu skvelá.";
+    diary_entry "%(wer) zaèal(a) opravova zdrojovı kód.";
   end message;
 
 -----------------------------------------------------
 
   message begonnen_Handbuch_zu_korrigieren(wer: Entwickler) is
-    "%(wer) reports that %he(wer) will correct the documentation. %He(wer) does not seem to be very happy with %his(wer) new task.";
-    "Correct the documentation is a boring job and %(wer) wants to do it quick, so that %he(wer) can do something more interesting.";
-    "%(wer) thinks of the manuals as a vital part of the product so %he(wer) puts a lot of effort in correcting it.";
-    "%(wer): Whow, who worked on the manuals first? Anyway, I'll correct the documentation.";
-    diary_entry "%(wer) started to correct the user manual.";
+    "%(wer) poslušne hlási, e opraví dokumentáciu. Akoko¾vek, ve¾mi spokojnı/á s touto úlohou by nevyzerá.";
+    "Oprava dokumentácie je otravná záleitos. %(wer) to bude chcie spravi èím skôr, aby mohol/mohla pracova na nieèom zaujímavejšom.";
+    "%(wer) povauje príruèky za ivotodarnú súèas produktu, take si dá na ich oprave skutoène zálea.";
+    "%(wer): Uf, to kto pracoval na prvıch verziách tıch príruèiek? To je jedno, opravím ich.";
+    diary_entry "%(wer) zaèala) s opravou pouívate¾skej príruèky.";
   end message;
 
 -----------------------------------------------------
 
   message begonnen_alles_zu_korrigieren(wer: Entwickler) is
-    "%(wer) reports that %he(wer) will correct the errors found in all documents. This will take a while. %he(wer) does not look very happy.";
-    "%(wer): There's a need to keep all documents consistent. If it's my job, so it is.";
-    "%(wer) thinks it is unfair that %he(wer) have to correct the errors the others had made.";
-    "%(wer): I'll think, we need to get all of our documents consistent. Bring them to me, I'll do it for you.";
-    diary_entry "%(wer) started to correct all of our documents to keep them in a consistent fashion.";
+    "%(wer) hlási, e opraví chyby nájdené vp všetkıch dokumentoch. Potvrá to urèitı èas. %he(wer) nevyzerá ve¾mi nadšene.";
+    "%(wer): Je potrebné udra všetky dokumenty v konzistencii. Je to môj job, take to urobím.";
+    "%(wer) si myslí, e je pre neho/òu nefér opravova chyby za niekım inım.";
+    "%(wer): Pouvaujem nad tım... Akoko¾vek, musíme udra všetky tie dokumenty v konzistencii, take mi ich doneste, spravím to.";
+    diary_entry "%(wer) zaèal(a) opravova všetky dokomenty s cie¾om udra ich vo vzájomnej konzistencii.";
   end message;
 
 -----------------------------------------------------
@@ -875,32 +875,32 @@ end map;
                                        Anzahl_Seiten   : integer;
                                        entdeckte_Fehler: integer;
                                        entdeckte_AFP   : real) is
-    "%(entdeckte_Fehler) errors and %(entdeckte_AFP) missing function points were found while %(Anzahl_Seiten) pages of the %(Pruefling) were reviewed.";
-    "The review meeting for the %(Pruefling) revealed %(entdeckte_Fehler) errors and %(entdeckte_AFP) missing function points while having reviewed %(Anzahl_Seiten) pages.";
-    "The %(Pruefling) review showed, that there are %(entdeckte_Fehler) errors and %(entdeckte_AFP) missing function points in the %(Anzahl_Seiten) pages reviewed.";
-    "%(entdeckte_AFP) missing function points, %(entdeckte_Fehler) errors in just %(Anzahl_Seiten) pages. The %(Pruefling) wasn't as good as you thought. Of greater importance is that the errors were found.";
-    diary_entry "The review of the %(Pruefling) revealed %(entdeckte_Fehler) errors and %(entdeckte_AFP) missing function points while having reviewed %(Anzahl_Seiten) pages.";
+    "Bolo nájdenıch %(entdeckte_Fehler) chıb a %(entdeckte_AFP) chıbajúcich funkcionálnych bodov na %(Anzahl_Seiten) dosia¾ existujúcich stranách dokumentu: %(Pruefling).";
+    "Stretnutie oh¾adom posudku pre dokument: %(Pruefling) odhalilo %(entdeckte_Fehler) chıb a %(entdeckte_AFP) chıbajúcich funkcionálnych bodov na dosia¾ preskúmanıch %(Anzahl_Seiten) stranách.";
+    "Prehodnotenie dokumentu: %(Pruefling) ukázalo, e na %(Anzahl_Seiten) doposia¾ preskúmanıch stranách sa našlo %(entdeckte_Fehler) chıb a %(entdeckte_AFP) chıbajúcich funkcionálnych bodov.";
+    "%(entdeckte_AFP) chıbajúcich funkcionálnych bodov, %(entdeckte_Fehler) chıb na len %(Anzahl_Seiten) stranách. Dokument: %(Pruefling) nebol a takı dobrı, ako ste si pôvodne mysleli. Najdôleitejším nateraz ostáva, e sa tie chyby našli.";
+    diary_entry "Posudok dokumentu: %(Pruefling) odhalil %(entdeckte_Fehler) chıb a %(entdeckte_AFP) chıbajúcich funkcionálnych bodov na doposia¾ preskúmanıch %(Anzahl_Seiten) stranách.";
   end message;
 
   message Codereviewsitzung_findet_statt(Pruefling       : Dokument;
                                        Anzahl_Zeilen   : integer;
                                        entdeckte_Fehler: integer;
                                        entdeckte_AFP   : real) is
-    "%(entdeckte_Fehler) errors and %(entdeckte_AFP) missing function points were found while %(Anzahl_Zeilen) Lines of Code of the %(Pruefling) were reviewed.";
-    "The review meeting for the %(Pruefling) revealed %(entdeckte_Fehler) errors and %(entdeckte_AFP) missing function points while having reviewed %(Anzahl_Zeilen) LOC.";
-    "The %(Pruefling) review showed, that there are %(entdeckte_Fehler) errors and %(entdeckte_AFP) missing function points in the %(Anzahl_Zeilen) lines of code reviewed.";
-    "%(entdeckte_AFP) missing function points, %(entdeckte_Fehler) errors in just %(Anzahl_Zeilen) LOC. The %(Pruefling) wasn't as good as you thought. Of greater importance is that the errors were found.";
-    diary_entry "The review of the %(Pruefling) revealed %(entdeckte_Fehler) errors and %(entdeckte_AFP) missing function points while having reviewed %(Anzahl_Zeilen) LOC.";
+    "Bolo nájdenıch %(entdeckte_Fehler) chıb a %(entdeckte_AFP) chıbajúcich funkcionálnych bodov na %(Anzahl_Zeilen) riadkov zdrojového kódu v dokumente: %(Pruefling).";
+    "Stretnutie oh¾adom posudku pre dokument: %(Pruefling) odhalilo %(entdeckte_Fehler) chıb a %(entdeckte_AFP) chıbajúcich funkcionálnych bodov na dosia¾ preskúmanıch %(Anzahl_Zeilen) LOC.";
+    "Prehodnotenie dokumentu: %(Pruefling)  ukázalo, e %(entdeckte_Fehler) chıb a %(entdeckte_AFP) chıbajúcich funkcionálnych bodov sa našlo na %(Anzahl_Zeilen) riadkoch zdrojového kódu.";
+    "%(entdeckte_AFP) chıbajúcich funkcionálnych bodov, %(entdeckte_Fehler) chıb na len %(Anzahl_Zeilen) LOC. Dokument: %(Pruefling) nebol a takı dobrı, ako ste si pôvodne mysleli. Najdôleitejším nateraz ostáva, e sa tie chyby našli.";
+    diary_entry "Posudok dokumentu: %(Pruefling) odhalil %(entdeckte_Fehler)  chıb a %(entdeckte_AFP) chıbajúcich funkcionálnych bodov na doposia¾ preskúmanıch %(Anzahl_Zeilen) LOC.";
   end message;
 
 -----------------------------------------------------
 
   message Gutachter_bereitet_sich_nicht_vor(wer: Entwickler) is
-    "%(wer) is again under time pressure, so it is impossible for %him(wer) to get prepared for the review.";
-    "%(wer): I'm sorry, I have no time to get prepared for the review.";
-    "There's too much work for %(wer) right now, so %he(wer) can't get prepared for the review.";
-    "%(wer): I can't get prepared for a review at the moment. I'm busy with other things as you know.";
-    diary_entry "%(wer) informed me that %he(wer) isn't able to get prepared for the review caused by time issues.";
+    "%(wer) je opä v èasovej tiesni, take je pre neho/òu nemoné bra úèas na posudzovaní(dokumentov).";
+    "%(wer): Je mi to ¾úto, no nemám èas na prípravu pre posudok.";
+    "Pre zamestnanca: %(wer) existuje teraz príliš ve¾a práce na to, aby sa mohol pripravova na posudok.";
+    "%(wer): Nemôem sa pripravi na posudok dokumentu. Ako iste viete, po tieto dni som príliš zaneprázdnenı/zaneprázdnená na to, aby som sa mohla pripravova na posudok.";
+    diary_entry "%(wer) ma informoval(a), e sa nebude môc pripravi na posudok kvoli èasovej tiesni.";
   end message;
 
 -----------------------------------------------------
@@ -910,154 +910,154 @@ end map;
 -----------------------------------------------------
 
   message aufgehoert_mit_Kunde_zu_sprechen(wer: Entwickler) is
-    "%(wer): My discussion with the customer and some of his employees were successfull. Now, I know which functionality is required. We will realize all these functions in the software product we are going to develop.";
-    "%(wer): I had a nice talk with the customer. I know now what he wants. We can realize it in the way he wants it.";
-    "%(wer) comes back from %his(wer) meeting with the customer. %He(wer) got a good idea of what the customer wants.";
-    "%(wer): I did talk to the customer. A tough guy in my opinion. But I have what we need. We can do it. Let's start right away.";
-    diary_entry "%(wer) came back from %his(wer) meeting with customer.";
+    "%(wer): Moja diskusia so zákazníkom a s jeho nieko¾kımi zamestnancami bola úspešná. Teraz u viem, aká funkcionalita je potrebná. Všetky tieto funkcie zahrnieme do projektu, ktorı ideme vyvíja.";
+    "%(wer): Dobre sme si so zákazníkom pokecali. Viem, èo presne chce. Môeme to zrealizova presne tak, ako to sám zákazník iada.";
+    "%(wer) sa vracia spä zo svojho stretnutia so zákazníkom a má dobrú predstavu o tom, èo zákazník skutoène chce.";
+    "%(wer): Rozprával(a) som sa so zákazníkom. akopádny to èlovek. Mám ale, èo chcem. Dokáeme to. Pusme sa do toho hneï teraz.";
+    diary_entry "%(wer) sa vrátil(a) zo stretnutia so zákazníkom.";
   end message;
 
 -----------------------------------------------------
 
   message aufgehoert_zu_spezifizieren(wer: Entwickler) is
-    "%(wer): Specification is one of my favourite activities, but unfortunately even a pleasant work must end some day.";
-    "%(wer): The specification was fun first, but then it became boring. I'm happy it's over.";
-    "%(wer) comes into your office and proudly gives you the specification %he(wer) made.";
-    "%(wer): What an interesting project. Here's the specification. I'll be happy to work more on the project. If you want me, of course.";
-    diary_entry "%(wer) completed to specify the system requirements.";
+    "%(wer): Špecifikácia nie je jednou z mojich najob¾úbenejších aktivít, ia¾, kadé príjemné obdobie sa musí raz skonèi.";
+    "%(wer): Spoèiatku bola špecifikácia zábavna, no po èase ma zaèala nudi. Som neskutoène rád/rada, e to u je za mnou.";
+    "%(wer) Prichádza do Vašej kancelárie a hrdo Vám podáva špecifikáciu, na ktorej doposia¾ pracovala.";
+    "%(wer): Hm, akı zaujímavı projekt. Tu je špecifikácia. Snáï ešte budem môc pracova na tomto projekte, samozrejme, ak ma budete chcie.";
+    diary_entry "%(wer) ukonèil špecifikáciu systémovıch poiadaviek.";
   end message;
 
 -----------------------------------------------------
 
   message aufgehoert_System_zu_entwerfen(wer: Entwickler) is
-    "%(wer) lets you know that %he(wer) has finished the system design.";
-    "%(wer) has finished the system design. %He(wer) is satified with the work %he(wer) did.";
-    "System design is ready. It took its time, but %(wer) finally got it done.";
-    "After finishing the system design, %(wer) brings it to you.";
-    diary_entry "%(wer) completed the system design.";
+    "%(wer) Vás informuje, e práve ukonèil(a) práce na návrhu systému.";
+    "%(wer) ukonèil(a) návrh systému. %(wer) je naozaj spokojnı/spokojná so svojím vısledkom.";
+    "Návrh systému je pripravenı. Síce to chví¾u trvalo, ale koneène sa mi to podarilo privies do konca.";
+    "Po ukonèení návrhu systému Vám ho %(wer) práve prináša na stôl.";
+    diary_entry "%(wer) ukonèil(a) návrh systému.";
   end message;
 
 -----------------------------------------------------
 
   message aufgehoert_Module_zu_spezifizieren(wer: Entwickler) is
-    "%(wer): I have completed the module specification. I am curious what my next activity will be. I know, I know: curiosity killed the cat, but ...";
-    "With a sigh of relief %(wer) ends the module specification. It was hard work, but now it's done.";
-    "%(wer): The module specification is done. It was fun. Just give me the next job, I have some energy left.";
-    "%(wer): I finished the module specification. We should check it for errors. It's an important document.";
-    diary_entry "%(wer) completed the module specification.";
+    "%(wer): Práve som dokonèil(a) špecifikáciu modulov. U teraz som zvedavı/zvedavá na svoju ïalšiu úlohu. Viem síce, e trpezlivos rue prináša, no...";
+    "S malım srdcom %(wer) dokonèil(a) práce na špecifikácii modulov. Bola to aká práca, ale u je za mnou.";
+    "%(wer): Špecifikácia modulov je za mnou. Bola to zábava, teraz èakám na ïalší job, nejaká energia mi ešte ostala.";
+    "%(wer): Dokonèil(a) som špecifikáciu modulov. Mali by sme ju prekontrolova kvoli potenciálnym chybám. Je to dôleitı dokument.";
+    diary_entry "%(wer) dokonèil(a) som špecifikáciu modulov.";
   end message;
 
 -----------------------------------------------------
 
   message aufgehoert_zu_codieren(wer: Entwickler) is
-    "%(wer): It's a pity that even pleasant tasks, like writing code, must end one day.";
-    "%(wer): I'm glad the coding is done. It's a lot of work.";
-    "%(wer) tells you that the code is written. %He(wer) seems to be a bit depressed about that, because %he(wer) likes to write code.";
-    "%(wer): First, I found it boring. But as time passed, I saw the challenge in coding. But now, it's done.";
-    diary_entry "%(wer) told me that the code is written.";
+    "%(wer): Je to škoda, e aj také milé úlohy ako implementácia kódu musia jedného dòa skonèi.";
+    "%(wer): Som rád, e implementácia je u za mnou. Bolo to neskutoène ve¾a práce.";
+    "%(wer) tvrdí, e implementácia bola ukonèená. %(wer) vyzerá by trochu deprimovanı/deprimovaná, pretoe implementáciu má zo všetkıch fáz najradšej.";
+    "%(wer): Najsamprv to bola nuda, ale ako èas plynul, zaèal(a) som implementáciu bra ako novú vızvu, ktorú som úspešne zdolal(a)!";
+    diary_entry "%(wer) povedal, e implementácia bola ukonèená";
   end message;
 
 -----------------------------------------------------
 
   message aufgehoert_Handbuch_zu_schreiben(wer: Entwickler) is
-    "%(wer) reports that %he(wer) has finished the system documentation.";
-    "%(wer): I've done my job, the documentation is complete.";
-    "%(wer): The manuals won't go into literature history, but I think they're good enough the way they are.";
-    "%(wer): The handbook is ready. What a beauty, isn't it?";
-    diary_entry "%(wer) completed the user manual.";
+    "%(wer) poslušne hlási, e príruèka(systémová dokumentácia) je hotová.";
+    "%(wer): Dokonèil(a) som svoju prácu, príruèka je hotová!";
+    "%(wer): Manuál sa do dejín literatúry asi nezapíše, ale, osobne, som s jeho obsahom vcelku spokojnı.";
+    "%(wer): Príruèka je hotová, no nie je krásna?";
+    diary_entry "%(wer) povedal, e písanie pouívate¾skej príruèky bolo ukonèené.";
   end message;
 
 -----------------------------------------------------
 
   message aufgehoert_zu_integrieren(wer: Entwickler) is
-    "%(wer): Well, the system integration is finished. I am so happy...";
-    "%(wer): I have integrated the system, but it is very complex. We should think about testing the integration.";
-    "Another big step is done. %(wer) completed the system integration.";
-    "%(wer): The integration is done. Come on, step into next phase! We're in a hurry, remember?";
-    diary_entry "%(wer) completed the system integration.";
+    "%(wer): Uf, integrácia systému je ukonèená, takı/taká som šastnı/šastná...";
+    "%(wer): Zintegroval som systém, ale je ve¾mi komplexnı. Mali by sme popremıš¾a nad otestovaním integrácie.";
+    "Ïalší ve¾kı krok je za nami. %(wer) dokonèil(a) integráciu systému.";
+    "%(wer): Integrácia systému je dotiahnutá do konca. Poïme ihneï na ïalšiu fázu projektu, keï u sa tak ponáh¾ame, èi?";
+    diary_entry "%(wer) ukonèil(a) integráciu systému.";
   end message;
 
 -----------------------------------------------------
 
   message aufgehoert_mit_Modultest(wer: Entwickler) is
-    "%(wer): I finished the module test. I hope that I have found most of the bugs.";
-    "%(wer): I have tested the modules. They're okay, but I think the test could be done better.";
-    "%(wer): I finished the module test. Here is list of bugs, so you can correct them.";
-    "After some time, %(wer) shows you the report from the module test. %He(wer) found some errors.";
-    diary_entry "%(wer) finished the module test.";
+    "%(wer): Dokonèil(a) som test modulov. Dúfam, e som odhalil(a) väèšinu chıb..";
+    "%(wer): Otestoval som moduly. Vyzerajú by v poriadku, ale tie testy mohli by spravené lepšie.";
+    "%(wer): Dokonèil(a) som test modulov. Tu je zoznam chıb, take ich môete opravi.";
+    "Po nejakom tom èase Vám %(wer) ukazuje report z testovania modulov. Ako vidíte, urèité chyby boli nájdené.";
+    diary_entry "%(wer) dokonèil(a) som test modulov.";
   end message;
 
 -----------------------------------------------------
 
   message aufgehoert_mit_Integrationstest(wer: Entwickler) is
-    "%(wer): I am so happy: integration test is complete. Hopefully, my next task will be more exciting.";
-    "%(wer): It looked easier as it really was, but the integration test is finally done.";
-    "Another test is done: %(wer) did the integration test.";
-    "%(wer): I'm glad to see you. I ended the integration test just a moment ago. We can go ahead with the project.";
-    diary_entry "%(wer) finished the integration test.";
+    "%(wer): Som takı rád/taká rada: integraènı test je hotovı. Dúfam, e moja ïalšia úloha bude o nieèo vzrušujúcejšia.";
+    "%(wer): Vyzeralo to jednoduchšie, ne v skutoènosti bolo, ale integraènı test je koneène za mnou.";
+    "Ïalší test je spravenı: %(wer) urobil(a) integraènı test.";
+    "%(wer): Som rád/rada, e Vás vidím. Priviedla som integraènı test do konca len pred krátkou chví¾ou. Môeme sa s projektom posunú ïalej.";
+    diary_entry "%(wer) dokonèil(a) integraènı test.";
   end message;
 
 -----------------------------------------------------
 
   message aufgehoert_mit_Systemtest(wer: Entwickler) is
-    "%(wer): I want a new task; system test is finished!";
-    "After having done the system test, %(wer) thinks the system isn't that bad at all.";
-    "%(wer): I have finished the system test. I hope you are satisfied with the performance of the system.";
-    "As you come into your office, you see a new report on your desk. %(wer) made the system test and brought you the test report.";
-    diary_entry "%(wer) finished the system test.";
+    "%(wer): Chcem novú úlohu, test systému je ukonèenı!";
+    "Po tom, èo %(wer) dokonèil test systému, %(wer) si zaèína si myslie, e samotnı systém nie je a takı zlı.";
+    "%(wer): Dokonèil som test systému. Dúfam, e sa Vám jeho vıkon pozdáva.";
+    "Ako prichádzate, na Vašom stole sa vyníma novı report. %(wer) dokonèil(a) test systému a priniesol/priniesla Vám vısledok.";
+    diary_entry "%(wer) dokonèil(a) test systému.";
   end message;
 
 -----------------------------------------------------
 
   message Kunde_akzeptiert is
-    "The customer is very content with your product. He thinks that it meets the system requirements and he likes the graphical interface of the software product.";
-    "The customer is happy with the product. After having heard bad stories about software companies, he is surprised about the quality of the software.";
-    "The customer is satisfied with the product and your company. Maybe you will get another project from him later.";
-    "With a relief, the customer accepts your software. He needed it desperately and now he got it. He can replace the old system now.";
-    diary_entry "The customer told me that he accepts the product. He is very satisfied with the product and our company.";
+    "Zákazník je ve¾mi spokojnı s produktom. Myslí si, e produkt spåòa systémové poiadavky a taktie sa mu páèi grafické rozhranie.";
+    "Zákazník má z produktu rados. Po tom, ako poèul o softvérovıch firmách samé zlé príbehy, je ve¾mi milo prekvapenı kvalitou softvéru.";
+    "Zákazník je spokojnı tak s produktom, ako aj s Vašou firmou. Mono od neho ešte získate ïalší projekt niekedy v budúcnosti.";
+    "Zákazníkovi od¾ahlo. Váš produkt s radosou akceptuje. Zúfalo ho potreboval a teraz ho má k dispozícii, starı systém môe by nahradenı novım.";
+    diary_entry "Zákazník mi povedal, e produkt prijíma. Je s ním ve¾mi spokojnı, ako aj s našou firmou.";
   end message;
 
 -----------------------------------------------------
 
   message Kunde_akzeptiert_nicht_Termin is
-    "The customer could not accept the delivered software product. The customer is completely unsatisfied with the date of delivery. He had never thought that your company could work that bad.";
-    diary_entry "The customer did not accept the software product delivered. He said that he is completely unsatisfied with the delivery date";
+    "Zákazník nemohol prija doruèenı softvér. Je absolútne nespokojnı s dátumom doruèenia. Nikdy si nemyslel, e by si Vaša firma vodila takto zle.";
+    diary_entry "Zákazník neprijal dodanı softvér. Povedal, e je absolútne nespokojnı s dátumom doruèenia";
   end message;
 
 -----------------------------------------------------
 
   message Kunde_akzeptiert_nicht_Kosten is
-    "The customer rejects the product because you exceeded the budget to much. He is very upset.";
-  diary_entry "The customer did not accept the software product delivered. He said that you exceeded the budget too much.";
+    "Zákazník odmieta produkt, pretoe ste nesmierne prekroèili stanovenı rozpoèet. Je ve¾mi znechutenı.";
+  diary_entry "Zákazník neprijal dodanı produkt, pretoe sa príliš prekroèil stanovenı rozpoèet.";
   end message;
 
 -----------------------------------------------------
 
   message Kunde_akzeptiert_nicht_Voll_Code is
-    "The customers doesn't accept your system. Your code is too incomplete; there is too much funtionality missing.";
-    diary_entry "The customer did not accept the software product delivered. He said that there is too much required functionality missing.";
+    "Zákazník neakceptuje Váš systém. Kód nie je úplne kompletnı, chıba mnostvo funkcionality.";
+    diary_entry "Zákazník neakceptuje dodanı produkt, pretoe produkt nepokrıva príliš ve¾a stanovenıch poiadaviek na funkcionalitu.";
   end message;
 
 -----------------------------------------------------
 
   message Kunde_akzeptiert_nicht_Korr_Code is
-    "The customer could not believe that you only came up with a software full of errors. He declines to accept the product.";
-    diary_entry "The customer did not accept the software product delivered. He said that it has too many errors.";
+    "Zákazníkovi sa nechce veri, e vısledkom Vašej práce je softvér plnı chıb. Zákazník odmieta prija produkt.";
+    diary_entry "Zákazník nepríjima doruèenı softvér. Dôvodom je príliš ve¾a chıb.";
   end message;
 
 
 -----------------------------------------------------
 
   message Kunde_akzeptiert_nicht_Voll_HB is
-    "The customers doesn't accept your system. Your documentation is too incomplete.";
-    diary_entry "The customer did not accept the software product delivered. He is very unsatisfied with your incomplete documentation.";
+    "Zákazník odmieta prija Váš systém. Dokumentácia je neúplná.";
+    diary_entry "Zákazník odmieta prija Váš produkt, pretoe nie je spokojnı s dokumentáciou, ktorá je neúplná.";
   end message;
 
 -----------------------------------------------------
 
   message Kunde_akzeptiert_nicht_Korr_HB is
-    "The customer rejects the product. It doesn't meet his quality standards at all. Your Documentation is full of errors.";
-    "The customers doesn't accept your system. He said that your documentation contains too many errors.";
+    "Zákazník rázne odmieta produkt, pretoe kvalitatívne nespåòa poiadavky a štandardy. Dokumentácia je plná chıb.";
+    "Zákazník neakceptuje Váš systém. Tvrdí, e dokumentácia obsahuje príliš ve¾a chıb.";
   end message;
     
 
@@ -1075,82 +1075,82 @@ end map;
 
   message aufgehoert_Dokument_zu_begutachten(wer: Entwickler;
                                                was: Dokument) is
-    "%(wer) finished reviewing the %(was) and hopes to start with a new activity soon.";
-    "%(wer) reports that the review of the %(was) has ended. %He(wer) is available for working on something else.";
-    "The %(was) has been reviewed by %(wer). %He(wer) can be assigned to another task now.";
-    "%(wer): By the way, I did the review of the %(was). You should have my report by now.";
-    diary_entry "%(wer) finished reviewing the %(was).";
+    "%(wer) dokonèil(a) písanie posudku pre dokument: %(was) dúfajúc, e mu bude èoskoro pridelená nová úloha.";
+    "%(wer) hlási, e report pre posudok dokumentu: %(was) je hotovı. Taktie to znamená, e môe pracova na nieèom inom.";
+    "Dokument: %(was) bol prekontrolovanı zamestnancom: %(wer). Teraz u mu/jej môe by pridelená nová úloha.";
+    "%(wer): Mimochodom, dorobil som posudok pre dokument: %(was). U by ste mali ma môj report.";
+    diary_entry "%(wer) dokonèil(a) posudok/recenziu pre dokument: %(was).";
   end message;
 
 -----------------------------------------------------
 
   message aufgehoert_Dokument_mit_Kunde_zu_begutachten(wer: Entwickler;
                                                was: Dokument) is
-    "%(wer) and the customer finished reviewing the %(was). %(wer) hopes to start with a new activity soon.";
-    "%(wer) reports that the review of the %(was) together with the customer has ended. %He(wer) is available for working on something else.";
-    "The %(was) has been reviewed by %(wer) and the customer. %(wer) can be assigned to another task now.";
-    "%(wer): By the way, the customer and I did the review of the %(was). You should have my report by now.";
-    diary_entry "%(wer) and the customer finished reviewing the %(was).";
+    "%(wer) a zákazník dokonèili posudzovanie doumentu: %(was). %(wer) dúfa v pridelenie novej úlohy.";
+    "%(wer) hlási, e posudzovanie dokumentu: %(was) spolu so zákazníkom bolo ukonèené. Odteraz u môe pracova na nieèom inom.";
+    "Dokument: %(was) bol prehodnotenı zamestnancom: %(wer) a zákazníkom. %(wer) u môe by pridelenı/pridelená na nejakú inú úlohu.";
+    "%(wer): Miimochodom, zákazník a ja sme dokonèili posudok dokumentu: %(was). O tomto èase by ste u mali ma môj report na stole.";
+    diary_entry "%(wer) a zákazník dotiahli do konca posudzovanie dokumentu: %(was).";
   end message;
 
 -----------------------------------------------------
 
   message aufgehoert_Spezifikation_zu_korrigieren(wer: Entwickler) is
-    "%(wer): Well, I finished the rework of the specification. I've done my best; I hope there are sparsely errors left in the specification.";
-    "%(wer): The Specification needed a lot of rework, but I've done it all.";
-    "%(wer): I have corrected the specification, but I can't rule out the possibility that I introduced some new errors.";
-    "Having finished the correction of the specification, %(wer) can be assign a new job.";
-    diary_entry "%(wer) finished the rework of the specification.";
+    "%(wer): Uf, to bola fuška. Práve som dokonèil(a) prerobenie špecifikácie. Spravil(a) som, èo som mohol/mohla, no dúfam, e tıch chıb tam ostalo èo najmenej.";
+    "%(wer): Špecifikácia si vyadovala mnoho prerábania, ale u to mám za sebou.";
+    "%(wer): Opravil(a) som špecifikáciu, ale nemôem úplne vylúèi monos, e iadne chybièky v špecifikácii neostali.";
+    "Tım pádom, e %(wer) práve dokonèil(a) korekciu špecifikácie, môe mu/jej by priradená nová úloha.";
+    diary_entry "%(wer) dokonèil(a) korekciu špecifikácie.";
   end message;
 
 -----------------------------------------------------
 
   message aufgehoert_Systementwurf_zu_korrigieren(wer: Entwickler) is
-    "%(wer) seems to be very happy: %he(wer) has corrected the system design and hopes to get assigned to a more pleasant task.";
-    "A long, long time ago, %(wer) started to correct the system design. Now, %he(wer) finally came to an end.";
-    "%(wer): I have done the rework of the system design. I hope, we now have a better chance to succeed.";
-    "%(wer): After all, the system design is corrected. I did my best.";
-    diary_entry "%(wer) finished the correction of the system design.";
+    "%(wer) vyzerá by šastnı/šastná: opravil(a) návrh systému a dúfa v pridelenie veselšej úlohy.";
+    "Dlho, ve¾mi dlho trvalo, pokia¾ sa zamestnancovi: %(wer) podarilo opravi návrh systému. Teraz je u systémovı návrh pripravenı pre ïalšie fázy vıvoja.";
+    "%(wer): dokonèil(a) prerábanie systémového návrhu dúfajúc v lepšie vyhliadky na úspech projektu.";
+    "%(wer): Po tom všetko, návrh systému je opravenı. Snail(a) som sa zo všetkıch síl.";
+    diary_entry "%(wer) dokonèil(a) prerábanie systémového návrhu.";
   end message;
 
 -----------------------------------------------------
 
   message aufgehoert_Modulspez_zu_korrigieren(wer: Entwickler) is
-    "%(wer): At last, I have corrected the module specification. I wonder what my next step will be? I hope something more interesting.";
-    "%(wer): Correcting the module design wasn't as tedious as I thought it would be. But now I want something really interesting.";
-    "%(wer) comes back with the corrected module design. %He(wer) asks for %his(wer) next assignment.";
-    "Finally, %(wer) has done the correction of the module specification. All known errors were corrected.";
-    diary_entry "%(wer) finished the rework of the module specification.";
+    "%(wer): Aspoò sa mi podarilo opravi špecifikáciu modulov. Som samé ucho, akú ïalšiu prácu mi pridelíte? Snáï nieèo zaujímavé.";
+    "%(wer): Nakoniec korekcia špecifikácie modulov nebola a taká zdåhavá a nudná, ako som si spošiatku myslel(a). Ale teraz u by som rád/rada nieèom naozaj vzrušujúce.";
+    "%(wer) prichádza s opravenım návrhom systému a pıta da na ïalšiu prácu.";
+    "Koneène sa podarilo zamestnancovi: %(wer) dokonèi korekciu špecifikácie modulov. Všetky známe chyby boli opravené.";
+    diary_entry "%(wer) dokonèil(a) korekciu špecifikácie modulov.";
   end message;
 
 -----------------------------------------------------
 
   message aufgehoert_Code_zu_korrigieren(wer: Entwickler) is
-    "%(wer) has corrected the code. %He(wer) prefers producing new code in contrast to removing errors in existing code.";
-    "%(wer): Somebody must have messed up the code pretty hard, but I managed to correct it.";
-    "After %(wer) gave you the corrected code, you can now go on to the next phase.";
-    "%(wer): Correcting the code is a struggle. An even greater one than coding itself. I thought it would be easier. Anyway, it's done.";
-    diary_entry "%(wer) finished the correction of the code.";
+    "%(wer) u opravil(a) zdrojovı kód, aj napriek tomu, e radšej produkuje novı kód ne opravuje chyby v tom starom.";
+    "%(wer): Niekto musel neskutoène dobabra ten kód, ale nakoniec sa mi ho podarilo opravi.";
+    "Po tom, èo Vám zamestnanec: %(wer) dal opravenı zdrojovı kód, môete pokraèova v ïalšej fáze vıvoja softvéru.";
+    "%(wer): Opravova zdrojovı kód - to je boj na ivot a na smr. Ešte horší ne písa kód samotnı. Myslel(a) som si, e to bude ¾ahšie, v kadom prípade, mám to za sebou.";
+    diary_entry "%(wer) dokonèil(a) opravovanie zdrojového kódu.";
   end message;
 
 -----------------------------------------------------
 
   message aufgehoert_Handbuch_zu_korrigieren(wer: Entwickler) is
-    "%(wer): The system documentation is corrected. I hope the project leader will take my interests into consideration in the future. I am sick of these boring, uninteresting tasks!";
-    "%(wer): The manuals definitely needed some rework. It is good that I have done it.";
-    "The system documentation is back. %(wer) has corrected it.";
-    "%(wer): An illiterate must have done the manuals. So much to correct! There you go, it's corrected.";
-    diary_entry "%(wer) finished the rework the user manual.";
+    "%(wer): Dokumentácia systému je opravená. Dúfam, e líder projektu nabudúce vezme moje záujmy do úvahy. Som u unavenı/unavená z tıchto nezaujímavıch úloh!";
+    "%(wer): Príruèky jednoznaène potrebovali prerobi. Je fajn, e sa to podarilo.";
+    "Tak a máme tu nazad systémovú dokumentáciu. %(wer) ju opravil(a).";
+    "%(wer): Takú príruèku napíše len negramotnı. To¾ko nevyhnutnıch opráv! Tu ju máte, a to v opravenej podobe.";
+    diary_entry "%(wer) dokonèil(a) prerábanie pouívate¾skej príruèky.";
   end message;
 
 -----------------------------------------------------
 
   message aufgehoert_alles_zu_korrigieren(wer: Entwickler) is
-    "All documents were corrected so that %(wer) is free to work on another task.";
-    "%(wer): It is tough to get all documents consistent, but I think I have done it.";
-    "After the correction of all documents, %(wer) is seeking a new challenge.";
-    "%(wer): I've reworked all documents. You won't recognize some of them now. There was so much to do.";
-    diary_entry "%(wer) finished the correction of all documents.";
+    "Všetky dokumenty boli opravené, take %(wer) je vo¾nı/vo¾ná a môe pracova na ïalšej úlohe.";
+    "%(wer): Docieli, aby boli všetky dokumenty v konzistencii, to bolo ako jazda v lete na sanich. Kadopádne sa zdá, e sa mi to podarilo.";
+    "Po korekcii všetkıch dokumentov, %(wer) pátra po novıch vızvach.";
+    "%(wer): Prerobil(a) som všetky dokumenty. Niektoré z nich teraz ani nespoznáte. Bola to kopa práce.";
+    diary_entry "%(wer) dokonèil(a) korekciu všetkıch dokumentov.";
   end message;
 
 -----------------------------------------------------
@@ -1158,20 +1158,20 @@ end map;
   message Neue_Aufgabe_akzeptiert (wer: Entwickler;
        altes_Dokument: Dokument;
        neues_Dokument: Dokument) is
-    "The developer %(wer) says: Ok, I will start working on the %(neues_Dokument) soon. However, I still need some time to finish my work on the %(altes_Dokument).";
-    "The developer %(wer) says: Hold it! First, I'll do the %(altes_Dokument), then I will work on the %(neues_Dokument).";
-    "The developer %(wer) says: One at a time. You gave me the %(neues_Dokument) while I haven't finished the %(altes_Dokument). I'll finish the old task first, then comes the new one. OK?";
-    "The developer %(wer) says: As you know, I work on the %(altes_Dokument). As soon as I'm done, I will go on to the %(neues_Dokument).";
-    diary_entry "The developer %(wer) has accepted the new job. However, he will not start with the %(neues_Dokument) before finishing the %(altes_Dokument)";
+    "Vıvojar %(wer) vraví: V poriadku, èoskoro zaènem pracova na dokumente: %(neues_Dokument). Avšak, stále ešte potrebujem nejakı èas na dokonèenie dokumentu: %(altes_Dokument).";
+    "Vıvojar %(wer) vraví: Poèkaj! Najsamprv dorobím dokument: %(altes_Dokument) a potom sa pustím do ïalšieho: %(neues_Dokument).";
+    "Vıvojar %(wer) vraví: iadne viaceré dokumenty naraz. Dávate mi na staros novı dokument: %(neues_Dokument) zatia¾èo ja som ešte ani nedokonèil(a) dokument: %(altes_Dokument). Najprv dokonèím staršiu úlohu, potom sa pustím do tej novej. OK?";
+    "Vıvojar %(wer) vraví: Ako viete, pracujem na dokumente: %(altes_Dokument). Hneï ako budem hotovı(á), preorientujem sa na dokument: %(neues_Dokument).";
+    diary_entry "Vıvojár %(wer) akceptoval novú úlohu. Le, nezaène pracova na dokumente: %(neues_Dokument), pokia¾ nedokonèí dokument: %(altes_Dokument)";
   end message; 
 
   message Neue_Aufgabe_gleiches_Dok_akzeptiert (wer: Entwickler;
 				                ein_Dokument: Dokument) is
-    "The developer %(wer) says: Ok, I will switch working on the %(ein_Dokument) soon. However, I still need some time to finish my previous work.";
-    "The developer %(wer) says: Hold it! First, I'll finish my previous work on the %(ein_Dokument).";
-    "The developer %(wer) says: One at a time. You gave me a task for the %(ein_Dokument) while I haven't finished my old task for the %(ein_Dokument). I'll finish the old task first, then comes the new one. OK?";
-    "The developer %(wer) says: As you know, I work already on the %(ein_Dokument). As soon as I'm done, I will begin with the new task on the %(ein_Dokument).";
-    diary_entry "The developer %(wer) has accepted the new job. However, he will not start with the new task for %(ein_Dokument) before finishing the previous task";
+    "Vıvojar %(wer) vraví: Ok, èoskoro sa zaènem venova práci na dokumente: %(ein_Dokument). Akoko¾vek, stále potrebujem nejakı èas na fokonèenie svojej predchádzajúcej práce.";
+    "Vıvojar %(wer) vraví: Moment! Najsamprv dokonèím svoju predchádzajúcu prácu, a potom sa budem venova dokumentu: %(ein_Dokument).";
+    "Vıvojar %(wer) vraví: iadne viaceré úlohy naraz, prosím. Pride¾ujete mi úlohu pre dokument:  %(ein_Dokument), zatia¾èo som ešte ani nedokonèil(a) svoju pôvodnú úlohu. Najprv dokonèím staršiu úlohu, potom sa pustím do tej novej. OK?";
+    "Vıvojar %(wer) vraví: Ako urèite viete, práve pracujem na dokumente: %(ein_Dokument). Akonáhle skonèím, zaènem s novou úlohou, konkrétne s dokumentom: %(ein_Dokument).";
+    diary_entry "Vıvojár: %(wer) prijal(a) novú prácu. Akoko¾vek, nezaène pracova na novej úlohe: %(ein_Dokument), pokia¾ nedokonèí svoje aktuálne povinnosti";
   end message; 
 
 -----------------------------------------------------
@@ -1185,46 +1185,46 @@ end map;
                                         Budget      : real) is 
     "QS200-v7 (c) AMEISE, March 2013 
 
-Good morning. Due to your excellent work as a software engineer in your company, Excellent-Software GmbH,  and your experience in the application field, you have been promoted to a software project leader. You could not gather too much experience in that area in the past, however, your boss is confident that you will manage the new project well. So, he expects you and your group to deliver the product on time and, of course, with the desired quality.
+Dobré ráno. Na základe Vašich vıbornıch vısledkov ako softvérového ininiera vo Vašej firme, Excellent-Software GmbH, a na na základe Vašich skúsenosti v tejto oblasti, ste boli povıšenı na lídra projektu. Nemohli ste síce nazbiera skúsenosti v tejto oblasti v minulosti, akoko¾vek, Váš šéf si je istı, e novı projekt zvládnete skvelo. Take oèakáva, e Vy so svojím pracovnım tímom doruèíte produkt na èas a samozrejme v poadovanej kvalite.
 
-Your first assignment is the development of a new accouting system for Meyers&Co. Besides others, they also want to get the accounting department ready for some important change-overs planned in spring next year.  
+Vašou prvou úlohou je vıvoj nového úètovneho systému pre Meyers&Co. Okrem iného taktie poadujú, aby úètovné oddelenie sa mohlo pripravi na niektoré zásadné zmeny naplánované v jari budúceho roka.  
 
-A former colleague has already met the customer several times. He assumed to have collected all customer requirements. He has also taken some notes. Based on his requirements analysis, a cost estimation was performed. The system comprises about %(Umfang_AFP) Adjusted Function Points \(AFP\). Since the system should be implemented using Ada95 this corresponds to approximately 9800 lines of code \(LOC\).
+Váš predošlı kolega sa stretol so zákazníkom u nieko¾ko krát. Tvrdí, e zhromadil všetky zákazníkové poiadavky a taktie si spravil pár poznámok. Na základe analızy zákazníkovıch poiadaviek bol vyslovenı odhad nákladov na realizáciu projektu. Systém zahàòa okolo %(Umfang_AFP) Adjusted Function Points \(AFP\). Keïe systém má by zimplementovanı pouitím jazyka Ada95, korešponduje to s priemerne 9800 riadkami kódu \(LOC\).
 
-Since the system must reflect the change-overs planned in your customer's company, you must end the project at last on %(Liefertermin). This means you must complete the project in 9 months. An extension of time is hardly possible. Until then, the customer requires a product which satisfies his requirements concerning the completeness and correctness of the system \(see below\).
+Keïe systém musí odzrkad¾ova plánované reformy vo firme Vášho zákazníka, musíte privies projekt do konca najneskôr %(Liefertermin). To znamená, e musíte skompletizova projekt do 9 mesiacov. Rozšírenie èasového rámca neprichádza do úvahy. V stanovenı dátum bude zákazník oèakáva produkt, ktorı pokrıva poiadavky zamerané na úplnos a správnos systému \(viï nišie\).
 
-Because of the narrow time plan, the customer will agree to a compromise and gives you a budget of %(Budget) EUR.
+Kvoli stiesnenému èasovému plánu zákazník súhlasil a udelil Vám rozpoèet okolo %(Budget) EUR.
 
-There are a couple of developers available, i.e. they are currently not assigned to other projects. You can select and assign some of them to your project. 
-You don't need to choose notations for the different documents. The customer has already decided that the code must be written in Ada95 and the manuals must be written in German. This is also true for all possible internal documents. 
+Nieko¾ko vıvojárov je momentálne dostupnıch, resp. nie sú pridelenı k iadnemu inému projektu. Niektorıch z nich si môete vybra a zapoji ich do svojho projektu. 
+Pre rôzne dokumenty nemusíte voli notácie. Zákazník sa u rozhodol, e kód musí by napísanı v jazyku Ada95 a príruèky musia by napísané v slovenèine(?TODO). To tie platí pre všetky interné dokumenty. 
 
-And now: Good Luck!
+Èo doda: Ve¾a šastia!
  ";
 
-diary_entry "We have to develop a new accouting system for Meyers&Co. Besides others, they also want to get the accounting department ready for some important change-overs planned in spring next year.
-A former colleague has already met the customer several times. He assumed to have collected all customer requirements.
-Based on this requirements analysis, a cost estimation was performed. The system comprises about %(Umfang_AFP) Adjusted Function Points \(AFP\). Since the system should be implemented using Ada95 this corresponds to approximately 9800 lines of code \(LOC\).
-The project must end at last on %(Liefertermin). \(That means we have a maximum of 9 months\).
-Because of the narrow time plan, the customer has agreed to a compromise and gives us a budget of %(Budget) EUR.
-The customer requires a product which satisfies his requirements concerning the completeness and correctness of the system \(see below\).
+diary_entry "Máme vyvinú novı úètovnícky systém pre Meyers&Co. Okrem iného, taktie chcú, aby úètovné oddelenie sa mohlo pripravi na niektoré zásadné zmeny naplánované v jari budúceho roka.
+Predošlı kolega sa stretol so zákazníkom u nieko¾ko krát a zhromadil všetky zákazníkové poiadavky.
+Na základe analızy zákazníkovıch poiadaviek bol vyslovenı odhad nákladov na realizáciu projektu. Systém zahàòa okolo %(Umfang_AFP) Adjusted Function Points \(AFP\). Keïe systém má by zimplementovanı pouitím jazyka Ada95, korešponduje to s priemerne 9800 riadkami kódu \(LOC\).
+Projekt treba privies do konca najneskôr do %(Liefertermin) \(To znamená, e sa projekt musí skompletizova do 9 mesiacov\).
+Kvoli stiesnenému èasovému plánu zákazník súhlasil a udelil nám rozpoèet vo vıške %(Budget) EUR.
+V stanovenı dátum bude zákazník oèakáva produkt, ktorı pokrıva poiadavky zamerané na úplnos a správnos systému \(viï nišie\).
 
-There are a couple of developers available, i.e. they are currently not assigned to other projects.
-We don't need to choose notations for the different documents. The customer has already decided that the code must be written in Ada95 and the manuals must be written in German. This is also true for all possible internal documents.";
+Nieko¾ko vıvojárov je momentálne dostupnıch, resp. nie sú pridelenı k iadnemu inému projektu.
+Pre rôzne dokumenty sa nemusia voli notácie. Zákazník sa u rozhodol, e kód musí by napísanı v jazyku Ada95 a príruèky musia by napísané v slovenèine(?TODO). To tie platí pre všetky interné dokumenty.";
   end message;
 
 -----------------------------------------------------
 
   message mindestens_Prozent_AFP (in_was          : Dokument;
                                   Vollstaendigkeit: real) is
-    "Since the accountancy is very important, the customer requires that the %(in_was) contains at least %(Vollstaendigkeit) percent of all his requirements.";
-    diary_entry "The customer requires that the %(in_was) contains at least %(Vollstaendigkeit) percent of all his requirements.";
+    "Keïe úètovníctvo je ve¾mi dôleité, zákazník poaduje, aby %(in_was) obsahoval(a) aspoò %(Vollstaendigkeit) percent všetkıch stanovenıch poiadaviek.";
+    diary_entry "Zákazník poaduje, aby %(in_was) obsahoval(a) aspoò %(Vollstaendigkeit) percent všetkıch stanovenıch poiadaviek.";
   end message;
 
 -----------------------------------------------------
 
   message max_Fehler_im_Code_pro_KLOC(Korrektheit: real) is
-    "Furthermore, the customer demands that the code contains at most %(Korrektheit) error\(s\) per 1000 lines of code. He will control that by performing an acceptance test. In cases the accounting system produces wrong results caused by software errors, this may ruin your customer.";
-    diary_entry "The customer demands that the code must not contain more than %(Korrektheit) errors per 1000 lines of code.";
+    "Navyše, zákazník poaduje, aby zdrojovı kód zahàòal nanajvıš %(Korrektheit) chıb pripadajúcich na 1000 riadkov kódu. Kontrolu zrealizuje pouitím akceptaènéhoi testu. V prípade, e uètovnícky systém bude poskytova zlé vısledky spôsobené chybami softvéru, zákazník môe strati svojich klientov.";
+    diary_entry "Zákazník iada, aby zdrojovı kód neobsahoval viac ne %(Korrektheit) chıb pripadajúcich na 1000 riadkov.";
   end message;
 
 
@@ -1232,9 +1232,9 @@ We don't need to choose notations for the different documents. The customer has 
 
   message max_Fehler_pro_Seite (in_was:       Dokument;
                                 Korrektheit : real) is
-    "Since the system will be used by different, partly unexperienced users, the customer requires that the %(in_was) hardly contains any error. Each page of the %(in_was) should contain at most %(Korrektheit) errors per page.
+    "Keïe systém bude pouívanı rôznymi, èiastoène neskúsenımi pouívate¾mi, zákazník nepripúša temer iadne chyby vo fáze: %(in_was). Ani jedna strana dokumentu: %(in_was) nesmie obsahova viac ne %(Korrektheit) chıb \(pripadajúcich na stranu dokumentu\).
  ";
-    diary_entry "The customer demands that the %(in_was) must not contain more than %(Korrektheit) errors per page.";
+    diary_entry "Zákazník trvá na menej ne %(Korrektheit) chybách pripadajúcich na jednu stranu dokumentu: %(in_was).";
   end message;
 
 
@@ -1247,8 +1247,8 @@ We don't need to choose notations for the different documents. The customer has 
   message Daten_ueber_Projekt(Projektdauer  : integer;
                               Gesamtaufwand : real;
                               Kosten        : real) is
-    "The project was stopped after %(Projektdauer) development days. The total effort for the system development reached %(Gesamtaufwand) man months. The amount of the costs thereby incurred is %(Kosten) EUR.";
-    diary_entry "The project was stopped after %(Projektdauer), took %(Gesamtaufwand) man months for development and costs about %(Kosten)";
+    "Projekt bol zastavenı po %(Projektdauer) dòoch vıvoja. Koneèné úsilie vynaloené na vıvoj systému dosiahlo %(Gesamtaufwand) èlovekomesiacov. Vıška nákldadov sa preto zastavila na èísle %(Kosten) EUR.";
+    diary_entry "Projekt bol zastavenı po %(Projektdauer) dòoch, vıvoj trval %(Gesamtaufwand) èlovekomesiacov a nákldy dosiahli %(Kosten) EUR";
   end message;
 
 -----------------------------------------------------
@@ -1259,12 +1259,12 @@ We don't need to choose notations for the different documents. The customer has 
    MM_Codierungsphase      : real;
    MM_Testphase            : real;
    MM_Handbucherstellung   : real) is
-    "The effort distribution among the particular phases of the software development process is as follows: analysis and specification required %(MM_Spezifikationsphase) man months, for system design there were %(MM_Entwurfsphase) man months needed, the implementation required %(MM_Codierungsphase) man months, the test %(MM_Testphase) man months and the system documentation %(MM_Handbucherstellung) man months.";
-    diary_entry "Effort distribution among the development phases was as follows: analysis and specification: %(MM_Spezifikationsphase) MM,
-    system design: %(MM_Entwurfsphase) MM,
-    implementation: %(MM_Codierungsphase) MM,
-    test %(MM_Testphase) MM and
-    system documentation %(MM_Handbucherstellung) MM.";
+    "Rozdelenie úsilia v rámci jednotlivıch fáz vıvoja softvéru je nasledovné: analıza a špecifikácia poadovali %(MM_Spezifikationsphase) èlovekomesiacov, na návrh systému ste potrebovali %(MM_Entwurfsphase) èlovekomesiacov, implementácia si vyiadala %(MM_Codierungsphase) èlovekomesiov, testy %(MM_Testphase) èlovekomesiacov a systémová dokumentácia %(MM_Handbucherstellung) èlovekomesiacov.";
+    diary_entry "Rozdelenie úsilia v rámci jednotlivıch fáz je nasledovné: analıza a špecifikácia: %(MM_Spezifikationsphase) ÈM,
+    návrh systému: %(MM_Entwurfsphase) ÈM,
+    implementácia: %(MM_Codierungsphase) ÈM,
+    testovanie %(MM_Testphase) ÈM a
+    dokumentácia systému %(MM_Handbucherstellung) ÈM.";
   end message;
 
 -----------------------------------------------------
@@ -1275,10 +1275,10 @@ We don't need to choose notations for the different documents. The customer has 
                                    Prozent_AFP : real;
                                    Fehler      : integer;
                                    Fehler_pro_Seite: real) is
-    "The document %(welches) consists of %(Seiten) pages. It contains %(AFP) AFP. Thereby %(Prozent_AFP) percent of the customer requirements are covered. The %(welches) still contains %(Fehler) errors. This is an average of %(Fehler_pro_Seite) errors per page.";
-    diary_entry "Final status of document %(welches):
-     %(Seiten) pages, %(AFP) AFP \(%(Prozent_AFP) percent of the customer requirements\),
-     and it contains %(Fehler) errors \(this is an average of %(Fehler_pro_Seite) errors per page\).";
+    "Dokument: %(welches) pozostáva z %(Seiten) strán. Obsahuje %(AFP) AFP. Preto %(Prozent_AFP) percent zákazníkovıch poiadaviek bolo pokrytıch. %(welches) stále ešte má %(Fehler) chıb. To je v priemere %(Fehler_pro_Seite) chıb pripádajúcich na stranu.";
+    diary_entry "Koneènı stav dokumentu %(welches):
+     %(Seiten) strán, %(AFP) AFP \(%(Prozent_AFP) percent zákazníkovıch poiadaviek\),
+     dokument stále obsahuje %(Fehler) chıb \(v priemere to vychádza na %(Fehler_pro_Seite) chıb pripádajúcich na stranu\).";
   end message;
 
 -----------------------------------------------------
@@ -1291,10 +1291,10 @@ We don't need to choose notations for the different documents. The customer has 
                                 Feinentwurfsfehler : integer;
                                 Implementierungsfehler: integer;
                                 Fehler_pro_KLOC : real) is
-    "The delivered code consists of %(LOC) lines of code. It contains %(AFP) AFP. This means %(Prozent_AFP) percent of the system requirements are fullfilled. The code still contains %(Analysefehler) errors resulting from analysis, %(Grobentwurfsfehler) errors resulting from system design, %(Feinentwurfsfehler) errors resulting from module design and %(Implementierungsfehler) errors resulting from implementation. This means %(Fehler_pro_KLOC) errors per 1000 lines of code.";
-    diary_entry "Final status of delivered code:
-     %(LOC) lines of code, %(AFP) AFP \(%(Prozent_AFP) percent of the customer requirements\),
-     and it contains %(Analysefehler) errors resulting from analysis, %(Grobentwurfsfehler) errors resulting from system design, %(Feinentwurfsfehler) errors resulting from module specification and %(Implementierungsfehler) errors resulting from implementation \(this means %(Fehler_pro_KLOC) errors per 1000 LOC\).";
+    "Dodanı zdrojovı kód pozostáva z %(LOC) riadkov. Pokrıva %(AFP) AFP. To predstavuje %(Prozent_AFP) percent naplnenıch poiadaviek na systém. Kód stále obsahuje %(Analysefehler) chıb vyplıvajúcich z analızy, %(Grobentwurfsfehler) chıb vyplıvajúcich z návrhu systému, %(Feinentwurfsfehler) chıb vyplıvajúcich z návrhu modulov a %(Implementierungsfehler) chıb vyplıvajúcich z implementácie. To èiní %(Fehler_pro_KLOC) chıb pripadajúcich na 1000 riadkov kódu.";
+    diary_entry "Koneènı stav dodaného kódu:
+     %(LOC) riadkov kódu, %(AFP) AFP \(%(Prozent_AFP) percent zákazníkovıch poiadaviek\),
+     kód stále obsahuje %(Analysefehler) chıb vyplıvajúcich z analızy, %(Grobentwurfsfehler) chıb vyplıvajúcich z návrhu systému, %(Feinentwurfsfehler) chıb vyplıvajúcich zo špecifikácie/návrhu modulov a %(Implementierungsfehler) chıb vyplıvajúcich z implementácie \(to èiní %(Fehler_pro_KLOC) chıb na 1000 LOC\).";
   end message;
 
 -----------------------------------------------------
@@ -1304,159 +1304,159 @@ We don't need to choose notations for the different documents. The customer has 
       TestAufwand        : real;
     ReviewKorrekturAufwand: real;
     TestKorrekturAufwand  : real) is
-    "The reviews required an effort of %(ReviewAufwand) man months, the tests required %(TestAufwand) man months, the correction after review required %(ReviewKorrekturAufwand) man months and the correction after test %(TestKorrekturAufwand) man months.";
-    diary_entry "Effort distribution among quality assurance activities and corection of errors:
-    reviews: %(ReviewAufwand) MM,
-    tests: %(TestAufwand) MM,
-    correction after review: %(ReviewKorrekturAufwand) MM
-    correction after test: %(TestKorrekturAufwand) MM.";
+    "Posudzovanie poadovalo úsilie o %(ReviewAufwand) èlovekomesiacoch, testy poadovali %(TestAufwand) èlovekomesiacov, opravy po prekontrolovaní %(ReviewKorrekturAufwand) èlovekomesiacov a opravy kódu po testoch %(TestKorrekturAufwand) èlovekomesiacov.";
+    diary_entry "Rozloenie úsilia vrámci zaistenia kvality a opráv chıb:
+    posudky: %(ReviewAufwand) ÈM,
+    testy: %(TestAufwand) ÈM,
+    opravy po posudkoch: %(ReviewKorrekturAufwand) ÈM
+    opravy po testoch: %(TestKorrekturAufwand) ÈM.";
   end message;
 
 -----------------------------------------------------
-
+-- function points!
 message Kunde_berichtet_nach_Abnahmetest (Fehler: integer; Verluste: integer) is
-  "The customer reports that he and his employees have completed the acceptance test. They have found %(Fehler) errors. They further estimate that there are still %(Verluste) Function Points missing in the system. The customer demands: \"Please improve the system as soon as possible.\"";
-  diary_entry "Customer reported that they completed the acceptance test. They found %(Fehler) errors and %(Verluste) missing function points.";
+  "Zákazník hlási, e on aj jeho zamestnanci dokonèili akceptaènı test. Odhalili %(Fehler) chıb. Ïalej taktie odhadujú, e stále asi %(Verluste) Function Points v systéme chıba. Zákazník tvrdí: \"Prosím, vylepšite systém èo najskôr.\"";
+  diary_entry "Zamestnanec ohlásil, e dokonèili akceptaènı test. Odhalili %(Fehler) chıb a %(Verluste) chıbajúcich funkcionálnych bodov.";
 end message;
 
 -----------------------------------------------------
 
 message Bewertung_Nicht_Moeglich is
-   "You invested no effort to develop the system. An evaluation is therefore not possible.";
-   diary_entry "No effort was invested in the system development process. It is impossible to evaluate it.";
+   "Nevloili ste do vıvoja systému iadne úsilia, preto ohodnotenie neprichádza do úvahy.";
+   diary_entry "iadne úsilie nebolo do vıvoja systému investované. Nie je moné ohodnoti ho.";
 end message;
 
 -----------------------------------------------------
 
   -- nur Hinweis darauf, dass Uebergabe des Systems erfolgen koennte.
 message Korrektur_nach_Abnahmetest_beendet is
-   "The customer has found some errors during the acceptance test. These errors are now corrected. It may be a good idea to deliver the system soon, since the customer is already pretty impatient.";
-   diary_entry "The errors the customer detected during the acceptance test are now corrected. It may be a good idea to deliver the system soon.";
+   "Zákazník odhalil nieko¾ko chıb poèas vykonávania akceptaèného testu. Chyby sú práve opravované. Doruè systém v doh¾adnom èase by bolo celkom dobrım nápadom, keïe zákazník je u znaène netrpezlivı.";
+   diary_entry "Nieko¾ko chıb poèas vykonávania akceptaèného testu bolo nájdenıch a sú práve opravované. Doruèi systém èoskoro - dobrı nápad!";
 end message;
 
 -----------------------------------------------------
-
+-- TODO: upper management
 message Projektabbruch_bei_Kostenueberlauf is
-  "The upper management has just cancelled the project. The actual costs are now more than twice as high as planned before. That is a pretty bad experience for you as a project manager.";
-  diary_entry "The upper management has cancelled the project. The actual costs are more than twice as high as planned before.";
+  "Vyšší management práve zrušil projekt. U v tomto èase náklady presahujú dvojnásobnú èiastku stanovenú na zaèiatku projektu. Pre projektového manaéra, akım ste Vy, je to ve¾mi zlá skúsenos.";
+  diary_entry "Vyšší management zrušil projekt. Náklady presahujú dvojnásobnú èiastku ne bola stanovenú na zaèiatku projektu.";
 end message;
 
 -----------------------------------------------------
-
+--TODO: upper management?
 message Projektabbruch_bei_Terminueberlauf is
-  "System development now takes more than twice as long as planned before. The upper management has just cancelled the project. They don't believe any longer that you are able to deliver the product in an acceptable timeframe. That is a pretty bad experience for you as a project manager.";
-  diary_entry "The upper management has cancelled the project. System development now takes more than twice as long as planned before.";
+  "Vıvoj systému tohoto èasu trvá dvakrát dlhšie ne bolo naplánované. Vyšší management práve zrušil projekt. Nikto u neverí, e doruèíte produkt v prijate¾nom èasovom rámci. Pre Vás, ako pre manaéra, je táto skúsenos ve¾mi zlá.";
+  diary_entry "Vyšší management zrušil projekt. Vıvoj systému u teraz trvá dvakrát dlhšie ne bolo naplánované.";
 end message;
 
 -------------------------------------------------------
 
 -- Hinweis, dass System noch nicht genuegend Anforderungen enthaelt
 message System_noch_nicht_auslieferbar is
-  "It is knocking on your office door. One of the more experienced developers enters. The developer says that it is much too early to deliver the system. There is too much functionality missing. The customer will be completely unsatisfied with the product. You are glad that the developer has provided that important information to you. You are determined to supervise the progress of the project more carefully.";
-  diary_entry "One of my more experienced developers told me that it is much too early to deliver the system. There is too much functionality missing.";
+  "Niekto klope na dvere Vašej kancelárie. Jeden z najskúsenejších vıvojárov vstupuje do vnútra a tvrdí, e je priskoro doruèi systém. Príliš ve¾a funkcionality chıba. Zákazník bude absolútne nespokojnı s produktom. Oceòujete, e takéto dôleité informácie Vám vıvojár sprostredkoval. Ste rozhodnutı šéfova odteraz projektu opatrnejšie.";
+  diary_entry "Jeden z mojich najskúsenejších vıvojárov mi povedal, e na doruèenie systému je ešte priskoro. Chıba príliš ve¾a funkcionality.";
 end message;
 
 -------------------------------------------------------
 
 message Kundenreaktion_auf_Projektabbruch (Projektbeginn: Date; 
         Heute: date; Soll_Kosten: real) is 
-  "The customer is upset: \"Is that true that the project is cancelled? Do you remember that you have signed a contract? Since %(Projektbeginn), we are waiting for the new product. Today is the %(Heute), and now you tell me that nothing will be delivered? That was the last time that I work with your company.\" At least the customer has saved %(Soll_Kosten) EUR. You don't know how to explain the situation to your manager.";
+  "Zákazník je sklamanı: \"Je pravdou, e projekt bol zrušenı? Pamätáte si, e ste podpísali kontrakt? Od %(Projektbeginn) èakáme na novı produkt a dnes je u %(Heute), prièom mi tvrdíte, e niè nebude dodané? Je to poslednıkrát, èo som s Vašou firmou pracoval.\" Aspoò zákazník ušetril %(Soll_Kosten) EUR. Neviete, ako vysvetli túto situáciu Vášmu nadriadenému.";
 end message;
 
 -------------------------------------------------------
 
 message Vorgesetztenreaktion_auf_Projektabbruch (Kosten: real; wer: Kunde) is
-  "Your manager gives you a call. He is really angry about the project cancellation. He reemphasises that the project cost have reached %(Kosten) up to now. All the money is lost for our software house. Additionally, the customer %(wer) has called him and complained about the project and your project management abilities. %(wer) is now our ex-customer.";
+  "Váš manaér Vám volá. Je skutoène nazlostenı kvoli zrušenému projektu. Znovu zdôraznil, e náklady na projekt doteraz dosiahli %(Kosten). Všetky tieto peniaze sú pre našu firmu stratou. Ba èo viac, zákazník %(wer) zrušil projekt a saoval sa na firmu aj na jej zamestnancov. %(wer) je u naším bıvalım zákazníkom.";
 end message;
 
 --------------------------------------------------------
 
 message Kundenreaktion (wer: Kunde) is
-  "The customer has tested the system carefully. %(wer) gives you a final statement about the project and the quality of the sofware produced.";
+  "Zákazník detailne otestoval systém. %(wer) Vám dá koneèné vyjadrenie na margo projektu a kvality Vami vyprodukovaného softvéru.";
 end message;
 
 -------------------------------------------------------
 
 message Termineinhaltung (Soll_Termin: date; Projektende: date; Tage: integer) is
-  "Delivery of the system was planned for %(Soll_Termin). The actual delivery was at %(Projektende). This is a deviation of %(Tage) days.";
-  diary_entry "Delivery was planned for %(Soll_Termin). The actual delivery was at %(Projektende). This is a deviation of %(Tage) days.";
+  "Doruèenie systému bolo pôvodne naplánované na %(Soll_Termin). Skutoèné doruèenie nastalo %(Projektende). Rozdiel predstavuje %(Tage) dní.";
+  diary_entry "Doruèenie systému bolo pôvodne naplánované na %(Soll_Termin). Skutoèné doruèenie sa zrealizovalo %(Projektende). Rozdiel predstavuje %(Tage) dní.";
 end message;
 
 -------------------------------------------------------
 
 message Termineinhaltung_Gut (Tage: integer) is
-  "The customer is very satisfied with the delivery date. You delivered the system %(Tage) days earlier than required. This was extremely good.";
-  diary_entry "We delivered the system %(Tage) days earlier than required. Customer is very satisfied with the delivery date.";
+  "Zákazník je ve¾mi spokojnı s doruèením systému. Doruèili ste systém %(Tage) dní skôr ne bolo poadované. Excelentné!";
+  diary_entry "Doruèili sme systém %(Tage) dní pred poadovanım deadlinom. Zákazník je ve¾mi spokojnı s tımto dátumom.";
 end message;
 
 --------------------------------------------------------
 
 message Termineinhaltung_Mittel (Tage: integer) is
-  "The customer is not completely satisfied with the delivery date. Delivery took place %(Tage) days too late. The customer had a number of disadvantages due to the late introduction of the new system.";
-  diary_entry "We delivered the system %(Tage) days too late. Of course, the customer is not completely satisfied with the delivery date";
+  "Zákazník nie je úplne spokojnı s dátumom doruèenia. Doruèenie nastalo %(Tage) dní neskôr. Zákazník má kvoli neskoršiemu doruèeniu mnostvo problémov.";
+  diary_entry "Doruèili sme systém o %(Tage) dní neskôr. Samozrejme, e zákazník nie je úplne spokojnı s dátumom doruèenia.";
 end message;
 
 ---------------------------------------------------------
 
 message Termineinhaltung_Schlecht (Tage: integer) is
-  "The customer is completely unsatisfied with the date of delivery. Delivery was %(Tage) days late. He had never thought that your company could work that bad.";
-  diary_entry "We delivered the system %(Tage) days too late. Of course, the customer is completely unsatisfied with the delivery date";
+  "Zákazník je doslova nespokojnı s dátumom doruèenia. Doruèenie nastalo %(Tage) dní neskôr. Nikdy by si nepomyslel, e Vaša firma si bude vodi takto hrozne.";
+  diary_entry "Doruèili sme systém %(Tage) dní neskôr. Samozrejme, e zákazník je absolútne nespokojnı s naším dátumom doruèenia";
 end message;
 
 ---------------------------------------------------------
 
 message Kosteneinhaltung (Soll_Kosten: real; Kosten: real; Differenz: real) is
-  "The actual costs for developing the system amounts to %(Kosten) EUR. The planned costs amounted to %(Soll_Kosten) EUR. This is a deviation of %(Differenz) EUR.";
-  diary_entry "The actual development costs amount to %(Kosten) EUR. The planned costs amounted to %(Soll_Kosten) EUR. This is a deviation of %(Differenz) EUR.";
+  "Náklady na vıvoj systému sa doposia¾ vyšplhali na %(Kosten) EUR. Plánované náklady boli stanovené na %(Soll_Kosten) EUR. Rozdiel èiní %(Differenz) EUR.";
+  diary_entry "Náklady na vıvoj systému sa doposia¾ vyšplhali na %(Kosten) EUR. Plánované náklady boli stanovené na %(Soll_Kosten) EUR. Rozdiel èiní %(Differenz) EUR.";
 end message;
 
 ---------------------------------------------------------
 
 message Kosteneinhaltung_Gut (Differenz: real) is
-  "The customer is pleased: \"You spent %(Differenz) EUR less than planned in your budget. You must have a very efficient development process.\"";
-  diary_entry "We spent %(Differenz) Euros less than planned.  The customer is very pleased.";
+  "Zákazník je nadšenı: \"Minuli ste %(Differenz) EUR menej ne bolo plánovanıch pre Váš rozpoèet. Musíte ma ve¾mi efektívny proces vıvoja softvéru.\"";
+  diary_entry "Utratili sme %(Differenz) Eur menej ne sme plánovali. Zákazník je ve¾mi nadšenı.";
 end message;
 
 ---------------------------------------------------------
 
 message Kosteneinhaltung_Mittel (Differenz: real) is
-  "The customer states: \"You exceeded the budget by %(Differenz) EUR. I know that software development is expensive, however, try to improve your cost planning abilities.\"";
-  diary_entry "We exceeded the budget by %(Differenz) EUR.";
+  "Zákazník tvrdí: \"Prekroèili ste rozpoèet o %(Differenz) EUR. Viem, e vıvoj softvéru je nároènı, akoko¾vek, snate sa vylepši svoje plánovacie schopnosti.\"";
+  diary_entry "Prekroèili sme rozpoèet o %(Differenz) EUR.";
 end message;
 
 ---------------------------------------------------------
 
 message Kosteneinhaltung_Schlecht (Differenz: real) is
-  "So, you exceeded the budget by %(Differenz) EUR. Don't think that I am going to pay for your bad performance in the project.";
-  diary_entry "We exceeded the budget by %(Differenz) EUR. The customer is very upset.";
+  "Take, prekroèili ste rozpoèet o %(Differenz) EUR. Nemyslite si, e Vám za Váš zlı vıkon v rámci projektu aj zaplatím.";
+  diary_entry "Prekroèili sme rozpoèet o %(Differenz) EUR. Zákazník je ve¾mi znechutenı.";
 end message;
 
 ---------------------------------------------------------
 
 message Vollstaendigkeit_Code (Loc: integer; AFP_Wunsch: real; AFP_Code: real) is
-  "The functionality requested by the customer amounted to %(AFP_Wunsch) Adjusted Function Points. The customer has found %(AFP_Code) Adjusted Function Points in the system. The code contains %(Loc) lines of code.";
-  diary_entry "The required functionality was %(AFP_Wunsch) adjusted function points. The customer has found %(AFP_Code) AFP in the system. The code contains %(Loc) lines of code.";
+  "Poadovaná funkcionalita stanovená zákazníkom bola %(AFP_Wunsch) AFP. Zákazník narátal v systéme %(AFP_Code) AFP. Kód obsahuje %(Loc) riadkov kódu.";
+  diary_entry "Poadovaná funkcionalita bola %(AFP_Wunsch) AFP. Zákazník narátal v systéme %(AFP_Code) AFP. Kód obsahuje %(Loc) riadkov kódu.";
 end message;
 
 ---------------------------------------------------------
 
 message Vollstaendigkeit_Code_Gut (Voll_Code: real) is
-  "The customer is very satisfied with the completeness of the code. The code contains %(Voll_Code) percent of the functionality required by the customer. ";
-  diary_entry "The code contains %(Voll_Code) percent of the functionality required. The customer is very satisfied.";
+  "Zákazník je ve¾mi spokojnı s úplnosou doruèeného kódu. Zdrojovı kód obsahuje %(Voll_Code) percent funkcionality poadovanej zákazníkom.";
+  diary_entry "Kód obsahuje %(Voll_Code) percent poadovanej funkcionality. Zákazník je ve¾mi spokojnı.";
 end message;
 
 ---------------------------------------------------------
 
 message Vollstaendigkeit_Code_Mittel (Voll_Code: real) is
-  "The customer is not completely satisfied with the system you delivered. The code only contains %(Voll_Code) percent of the functionality required by the customer.";
-  diary_entry "The code contains %(Voll_Code) percent of the functionality required. The customer is not completetely satisfied.";
+  "Zákazník nie je úplne spokojnı so systémom, ktorı ste doruèili. Zdrojovı kód obsahuje len %(Voll_Code) percent funkcionality poadovanej zákazníkom.";
+  diary_entry "Kód obsahuje %(Voll_Code) percent poadovanej funkcionality. Zákazník nie je úplne spokojnı.";
 end message;
 
 ---------------------------------------------------------
 
 message Vollstaendigkeit_Code_Schlecht (Voll_Code: real) is
-  "The customer complains about the completeness of the code. The system only contains %(Voll_Code) percent of the functionality originally required. This is a very bad result.";
-  diary_entry "The code contains %(Voll_Code) percent of the functionality required. The customer is very upset.";
+  "Zákazník sa sauje na úplnos zdrojového kódu. Systém obsahuje len %(Voll_Code) percent pôvodne poadovanej funkcionality. Toto je ve¾mi zlı vısledok.";
+  diary_entry "Kód obsahuje %(Voll_Code) percent poadovanej funkcionality. Zákazník je znaène skormútenı.";
 end message;
 
 ---------------------------------------------------------
