@@ -88,8 +88,8 @@ end map;
     "specifikuj", ask "Kto ma vykonat specifikaciu?" => ein_Entwickler;
 	"poziadaj [o] specifikaciu", ask "Kto ma pracovat na specifikacii?" => ein_Entwickler;
     "[poziadaj] [o] ([na]pisanie specifikacie|pracovanie na specifikacii)", ask "Kto ma pracovat na specifikacii?" => ein_Entwickler;
-    "poziadaj %(ein_Entwickler) [o] specifikaciu";
-    "poziadaj %(ein_Entwickler) [o] ([na]pisanie specifikacie|(pracu|pracovanie) na specifikacii)";
+    "poziadaj %(ein_Entwickler) o specifikaciu";
+    "poziadaj %(ein_Entwickler) o ([na]pisanie specifikacie|(pracu|pracovanie) na specifikacii)";
     diary_entry "%(ein_Entwickler) uz vie, ze ma pracovat na specifikacii.";
   end command;
 
@@ -111,7 +111,7 @@ end map;
     "[poziadaj [o]] (napisanie|pisanie|vypracovanie|pracovanie na|pracu na) (specifikacie|specifikacii|navrhu) (modulu|modulov)", ask "Kto ma pracovat na specifikacii modulov?" => ein_Entwickler;
     "poziadaj [o] (dizajn|specifikaciu|navrh) modulov", ask "Kto ma pracovat na specifikacii modulov?" => ein_Entwickler;
     "poziadaj %(ein_Entwickler) o (napisanie|pisanie|vypracovanie|pracovanie na|pracu na) (specifikacie|specifikacii|navrhu) (modulu|modulov)";
-    "poziadaj %(ein_Entwickler) [o] (dizajn|specifikaciu|navrh) modulov";
+    "poziadaj %(ein_Entwickler) o (dizajn|specifikaciu|navrh) modulov";
     diary_entry "%(ein_Entwickler) bol(a) oboznameny/a, ze ma pracovat na specifikacii modulov.";
   end command;
 
@@ -292,18 +292,18 @@ end map;
    Gutachter_1  : Entwickler;
    Gutachter_2  : Entwickler;
    Gutachter_3  : Entwickler) is
-    "poziadaj (troch|3) (vyvojarov|posudkarov) o [vykonanie|ujatie [sa]] posudku", 
+    "poziadaj (troch|3) (vyvojarov|posudkarov) o (vykonanie|ujatie [sa]) posudku", 
       ask "Ktory dokument ma byt prehodnoteny/posudeny?" => ein_Dokument,
       ask "Kto je prvou osobou, ktora ma vykonat posudok?" => Gutachter_1,
       ask "Kto je druhou osobou, ktora ma vykonat posudok?" => Gutachter_2,
       ask "Kto je tretiou osobou, ktora ma vykonat posudok?" => Gutachter_3;
-    "poziadaj (troch|3) (vyvojarov|posudkarov) [o] posudenie [dokumentu] %(ein_Dokument)",
+    "poziadaj (troch|3) (vyvojarov|posudkarov) o posudenie [dokumentu] %(ein_Dokument)",
       ask "Kto je prvou osobou, ktora ma vykonat posudok?" => Gutachter_1,
       ask "Kto je druhou osobou, ktora ma vykonat posudok?" => Gutachter_2,
       ask "Kto je tretiou osobou, ktora ma vykonat posudok?" => Gutachter_3;
-    "poziadaj %(Gutachter_1) (a|,) %(Gutachter_2) (a|,) %(Gutachter_3) [o] [vykonanie|ujatie [sa]] posudku",
+    "poziadaj %(Gutachter_1) (a|,) %(Gutachter_2) (a|,) %(Gutachter_3) o (vykonanie|ujatie [sa]) posudku",
       ask "Ktory dokument ma byt prehodnoteny/posudeny?" => ein_Dokument;
-    "poziadaj %(Gutachter_1) (a|,) %(Gutachter_2) (a|,) %(Gutachter_3) [o] posudenie [dokumentu] %(ein_Dokument)";
+    "poziadaj %(Gutachter_1) (a|,) %(Gutachter_2) (a|,) %(Gutachter_3) o posudenie [dokumentu] %(ein_Dokument)";
     diary_entry "%(Gutachter_1), %(Gutachter_2) a %(Gutachter_3) boli oboznameni s tym, ze maju posudit/recenzovat dokument: %(ein_Dokument)";
   end command;
 
@@ -549,6 +549,7 @@ end map;
   command erfrage_alle_Taetigkeiten(ein_Entwickler : Entwickler) is
     "ukaz [mi] ulohy vyvojara",
       ask "Cie ulohy Vas zaujimaju?" => ein_Entwickler;
+    "ukaz [mi] [vsetky] ulohy vyvojara: %(ein_Entwickler)";
     "ukaz [mi] [vsetky] ulohy [vyvojara[:]] %(ein_Entwickler)";
     diary_entry "Ziadanie o zoznam uloh zamestnanca: %(ein_Entwickler)";
   end command;
@@ -1713,7 +1714,7 @@ end message;
 -----------------------------------------------------
 
   message wieder_verfuegbaren_Entwickler_ausgeben(wer: Entwickler; ab_wann: date) is
-    "%(wer) je znova dostupny/a od dnes, %(ab_wann)a dufa, ze mu/jej bude pridelena nejaka zaujimava uloha.";
+    "%(wer) je znova dostupny/a od dnes, %(ab_wann) a dufa, ze mu/jej bude pridelena nejaka zaujimava uloha.";
     "%(wer) je znova volny/volna od dnes, %(ab_wann) a caka na najblizsie ulohy.";
     diary_entry "%(wer) je znova dostupny/a od dnes, %(ab_wann)";
   end message;
@@ -1723,7 +1724,7 @@ end message;
   message verfuegbaren_Entwickler_ausgeben(wer: Entwickler; ab_wann: date) is
     "%(wer) je dostupny/a od %(ab_wann) a dufa, ze mu/jej bude pridelena nejaka zaujimava uloha.";
     "%(wer) je od %(ab_wann) volna a caka na Vase rozkazy.";
-    " Zatial je %he(wer) stale zaneprazdneny/zaneprazdnena, no trufa si na novy job od %(ab_wann).";
+    "Zatial je %(wer) stale zaneprazdneny/zaneprazdnena, no trufa si na novy job od %(ab_wann).";
     "Ak poziadate %(wer) o prace na Vasom projekte, urcite neodmietne, pretoze svoju aktualnu pracu ukonci %(ab_wann).";
     diary_entry "%(wer) je dostupny/a od %(ab_wann)";
   end message;
@@ -1748,22 +1749,22 @@ end message;
                          geringe_E  : string) is
     "Za zamestnanca: %(wer) musite platit %(Kosten) EUR na hodinu.
 %(wer) je velmi skuseny/skusena v nasledujucich oblastiach: %(hohe_E). 
-%He(wer) ma priemerne skusenosti s %(mittlere_E). 
-Akokolvek, %he(wer) ma velmi male znalosti: %(geringe_E).";
+%(wer) ma priemerne skusenosti s %(mittlere_E). 
+Akokolvek, %(wer) ma velmi male znalosti: %(geringe_E).";
     "%(wer) Vas stoji %(Kosten) EUR na hodinu. 
 %(wer) je velmi skuseny/skusena v nasledujucich odvetviach: %(hohe_E). 
-%He(wer) ma ake-take skusenosti s: %(mittlere_E). 
-Avsak, %he(wer) ma zanedbatelne skusenosti s: %(geringe_E).";
+%(wer) ma ake-take skusenosti s: %(mittlere_E). 
+Avsak, %(wer) ma zanedbatelne skusenosti s: %(geringe_E).";
     "Plat pre zamestnanca: %(wer) sa pocita so sarzou %(Kosten) EUR na hodinu. 
 %His(wer) primarne schopnosti siahaju do tychto oblasti: %(hohe_E).
-%He(wer) ma takisto urcite znalosti o: %(mittlere_E). 
-Na druhej strane, %he(wer) ma len chabe skusenosti s: %(geringe_E).";
+%(wer) ma takisto urcite znalosti o: %(mittlere_E). 
+Na druhej strane, %(wer) ma len chabe skusenosti s: %(geringe_E).";
     "Na zaklade svojich schopnosti dostava %(wer) %(Kosten) EUR na hodinu.
-%He(wer) je velmi dobre oboznameny s oblastami ako: %(hohe_E).
-%He(wer) ma urcite znalosti v: %(mittlere_E).
-Nakoniec, poslabsie skusenosti zamestnanca %He(wer) su: %(geringe_E).";
-diary_entry "%(wer) dostava %(Kosten) EUR na hodinu. %He(wer) je velmi skuseny/skusena v tychto oblastiach: %(hohe_E).
-%He(wer) ma priemerne vedomosti o: %(mittlere_E).
+%(wer) je velmi dobre oboznameny s oblastami ako: %(hohe_E).
+%(wer) ma urcite znalosti v: %(mittlere_E).
+Nakoniec, poslabsie skusenosti zamestnanca %(wer) su: %(geringe_E).";
+diary_entry "%(wer) dostava %(Kosten) EUR na hodinu. %(wer) je velmi skuseny/skusena v tychto oblastiach: %(hohe_E).
+%(wer) ma priemerne vedomosti o: %(mittlere_E).
 Koniec koncov, ake-take, hoci poslabsie vedomosti ma aj o: %(geringe_E).";
   end message;
 
@@ -1789,7 +1790,7 @@ Koniec koncov, ake-take, hoci poslabsie vedomosti ma aj o: %(geringe_E).";
   message Entwickler_begutachtet(wer: Entwickler) is
     "%(wer) stravi aspon nejaky cas nad pisanim posudku.";
     "%(wer): Som zaneprazdneny/zaneprazdnena s pisanim posudku, ale moze pracovat na niecom inom popritom.";
-    "Zamestnancovi: %(wer) ste priradili pracu na posudku, ale %he(wer) moze robit nieco ine popritom.";
+    "Zamestnancovi: %(wer) ste priradili pracu na posudku, ale %(wer) moze robit popritom nieco ine.";
     "%(wer): Ja? Pracujem na posudku, preco sa pytate?";
     diary_entry "%(wer) pracuje na posudku";
   end message;
@@ -1800,7 +1801,7 @@ Koniec koncov, ake-take, hoci poslabsie vedomosti ma aj o: %(geringe_E).";
 --                                       was: Dokument) is
 --    "%(wer) is currently working on the %(was)";
 --    "%(wer): Me? I'm occupied with the %(was).";
---    "Asked about %his(wer) activities, %(wer) says, %he(wer) is working at the %(was)";
+--    "Asked about %his(wer) activities, %(wer) says, %(wer) is working at the %(was)";
 --    "%(wer): You assigned me to the %(was). Don't you remember?";
 --    diary_entry "%(wer) is currently working on the %(was)";
 --  end message;
@@ -1939,9 +1940,9 @@ Koniec koncov, ake-take, hoci poslabsie vedomosti ma aj o: %(geringe_E).";
 -----------------------------------------------------
 
   message Entwickler_wurde_eingestellt(wer: Entwickler) is
-    "Vyvojar(ka) bol(a) zamestnana. Zda sa, ze %He(wer) je rad/rada a bude prinosom pre tim.";
-    "%(wer) is glad somebody recogniced %his(wer) talents and hired %him(wer).";
-    "%(wer) si je isty/ista, ze Vas presvedci o spravnosti Vasej volby zamestnat %him(wer).";
+    "Vyvojar(ka) bol(a) zamestnana. Zda sa, ze %(wer) je rad/rada a bude prinosom pre tim.";
+    "%(wer) je stastny/stastna, ze niekto rozpoznal jeho/jej talent a zamestnal ho/ju.";
+    "%(wer) si je isty/ista, ze Vas presvedci o spravnosti Vasej volby zamestnat ho/ju.";
     "%(wer): Zamestnali ste ma. co teraz? Ako mozem pomoct?";
     diary_entry "Vyvojar(ka) %(wer) bol(a) najaty/a.";
   end message;
@@ -1950,7 +1951,7 @@ Koniec koncov, ake-take, hoci poslabsie vedomosti ma aj o: %(geringe_E).";
 
   message Entwickler_wurde_entlassen(wer: Entwickler) is
     "Vyvojar(ka) %(wer) bol(a) z projektu prepusteny/prepustena.";
-    "Uvolnili ste z pracovneho pomeru %(wer), takze %he(wer) moze byt priradeny/priradena k inemu projektu.";
+    "Uvolnili ste z pracovneho pomeru %(wer), takze %(wer) moze byt priradeny/priradena k inemu projektu.";
     "Pomoc od zamestanca %(wer) uz ocividne nepotrebujete, kedze ste %him(wer) uvolnili z projektu.";
     "%(wer): Tak co uz, ked ma nepotrebujete... ale to budete este lutovat.";
     diary_entry "Vyvojar(ka) %(wer) bol(a) prepusteny/prepustena z projektu.";
