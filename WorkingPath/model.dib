@@ -496,7 +496,7 @@ end map;
 -----------------------------------------------------
 
   command inspiziere_Code is
-    "(ukaz|predved) [mi]  (kód|moduly)";
+    "(ukaz|predved) [mi]  (kod|moduly)";
     "[(zobraz|urci)] (stav|vlastnosti) ([zdrojoveho] kódu|[zdrojovych] kodov|modulov)";
     diary_entry "Inšpekcia (stavu) zdrojových kódov.";
   end command;
