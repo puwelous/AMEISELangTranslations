@@ -462,14 +462,14 @@ end map;
 
   command stelle_verbrauchte_Ressourcen_fest is
     "informuj [ma] o (pouzitych|minutych|utratenych) zdrojoch";
-    "[(zobraz|urci)] (pouzite|minute|utratene) zdroje";
+    "[(zobraz|vycisli|zisti)] (pouzite|minute|utratene) zdroje";
     diary_entry "Urcenie/kalkulacia pouzitych zdrojov.";
   end command;
 
 -----------------------------------------------------
 
   command inspiziere_Spezifikation is
-    "(ukaz|predved) [mi] specifikaciu";
+    "ukaz [mi] specifikaciu";
     "[(zobraz|urci)] (stav|vlastnosti|atributy) specifikacie";
     diary_entry "Inspekcia (stavu) specifikacie.";
   end command;
@@ -477,15 +477,15 @@ end map;
 -----------------------------------------------------
 
   command inspiziere_Systementwurf is
-    "(ukaz|predved) [mi] (navrh|dizajn|design) systemu";
+    "ukaz [mi] (navrh|dizajn|design) systemu";
     "[(zobraz|urci)] (stav|vlastnosti) (navrhu|dizajnu|designu|specifikacie) systemu";
-    diary_entry "Inspekcia stavu, v akom je navrh systemu.";
+    diary_entry "Inspekcia stavu, v ktorom sa nachadza navrh systemu.";
   end command;
 
 -----------------------------------------------------
 
   command inspiziere_Modulspezifikation is
-    "(ukaz|predved) [mi] (navrh|dizajn|design|specifikaciu) modulov";
+    "ukaz [mi] (navrh|dizajn|design|specifikaciu) modulov";
     "[(zobraz|urci)] (stav|vlastnosti) (navrhu|dizajnu|designu|specifikacie) modulov";
     diary_entry "Inspekcia (stavu) navrhu modulov.";
   end command;
@@ -493,7 +493,7 @@ end map;
 -----------------------------------------------------
 
   command inspiziere_Handbuch is
-    "(ukaz|predved) [mi] ([systemovu] dokumentaciu|[pouzivatelsku] prirucku|[pouzivatelske] manualy)";
+    "ukaz [mi] ([systemovu] dokumentaciu|[pouzivatelsku] prirucku|[pouzivatelske] manualy)";
     "[(zobraz|urci)] (stav|vlastnosti) ([systemovej] dokumentacie|[pouzivatelskej]prirucky|[pouzivatelskych] manualov)";
     diary_entry "Inspekcia (stavu) pouzivatelskej prirucky.";
   end command;
@@ -501,7 +501,7 @@ end map;
 -----------------------------------------------------
 
   command inspiziere_Code is
-    "(ukaz|predved) [mi] (kod|moduly)";
+    "ukaz [mi]  (kod|moduly)";
     "[(zobraz|urci)] (stav|vlastnosti) ([zdrojoveho] kodu|[zdrojovych] kodov|modulov)";
     diary_entry "Inspekcia (stavu) zdrojovych kodov.";
   end command;
