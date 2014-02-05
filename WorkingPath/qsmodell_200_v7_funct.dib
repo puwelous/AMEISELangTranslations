@@ -1,0 +1,2773 @@
+-- AMEISE-QS-Model
+-- Version: V1.6 (A-E-200)
+--
+-- Passend zu: AMEISE-QS-Model 200 AFP w/ Handbuch EURO
+-- Model-Version: qs_exp_200_pms_V3.b2
+-- 
+-- Autor: Andreas Bollin
+-- Datum: 11.11.2003
+-- History: 
+-- Aenderungen: Elke Hochmueller, 30.5.2006, command list for simulation+, help text
+--              Andreas Bollin, 10.6.2007, updated to new QS Model May 2007
+--              Andreas Bollin, 19.9.2011, changed start/end date
+--              Andreas Bollin, 13.3.2012, changed start/end date
+--              Andreas Bollin, 28.3.2013, changed start/end date
+
+dictionary for QS in english is
+
+  map for Entwickler is
+    "Axel"  => "Axel" ,"A","1",pronoun "he";
+    "Bernd"  => "Bernd" ,"B","2",pronoun "he";
+    "Christine"  => "Christine" ,"C","3",pronoun "she";
+    "Diana"  => "Diana" ,"D","4",pronoun "she";
+    "Richard"  => "Richard" ,"R","5",pronoun "he";
+    "Stefanie" => "Stefanie","S","6",pronoun "she";    
+    "Thomas" => "Thomas","T","7",pronoun "he";
+  end map;
+  
+--nikoo start
+
+map for Dokument is
+    "Analysis" => "Analysis";
+    "Code" => "Code";
+    "Manuals" => "Manuals";
+    "Moduledesign" => "Moduledesign";
+    "Specification" => "Specification";
+    "Systemdesign" => "Systemdesign";
+end map;
+
+map for Testbericht is
+    "Acceptancetestreport" => "Acceptancetestreport";
+    "Integrationtestreport" => "Integrationtestreport";
+    "Moduletestreport" => "Moduletestreport";
+    "Systemtestreport" => "Systemtestreport";
+end map;
+
+map for Pruefbericht is
+    "Acceptancetestreport" => "Acceptancetestreport";
+    "Codereviewreport" => "Codereviewreport";
+    "Manualsreviewreport" => "Manualsreviewreport";
+    "Integrationtestreport" => "Integrationtestreport";
+    "Moduledesignreviewreport" => "Moduledesignreviewreport";
+    "Moduletestreport" => "Moduletestreport";
+    "Specificationreviewreport" => "Specificationreviewreport";
+    "Systemdesignreviewreport" => "Systemdesignreviewreport";
+    "Systemtestreport" => "Systemtestreport";
+end map;
+
+map for Notation is
+    "Ada 95" => "Ada 95";
+    "C" => "C";
+    "C++" => "C++";
+    "English" => "English";
+    "German_in_Analysis" => "German_in_Analysis";
+    "German_in_Manuals" => "German_in_Manuals";
+    "German_in_Module_design" => "German_in_Module_design";
+    "German_in_Spec" => "German_in_Spec";
+    "German_in_System_design" => "German_in_System_design";
+    "SA" => "SA";
+    "Z" => "Z";
+end map;
+--nikoo end
+
+  message Interpreter.Do_not_Understand is
+     "SESAM Vam, bohuzial, nerozumie!";
+  end message;
+
+--====== Produktions-Kommandos ================================
+
+  command lasse_mit_Kunden_sprechen(ein_Entwickler: Entwickler) is
+    "[poziadaj o] [roz]hovor so zakaznikom", ask "Kto ma hovorit so zakaznikom?" => ein_Entwickler;
+    "poziadaj %(ein_Entwickler) o [roz]hovor so zakaznikom";
+    diary_entry "%(ein_Entwickler) uz vie, ze sa ma porozpravat so zakaznikom.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_spezifizieren(ein_Entwickler : Entwickler) is
+    "specifikuj", ask "Kto ma vykonat specifikaciu?" => ein_Entwickler;
+	"poziadaj [o] specifikaciu", ask "Kto ma pracovat na specifikacii?" => ein_Entwickler;
+    "[poziadaj] [o] ([na]pisanie specifikacie|pracovanie na specifikacii)", ask "Kto ma pracovat na specifikacii?" => ein_Entwickler;
+    "poziadaj %(ein_Entwickler) o specifikaciu";
+    "poziadaj %(ein_Entwickler) o ([na]pisanie specifikacie|(pracu|pracovanie) na specifikacii)";
+    diary_entry "%(ein_Entwickler) uz vie, ze ma pracovat na specifikacii.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_System_entwerfen(ein_Entwickler : Entwickler) is
+    "navrhni system", ask "Kto ma navrhnut system?" => ein_Entwickler;
+    "[poziadaj [o]] ([na]pisanie|vypracovanie|pracu na|pracovanie na) navrhu systemu", ask "Kto ma navrhovat system?" => ein_Entwickler;
+    "[poziadaj [o]] navrh systemu", ask "Kto ma navrhovat system?" => ein_Entwickler;
+    "poziadaj %(ein_Entwickler) o ([na]pisanie|vypracovanie|pracu na|pracovanie na) navrhu systemu";
+    diary_entry "%(ein_Entwickler) uz vie, ze ma pracovat na navrhu systemu.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_Module_spezifizieren(ein_Entwickler : Entwickler) is
+    "navrhni modul", ask "Kto ma pracovat na navrhu modulov?" => ein_Entwickler;
+	"specifikuj moduly", ask "Kto ma pracovat na specifikacii modulov?" => ein_Entwickler;
+    "[poziadaj [o]] (napisanie|pisanie|vypracovanie|pracovanie na|pracu na) (specifikacie|specifikacii|navrhu) (modulu|modulov)", ask "Kto ma pracovat na specifikacii modulov?" => ein_Entwickler;
+    "poziadaj [o] (dizajn|specifikaciu|navrh) modulov", ask "Kto ma pracovat na specifikacii modulov?" => ein_Entwickler;
+    "poziadaj %(ein_Entwickler) o (napisanie|pisanie|vypracovanie|pracovanie na|pracu na) (specifikacie|specifikacii|navrhu) (modulu|modulov)";
+    "poziadaj %(ein_Entwickler) o (dizajn|specifikaciu|navrh) modulov";
+    diary_entry "%(ein_Entwickler) bol(a) oboznameny/a, ze ma pracovat na specifikacii modulov.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_codieren(ein_Entwickler : Entwickler) is
+    "(napis|pis|implementuj) kod", ask "Kto ma implementovat kod?" => ein_Entwickler;
+    "[poziadaj] [o] (napisanie|pisanie|implementaciu|implementovanie) kodu", ask "Kto ma pisat kod?" => ein_Entwickler;
+    "poziadaj [o] pracu [na] implementatacii", ask "Kto ma pracovat na implementacii?" => ein_Entwickler;
+    "poziadaj %(ein_Entwickler) o (napisanie|pisanie|implementaciu|implementovanie) [kodu]";
+    diary_entry "%(ein_Entwickler) uz vie, ze ma pracovat na implementacii.";
+  end command;
+
+-----------------------------------------------------
+--
+--  command lasse_Anzahl_Module_codieren
+--   (ein_Entwickler : Entwickler;
+--          Anzahl_Module  : integer;
+--   bis_Termin     : date) is
+--    "[ask] [to] (implement|code) [some] modules", 
+--      ask "Who should implement the modules?" => ein_Entwickler,
+--      ask "How many modules must be implemented?" => Anzahl_Module,
+--      ask "When must the implementation be finished?" => bis_Termin;
+--    "[ask] %(ein_Entwickler) [to] (implement|code) [some] modules",
+--      ask "How many modules must be implemented?" => Anzahl_Module,
+--      ask "When must the implementation be finished?" => bis_Termin;
+--    "[ask] %(ein_Entwickler) [to] (implement|code) %(Anzahl_Module) modules",
+--      ask "When must the implementation be finished?" => bis_Termin;
+--    "[ask] [to] (implement|code) %(Anzahl_Module) modules", 
+--      ask "Who should implement the modules?" => ein_Entwickler,
+--      ask "When must the implementation be finished?" => bis_Termin;
+--    "[ask] [to] (implement|code) %(Anzahl_Module) modules until %(bis_Termin)",
+--      ask "Who should implement the modules?" => ein_Entwickler;
+--    "[ask] %(ein_Entwickler) [to] (implement|code) %(Anzahl_Module) modules until %(bis_Termin)";
+--  end command;
+--
+-----------------------------------------------------
+--TODO: [[,]aby]
+  command lasse_integrieren(ein_Entwickler : Entwickler) is
+    "integruj system", ask "Kto ma vykonat integraciu?" => ein_Entwickler;
+    "[poziadaj [o]] (integraciu|integrovanie) systemu", ask "Kto ma vykonat integraciu?" => ein_Entwickler;
+    "poziadaj %(ein_Entwickler) o (integrovanie|integraciu) [systemu]";
+    diary_entry "Zamestnanec: %(ein_Entwickler) bol oboznameny s tym, ze ma pracovat na integracii systemu.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_Handbuch_erstellen(ein_Entwickler : Entwickler) is
+    "(napis|pis|vyprauj) ([systemovu] dokumentaciu|[pozivatelsku] prirucku|[pouzivatelske] prirucky)", ask "Kto ma pisat dokumentaciu?" => ein_Entwickler;  
+    "[poziadaj [o]] (napisanie|pisanie|vypracovanie) ([systemovej] dokumentacie|[pozivatelskej] prirucky|[pouzivatelskych] priruciek)", ask "Kto ma pisat dokumentaciu?" => ein_Entwickler;
+	"poziadaj [o] pracu na ([systemovej] dokumentacii|[pozivatelskej] prirucke|[pouzivatelskych] priruckach)", ask "Kto ma pracovat na dokumentacii?" => ein_Entwickler;
+    "poziadaj %(ein_Entwickler) o (napisanie|pisanie|vypracovanie) ([systemovej] dokumentacie|[pozivatelskej] prirucky|[pouzivatelskych] priruciek)";
+	"poziadaj %(ein_Entwickler) o pracu na ([systemovej] dokumentacii|[pozivatelskej] prirucke|[pouzivatelskych] priruckach)";
+    diary_entry "Zamestnancovi: %(ein_Entwickler) bolo povedane, aby napisal pouzivatelsku prirucku/systemovu dokumentaciu.";
+  end command;
+
+--====== Pruef-Kommandos ======================================
+
+  command lasse_Module_testen(ein_Entwickler : Entwickler) is
+    "[o]testuj moduly", ask "Kto ma testovat modul(y)?" => ein_Entwickler;
+	"[poziadaj [o]] test modulov", ask "Kto ma testovat modul(y)?" => ein_Entwickler;
+    "[poziadaj [o]] (vykonanie|spravenie) (testu|testov) modulov", ask "Kto ma testovat modul(y)?" => ein_Entwickler;
+    "poziadaj %(ein_Entwickler) o (test[y]|[o]testovanie) modulov";
+    "poziadaj %(ein_Entwickler) o vykonanie (testu|testov) modulov";
+    diary_entry "Zamestnancovi: %(ein_Entwickler) bolo povedane, aby pracoval na testoch pre modul(y).";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_Integrationstest_durchfuehren(ein_Entwickler : Entwickler) is
+    "[o]testuj integraciu", ask "Kto ma testovat integraciu systemu?" => ein_Entwickler;
+	"[poziadaj [o]] (integracny test|test integracie)", ask "Kto ma testovat integraciu systemu?" => ein_Entwickler;
+    "poziadaj o vykonanie (testu integracie|testov integracie|integracneho testu|integracnych testov)", ask "Kto ma testovat integraciu systemu?" => ein_Entwickler;
+    "poziadaj %(ein_Entwickler) o (integracny test|integracne testy|test[ovanie] integracie)";
+	"poziadaj %(ein_Entwickler) o pracu na (integracnom teste|integracnych testoch|teste integracie|testoch integracie) [systemu]";
+	"poziadaj %(ein_Entwickler) o vykonanie (integracneho testu|integracnych testov|testu integracie|testov integracie) [systemu]";
+    diary_entry "Zamestnanec: %(ein_Entwickler) bol oboznameny s tym, aby otestoval integraciu systemu.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_Systemtest_durchfuehren(ein_Entwickler : Entwickler) is
+    "[o]testuj system", ask "Kto ma pracovat na testoch systemu?" => ein_Entwickler;
+	"[poziadaj [o]] test[ovanie] systemu", ask "Kto ma pracovat na testoch systemu?" => ein_Entwickler;
+    "[poziadaj [o]] vykonanie testu systemu", ask "Kto ma pracovat na testoch systemu?" => ein_Entwickler;
+    "poziadaj %(ein_Entwickler) [o]testovat system";
+    "poziadaj %(ein_Entwickler) o (vykonanie testu|[o]testovanie) systemu";
+    diary_entry "Zamestnancovi: %(ein_Entwickler) bolo povedane, aby pracoval na systemovych testoch.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_Kunde_Abnahmetest_durchfuehren is
+    "poziadaj zakaznika (o vykonanie akceptacneho testu|,aby vykonal akceptacny test)";
+    diary_entry "Zakaznikovi bolo povedane, ze produkt je pripraveny na vykonanie akceptacneho testu.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_Reviews_stattfinden
+   (ein_Dokument : Dokument;
+   Gutachter_1  : Entwickler;
+   Gutachter_2  : Entwickler) is
+    "poziadaj (dvoch|2) (vyvojarov|posudkarov) o (vykonanie|ujatie [sa]) posudku", 
+      ask "Ktory dokument ma byt prehodnoteny/posudeny?" => ein_Dokument,
+      ask "Kto je prvou osobou, ktora ma vykonat posudok?" => Gutachter_1,
+      ask "Kto je druhou osobou, ktora ma vykonat posudok?" => Gutachter_2;
+    "poziadaj (dvoch|2) (vyvojarov|posudkarov) o [vykonanie|ujatie [sa]] posudku dokumentu %(ein_Dokument)",
+      ask "Kto je prvou osobou, ktora ma vykonat posudok?" => Gutachter_1,
+      ask "Kto je druhou osobou, ktora ma vykonat posudok?" => Gutachter_2;
+    "poziadaj %(Gutachter_1) a %(Gutachter_2) o [vykonanie|ujatie [sa]] posudku",
+      ask "Ktory dokument ma byt prehodnoteny/posudeny?" => ein_Dokument;
+    "poziadaj %(Gutachter_1) (a|,) %(Gutachter_2) o [vykonanie|ujatie [sa]] posudku dokumentu %(ein_Dokument)";
+    diary_entry "%(Gutachter_1) a %(Gutachter_2) boli oboznameni s tym, ze maju posudit/recenzovat dokument: %(ein_Dokument)";
+  end command;
+
+-----------------------------------------------------
+--
+--  command lasse_Reviews_stattfinden_von_Seiten
+--   (ein_Dokument  : Dokument;
+--   Anzahl_Seiten : integer;
+--   Gutachter_1   : Entwickler;
+--   Gutachter_2   : Entwickler) is
+--    "[ask] [two|2] (developers|reviewers) [to] review %(Anzahl_Seiten) pages", 
+--      ask "Which document must be reviewed?" => ein_Dokument,
+--      ask "Who is the first reviewer?" => Gutachter_1,
+--      ask "Who is the second reviewer?" => Gutachter_2;
+--    "[ask] [to] review %(Anzahl_Seiten) pages of [the] %(ein_Dokument)",
+--      ask "Who is the first reviewer?" => Gutachter_1,
+--      ask "Who is the second reviewer?" => Gutachter_2;
+--    "[ask] %(Gutachter_1) (and|,) %(Gutachter_2) [to] review %(Anzahl_Seiten)",
+--      ask "Which document must be reviewed?" => ein_Dokument;
+--    "[ask] %(Gutachter_1) [to] review %(Anzahl_Seiten)",
+--      ask "Who is the second reviewer?" => Gutachter_2, 
+--      ask "Which document must be reviewed?" => ein_Dokument;
+--    "[ask] %(Gutachter_2) [to] review %(Anzahl_Seiten)",
+--      ask "Who is the second reviewer?" => Gutachter_1,
+--      ask "Which document must be reviewed?" => ein_Dokument;
+--    "[ask] %(Gutachter_1) [to] review %(Anzahl_Seiten) pages of [the] %(ein_Dokument)",
+--      ask "Who is the second reviewer?" => Gutachter_2;
+--    "[ask] %(Gutachter_2) [to] review  %(Anzahl_Seiten) pages of [the] %(ein_Dokument)",
+--      ask "Who is the second reviewer?" => Gutachter_1;
+--    "[ask] %(Gutachter_1) (and|,) %(Gutachter_2) [to] review %(Anzahl_Seiten) pages [of] [the] %(ein_Dokument)";
+--  end command;
+--
+-----------------------------------------------------
+--
+--  command lasse_Reviews_stattfinden_von_Modulen
+--   (Anzahl_Module : integer;
+--   Gutachter_1   : Entwickler;
+--   Gutachter_2   : Entwickler) is
+--    "[ask] [to] review [some] modules",
+--      ask "Who is the first reviewer?" => Gutachter_1,
+--      ask "Who is the second reviewer?" => Gutachter_2,
+--      ask "How many modules should be reviewed?" => Anzahl_Module;
+--    "[ask] [to] review %(Anzahl_Module) modules",
+--      ask "Who is the first reviewer?" => Gutachter_1,
+--      ask "Who is the second reviewer?" => Gutachter_2;
+--    "[ask] %(Gutachter_1) (and|,) %(Gutachter_2) [to] review [some] modules",
+--      ask "How many modules should be reviewed?" => Anzahl_Module;
+--    "[ask] %(Gutachter_1) [to] review [some] modules",
+--      ask "Who is the second reviewer?" => Gutachter_2,
+--      ask "How many modules should be reviewed?" => Anzahl_Module;
+--    "[ask] %(Gutachter_2) [to] review [some] modules",
+--      ask "Who is the second reviewer?" => Gutachter_1,
+--      ask "How many modules should be reviewed?" => Anzahl_Module;
+--    "[ask] %(Gutachter_1) [to] review %(Anzahl_Module) modules",
+--      ask "Who is the second reviewer?" => Gutachter_2;
+--    "[ask] %(Gutachter_2) [to] review %(Anzahl_Module) modules",
+--      ask "Who is the second reviewer?" => Gutachter_1;
+--    "[ask] %(Gutachter_1) (and|,) %(Gutachter_2) [to] review %(Anzahl_Module) modules";
+--  end command;
+--
+-----------------------------------------------------
+
+  command lasse_Reviews_3_stattfinden
+   (ein_Dokument : Dokument;
+   Gutachter_1  : Entwickler;
+   Gutachter_2  : Entwickler;
+   Gutachter_3  : Entwickler) is
+    "poziadaj (troch|3) (vyvojarov|posudkarov) o (vykonanie|ujatie [sa]) posudku", 
+      ask "Ktory dokument ma byt prehodnoteny/posudeny?" => ein_Dokument,
+      ask "Kto je prvou osobou, ktora ma vykonat posudok?" => Gutachter_1,
+      ask "Kto je druhou osobou, ktora ma vykonat posudok?" => Gutachter_2,
+      ask "Kto je tretiou osobou, ktora ma vykonat posudok?" => Gutachter_3;
+    "poziadaj (troch|3) (vyvojarov|posudkarov) o posudenie [dokumentu] %(ein_Dokument)",
+      ask "Kto je prvou osobou, ktora ma vykonat posudok?" => Gutachter_1,
+      ask "Kto je druhou osobou, ktora ma vykonat posudok?" => Gutachter_2,
+      ask "Kto je tretiou osobou, ktora ma vykonat posudok?" => Gutachter_3;
+    "poziadaj %(Gutachter_1) (a|,) %(Gutachter_2) (a|,) %(Gutachter_3) o (vykonanie|ujatie [sa]) posudku",
+      ask "Ktory dokument ma byt prehodnoteny/posudeny?" => ein_Dokument;
+    "poziadaj %(Gutachter_1) (a|,) %(Gutachter_2) (a|,) %(Gutachter_3) o posudenie [dokumentu] %(ein_Dokument)";
+    diary_entry "%(Gutachter_1), %(Gutachter_2) a %(Gutachter_3) boli oboznameni s tym, ze maju posudit/recenzovat dokument: %(ein_Dokument)";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_SpezReviews_mit_Kunde_stattfinden
+   (Gutachter_1 : Entwickler;
+   Gutachter_2 : Entwickler) is
+    "poziadaj zakaznika o (ucast na (posudzovani|prehodnoteni)|(posudenie|prehodnotenie)) specifikacie",
+      ask "Kto je prvou osobou, ktora ma vykonat posudok?" => Gutachter_1,
+      ask "Kto je druhou osobou, ktora ma vykonat posudok?" => Gutachter_2;
+    "poziadaj zakaznika o (ucast na (posudzovani|prehodnoteni)|(posudenie|prehodnotenie)) specifikacie s %(Gutachter_1)",
+      ask "Kto je druhou osobou, ktora ma vykonat posudok?" => Gutachter_2;
+    "poziadaj zakaznika (a|,) %(Gutachter_1) o (ucast na (posudzovani|prehodnoteni)|(posudenie|prehodnotenie)) specifikacie",
+      ask "Kto je druhou osobou, ktora ma vykonat posudok?" => Gutachter_2;
+    "poziadaj zakaznika (a|,) %(Gutachter_1) (a|,) %(Gutachter_2) o (ucast na (posudzovani|prehodnoteni)|(posudenie|prehodnotenie)) specifikacie";
+    "poziadaj zakaznika o (ucast na (posudzovani|prehodnoteni)|(posudenie|prehodnotenie)) specifikacie [spolu] s %(Gutachter_1) (a|,) %(Gutachter_2)";
+    diary_entry "%(Gutachter_1) a %(Gutachter_2) boli oboznameni s tym, ze maju posudit specifikaciu spolu so zakaznikom.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_HandbuchReviews_mit_Kunde_stattfinden
+   (Gutachter_1 : Entwickler;
+   Gutachter_2 : Entwickler) is
+    "poziadaj zakaznika o (ucast na (posudzovani|prehodnoteni)|(posudenie|prehodnotenie)) ([systemovej] dokumentacie|prirucky|[pouzivatelskych] manualov)",
+      ask "Kto je prvou osobou, ktora ma vykonat posudok?" => Gutachter_1,
+      ask " Kto je druhou osobou, ktora ma vykonat posudok?" => Gutachter_2;
+    "poziadaj zakaznika o (ucast na (posudzovani|prehodnoteni)|(posudenie|prehodnotenie)) ([systemovej] dokumentacie|prirucky|[pouzivatelskych] manualov) s %(Gutachter_1)",
+      ask " Kto je druhou osobou, ktora ma vykonat posudok?" => Gutachter_2;
+    "poziadaj zakaznika (a|,) %(Gutachter_1) o (ucast na (posudzovani|prehodnoteni)|(posudenie|prehodnotenie)) ([systemovej] dokumentacie|prirucky|[pouzivatelskych] manualov)",
+      ask " Kto je druhou osobou, ktora ma vykonat posudok?" => Gutachter_2;
+    "poziadaj zakaznika (a|,) %(Gutachter_1) (a|,) %(Gutachter_2) o (ucast na (posudzovani|prehodnoteni)|(posudenie|prehodnotenie)) ([systemovej] dokumentacie|prirucky|[pouzivatelskych] manualov)";
+    "poziadaj zakaznika o (ucast na (posudzovani|prehodnoteni)|(posudenie|prehodnotenie)) ([systemovej] dokumentacie|prirucky|[pouzivatelskych] manualov) s %(Gutachter_1) (a|,) %(Gutachter_2)";
+    diary_entry "%(Gutachter_1) a %(Gutachter_2) boli oboznameni s tym, ze maju posudit  pouzivatelsku prirucku spolu so zakaznikom.";
+  end command;
+
+--====== Korrektur-Kommandos ==================================
+
+  command lasse_Spezifikation_nach_Review_korrigieren(ein_Entwickler : Entwickler) is
+    "oprav[uj] specifikaciu", ask "Kto ma opravit specifikaciu?" => ein_Entwickler;
+	"(oprava|opravovanie|korekcia|korektura) specifikacie", ask "Kto ma opravit specifikaciu?" => ein_Entwickler;  
+    "poziadaj [o] (opravu|opravovanie|korekciu|korekturu) (posudenej|posudzovanej) specifikacie [po (posudku|posudeni|posudzovani|recenzii)]",
+      ask "Kto ma pracovat na oprave/korekcii specifikacie?" => ein_Entwickler;
+    "poziadaj %(ein_Entwickler) o (opravu|opravovanie|korekciu|korekturu) ([(posudenej|posudzovanej)] specifikacie|specifikacie [po (posudku|posudeni|posudzovani|recenzii)])";
+    diary_entry "Zamestnanec: %(ein_Entwickler) bol oboznameny s tym, ze ma pracovat na oprave/korekcii prehodnotenej specifikacie.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_Systementwurf_nach_Review_korrigieren(ein_Entwickler : Entwickler) is
+	"oprav[uj] (navrh systemu|systemovy navrh)", ask "Kto ma opravit navrh systemu?" => ein_Entwickler;
+	"(oprava|opravovanie|korekcia|korektura) (navrhu systemu|systemoveho navrhu)", ask "Kto ma opravit systemovy navrh?" => ein_Entwickler;  
+    "((poziadaj [o] (opravu|opravovanie|korekciu|korekturu))|(korekcia|korektura)) (posudeneho|posudzovaneho) navrhu systemu",
+      ask "Kto ma pracovat na oprave/korekcii navrhu systemu?" => ein_Entwickler;
+    "poziadaj [o] (opravu|opravovanie|korekciu|korekturu) (navrhu systemu|systemoveho navrhu) [po (posudku|posudeni|posudzovani|recenzii)]",
+      ask "Kto ma pracovat na oprave/korekcii navrhu systemu?" => ein_Entwickler;
+    "poziadaj %(ein_Entwickler) o (opravu|opravovanie|korekciu|korekturu) ([(posudeneho|posudzovaneho)] (navrhu systemu|systemoveho navrhu)|(navrhu systemu|systemoveho navrhu) [po (posudku|posudeni|posudzovani|recenzii)])";
+    diary_entry "Zamestnanec: %(ein_Entwickler) bol oboznameny(a) s tym, ze ma pracovat na oprave/korekcii prehodnoteneho navrhu systemu.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_Modulspez_nach_Review_korrigieren(ein_Entwickler : Entwickler) is
+	"oprav[uj] (navrh|specifikaciu|dizajn|design) (modulu|modulov)", ask "Kto ma opravit navrh modulu/modulov?" => ein_Entwickler;
+    "(oprava|opravovanie|korekcia|korektura) [(posudeneho|posudzovaneho)] (navrhu|dizajnu|designu) modulu",
+      ask "Kto ma pracovat na oprave/korekcii navrhu modulov/modulu?" => ein_Entwickler;
+    "(oprava|opravovanie|korekcia|korektura) [(posudenej|posudzovaneej)] specifikacie modulu",
+      ask "Kto ma pracovat na oprave/korekcii navrhu modulov/modulu?" => ein_Entwickler;	  
+    "poziadaj [o] (opravu|opravovanie|korekciu|korekturu) (navrhu|specifikacie|dizajnu|designu) (modulov|modulu) [po (posudku|posudeni|posudzovani|recenzii)]",
+      ask "Kto ma pracovat na oprave/korekcii navrhu modulov/modulu?" => ein_Entwickler;
+    "poziadaj %(ein_Entwickler) o (opravu|opravovanie|korekciu|korekturu) (posudeneho|posudzovaneho) (navrhu|dizajnu|designu) modulu[po (posudku|posudeni|posudzovani|recenzii)]";
+	"poziadaj %(ein_Entwickler) o (opravu|opravovanie|korekciu|korekturu) (posudenej|posudzovanej) (specifikacie) modulu[po (posudku|posudeni|posudzovani|recenzii)]";
+    diary_entry "%(ein_Entwickler) bol(a) oboznameny(a) s tym, ze ma pracovat na oprave/korekcii prehodnoteneho navrhu modulov.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_Code_nach_Review_korrigieren(ein_Entwickler : Entwickler) is
+    "oprav[uj] ([(posudeny|posudzovany)] kod|[(posudenu|posudzovanu)] implementaciu)",
+      ask "Kto ma pracovat na oprave/korekcii zdrojoveho kodu?" => ein_Entwickler;    
+	"((poziadaj [o] (opravu|opravovanie|korekciu|korekturu))|(korekcia|korektura)) ([(posudeneho|posudzovaneho)] kodu|[posudenej|posudzovanej] implementacie)",
+      ask "Kto ma pracovat na oprave/korekcii zdrojoveho kodu?" => ein_Entwickler;
+    "((poziadaj [o] (opravu|opravovanie|korekciu|korekturu))|(korekcia|korektura)) (kodu|implementacie) [po (posudku|posudeni|posudzovani|recenzii)]",
+      ask "Kto ma pracovat na oprave/korekcii zdrojoveho kodu?" => ein_Entwickler;
+    "poziadaj %(ein_Entwickler) o (opravu|opravovanie|korekciu|korekturu) ([(posudeneho|posudzovaneho)] kodu|kodu [po (posudku|posudeni|posudzovani|recenzii)])";
+    diary_entry "%(ein_Entwickler) bol(a) oboznameny(a) s tym, ze ma pracovat na oprave/korekcii chyb najdenych v implementacii pocas vykonavania kontroly/prehodnocovania.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_Handbuch_nach_Review_korrigieren(ein_Entwickler : Entwickler) is
+    "oprav[uj] ([(posudenu|posudzovanu)] ([systemovu] dokumentaciu|prirucku)|[(posudene|posudzovane)] [pouzivatelske] manualy)",
+      ask "Kto ma pracovat na oprave/korekcii dokumentacie?" => ein_Entwickler;
+    "((poziadaj [o] (korekciu|korekturu))|(korekcia|korektura)) ([(posudenej|posudzovanej)] ([systemovej] dokumentacie|prirucky)|[(posudenych|posudzovanych)] [pouzivatelskych] manualov)",
+      ask "Kto ma pracovat na oprave/korekcii dokumentacie?" => ein_Entwickler;
+    "((poziadaj [o] (korekciu|korekturu))|(korekcia|korektura)) ([systemovej] dokumentacie|prirucky|[pouzivatelskych] manualov) po (posudku|posudeni|posudzovani|recenzii)",
+      ask "Kto ma pracovat na oprave/korekcii dokumentacie?" => ein_Entwickler;
+    "poziadaj %(ein_Entwickler) o (korekciu|korekturu) ([(posudenej|posudzovanej)] ([systemovej] dokumentacie|prirucky)|[(posudenych|posudzovanych)] [pouzivatelskych] manualov)";
+    "poziadaj %(ein_Entwickler) o (korekciu|korekturu) ([systemovej] dokumentacie|prirucky|[pouzivatelskych] manualov) po (posudku|posudeni|posudzovani|recenzii)";
+    diary_entry "%(ein_Entwickler) bol(a) oboznameny(a) s tym, ze ma pracovat na oprave/korekcii chyb najdenych v dokumentacii.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_Code_nach_Test_korrigieren
+   (ein_Entwickler : Entwickler;
+   ein_Bericht     : Testbericht) is
+    "oprav[uj] [o]testovany kod",
+      ask "Kto ma opravit kod?" => ein_Entwickler,
+      ask "Ktory testovaci report ma byt pouzity?" => ein_Bericht;	  
+    "((poziadaj [o] (opravu|opravovanie|korekciu|korekturu))|(korekcia|korektura)) [o]testovaneho kodu",
+      ask "Kto ma opravit kod?" => ein_Entwickler,
+      ask "Ktory testovaci report ma byt pouzity?" => ein_Bericht;
+    "((poziadaj [o] (opravu|opravovanie|korekciu|korekturu))|(korekcia|korektura)) kodu po (teste|testoch)",
+      ask "Kto ma opravit kod?" => ein_Entwickler,
+      ask "Ktory testovaci report ma byt pouzity?" => ein_Bericht;
+    "poziadaj %(ein_Entwickler) o (opravu|opravovanie|korekciu|korekturu) [o]testovaneho kodu",
+      ask "Ktory testovaci report ma byt pouzity?" => ein_Bericht;
+    "poziadaj %(ein_Entwickler) o (opravu|opravovanie|korekciu|korekturu) kodu po (teste|testoch)",
+      ask "Ktory testovaci report ma byt pouzity?" => ein_Bericht;
+    "((poziadaj [o] (opravu|opravovanie|korekciu|korekturu))|(korekcia|korektura)) [o]testovaneho kodu (podla|na zaklade|pomocou) [[testovacieho] reportu] %(ein_Bericht)",
+      ask "Kto ma opravit kod?" => ein_Entwickler;
+    "((poziadaj [o] (opravu|opravovanie|korekciu|korekturu))|(korekcia|korektura)) kodu po (teste|testoch) (podla|na zaklade|pomocou) [[testovacieho] reportu] %(ein_Bericht)",
+      ask "Kto ma opravit kod?" => ein_Entwickler;
+    "poziadaj %(ein_Entwickler) o (opravu|opravovanie|korekciu|korekturu) [o]testovaneho kodu (podla|na zaklade|pomocou)  [[testovacieho] reportu]  %(ein_Bericht)";
+    "poziadaj %(ein_Entwickler) o (opravu|opravovanie|korekciu|korekturu) kodu po (teste|testoch)(podla|na zaklade|pomocou) [[testovacieho]reportu] %(ein_Bericht)";
+    diary_entry "%(ein_Entwickler) bol(a) oboznameny(a) s tym, ze ma pracovat na oprave/korekcii vsetkych chyb v zdrojovom kode na zaklade reportu %(ein_Bericht).";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_alle_Dokumente_korrigieren
+   (ein_Entwickler : Entwickler;
+                         ein_Bericht    : Pruefbericht) is
+    "oprav[uj] vsetky dokumenty",
+      ask "Kto ma opravit dokumenty?" => ein_Entwickler,
+      ask "Ktory report ma byt pouzity" => ein_Bericht;						 
+    "((poziadaj [o] (korekciu|korekturu))|(korekcia|korektura)) vsetkych dokumentov",
+      ask "Kto ma opravit dokumenty?" => ein_Entwickler,
+      ask "Ktory report ma byt pouzity" => ein_Bericht;
+    "((poziadaj [o] (korekciu|korekturu))|(korekcia|korektura)) vsetkych dokumentov (podla|na zaklade|pomocou) [reportu] %(ein_Bericht)",
+      ask "Kto ma opravit dokumenty" => ein_Entwickler;
+     "poziadaj %(ein_Entwickler) o (opravu|opravovanie|korekciu|korekturu) vsetkych dokumentov (podla|na zaklade|pomocou) [reportu] %(ein_Bericht)";
+     diary_entry "%(ein_Entwickler) bol(a) oboznameny(a) s tym, ze ma pracovat na oprave/korekcii vsetkych nezrovnalosti vo vsetkych dokumentoch na zaklade testovacieho reportu %(ein_Bericht).";
+  end command;
+
+
+--====== Inspektoren ==========================================
+
+
+  command stelle_verbrauchte_Ressourcen_fest is
+    "informuj [ma] o (pouzitych|minutych|utratenych) zdrojoch";
+    "[(zobraz|urci)] (pouzite|minute|utratene) zdroje";
+    diary_entry "Urcenie/kalkulacia pouzitych zdrojov.";
+  end command;
+
+-----------------------------------------------------
+
+  command inspiziere_Spezifikation is
+    "(ukaz|predved) [mi] specifikaciu";
+    "[(zobraz|urci)] (stav|vlastnosti|atributy) specifikacie";
+    diary_entry "Inspekcia (stavu) specifikacie.";
+  end command;
+
+-----------------------------------------------------
+
+  command inspiziere_Systementwurf is
+    "(ukaz|predved) [mi] (navrh|dizajn|design) systemu";
+    "[(zobraz|urci)] (stav|vlastnosti) (navrhu|dizajnu|designu|specifikacie) systemu";
+    diary_entry "Inspekcia stavu, v akom je navrh systemu.";
+  end command;
+
+-----------------------------------------------------
+
+  command inspiziere_Modulspezifikation is
+    "(ukaz|predved) [mi] (navrh|dizajn|design|specifikaciu) modulov";
+    "[(zobraz|urci)] (stav|vlastnosti) (navrhu|dizajnu|designu|specifikacie) modulov";
+    diary_entry "Inspekcia (stavu) navrhu modulov.";
+  end command;
+
+-----------------------------------------------------
+
+  command inspiziere_Handbuch is
+    "(ukaz|predved) [mi] ([systemovu] dokumentaciu|[pouzivatelsku] prirucku|[pouzivatelske] manualy)";
+    "[(zobraz|urci)] (stav|vlastnosti) ([systemovej] dokumentacie|[pouzivatelskej]prirucky|[pouzivatelskych] manualov)";
+    diary_entry "Inspekcia (stavu) pouzivatelskej prirucky.";
+  end command;
+
+-----------------------------------------------------
+
+  command inspiziere_Code is
+    "(ukaz|predved) [mi] (kod|moduly)";
+    "[(zobraz|urci)] (stav|vlastnosti) ([zdrojoveho] kodu|[zdrojovych] kodov|modulov)";
+    diary_entry "Inspekcia (stavu) zdrojovych kodov.";
+  end command;
+
+-----------------------------------------------------
+
+  command inspiziere_Pruefbericht(ein_Bericht : Pruefbericht) is
+    "ukaz [mi] report posudku",
+      ask "Pre ktory posudok (report) chcete vykonat reviziu?" => ein_Bericht;
+    "[poziadaj [o]] (prezretie|preskumanie) reportu posudku",
+      ask "Pre ktory posudok (report) chcete vykonat reviziu?" => ein_Bericht;
+    "[poziadaj [o]] report posudku",
+      ask "Pre ktory posudok (report) chcete vykonat reviziu?" => ein_Bericht;	  
+    "(poziadaj [o] (prezretie|preskumanie) reportu|ukaz [mi] report) posudku %(ein_Bericht)";
+    diary_entry "Vykonanie revizie pre posudok (report) %(ein_Bericht).";
+  end command;
+
+-----------------------------------------------------
+
+  command zeige_verfuegbare_Entwickler is
+    "dostupni vyvojari";
+	"((ukaz|zobraz|vytlac|daj) [mi]) [zoznam] dostupnych vyvojarov";
+    "Ktori vyvojari su dostupni[?]";
+    diary_entry "Urcenie zoznamu dostupnych vyvojarov.";
+  end command;
+
+-----------------------------------------------------
+
+  command zeige_zugeteilte_Mitarbeiter is
+	"(zlozenie|clenovia) [mojho] timu";
+    "ukaz [mi] (zlozenie|clenov) [mojho] timu";
+    "(ukaz|zobraz|vytlac|urc|zisti) [mi] (zapojenych|zamestnanych|najatych) (zamestnancov|ludi|pracovnikov|vyvojarov)";
+    "kto je (zamestnany|najaty)[?]";
+    "kto je (zamestnany v projekte|zapojeny do projektu|zacleneny do projektu) [?]";
+    "ktori (zamestnanci|ludia|pracovnici|vyvojari) su ((zapojeni|zacleneni) do projektu|zamestnani v projekte)[?]";
+    diary_entry "Ukaz mi zamestnancov pracujucich na projekte.";
+  end command;
+
+-----------------------------------------------------
+
+  command erfrage_Informationen_zu_Entwickler(ein_Entwickler : Entwickler) is
+    "[daj [mi]|poziadaj [o]] informacie o vyvojarovi",
+      ask "O kom chcete byt informovany?" => ein_Entwickler;
+    "[daj [mi]|poziadaj [o]] informacie o [vyvojarovi[:]] %(ein_Entwickler)";
+    diary_entry "Ziskavanie informacii o zamestnancovi: %(ein_Entwickler)";
+  end command;
+
+-----------------------------------------------------
+
+  command erfrage_alle_Taetigkeiten(ein_Entwickler : Entwickler) is
+    "ukaz [mi] ulohy vyvojara",
+      ask "Cie ulohy Vas zaujimaju?" => ein_Entwickler;
+    "ukaz [mi] [vsetky] ulohy vyvojara: %(ein_Entwickler)";
+    "ukaz [mi] [vsetky] ulohy [vyvojara[:]] %(ein_Entwickler)";
+    diary_entry "Ziadanie o zoznam uloh zamestnanca: %(ein_Entwickler)";
+  end command;
+
+-----------------------------------------------------
+
+  command erfrage_Taetigkeit_von_Entwickler(ein_Entwickler : Entwickler) is
+    "(ukaz|predved) [mi] [svoju] (aktivitu|ulohu|pracu)",
+      ask "O ciej praci sa chcete informovat?" => ein_Entwickler;
+    "(ukaz|predved) [mi] (aktivitu|ulohu|pracu) [zamestnanca] %(ein_Entwickler)";
+    "poziadaj [o] informacie o (aktivite|ulohe|praci)",
+      ask "O ciej praci sa chcete informovat?" => ein_Entwickler;
+	"poziadaj [o] informacie o (aktivite|ulohe|praci) [zamestnanca] %(ein_Entwickler)";	  
+    "[spytaj sa[,]] na com %(ein_Entwickler) (robi|pracuje)[?]";
+    "[spytaj sa] %(ein_Entwickler) na [(jeho|jej)] (aktivitu|ulohu|pracu)";
+    diary_entry "Ziskavanie informacii o ulohe, na ktorej prave %(ein_Entwickler) pracuje.";
+  end command;
+
+
+--====== sonstige Kommandos ===================================
+
+
+  command lasse_Taetigkeit_beenden(ein_Entwickler : Entwickler) is
+    "(dokonc|zavrs) [svoju] [aktualnu] (aktivitu|ulohu|pracu)",
+      ask "Kto ma zavrsit(priviest do konca) svoju aktualnu pracu?" => ein_Entwickler;  
+    "[poziadaj [o]] (dokoncenie|zavrsenie) [svojej] [aktualnej] (aktivity|ulohy|prace)",
+      ask "Kto ma dokoncit svoju aktualnu pracu?" => ein_Entwickler;
+    "poziadaj %(ein_Entwickler) o (dokoncenie|zavrsenie) [(jeho|jej)] [aktualnej] (aktivity|ulohy|prace)";
+	"poziadaj %(ein_Entwickler) (dokoncit|zavrsit) [(jeho|jej)] [aktualne] (aktivity|ulohy|prace)";
+    diary_entry "Zamestnancovi: %(ein_Entwickler) bolo povedane, aby svoju aktualnu ulohu priviedol do konca.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_Taetigkeit_abbrechen(ein_Entwickler : Entwickler) is
+    "(prerus|zastav) [svoju] [aktualnu] (aktivitu|ulohu|pracu)",
+      ask "Kto ma prerusit svoju aktualnu pracu?" => ein_Entwickler;
+    "[poziadaj [o]] (prerusenie|zastavenie) [aktualnej] (aktivity|ulohy|prace)",
+      ask "Kto ma prerusit svoju aktualnu ulohu?" => ein_Entwickler;	  
+    "poziadaj %(ein_Entwickler) o (prerusenie|zastavenie) [(jeho|jej)] [aktualnej] (aktivity|ulohy|prace)";
+	"poziadaj %(ein_Entwickler) (prerusit|zastavit) [(jeho|jej)] [aktualnu] (aktivitu|ulohu|pracu)";
+    diary_entry "(ein_Entwickler)(ovi) bolo povedane, aby prerusil/ponechal svoju aktualnu pracu.";
+  end command;
+
+-----------------------------------------------------
+
+  command lasse_Reviews_beenden(ein_Dokument : Dokument) is
+    "(dokonc|zavrsi) posudok [dokumentu]",
+	  ask "Dokoncit posudok ktoreho dokumentu?" => ein_Dokument;
+	"[poziadaj [o]]  (dokoncenie|zavrsenie) posudku [dokumentu]",
+      ask "Dokoncit posudok ktoreho dokumentu?" => ein_Dokument;
+    "[poziadaj [o]]  (dokoncenie|zavrsenie) posudku [(dokumentu|pre dokument)] %(ein_Dokument)";
+    diary_entry "Povedat vyvojarom, aby dotiahli do konca posudok dokumentu: %(ein_Dokument)";
+  end command;
+
+-----------------------------------------------------
+
+  command teile_dem_Projekt_zu(ein_Entwickler : Entwickler) is
+    "(zamestnaj|najmi)",
+      ask "Koho chcete najat/zamestnat?" => ein_Entwickler;
+    "(zamestnaj|najmi) %(ein_Entwickler)";
+    diary_entry "%(ein_Entwickler) je pripraveny/pripravena spolupracovat na projekte.";
+  end command;
+
+-----------------------------------------------------
+
+  command entlasse_aus_Projekt(ein_Entwickler : Entwickler) is
+    "prepusti",
+       ask "Koho chcete prepustit?" => ein_Entwickler;
+    "vyhod",
+       ask "Koho chcete vyhodit?" => ein_Entwickler;
+    "(prepusti|vyhod) %(ein_Entwickler)";
+    diary_entry "%(ein_Entwickler) bol(a) prepusteny/prepustena.";
+  end command;
+
+-----------------------------------------------------
+-- TODO: how to translate NOTATION???
+--  command setze_Notation_ein_fuer(eine_Notation : Notation;
+--                                  ein_Dokument  : Dokument) is
+--    "use notation",
+--     ask "Which notation should be used?" => eine_Notation,
+--     ask "For which document should this notation be used?" => ein_Dokument;
+--    "use [the] %(eine_Notation) [notation]",
+--   ask "For which document should this notation be used?" => ein_Dokument;
+--   "use [the] %(eine_Notation) [notation] for [the] [document] %(ein_Dokument)";
+--    diary_entry "Told developers to use %(eine_Notation) notation for %(ein_Dokument).";
+-- end command;
+
+  command setze_Notation_ein_fuer(eine_Notation : Notation;
+                                  ein_Dokument  : Dokument) is
+    "pouzi notaciu",
+     ask "Ktoru notaciu pouzit?" => eine_Notation,
+     ask "Pre ktory dokument notaciu pouzit?" => ein_Dokument;
+    "pouzi [notaciu] %(eine_Notation)",
+     ask "Pre ktory dokument notaciu pouzit?" => ein_Dokument;
+    "pouzi [notaciu] %(eine_Notation) pre [dokument] %(ein_Dokument)";
+    diary_entry "Povedane vyvojarom, aby pouzili notaciu: %(eine_Notation) pre dokument: %(ein_Dokument).";
+  end command;
+
+
+
+--====== das Projektende ===================================
+
+
+  command beende_Projekt is
+    "(ukonci|skonci|zastav|stopni|opusti|zrus) projekt";
+    diary_entry "Priviest projekt do konca/ Ukoncit projekt.";
+  end command;
+
+-----------------------------------------------------
+
+  command uebergib_System_an_Kunden is
+    "(doruc|nainstaluj|nasad) system";
+    diary_entry "Dorucit projekt zakaznikovi.";
+  end command;
+
+-----------------------------------------------------
+
+
+
+--===============================================================
+--
+--    Spielerausgaben
+--
+--===============================================================
+
+---- Entwickler beginnt mit einer Taetigkeit --------------------
+
+  message begonnen_mit_Kunde_zu_sprechen(wer: Entwickler) is
+    "%(wer): Najsamprv musim zistit, aku funkcionalitu zakaznik skutocne potrebuje. Uz som si s nim alebo s jeho zamestnanom zajednal(a) stretnutie.";
+    "%(wer): Prave som mal rozhovor so zakaznikom po telefone. Dohodli sme si schodzku, aby sme prebrali poziadavky na jeho softver.";
+    "%(wer) si tiez mysli, ze rozhovor so zakaznikom je dobry napad. Nikto predsa o poziadavkach na jeho softver nevie viac. %(wer) si okamzite dohaduje sedenie so zakaznikom.";
+    "%(wer) je na ceste k zakaznikovi. Dohodl(a) si schodzku so zakaznikom ohladom poziadaviek na projekt.";
+    diary_entry "%(wer) zacal(a) komunikovat so zakaznikom.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_zu_spezifizieren(wer: Entwickler) is
+    "%(wer): Fu... Takze specifikacia poziadaviek, to je teda vyzva.";
+    "%(wer): specifikaciu poziadaviek sice nemam velmi v oblube, napriek tomu spravim, co bude v mojich silach.";
+    "%(wer): Ak potrebujete niekoho na specifikaciu systemovych poziadaviek, rad pomozem.";
+    "%(wer): OK. Specifikovanie nie je az take zle, su aj horsie ulohy. Som rad/rada, ze som obsiahol/obsiahla specifikaciu.";
+    diary_entry "%(wer) zacal(a) pracovat na specifikacii systemovych poziadaviek.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_System_zu_entwerfen(wer: Entwickler) is
+    "%(wer) hlasi, ze uz zacina pracovat na navrhu systemu. Ma z toho radost, lebo navrhovat system povazuje za kreativnu cinnost.";
+    "%(wer): Pracovat na systemovom navrhu je pozadovana zalezitost, svojim sposobom vyzva. Ale ano, vyzvy su pre mna ako stvorene!";
+    "%(wer): Okej, tak teda popracujem na systemovom navrhu, verte mi, neolutujete, ze ste si vybrali prave mna.";
+    "%(wer): Konecne ste rozpoznali moj talent. Pre navrh systemu som tou najlepsou volbou.";
+    diary_entry "%(wer) zacal(a) pracovat na systemovom navrhu.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_Module_zu_spezifizieren(wer: Entwickler) is
+    "%(wer): specifikacia modulov? Idme na to. Dufam, ze nezabudnem na ziadnu funkciu ci proceduru.";
+    "%(wer) sa skor povazuje za vyvojarara, ale urcite mu/jej nevadi specifikacia modulov.";
+    "%(wer) okamzite startuje prace na navrhu modulov, akonahle sa o tejto pridelenej ulohe dozveda.";
+    "%(wer) odchadza s usmevom na tvari, po tom, ako sa dozveda o pridelenej ulohe. Zajtra zacina na specifikacii modulov seriozne pracovat.";
+    diary_entry "%(wer) started to specify the modules.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_zu_codieren(wer: Entwickler) is
+    "%(wer) je poteseny/potesena svojou novou pracou: implementovat kod. Tak ako kazdy vyvojar, uziva si svoju pracu.";
+    "S uistovacim prikyvnutim hlavy zacina pracovat na implementacii a nenechava Vas na pochybach, ci ste na to zvolili spravneho cloveka.";
+    "%(wer) odcupital(a) do svojej kancelarie. Nie je sice nadseny/nadseny z tejto ulohy, kedze skor preferuje prace v skorsich fazach projektu, napriek tomu na ulohe maka.";
+    "%(wer): Nie je mi velmi jasne, preco ste na implementaciu zvolili prave mna. Viete, ze nie som z toho nadseny/a, ale spravim si svoju pracu.";
+    diary_entry "%(wer) zacal(a) pracovat na implementacii.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_Handbuch_zu_schreiben(wer: Entwickler) is
+    "%(wer) zacal(a) pracovat na dokumentacii, no mysli si, ze je to otravna robota.";
+    "%(wer) si mysli, ze je rodeny Shakespeare, preto je pre neho/nu pisanie priruciek dokonalou ulohou.";
+    "%(wer): Pisanie dokumentacie je nevdacnou pracou, ale niekto to spravit predsa musi .";
+    "%(wer) je dobrou volbou. Ak naozaj tak rychlo pise, ako tvrdi, dokonci svoju ulohu do niekolkych dni.";
+    diary_entry "%(wer) zacal(a) pisat dokumentaciu.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_zu_integrieren(wer: Entwickler) is
+    "%(wer): V poriadku, takze mojou dalsou povinnostou je integrovat system. Nie je to velmi vzrusujuce, ale stale lepsie nez testovanie.";
+    "%(wer): Integracia systemu je ako zbieranie chyb zo vsetkych modulov a ich kombinacia do jednej jedinej prace. Dufajme, ze ich tam nie je az tak vela.";
+    "%(wer): Som presvedceny/presvedcena, ze projekt je na dobrej ceste. Integracia systemu by nemala byt problemom.";
+    "%(wer): Dostavame sa na koniec. Zacina sa integrovanie systemu, uz nam toho vela do uplneho konca nechyba.";
+    diary_entry "%(wer) zacal(a) integrovat system.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_mit_Modultest(wer: Entwickler) is
+    "Nie uplne stastny/stastna %(wer) zacina testovat moduly.";
+    "%(wer): co som pobabral(a), ze mi davate takuto nudnu ulohu akou je testovanie modulov?";
+    "%(wer) je presvedceny/presvedcena, ze kvalita modulov je na najvyssej moznej urovni, napriek tomu ich vsak otestuje.";
+    "%(wer): V poriadku. Posvietim si na kazdy riadok kodu a ver ci never, urcite nejake chyby pocas testovania najdem.";
+    diary_entry "%(wer) zacal(a) testovat moduly.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_mit_Integrationstest(wer: Entwickler) is
+    "%(wer) tesuje integraciu systemu, a tak ako zvycajne, povazuje tuto povinnost za deprimujucu.";
+    "%(wer): Som Vas clovek. Dodajte mi komponenty a ja spravim integracny test.";
+    "%(wer): Testovanie integracie? Toto je este nudnejsie nez babranie sa s kodom. Polozte to na moj stol, ochvilu na tom zacnem pracovat.";
+    "Na spravenie integracnych testov ste zvolili zamestnanca: %(wer). Asi s Vami den alebo dva neprehovori kvoli tejto nezaujimavej praci, ale to nie je teraz podstatne.";
+    diary_entry "%(wer) zacal(a) testovat integraciu systemu.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_mit_Systemtest(wer: Entwickler) is
+    "%(wer): Testovanie systemu nepatri medzi kretivne zalezitosti, ale niekto to spravit predsa musi. Teraz som na rade ja.";
+    "%(wer): Testovanie systemu vobec nie je zaujimave, ale voci nasmu zakaznikovi je to povinnost. Urobim to.";
+    "%(wer) povazuje za vyzvu najst cim viac chyb prostrednictvom systemovych testov. %(wer) bol(a) spravnou volbou.";
+    "Potrebujete niekoho, komu mozete verit v tejto zalezitosti. %(wer) vyzera byt skvely/skvela v testovani systemu. Nechajte ho/ju na tom pracovat.";
+    diary_entry "%(wer) zacal(a) testovat system.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_mit_Abnahmetest is
+    "Zakaznik zacal robit akceptacny test. Ako vzdy, aj teraz sa ponahla a nemoze stravit nad tym vela casu, aj keby chcel.";
+    "Zakaznik si berie produkt do svojej firmy, aby vykonal akceptarny test. To nejaku chvilu potrva, kedze si chce byt isty kvalitou Vasho produktu.";
+    "Zakaznik zacina s akceptacnymi testami. Je to jedina cesta, ako naozaj zistit, za co vlastne zaplatil.";
+    "Zakaznik skepticky preskuma Vas produkt - ci je taky, ako chcel. Za par dni Vam ho vrati.";
+    diary_entry "Zakaznik zacal s akceptacnymi testami.";
+  end message;
+
+------------------------------------------------------
+
+  message Letzter_Abnahmetest_vom_Kunden is
+     "Zakaznik Vas informuje, ze nie je nadseny z opakovania akceptacneho testu po tretikrat. Chce od Vas dorucit system uz coskoro, inak projekt zrusi.";
+     diary_entry "Zakaznik ma informoval, ze nie nie je nadseny z vykonavania akceptacneho testu po tretikrat(momentalne je to druhy vykonavany akceptacny test)";
+  end message;
+
+------------------------------------------------------
+
+  message Kunde_fuehrt_Abnahmetest_gerade_durch is
+    "Zakaznik prave vykonava akceptacny test. Je nastvany kvoli Vasmu telefonatu a pyta sa, ci ste vobec stravili dostatok casu riadenim projektu.";
+    diary_entry "Zakaznik prave vykonava akceptacny test. Kvoli mojmu telefonatu je velmi nastvany.";
+  end message;
+
+--------------------------------------------------------
+
+  message Abnahmetest_Befunde_erst_korrigieren is
+    "Zakaznik sa pyta, ci ste uz opravili vsetky chyby, ktore ste nasli pocas posledneho akceptacneho testu. Nie je ochotny robit dalsi akceptracny test predtym, nez odstranite vsetky chyby v produkte.";
+    diary_entry "Zakaznik sa pyta, ci ste uz opravili vsetky chyby, ktore ste nasli pocas posledneho akceptacneho testu. Nie je ochotny robit dalsi akceptracny test predtym, nez odstranite vsetky chyby v produkte.";
+  end message;
+
+------------------------------------------------------
+
+  message Kunde_fuehrt_keinen_weiteren_Abnahmetest_durch is
+    "Zakaznik je rozzureny. Vycita vam, ze ste zodpovedny/zodpovedna za kvalitu produktu. Doposial vykonal akceptacny test dvakrat a nie je velmi ochotny opat ho zopakovat. Ak dorucite system, urcite bude chciet, aby bol produkt na prijatelnej urovni.";
+    diary_entry "Zakaznik nema vplane zopakovat akceptacny test tretikrat v buducnosti, pozaduje akceptovatelnu uroven kvality.";
+  end message;
+
+
+-----------------------------------------------------
+
+  message begonnen_Dokument_zu_begutachten(wer: Entwickler;
+                                             was: Dokument) is
+    "%(wer) zacina posudzovat dokument: %(was): Tesim sa na to, kolko chyb sa mi podari v %(was) najst!";
+    "%(wer): Podla mna je %(was) kvalitou na dobrej urovni, ale prekontrolovanie/posudenie tomu urcite neuskodi.";
+    "%(wer) je pocteny/poctena byt sucastou timu, ktory ma na starosti posudzovanie dokumentu: %(was).";
+    "%(wer): Akonahle v tom neporiadku na svojom stole najdem %(was), zacnem pracovat na jeho/jej posudku.";
+    diary_entry "%(wer) zacal robit posudok na dokumente: %(was).";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_Dokument_mit_Kunde_zu_begutachten(wer: Entwickler;
+                                             was: Dokument) is
+    "%(wer) zacal robit posudok pre dokument - %(was) - spolu so zakaznikom: tesime sa na to, kolko najdeme chyb!";
+    "%(wer): Podla mna je %(was) kvalitou na dobrej urovni, ale prekontrolovanie/posudenie tomu urcite neuskodi.";
+    "%(wer) je pocteny/poctena byt spolocne so zakaznikom sucastou timu, ktory ma na starosti posudzovanie dokumentu: %(was).";
+    "%(wer): Akonahle v tom neporiadku na svojom stole najdem %(was), zacnem spolu so zakaznikom pracovat na jeho/jej posudku.";
+    diary_entry "%(wer) zacal robit posudok pre dokument - %(was) - spolu so zakaznikom.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_Spezifikation_zu_korrigieren(wer: Entwickler) is
+    "%(wer): Zacinam teda opravovat specifikaciu dufajuc, ze do nej nezavediem ziadne nove chyby.";
+    "%(wer) zacina pracovat na korekcii specifikacie cudujuc sa, ako je mozne, ze sa tieto chyby mohli dostat do specifikacie v predoslej verzii.";
+    "Nikto neopravuje dokumenty rad, to iste plati aj pre %(wer). Ale korekcia specifikacie je dolezitou ulohou, kedze vsetko na nej zavisi.";
+    "Tak ako vzdy, %(wer) sa bude mat na co opat stazovat, ked mu/jej nakazete opravit specifikaciu.";
+    diary_entry "%(wer) zacal(a) opravovat specifikaciu.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_Systementwurf_zu_korrigieren(wer: Entwickler) is
+    "%(wer) zacina pracovat na navrhu systemu bez patricneho nadsenia.";
+    "%(wer): V navrhu systemu sa vyskytli nejake chyby, ale vporiadku, opravim ich.";
+    "%(wer): Opravim navrh systemu, len si budte vedomy toho, ze teoreticky mozem zaviest nejake nove chyby.";
+    "Kedze %(wer) uz robil(a) na horsich veciach, tentokrat pomoze s korekturou navrhu systemu s radostou.";
+    diary_entry "%(wer) zacal(a) s opravou navrhu systemu.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_Modulspez_zu_korrigieren(wer: Entwickler) is
+    "%(wer): Opravovat specifikaciu modulov nie sice je mojou vasnou, no zivot nie je jednym neprerusenym potesenim.";
+    "%(wer): Navrh modulov obsahuje chyby? Pokojne mi ho doructe, odstranim ich!";
+    "Nakazali ste zamestnancovi: %(wer) opravit navrh modulov. Zamestnanec z toho sice nie je nadseny, no mozete sa nan spolahnut.";
+    "%(wer): Navrh modulov musi byt bezchybny pred tym ako sa zacne s dalsimi fazami. Dodajte mi report z posudku, ja tie chyby opravim.";
+    diary_entry "%(wer) zacal(a) pracovat na oprave specifikacie modulov.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_Code_zu_korrigieren(wer: Entwickler) is
+    "%(wer): Korektura zdrojoveho kodu je presne taka ista ako ostatne zalezitosti tykajuce sa oprav: nudna a neproduktivna.";
+    "%(wer): Na korekciu zdrojoveho kodu je potrebny niekto so specialnymi schopnostami: To som ja!";
+    "%(wer): Oprava kodu je nevyhnutnostou, no urcite nie moje hobby.";
+    "%(wer) rad/rada nieco opravuje, pretoze tak ukaze ostatnym, v com sa mylili. Takze korekcia kodu je pre neho/nu skvela.";
+    diary_entry "%(wer) zacal(a) opravovat zdrojovy kod.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_Handbuch_zu_korrigieren(wer: Entwickler) is
+    "%(wer) poslusne hlasi, ze opravi dokumentaciu. Akokolvek, velmi spokojny/a s touto ulohou byt nevyzera.";
+    "Oprava dokumentacie je otravna zalezitost. %(wer) to bude chciet spravit cim skor, aby mohol/mohla pracovat na niecom zaujimavejsom.";
+    "%(wer) povazuje prirucky za zivotodarnu sucast produktu, takze si da na ich oprave skutocne zalezat.";
+    "%(wer): Uf, to kto pracoval na prvych verziach tych priruciek? To je jedno, opravim ich.";
+    diary_entry "%(wer) zacala) s opravou pouzivatelskej prirucky.";
+  end message;
+
+-----------------------------------------------------
+
+  message begonnen_alles_zu_korrigieren(wer: Entwickler) is
+    "%(wer) hlasi, ze opravi chyby najdene vo vsetkych dokumentoch. Potrva to urcity cas. %he(wer) nevyzera velmi nadsene.";
+    "%(wer): Je potrebne udrzat vsetky dokumenty v konzistencii. Je to moj job, takze to urobim.";
+    "%(wer) si mysli, ze je pre neho/nu nefer opravovat chyby za niekym inym.";
+    "%(wer): Pouvazujem nad tym... Akokolvek, musime udrzat vsetky tie dokumenty v konzistencii, takze mi ich doneste, spravim to.";
+    diary_entry "%(wer) zacal(a) opravovat vsetky dokumenty s cielom udrzat ich vo vzajomnej konzistencii.";
+  end message;
+
+-----------------------------------------------------
+
+---- Ausgaben waehrend der Ausuebung einer Taetigkeit -----------
+
+-----------------------------------------------------
+
+  message Reviewsitzung_findet_statt(Pruefling       : Dokument;
+                                       Anzahl_Seiten   : integer;
+                                       entdeckte_Fehler: integer;
+                                       entdeckte_AFP   : real) is
+    "Bolo najdenych %(entdeckte_Fehler) chyb a %(entdeckte_AFP) chybajucich funkcionalnych bodov na %(Anzahl_Seiten) dosial existujucich stranach dokumentu: %(Pruefling).";
+    "Stretnutie ohladom posudku pre dokument: %(Pruefling) odhalilo %(entdeckte_Fehler) chyb a %(entdeckte_AFP) chybajucich funkcionalnych bodov na dosial preskumanych %(Anzahl_Seiten) stranach.";
+    "Prehodnotenie dokumentu: %(Pruefling) ukazalo, ze na %(Anzahl_Seiten) doposial preskumanych stranach sa naslo %(entdeckte_Fehler) chyb a %(entdeckte_AFP) chybajucich funkcionalnych bodov.";
+    "%(entdeckte_AFP) chybajucich funkcionalnych bodov, %(entdeckte_Fehler) chyb na len %(Anzahl_Seiten) stranach. Dokument: %(Pruefling) nebol az taky dobry, ako ste si povodne mysleli. Najdolezitejsim nateraz ostava, ze sa tie chyby nasli.";
+    diary_entry "Posudok dokumentu: %(Pruefling) odhalil %(entdeckte_Fehler) chyb a %(entdeckte_AFP) chybajucich funkcionalnych bodov na doposial preskumanych %(Anzahl_Seiten) stranach.";
+  end message;
+
+  message Codereviewsitzung_findet_statt(Pruefling       : Dokument;
+                                       Anzahl_Zeilen   : integer;
+                                       entdeckte_Fehler: integer;
+                                       entdeckte_AFP   : real) is
+    "Bolo najdenych %(entdeckte_Fehler) chyb a %(entdeckte_AFP) chybajucich funkcionalnych bodov na %(Anzahl_Zeilen) riadkov zdrojoveho kodu v dokumente: %(Pruefling).";
+    "Stretnutie ohladom posudku pre dokument: %(Pruefling) odhalilo %(entdeckte_Fehler) chyb a %(entdeckte_AFP) chybajucich funkcionalnych bodov na dosial preskumanych %(Anzahl_Zeilen) LOC.";
+    "Prehodnotenie dokumentu: %(Pruefling)  ukazalo, ze %(entdeckte_Fehler) chyb a %(entdeckte_AFP) chybajucich funkcionalnych bodov sa naslo na %(Anzahl_Zeilen) riadkoch zdrojoveho kodu.";
+    "%(entdeckte_AFP) chybajucich funkcionalnych bodov, %(entdeckte_Fehler) chyb na len %(Anzahl_Zeilen) LOC. Dokument: %(Pruefling) nebol az taky dobry, ako ste si povodne mysleli. Najdolezitejsim nateraz ostava, ze sa tie chyby nasli.";
+    diary_entry "Posudok dokumentu: %(Pruefling) odhalil %(entdeckte_Fehler)  chyb a %(entdeckte_AFP) chybajucich funkcionalnych bodov na doposial preskumanych %(Anzahl_Zeilen) LOC.";
+  end message;
+
+-----------------------------------------------------
+
+  message Gutachter_bereitet_sich_nicht_vor(wer: Entwickler) is
+    "%(wer) je opat v casovej tiesni, takze je pre neho/nu nemozne brat ucast na posudzovani(dokumentov).";
+    "%(wer): Je mi to luto, no nemam cas na pripravu pre posudok.";
+    "Pre zamestnanca: %(wer) existuje teraz prilis vela prace na to, aby sa mohol pripravovat na posudok.";
+    "%(wer): Nemozem sa pripravit na posudok dokumentu. Ako iste viete, po tieto dni som prilis zaneprazdneny/zaneprazdnena na to, aby som sa mohol/mohla pripravovat na posudok.";
+    diary_entry "%(wer) ma informoval(a), ze sa nebude moct pripravit na posudok kvoli casovej tiesni.";
+  end message;
+
+-----------------------------------------------------
+
+---- Entwickler beendet die Ausuebung einer Taetigkeit ----------
+
+-----------------------------------------------------
+
+  message aufgehoert_mit_Kunde_zu_sprechen(wer: Entwickler) is
+    "%(wer): Moja diskusia so zakaznikom a s jeho niekolkymi zamestnancami bola uspesna. Teraz uz viem, aka funkcionalita je potrebna. Vsetky tieto funkcie zahrnieme do projektu, ktory ideme vyvijat.";
+    "%(wer): Dobre sme si so zakaznikom pokecali. Viem, co presne chce. Mozeme to zrealizovat presne tak, ako to sam zakaznik ziada.";
+    "%(wer) sa vracia spat zo svojho stretnutia so zakaznikom a ma dobru predstavu o tom, co zakaznik skutocne chce.";
+    "%(wer): Rozpraval(a) som sa so zakaznikom. tazkopadny to clovek. Mam ale, co chcem. Dokazeme to. Pustme sa do toho hned teraz.";
+    diary_entry "%(wer) sa vratil(a) zo stretnutia so zakaznikom.";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_zu_spezifizieren(wer: Entwickler) is
+    "%(wer): specifikacia nie je jednou z mojich najoblubenejsich aktivit, zial, kazde prijemne obdobie sa musi raz skoncit.";
+    "%(wer): Spociatku bola specifikacia zabavna, no po case ma zacala nudit. Som neskutocne rad/rada, ze to uz je za mnou.";
+    "%(wer) Prichadza do Vasej kancelarie a hrdo Vam podava specifikaciu, na ktorej doposial pracovala.";
+    "%(wer): Hm, aky zaujimavy projekt. Tu je specifikacia. Snad este budem moct pracovat na tomto projekte, samozrejme, ak ma budete chciet.";
+    diary_entry "%(wer) ukoncil specifikaciu systemovych poziadaviek.";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_System_zu_entwerfen(wer: Entwickler) is
+    "%(wer) Vas informuje, ze prave ukoncil(a) prace na navrhu systemu.";
+    "%(wer) ukoncil(a) navrh systemu. %(wer) je naozaj spokojny/spokojna so svojim vysledkom.";
+    "Navrh systemu je pripraveny. Sice to chvilu trvalo, ale konecne sa mi to podarilo priviest do konca.";
+    "Po ukonceni navrhu systemu Vam ho %(wer) prave prinasa na stol.";
+    diary_entry "%(wer) ukoncil(a) navrh systemu.";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_Module_zu_spezifizieren(wer: Entwickler) is
+    "%(wer): Prave som dokoncil(a) specifikaciu modulov. Uz teraz som zvedavy/zvedava na svoju dalsiu ulohu. Viem sice, ze trpezlivost ruze prinasa, no...";
+    "S malym srdcom %(wer) dokoncil(a) prace na specifikacii modulov. Bola to tazka praca, ale uz je za mnou.";
+    "%(wer): specifikacia modulov je za mnou. Bola to zabava, teraz cakam na dalsi job, nejaka energia mi este ostala.";
+    "%(wer): Dokoncil(a) som specifikaciu modulov. Mali by sme ju prekontrolovat kvoli potencialnym chybam. Je to dolezity dokument.";
+    diary_entry "%(wer) dokoncil(a) som specifikaciu modulov.";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_zu_codieren(wer: Entwickler) is
+    "%(wer): Je to skoda, ze aj take mile ulohy ako implementacia kodu musia jedneho dna skoncit.";
+    "%(wer): Som rad, ze implementacia je uz za mnou. Bolo to neskutocne vela prace.";
+    "%(wer) tvrdi, ze implementacia bola ukoncena. %(wer) vyzera byt trochu deprimovany/deprimovana, pretoze implementaciu ma zo vsetkych faz najradsej.";
+    "%(wer): Najsamprv to bola nuda, ale ako cas plynul, zacal(a) som implementaciu brat ako novu vyzvu, ktoru som uspesne zdolal(a)!";
+    diary_entry "%(wer) povedal, ze implementacia bola ukoncena";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_Handbuch_zu_schreiben(wer: Entwickler) is
+    "%(wer) poslusne hlasi, ze prirucka(systemova dokumentacia) je hotova.";
+    "%(wer): Dokoncil(a) som svoju pracu, prirucka je hotova!";
+    "%(wer): Manual sa do dejin literatury asi nezapise, ale, osobne, som s jeho obsahom vcelku spokojny.";
+    "%(wer): Prirucka je hotova, no nie je krasna?";
+    diary_entry "%(wer) povedal, ze pisanie pouzivatelskej prirucky bolo ukoncene.";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_zu_integrieren(wer: Entwickler) is
+    "%(wer): Uf, integracia systemu je ukoncena, taky/taka som stastny/stastna...";
+    "%(wer): Zintegroval som system, ale je velmi komplexny. Mali by sme popremyslat nad otestovanim integracie.";
+    "dalsi velky krok je za nami. %(wer) dokoncil(a) integraciu systemu.";
+    "%(wer): Integracia systemu je dotiahnuta do konca. Podme ihned na dalsiu fazu projektu, ked uz sa tak ponahlame, ci?";
+    diary_entry "%(wer) ukoncil(a) integraciu systemu.";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_mit_Modultest(wer: Entwickler) is
+    "%(wer): Dokoncil(a) som test modulov. Dufam, ze som odhalil(a) vacsinu chyb..";
+    "%(wer): Otestoval som moduly. Vyzeraju byt v poriadku, ale tie testy mohli byt spravene lepsie.";
+    "%(wer): Dokoncil(a) som test modulov. Tu je zoznam chyb, takze ich mozete opravit.";
+    "Po nejakom tom case Vam %(wer) ukazuje report z testovania modulov. Ako vidite, urcite chyby boli najdene.";
+    diary_entry "%(wer) dokoncil(a) som test modulov.";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_mit_Integrationstest(wer: Entwickler) is
+    "%(wer): Som taky rad/taka rada: integracny test je hotovy. Dufam, ze moja dalsia uloha bude o nieco vzrusujucejsia.";
+    "%(wer): Vyzeralo to jednoduchsie, nez v skutocnosti bolo, ale integracny test je konecne za mnou.";
+    "dalsi test je spraveny: %(wer) urobil(a) integracny test.";
+    "%(wer): Som rad/rada, ze Vas vidim. Priviedla som integracny test do konca len pred kratkou chvilou. Mozeme sa s projektom posunut dalej.";
+    diary_entry "%(wer) dokoncil(a) integracny test.";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_mit_Systemtest(wer: Entwickler) is
+    "%(wer): Chcem novu ulohu, test systemu je ukonceny!";
+    "Po tom, co %(wer) dokoncil test systemu, %(wer) si zacina si mysliet, ze samotny system nie je az taky zly.";
+    "%(wer): Dokoncil som test systemu. Dufam, ze sa Vam jeho vykon pozdava.";
+    "Ako prichadzate, na Vasom stole sa vynima novy report. %(wer) dokoncil(a) test systemu a priniesol/priniesla Vam vysledok.";
+    diary_entry "%(wer) dokoncil(a) test systemu.";
+  end message;
+
+-----------------------------------------------------
+
+  message Kunde_akzeptiert is
+    "Zakaznik je velmi spokojny s produktom. Mysli si, ze produkt splna systemove poziadavky a taktiez sa mu paci graficke rozhranie.";
+    "Zakaznik ma z produktu radost. Po tom, ako pocul o softverovych firmach same zle pribehy, je velmi milo prekvapeny kvalitou softveru.";
+    "Zakaznik je spokojny tak s produktom, ako aj s Vasou firmou. Mozno od neho este ziskate dalsi projekt niekedy v buducnosti.";
+    "Zakaznikovi odlahlo. Vas produkt s radostou akceptuje. Zufalo ho potreboval a teraz ho ma k dispozicii, stary system moze byt nahradeny novym.";
+    diary_entry "Zakaznik mi povedal, ze produkt prijima. Je s nim velmi spokojny, ako aj s nasou firmou.";
+  end message;
+
+-----------------------------------------------------
+
+  message Kunde_akzeptiert_nicht_Termin is
+    "Zakaznik nemohol prijat doruceny softver. Je absolutne nespokojny s datumom dorucenia. Nikdy si nemyslel, ze by si Vasa firma vodila takto zle.";
+    diary_entry "Zakaznik neprijal dodany softver. Povedal, ze je absolutne nespokojny s datumom dorucenia";
+  end message;
+
+-----------------------------------------------------
+
+  message Kunde_akzeptiert_nicht_Kosten is
+    "Zakaznik odmieta produkt, pretoze ste nesmierne prekrocili stanoveny rozpocet. Je velmi znechuteny.";
+  diary_entry "Zakaznik neprijal dodany produkt, pretoze sa prilis prekrocil stanoveny rozpocet.";
+  end message;
+
+-----------------------------------------------------
+
+  message Kunde_akzeptiert_nicht_Voll_Code is
+    "Zakaznik neakceptuje Vas system. Kod nie je uplne kompletny, chyba mnozstvo funkcionality.";
+    diary_entry "Zakaznik neakceptuje dodany produkt, pretoze produkt nepokryva prilis vela stanovenych poziadaviek na funkcionalitu.";
+  end message;
+
+-----------------------------------------------------
+
+  message Kunde_akzeptiert_nicht_Korr_Code is
+    "Zakaznikovi sa nechce verit, ze vysledkom Vasej prace je softver plny chyb. Zakaznik odmieta prijat produkt.";
+    diary_entry "Zakaznik neprijima doruceny softver. Dovodom je prilis vela chyb.";
+  end message;
+
+
+-----------------------------------------------------
+
+  message Kunde_akzeptiert_nicht_Voll_HB is
+    "Zakaznik odmieta prijat Vas system. Dokumentacia je neuplna.";
+    diary_entry "Zakaznik odmieta prijat Vas produkt, pretoze nie je spokojny s dokumentaciou, ktora je neuplna.";
+  end message;
+
+-----------------------------------------------------
+
+  message Kunde_akzeptiert_nicht_Korr_HB is
+    "Zakaznik razne odmieta produkt, pretoze kvalitativne nesplna poziadavky a standardy. Dokumentacia je plna chyb.";
+    "Zakaznik neakceptuje Vas system. Tvrdi, ze dokumentacia obsahuje prilis vela chyb.";
+  end message;
+    
+
+-----------------------------------------------------
+
+--  message Kunde_akzeptiert_nicht is
+--    "The customer could not accept the delivered software product. He says that it has a lot of errors and there is als--o required functionality missing.";
+--    "The customer rejects the product. It doesn't meet his quality standards at all. There is functionality missing and-- a lot of errors are still in the software.";
+--    "The customer could not belief that you only came up with a software full of errors and missing functionality after-- all the money he spent on you. He declines to accept the product.";
+--    "The customers doesn't accept your system. It's a mess! Full of bugs. And quite short of the requirements he had.";
+--    diary_entry "The customer did not accept the software product delivered. He said that it has too many errors and th--ere is also required functionality missing";
+--  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_Dokument_zu_begutachten(wer: Entwickler;
+                                               was: Dokument) is
+    "%(wer) dokoncil(a) pisanie posudku pre dokument: %(was) dufajuc, ze mu bude coskoro pridelena nova uloha.";
+    "%(wer) hlasi, ze report pre posudok dokumentu: %(was) je hotovy. Taktiez to znamena, ze moze pracovat na niecom inom.";
+    "Dokument: %(was) bol prekontrolovany zamestnancom: %(wer). Teraz uz mu/jej moze byt pridelena nova uloha.";
+    "%(wer): Mimochodom, dorobil som posudok pre dokument: %(was). Uz by ste mali mat moj report.";
+    diary_entry "%(wer) dokoncil(a) posudok/recenziu pre dokument: %(was).";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_Dokument_mit_Kunde_zu_begutachten(wer: Entwickler;
+                                               was: Dokument) is
+    "%(wer) a zakaznik dokoncili posudzovanie doumentu: %(was). %(wer) dufa v pridelenie novej ulohy.";
+    "%(wer) hlasi, ze posudzovanie dokumentu: %(was) spolu so zakaznikom bolo ukoncene. Odteraz uz moze pracovat na niecom inom.";
+    "Dokument: %(was) bol prehodnoteny zamestnancom: %(wer) a zakaznikom. %(wer) uz moze byt prideleny/pridelena na nejaku inu ulohu.";
+    "%(wer): Miimochodom, zakaznik a ja sme dokoncili posudok dokumentu: %(was). O tomto case by ste uz mali mat moj report na stole.";
+    diary_entry "%(wer) a zakaznik dotiahli do konca posudzovanie dokumentu: %(was).";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_Spezifikation_zu_korrigieren(wer: Entwickler) is
+    "%(wer): Uf, to bola fuska. Prave som dokoncil(a) prerobenie specifikacie. Spravil(a) som, co som mohol/mohla, no dufam, ze tych chyb tam ostalo co najmenej.";
+    "%(wer): specifikacia si vyzadovala mnoho prerabania, ale uz to mam za sebou.";
+    "%(wer): Opravil(a) som specifikaciu, ale nemozem uplne vylucit moznost, ze ziadne chybicky v specifikacii neostali.";
+    "Tym padom, ze %(wer) prave dokoncil(a) korekciu specifikacie, moze mu/jej byt priradena nova uloha.";
+    diary_entry "%(wer) dokoncil(a) korekciu specifikacie.";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_Systementwurf_zu_korrigieren(wer: Entwickler) is
+    "%(wer) vyzera byt stastny/stastna: opravil(a) navrh systemu a dufa v pridelenie veselsej ulohy.";
+    "Dlho, velmi dlho trvalo, pokial sa zamestnancovi: %(wer) podarilo opravit navrh systemu. Teraz je uz systemovy navrh pripraveny pre dalsie fazy vyvoja.";
+    "%(wer): dokoncil(a) prerabanie systemoveho navrhu dufajuc v lepsie vyhliadky na uspech projektu.";
+    "%(wer): Po tom vsetko, navrh systemu je opraveny. Snazil(a) som sa zo vsetkych sil.";
+    diary_entry "%(wer) dokoncil(a) prerabanie systemoveho navrhu.";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_Modulspez_zu_korrigieren(wer: Entwickler) is
+    "%(wer): Aspon sa mi podarilo opravit specifikaciu modulov. Som same ucho, aku dalsiu pracu mi pridelite? Snad nieco zaujimave.";
+    "%(wer): Nakoniec korekcia specifikacie modulov nebola az taka zdlhava a nudna, ako som si sposiatku myslel(a). Ale teraz uz by som rad/rada niecom naozaj vzrusujuce.";
+    "%(wer) prichadza s opravenym navrhom systemu a pyta da na dalsiu pracu.";
+    "Konecne sa podarilo zamestnancovi: %(wer) dokoncit korekciu specifikacie modulov. Vsetky zname chyby boli opravene.";
+    diary_entry "%(wer) dokoncil(a) korekciu specifikacie modulov.";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_Code_zu_korrigieren(wer: Entwickler) is
+    "%(wer) uz opravil(a) zdrojovy kod, aj napriek tomu, ze radsej produkuje novy kod nez opravuje chyby v tom starom.";
+    "%(wer): Niekto musel neskutocne dobabrat ten kod, ale nakoniec sa mi ho podarilo opravit.";
+    "Po tom, co Vam zamestnanec: %(wer) dal opraveny zdrojovy kod, mozete pokracovat v dalsej faze vyvoja softveru.";
+    "%(wer): Opravovat zdrojovy kod - to je boj na zivot a na smrt. Este horsi nez pisat kod samotny. Myslel(a) som si, ze to bude lahsie, v kazdom pripade, mam to za sebou.";
+    diary_entry "%(wer) dokoncil(a) opravovanie zdrojoveho kodu.";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_Handbuch_zu_korrigieren(wer: Entwickler) is
+    "%(wer): Dokumentacia systemu je opravena. Dufam, ze lider projektu nabuduce vezme moje zaujmy do uvahy. Som uz unaveny/unavena z tychto nezaujimavych uloh!";
+    "%(wer): Prirucky jednoznacne potrebovali prerobit. Je fajn, ze sa to podarilo.";
+    "Tak a mame tu nazad systemovu dokumentaciu. %(wer) ju opravil(a).";
+    "%(wer): Taku prirucku napise len negramotny. Tolko nevyhnutnych oprav! Tu ju mate, a to v opravenej podobe.";
+    diary_entry "%(wer) dokoncil(a) prerabanie pouzivatelskej prirucky.";
+  end message;
+
+-----------------------------------------------------
+
+  message aufgehoert_alles_zu_korrigieren(wer: Entwickler) is
+    "Vsetky dokumenty boli opravene, takze %(wer) je volny/volna a moze pracovat na dalsej ulohe.";
+    "%(wer): Docielit, aby boli vsetky dokumenty v konzistencii, to bolo ako jazda v lete na sanich. Kazdopadne sa zda, ze sa mi to podarilo.";
+    "Po korekcii vsetkych dokumentov, %(wer) patra po novych vyzvach.";
+    "%(wer): Prerobil(a) som vsetky dokumenty. Niektore z nich teraz ani nespoznate. Bola to kopa prace.";
+    diary_entry "%(wer) dokoncil(a) korekciu vsetkych dokumentov.";
+  end message;
+
+-----------------------------------------------------
+
+  message Neue_Aufgabe_akzeptiert (wer: Entwickler;
+       altes_Dokument: Dokument;
+       neues_Dokument: Dokument) is
+    "Vyvojar %(wer) vravi: V poriadku, coskoro zacnem pracovat na dokumente: %(neues_Dokument). Avsak, stale este potrebujem nejaky cas na dokoncenie dokumentu: %(altes_Dokument).";
+    "Vyvojar %(wer) vravi: Pockaj! Najsamprv dorobim dokument: %(altes_Dokument) a potom sa pustim do dalsieho: %(neues_Dokument).";
+    "Vyvojar %(wer) vravi: ziadne viacere dokumenty naraz. Davate mi na starost novy dokument: %(neues_Dokument) zatialco ja som este ani nedokoncil(a) dokument: %(altes_Dokument). Najprv dokoncim starsiu ulohu, potom sa pustim do tej novej. OK?";
+    "Vyvojar %(wer) vravi: Ako viete, pracujem na dokumente: %(altes_Dokument). Hned ako budem hotovy(a), preorientujem sa na dokument: %(neues_Dokument).";
+    diary_entry "Vyvojar %(wer) akceptoval novu ulohu. Lez, nezacne pracovat na dokumente: %(neues_Dokument), pokial nedokonci dokument: %(altes_Dokument)";
+  end message; 
+
+  message Neue_Aufgabe_gleiches_Dok_akzeptiert (wer: Entwickler;
+				                ein_Dokument: Dokument) is
+    "Vyvojar %(wer) vravi: Ok, coskoro sa zacnem venovat praci na dokumente: %(ein_Dokument). Akokolvek, stale potrebujem nejaky cas na fokoncenie svojej predchadzajucej prace.";
+    "Vyvojar %(wer) vravi: Moment! Najsamprv dokoncim svoju predchadzajucu pracu, az potom sa budem venovat dokumentu: %(ein_Dokument).";
+    "Vyvojar %(wer) vravi: ziadne viacere ulohy naraz, prosim. Pridelujete mi ulohu pre dokument:  %(ein_Dokument), zatialco som este ani nedokoncil(a) svoju povodnu ulohu. Najprv dokoncim starsiu ulohu, potom sa pustim do tej novej. OK?";
+    "Vyvojar %(wer) vravi: Ako urcite viete, prave pracujem na dokumente: %(ein_Dokument). Akonahle skoncim, zacnem s novou ulohou, konkretne s dokumentom: %(ein_Dokument).";
+    diary_entry "Vyvojar: %(wer) prijal(a) novu pracu. Akokolvek, nezacne pracovat na novej ulohe: %(ein_Dokument), pokial nedokonci svoje aktualne povinnosti";
+  end message; 
+
+-----------------------------------------------------
+
+---- Ausgaben zu Beginn der Simulation --------------------
+
+-----------------------------------------------------
+
+  message Aufgabenstellung_beschreiben (Umfang_AFP  : real;
+                                        Liefertermin: date;
+                                        Budget      : real) is 
+    "QS200-v7 (c) AMEISE, March 2013 
+
+Dobre rano. Na zaklade Vasich vybornych vysledkov ako softveroveho inziniera vo Vasej firme, Excellent-Software GmbH, a na na zaklade Vasich skusenosti v tejto oblasti, ste boli povyseny na lidra projektu. Nemohli ste sice nazbierat skusenosti v tejto oblasti v minulosti, akokolvek, Vas sef si je isty, ze novy projekt zvladnete skvelo. Takze ocakava, ze Vy so svojim pracovnym timom dorucite produkt na cas a samozrejme v pozadovanej kvalite.
+
+Vasou prvou ulohou je vyvoj noveho uctovneho systemu pre Meyers&Co. Okrem ineho taktiez pozaduju, aby uctovne oddelenie sa mohlo pripravit na niektore zasadne zmeny naplanovane v jari buduceho roka.  
+
+Vas predosly kolega sa stretol so zakaznikom uz niekolko krat. Tvrdi, ze zhromazdil vsetky zakaznikove poziadavky a taktiez si spravil par poznamok. Na zaklade analyzy zakaznikovych poziadaviek bol vysloveny odhad nakladov na realizaciu projektu. System zahrna okolo %(Umfang_AFP) Adjusted Function Points \(AFP\). Kedze system ma byt zimplementovany pouzitim jazyka Ada95, koresponduje to s priemerne 9800 riadkami kodu \(LOC\).
+
+Kedze system musi odzrkadlovat planovane reformy vo firme Vasho zakaznika, musite priviest projekt do konca najneskor %(Liefertermin). To znamena, ze musite skompletizovat projekt do 9 mesiacov. Rozsirenie casoveho ramca neprichadza do uvahy. V stanoveny datum bude zakaznik ocakavat produkt, ktory pokryva poziadavky zamerane na uplnost a spravnost systemu \(vid nizsie\).
+
+Kvoli stiesnenemu casovemu planu zakaznik suhlasil a udelil Vam rozpocet okolo %(Budget) EUR.
+
+Niekolko vyvojarov je momentalne dostupnych, resp. nie su prideleny k ziadnemu inemu projektu. Niektorych z nich si mozete vybrat a zapojit ich do svojho projektu. 
+Pre rozne dokumenty nemusite volit notacie. Zakaznik sa uz rozhodol, ze kod musi byt napisany v jazyku Ada95 a prirucky musia byt napisane v slovencine(?TODO). To tiez plati pre vsetky interne dokumenty. 
+
+co dodat: Vela stastia!
+ ";
+
+diary_entry "Mame vyvinut novy uctovnicky system pre Meyers&Co. Okrem ineho, taktiez chcu, aby uctovne oddelenie sa mohlo pripravit na niektore zasadne zmeny naplanovane v jari buduceho roka.
+Predosly kolega sa stretol so zakaznikom uz niekolko krat a zhromazdil vsetky zakaznikove poziadavky.
+Na zaklade analyzy zakaznikovych poziadaviek bol vysloveny odhad nakladov na realizaciu projektu. System zahrna okolo %(Umfang_AFP) Adjusted Function Points \(AFP\). Kedze system ma byt zimplementovany pouzitim jazyka Ada95, koresponduje to s priemerne 9800 riadkami kodu \(LOC\).
+Projekt treba priviest do konca najneskor do %(Liefertermin) \(To znamena, ze sa projekt musi skompletizovat do 9 mesiacov\).
+Kvoli stiesnenemu casovemu planu zakaznik suhlasil a udelil nam rozpocet vo vyske %(Budget) EUR.
+V stanoveny datum bude zakaznik ocakavat produkt, ktory pokryva poziadavky zamerane na uplnost a spravnost systemu \(vid nizsie\).
+
+Niekolko vyvojarov je momentalne dostupnych, resp. nie su prideleny k ziadnemu inemu projektu.
+Pre rozne dokumenty sa nemusia volit notacie. Zakaznik sa uz rozhodol, ze kod musi byt napisany v jazyku Ada95 a prirucky musia byt napisane v slovencine(?TODO). To tiez plati pre vsetky interne dokumenty.";
+  end message;
+
+-----------------------------------------------------
+
+  message mindestens_Prozent_AFP (in_was          : Dokument;
+                                  Vollstaendigkeit: real) is
+    "Kedze uctovnictvo je velmi dolezite, zakaznik pozaduje, aby %(in_was) obsahoval(a) aspon %(Vollstaendigkeit) percent vsetkych stanovenych poziadaviek.";
+    diary_entry "Zakaznik pozaduje, aby %(in_was) obsahoval(a) aspon %(Vollstaendigkeit) percent vsetkych stanovenych poziadaviek.";
+  end message;
+
+-----------------------------------------------------
+
+  message max_Fehler_im_Code_pro_KLOC(Korrektheit: real) is
+    "Navyse, zakaznik pozaduje, aby zdrojovy kod zahrnal nanajvys %(Korrektheit) chyb pripadajucich na 1000 riadkov kodu. Kontrolu zrealizuje pouzitim akceptacnehoi testu. V pripade, ze uctovnicky system bude poskytovat zle vysledky sposobene chybami softveru, zakaznik moze stratit svojich klientov.";
+    diary_entry "Zakaznik ziada, aby zdrojovy kod neobsahoval viac nez %(Korrektheit) chyb pripadajucich na 1000 riadkov.";
+  end message;
+
+
+-----------------------------------------------------
+
+  message max_Fehler_pro_Seite (in_was:       Dokument;
+                                Korrektheit : real) is
+    "Kedze system bude pouzivany roznymi, ciastocne neskusenymi pouzivatelmi, zakaznik nepripusta temer ziadne chyby vo faze: %(in_was). Ani jedna strana dokumentu: %(in_was) nesmie obsahovat viac nez %(Korrektheit) chyb \(pripadajucich na stranu dokumentu\).
+ ";
+    diary_entry "Zakaznik trva na menej nez %(Korrektheit) chybach pripadajucich na jednu stranu dokumentu: %(in_was).";
+  end message;
+
+
+-----------------------------------------------------
+
+---- Ausgaben am Ende der Simulation ----------------------
+
+-----------------------------------------------------
+
+  message Daten_ueber_Projekt(Projektdauer  : integer;
+                              Gesamtaufwand : real;
+                              Kosten        : real) is
+    "Projekt bol zastaveny po %(Projektdauer) dnoch vyvoja. Konecne usilie vynalozene na vyvoj systemu dosiahlo %(Gesamtaufwand) clovekomesiacov. Vyska nakldadov sa preto zastavila na cisle %(Kosten) EUR.";
+    diary_entry "Projekt bol zastaveny po %(Projektdauer) dnoch, vyvoj trval %(Gesamtaufwand) clovekomesiacov a nakldy dosiahli %(Kosten) EUR";
+  end message;
+
+-----------------------------------------------------
+
+  message Aufwand_fuer_Phasen
+   (MM_Spezifikationsphase : real;
+   MM_Entwurfsphase        : real;
+   MM_Codierungsphase      : real;
+   MM_Testphase            : real;
+   MM_Handbucherstellung   : real) is
+    "Rozdelenie usilia v ramci jednotlivych faz vyvoja softveru je nasledovne: analyza a specifikacia pozadovali %(MM_Spezifikationsphase) clovekomesiacov, na navrh systemu ste potrebovali %(MM_Entwurfsphase) clovekomesiacov, implementacia si vyziadala %(MM_Codierungsphase) clovekomesiov, testy %(MM_Testphase) clovekomesiacov a systemova dokumentacia %(MM_Handbucherstellung) clovekomesiacov.";
+    diary_entry "Rozdelenie usilia v ramci jednotlivych faz je nasledovne: analyza a specifikacia: %(MM_Spezifikationsphase) cM,
+    navrh systemu: %(MM_Entwurfsphase) cM,
+    implementacia: %(MM_Codierungsphase) cM,
+    testovanie %(MM_Testphase) cM a
+    dokumentacia systemu %(MM_Handbucherstellung) cM.";
+  end message;
+
+-----------------------------------------------------
+
+  message Endzustand_von_Dokument (welches     : Dokument;
+                                   Seiten      : integer;
+                                   AFP         : real;
+                                   Prozent_AFP : real;
+                                   Fehler      : integer;
+                                   Fehler_pro_Seite: real) is
+    "Dokument: %(welches) pozostava z %(Seiten) stran. Obsahuje %(AFP) AFP. Preto %(Prozent_AFP) percent zakaznikovych poziadaviek bolo pokrytych. %(welches) stale este ma %(Fehler) chyb. To je v priemere %(Fehler_pro_Seite) chyb pripadajucich na stranu.";
+    diary_entry "Konecny stav dokumentu %(welches):
+     %(Seiten) stran, %(AFP) AFP \(%(Prozent_AFP) percent zakaznikovych poziadaviek\),
+     dokument stale obsahuje %(Fehler) chyb \(v priemere to vychadza na %(Fehler_pro_Seite) chyb pripadajucich na stranu\).";
+  end message;
+
+-----------------------------------------------------
+
+  message Endzustand_des_Codes (LOC         : integer;
+                                AFP         : real;
+                                Prozent_AFP : real;
+                                Analysefehler      : integer;
+                                Grobentwurfsfehler : integer;
+                                Feinentwurfsfehler : integer;
+                                Implementierungsfehler: integer;
+                                Fehler_pro_KLOC : real) is
+    "Dodany zdrojovy kod pozostava z %(LOC) riadkov. Pokryva %(AFP) AFP. To predstavuje %(Prozent_AFP) percent naplnenych poziadaviek na system. Kod stale obsahuje %(Analysefehler) chyb vyplyvajucich z analyzy, %(Grobentwurfsfehler) chyb vyplyvajucich z navrhu systemu, %(Feinentwurfsfehler) chyb vyplyvajucich z navrhu modulov a %(Implementierungsfehler) chyb vyplyvajucich z implementacie. To cini %(Fehler_pro_KLOC) chyb pripadajucich na 1000 riadkov kodu.";
+    diary_entry "Konecny stav dodaneho kodu:
+     %(LOC) riadkov kodu, %(AFP) AFP \(%(Prozent_AFP) percent zakaznikovych poziadaviek\),
+     kod stale obsahuje %(Analysefehler) chyb vyplyvajucich z analyzy, %(Grobentwurfsfehler) chyb vyplyvajucich z navrhu systemu, %(Feinentwurfsfehler) chyb vyplyvajucich zo specifikacie/navrhu modulov a %(Implementierungsfehler) chyb vyplyvajucich z implementacie \(to cini %(Fehler_pro_KLOC) chyb na 1000 LOC\).";
+  end message;
+
+-----------------------------------------------------
+
+  message Aufwand_fuer_Pruefung_u_Korrektur
+   (ReviewAufwand        : real;
+      TestAufwand        : real;
+    ReviewKorrekturAufwand: real;
+    TestKorrekturAufwand  : real) is
+    "Posudzovanie pozadovalo usilie o %(ReviewAufwand) clovekomesiacoch, testy pozadovali %(TestAufwand) clovekomesiacov, opravy po prekontrolovani %(ReviewKorrekturAufwand) clovekomesiacov a opravy kodu po testoch %(TestKorrekturAufwand) clovekomesiacov.";
+    diary_entry "Rozlozenie usilia vramci zaistenia kvality a oprav chyb:
+    posudky: %(ReviewAufwand) cM,
+    testy: %(TestAufwand) cM,
+    opravy po posudkoch: %(ReviewKorrekturAufwand) cM
+    opravy po testoch: %(TestKorrekturAufwand) cM.";
+  end message;
+
+-----------------------------------------------------
+-- function points!
+message Kunde_berichtet_nach_Abnahmetest (Fehler: integer; Verluste: integer) is
+  "Zakaznik hlasi, ze on aj jeho zamestnanci dokoncili akceptacny test. Odhalili %(Fehler) chyb. dalej taktiez odhaduju, ze stale asi %(Verluste) Function Points v systeme chyba. Zakaznik tvrdi: \"Prosim, vylepsite system co najskor.\"";
+  diary_entry "Zamestnanec ohlasil, ze dokoncili akceptacny test. Odhalili %(Fehler) chyb a %(Verluste) chybajucich funkcionalnych bodov.";
+end message;
+
+-----------------------------------------------------
+
+message Bewertung_Nicht_Moeglich is
+   "Nevlozili ste do vyvoja systemu ziadne usilia, preto ohodnotenie neprichadza do uvahy.";
+   diary_entry "ziadne usilie nebolo do vyvoja systemu investovane. Nie je mozne ohodnotit ho.";
+end message;
+
+-----------------------------------------------------
+
+  -- nur Hinweis darauf, dass Uebergabe des Systems erfolgen koennte.
+message Korrektur_nach_Abnahmetest_beendet is
+   "Zakaznik odhalil niekolko chyb pocas vykonavania akceptacneho testu. Chyby su prave opravovane. Doruc system v dohladnom case by bolo celkom dobrym napadom, kedze zakaznik je uz znacne netrpezlivy.";
+   diary_entry "Niekolko chyb pocas vykonavania akceptacneho testu bolo najdenych a su prave opravovane. Dorucit system coskoro - dobry napad!";
+end message;
+
+-----------------------------------------------------
+-- TODO: upper management
+message Projektabbruch_bei_Kostenueberlauf is
+  "Vyssi management prave zrusil projekt. Uz v tomto case naklady presahuju dvojnasobnu ciastku stanovenu na zaciatku projektu. Pre projektoveho manazera, akym ste Vy, je to velmi zla skusenost.";
+  diary_entry "Vyssi management zrusil projekt. Naklady presahuju dvojnasobnu ciastku nez bola stanovenu na zaciatku projektu.";
+end message;
+
+-----------------------------------------------------
+--TODO: upper management?
+message Projektabbruch_bei_Terminueberlauf is
+  "Vyvoj systemu tohoto casu trva dvakrat dlhsie nez bolo naplanovane. Vyssi management prave zrusil projekt. Nikto uz neveri, ze dorucite produkt v prijatelnom casovom ramci. Pre Vas, ako pre manazera, je tato skusenost velmi zla.";
+  diary_entry "Vyssi management zrusil projekt. Vyvoj systemu uz teraz trva dvakrat dlhsie nez bolo naplanovane.";
+end message;
+
+-------------------------------------------------------
+
+-- Hinweis, dass System noch nicht genuegend Anforderungen enthaelt
+message System_noch_nicht_auslieferbar is
+  "Niekto klope na dvere Vasej kancelarie. Jeden z najskusenejsich vyvojarov vstupuje do vnutra a tvrdi, ze je priskoro dorucit system. Prilis vela funkcionality chyba. Zakaznik bude absolutne nespokojny s produktom. Ocenujete, ze taketo dolezite informacie Vam vyvojar sprostredkoval. Ste rozhodnuty sefovat odteraz projektu opatrnejsie.";
+  diary_entry "Jeden z mojich najskusenejsich vyvojarov mi povedal, ze na dorucenie systemu je este priskoro. Chyba prilis vela funkcionality.";
+end message;
+
+-------------------------------------------------------
+
+message Kundenreaktion_auf_Projektabbruch (Projektbeginn: Date; 
+        Heute: date; Soll_Kosten: real) is 
+  "Zakaznik je sklamany: \"Je pravdou, ze projekt bol zruseny? Pamatate si, ze ste podpisali kontrakt? Od %(Projektbeginn) cakame na novy produkt a dnes je uz %(Heute), pricom mi tvrdite, ze nic nebude dodane? Je to poslednykrat, co som s Vasou firmou pracoval.\" Aspon zakaznik usetril %(Soll_Kosten) EUR. Neviete, ako vysvetlit tuto situaciu Vasmu nadriadenemu.";
+end message;
+
+-------------------------------------------------------
+
+message Vorgesetztenreaktion_auf_Projektabbruch (Kosten: real; wer: Kunde) is
+  "Vas manazer Vam vola. Je skutocne nazlosteny kvoli zrusenemu projektu. Znovu zdoraznil, ze naklady na projekt doteraz dosiahli %(Kosten). Vsetky tieto peniaze su pre nasu firmu stratou. Ba co viac, zakaznik %(wer) zrusil projekt a stazoval sa na firmu aj na jej zamestnancov. %(wer) je uz nasim byvalym zakaznikom.";
+end message;
+
+--------------------------------------------------------
+
+message Kundenreaktion (wer: Kunde) is
+  "Zakaznik detailne otestoval system. %(wer) Vam da konecne vyjadrenie na margo projektu a kvality Vami vyprodukovaneho softveru.";
+end message;
+
+-------------------------------------------------------
+
+message Termineinhaltung (Soll_Termin: date; Projektende: date; Tage: integer) is
+  "Dorucenie systemu bolo povodne naplanovane na %(Soll_Termin). Skutocne dorucenie nastalo %(Projektende). Rozdiel predstavuje %(Tage) dni.";
+  diary_entry "Dorucenie systemu bolo povodne naplanovane na %(Soll_Termin). Skutocne dorucenie sa zrealizovalo %(Projektende). Rozdiel predstavuje %(Tage) dni.";
+end message;
+
+-------------------------------------------------------
+
+message Termineinhaltung_Gut (Tage: integer) is
+  "Zakaznik je velmi spokojny s dorucenim systemu. Dorucili ste system %(Tage) dni skor nez bolo pozadovane. Excelentne!";
+  diary_entry "Dorucili sme system %(Tage) dni pred pozadovanym deadlinom. Zakaznik je velmi spokojny s tymto datumom.";
+end message;
+
+--------------------------------------------------------
+
+message Termineinhaltung_Mittel (Tage: integer) is
+  "Zakaznik nie je uplne spokojny s datumom dorucenia. Dorucenie nastalo %(Tage) dni neskor. Zakaznik ma kvoli neskorsiemu doruceniu mnozstvo problemov.";
+  diary_entry "Dorucili sme system o %(Tage) dni neskor. Samozrejme, ze zakaznik nie je uplne spokojny s datumom dorucenia.";
+end message;
+
+---------------------------------------------------------
+
+message Termineinhaltung_Schlecht (Tage: integer) is
+  "Zakaznik je doslova nespokojny s datumom dorucenia. Dorucenie nastalo %(Tage) dni neskor. Nikdy by si nepomyslel, ze Vasa firma si bude vodit takto hrozne.";
+  diary_entry "Dorucili sme system %(Tage) dni neskor. Samozrejme, ze zakaznik je absolutne nespokojny s nasim datumom dorucenia";
+end message;
+
+---------------------------------------------------------
+
+message Kosteneinhaltung (Soll_Kosten: real; Kosten: real; Differenz: real) is
+  "Naklady na vyvoj systemu sa doposial vysplhali na %(Kosten) EUR. Planovane naklady boli stanovene na %(Soll_Kosten) EUR. Rozdiel cini %(Differenz) EUR.";
+  diary_entry "Naklady na vyvoj systemu sa doposial vysplhali na %(Kosten) EUR. Planovane naklady boli stanovene na %(Soll_Kosten) EUR. Rozdiel cini %(Differenz) EUR.";
+end message;
+
+---------------------------------------------------------
+
+message Kosteneinhaltung_Gut (Differenz: real) is
+  "Zakaznik je nadseny: \"Minuli ste %(Differenz) EUR menej nez bolo planovanych pre Vas rozpocet. Musite mat velmi efektivny proces vyvoja softveru.\"";
+  diary_entry "Utratili sme %(Differenz) Eur menej nez sme planovali. Zakaznik je velmi nadseny.";
+end message;
+
+---------------------------------------------------------
+
+message Kosteneinhaltung_Mittel (Differenz: real) is
+  "Zakaznik tvrdi: \"Prekrocili ste rozpocet o %(Differenz) EUR. Viem, ze vyvoj softveru je narocny, akokolvek, snazte sa vylepsit svoje planovacie schopnosti.\"";
+  diary_entry "Prekrocili sme rozpocet o %(Differenz) EUR.";
+end message;
+
+---------------------------------------------------------
+
+message Kosteneinhaltung_Schlecht (Differenz: real) is
+  "Takze, prekrocili ste rozpocet o %(Differenz) EUR. Nemyslite si, ze Vam za Vas zly vykon v ramci projektu aj zaplatim.";
+  diary_entry "Prekrocili sme rozpocet o %(Differenz) EUR. Zakaznik je velmi znechuteny.";
+end message;
+
+---------------------------------------------------------
+
+message Vollstaendigkeit_Code (Loc: integer; AFP_Wunsch: real; AFP_Code: real) is
+  "Pozadovana funkcionalita stanovena zakaznikom bola %(AFP_Wunsch) AFP. Zakaznik naratal v systeme %(AFP_Code) AFP. Kod obsahuje %(Loc) riadkov kodu.";
+  diary_entry "Pozadovana funkcionalita bola %(AFP_Wunsch) AFP. Zakaznik naratal v systeme %(AFP_Code) AFP. Kod obsahuje %(Loc) riadkov kodu.";
+end message;
+
+---------------------------------------------------------
+
+message Vollstaendigkeit_Code_Gut (Voll_Code: real) is
+  "Zakaznik je velmi spokojny s uplnostou doruceneho kodu. Zdrojovy kod obsahuje %(Voll_Code) percent funkcionality pozadovanej zakaznikom.";
+  diary_entry "Kod obsahuje %(Voll_Code) percent pozadovanej funkcionality. Zakaznik je velmi spokojny.";
+end message;
+
+---------------------------------------------------------
+
+message Vollstaendigkeit_Code_Mittel (Voll_Code: real) is
+  "Zakaznik nie je uplne spokojny so systemom, ktory ste dorucili. Zdrojovy kod obsahuje len %(Voll_Code) percent funkcionality pozadovanej zakaznikom.";
+  diary_entry "Kod obsahuje %(Voll_Code) percent pozadovanej funkcionality. Zakaznik nie je uplne spokojny.";
+end message;
+
+---------------------------------------------------------
+
+message Vollstaendigkeit_Code_Schlecht (Voll_Code: real) is
+  "Zakaznik sa stazuje na uplnost zdrojoveho kodu. System obsahuje len %(Voll_Code) percent povodne pozadovanej funkcionality. Toto je velmi zly vysledok.";
+  diary_entry "Kod obsahuje %(Voll_Code) percent pozadovanej funkcionality. Zakaznik je znacne skormuteny.";
+end message;
+
+---------------------------------------------------------
+
+message Korrektheit_Code (Soll_Korr_Code: real; Korr_Code: real) is
+  "Poziadavky zakaznika na system boli, aby system neobsahoval viac nez %(Soll_Korr_Code) chyb na tisic riadkov kodu. Aktualna verzia systemu obsahuje %(Korr_Code) chyb na tisic riadkov zdrojoveho kodu.";
+  diary_entry "Aktualny system obsahuje %(Korr_Code) chyb na KLOC v porovnani s poziadavkou zakaznika, ktoru predstavuje %(Soll_Korr_Code) chyb pripadajucich na KLOC.";
+end message;
+
+---------------------------------------------------------
+
+message Korrektheit_Code_Gut (Korr_Code: real; Differenz: real) is
+  "Spravnost systemu je excelentna. System ma %(Korr_Code) chyb na tisic riadkov kodu, co predstavuje o %(Differenz) menej nez povodne zakaznik pozadoval.";
+  diary_entry "System zahrna %(Korr_Code) chyb na KLOC. To je o %(Differenz) menej nez povodne zakaznik stanovil. Zakaznik je velmi spokojny.";
+end message;
+
+---------------------------------------------------------
+
+message Korrektheit_Code_Mittel (Korr_Code: real; Differenz: real) is
+  "Spravnost systemu je minimalne akceptovatelna. Projekt ma %(Korr_Code) chyb na tisic riadkov kodu \(KLOC\). To je o %(Differenz) viac chyb nez povodne zakaznik definoval.";
+  diary_entry "System zahrna %(Korr_Code) chyb na KLOC. To je o %(Differenz) menej nez povodne zakaznik stanovil. Je to prinajmensom akceptovatelne.";
+end message;
+
+---------------------------------------------------------
+
+message Korrektheit_Code_Schlecht (Korr_Code: real; Differenz: real) is
+  "Spravnost systemu je nedostatocna. System ma %(Korr_Code) chyb na KLOC \(1000 Lines of code\). To je o %(Differenz) \(\!\) viac chyb na KLOC nez sa zakaznik ocakaval. Poriadne prehodnot postup pri vyvoji softveru. Tento postup musi byt znacne vylepseny.";
+  diary_entry "System zahrna %(Korr_Code) chyb na KLOC. To je o %(Differenz) viac nez povodne zakaznik stanovil. Niet sa cim chvalit.";
+end message;
+
+---------------------------------------------------------
+
+message Vollstaendigkeit_Handbuch (Seiten: integer; AFP_Wunsch: real; AFP_HB: real) is
+  "Zakaznik si taktiez vypytal dokumentaciu pre pouzivatela. Pouzivatelska prirucka pozostava z(o) %(Seiten) stran. Pouzivatelska prirucka pokryva %(AFP_Wunsch) Adjusted Function Points, aj ked, v skutocnosti, predstavuje funkcionalitu rovnu %(AFP_HB) Adjusted Function Points.";
+  diary_entry "Pouzivatelska prirucka pozostava z(o) %(Seiten) stran. Mala by pokryvat %(AFP_Wunsch) AFP, v skutocnosti, pokryva %(AFP_HB) AFP.";
+end message;
+
+---------------------------------------------------------
+
+message Vollstaendigkeit_Handbuch_Gut (Voll_HB: real) is
+  "uplnost pouzivatelskej prirucky je vyborna. %(Voll_HB) pozadovanej funkcionality je popisanych v prirucke.";
+  diary_entry "%(Voll_HB) pozadovanej funkcionality je popisanych v prirucke. Vyborne.";
+end message;
+
+---------------------------------------------------------
+
+message Vollstaendigkeit_Handbuch_Mittel (Voll_HB: real) is
+  "uplnost pouzivatelskej prirucky je prijatelna. %(Voll_HB) pozadovanej funkcionality je popisanych v prirucke.";
+  diary_entry "%(Voll_HB) pozadovanej funkcionality je popisanych v prirucke. uroven je teda postacujuca.";
+end message;
+
+---------------------------------------------------------
+
+message Vollstaendigkeit_Handbuch_Schlecht (Voll_HB: real) is
+  "uplnost pouzivatelskej prirucky je extremne zla. Len %(Voll_HB) \(\!\) pozadovanej funkcionality je popisanych v prirucke.";
+  diary_entry "%(Voll_HB) pozadovanej funkcionality je popisanych v prirucke. uroven je extremne zla.";
+end message;
+
+---------------------------------------------------------
+
+message Korrektheit_Handbuch (Soll_Korr_HB: real; Korr_HB: real) is
+  "Spravnost pouzivatelskej prirucky pozadovanej zakaznikom je %(Soll_Korr_HB) chyb pripadajucich na stranu. Zakaznik nasiel v priemere %(Korr_HB) chyb na stranu.";
+  diary_entry "Zakaznik pozadoval maximalne %(Soll_Korr_HB) chyb na stranu pre manual. Zakaznik nasiel v priemere %(Korr_HB) chyb na stranu."; 
+end message;
+
+---------------------------------------------------------
+
+message Korrektheit_Handbuch_Gut (Korr_HB: real; Differenz: real) is
+  "Spravnost pouzivatelskej prirucky je velmi dobra. \(%(Korr_HB) na stranu\). Pouzivatelska prirucka obsahuje o %(Differenz) chyb na stranu menej nez bolo pozadovane.";
+  diary_entry "Pouzivatelska prirucka obsahuje %(Korr_HB) chyb na stranu. To predstavuje %(Differenz) chyb pripadajucich na stranu menej nez bolo pozadovanych. Velmi dobre.";
+end message;
+ 
+---------------------------------------------------------
+
+message Korrektheit_Handbuch_Mittel (Korr_HB: real; Differenz: real) is
+  "Spravnost pouzivatelskej prirucky je akceptovatelna. Prirucka obsahuje %(Korr_HB) chyb na stranu. To je o %(Differenz) chyb na stranu viac nez povodne zakaznik pozadoval.";
+  diary_entry "Pouzivatelska prirucka obsahuje %(Korr_HB) chyb na stranu. To predstavuje %(Differenz) chyb pripadajucich na stranu menej nez bolo pozadovanych. Vysledok je akceptovatelny.";
+end message;
+
+---------------------------------------------------------
+
+message Korrektheit_Handbuch_Schlecht (Korr_HB: real; Differenz: real) is
+  "Spravnost pouzivatelskej prirucky je velmi zla. Prirucka obsahuje %(Korr_HB) chyb na stranu. To je o %(Differenz) \(\!\) chyb na stranu viac nez povodne zakaznik pozadoval.";
+  diary_entry "Pouzivatelska prirucka obsahuje %(Korr_HB) chyb na stranu. To predstavuje %(Differenz) chyb pripadajucich na stranu viac nez bolo pozadovanych. Velmi zle.";
+end message;
+
+---------------------------------------------------------
+
+message Kunden_Score (Score: integer; Max_Score: integer) is
+  "External software houses hodnotili Vas system na zaklade ziadosti zakaznika. Dostali ste %(Score) bodov za Vas projekt. Najviac ste mohli dostiahnut %(Max_Score) bodov.";
+end message;
+
+---------------------------------------------------------
+
+message Aufwandsdaten_ausgeben(Gesamtaufwand : real;
+       Kosten_MM : real;
+       AufwVerteilung_Phasen1 : real;
+       AufwVerteilung_Phasen2 : real;
+       AufwVerteilung_Phasen3 : real;
+       AufwVerteilung_Phasen4 : real;
+       AufwVerteilung_Phasen5 : real) is
+    "Na vyvoj celeho systemu ste vynalozili usilie v podobe %(Gesamtaufwand) cM. Dokopy ste minuli %(Kosten_MM) EUR na cM.
+ usilie bolo rozdelene medzi rozne fazy vyvoja nasledovne: faza specifikacie: %(AufwVerteilung_Phasen1) percent, faza navrhu: %(AufwVerteilung_Phasen2) percent, implementacna faza: %(AufwVerteilung_Phasen3) percent, testovacia faza: %(AufwVerteilung_Phasen4) percent a dokumentacna faza: %(AufwVerteilung_Phasen5) percent celeho usilia.";
+end message; 
+
+---------------------------------------------------------
+
+message Performanz_ausgeben(Proz_Kosten_ZV : real;
+       Proz_Dauer_ZV : real;
+       Mittelwert_Vollst_ZV : real;
+       Mittelwert_Vollst : real;
+       Mittelwert_Korrekt_ZV : real) is
+    "Ak prisudime cielom stanovenym zakaznikom hodnotu 100 percent a vezmeme do uvahy kladne odchylky(i.e. ak ste podulohu zvladli lepsie nez bolo ocakavane) s hodnotami vacsimi nez 100 a zaporne odchylky s hodnotami mensimi nez 100, v porovnani s poziadavkami zakaznika ste si viedli nasledovne: splnenie rozpoctu: %(Proz_Kosten_ZV) percent, splnenie casoveho limitu: %(Proz_Dauer_ZV) percent, naplnenie funkcionality (v porovnani s cielmi zakaznika): %(Mittelwert_Vollst_ZV) percent, naplnenie funkcionality (v porovnani s celou funkcionalitou): %(Mittelwert_Vollst) percent, splnenie kvality (spravnostat): %(Mittelwert_Korrekt_ZV) percent.";
+end message; 
+
+---------------------------------------------------------
+
+message Simulation_beendet is
+  "Simulacie je privedena do konca. Prosim, skuste znovu a zacnite novu simulaciu.";
+end message;
+
+
+-----------------------------------------------------
+
+---- Inspizieren ---------------------------------------
+
+-----------------------------------------------------
+
+  message verbrauchte_Ressourcen_ausgeben
+   (Dauer  : integer;
+                         Aufwand: real;
+                         Kosten : real;
+                         STermin: date;
+                         SKosten: real) is
+    "Vyvoj softveru trval %(Dauer) dni a pozadoval usilie o %(Aufwand) clovekomesiacoch a naklady v hodnote %(Kosten) EUR. Rozpocet zakaznika je %(SKosten) EUR a produkt ma byt hotovy do %(STermin).";
+    "Doposial ste stravili %(Aufwand) clovekomesiacov, co sa rovna %(Kosten) EUR pocas %(Dauer) dni vyvoja projektu. Ocakava sa, ze produkt dorucite najneskor %(STermin) a naklady neprekrocia %(SKosten) EUR.";
+    "Po %(Dauer) dnoch a celkoveho usilia %(Aufwand) clovekomesiacov ste minuli %(Kosten) EUR zo stanovenych %(SKosten) EUR. Pamatajte na deadline: %(STermin).";
+    "Uz ste minuli %(Kosten) EUR z definovanych %(SKosten) EUR. To vsetko za %(Dauer) dni a usilie o %(Aufwand) clovekomesiacoch. Nezabudnite, ze projekt musi byt hotovy najneskor do %(STermin).";
+    diary_entry "Trvanie projektu doposial zabralo %(Dauer) dni a usilie o %(Aufwand) clovekomesiacoch, pricom naklady sa vysplhali na %(Kosten) EUR \(Pamatajte: Zakaznikov rozpocet je %(SKosten) EUR a najneskorsi datum dodania je %(STermin)\).";
+  end message;
+
+-----------------------------------------------------
+
+  message Anzahl_Seiten_von_Dokument(welches: Dokument;
+           Seiten : integer;
+           unten  : integer;
+           oben   : integer) is
+    "Dokument %(welches) pozostiva z %(Seiten) stran. S ohladom na vase skusenosti to vychadza na %(unten) az %(oben) percent celkovej funkcionality.";
+    "Dokument: %(welches) ma velkost %(Seiten) stran a predstavuje %(unten) az %(oben) percent pozadovanej funkcionality.";
+    "Doposial je v rozmedi od %(unten) percent do %(oben) percent celkovej funkcionality podchytenej v dokumente: %(welches). Dokument pozostava z %(Seiten) stran.";
+    "Po rychlom prehodnoteni dokumentu: %(welches) sa odhaduje, ze medzi %(unten) a %(oben) percentami pozadovanej funkcionality je zavrsenej. Mimochodom, to predstavuje %(Seiten) stran.";
+    diary_entry "Dokument: %(welches) ma velkost %(Seiten) stran a predstavuje %(unten) az %(oben) percent pozadovanej funkcionality.";
+  end message;
+
+-----------------------------------------------------
+
+  message Null_Seiten_von_Dokument		 (welches: Dokument) is
+    "Dokument %(welches) je prazdny.";
+    diary_entry "Dokument: %(welches) obsahuje 0 stran.";
+  end message;
+
+-----------------------------------------------------
+
+  message Null_Zeilen_Code is
+    "Neexistuje ziaden zdrojovy kod.";
+    diary_entry "Zdrojovy kod obsahuje 0 LOC.";
+  end message;
+
+-----------------------------------------------------
+
+
+  message Anzahl_Zeilen_des_Codes(Zeilen: integer;
+        Module: integer;
+        unten : integer;
+        oben  : integer) is
+    "Zdrojovy kod pokryva %(Module) modulov, co predstavuje dokopy %(Zeilen) riadkov kodu. Odhadom to vychadza na %(unten) az %(oben) percent pozadovanej funkcionality.";
+    "Kod vzrastol na %(Zeilen) riadkov s ohladom na %(Module) modulov. Akokolvek, nieco medzi %(unten) a %(oben) percentami celkovej funkcionality je pokrytej doposial.";
+    "%(Module) modulov, co sa tyka zdrojoveho kodu, predstavuju dokopy %(Zeilen) riadkov kodu. Spravili ste zatial, co sa dalo a podarilo sa Vam dosiahnut nieco medzi %(unten) a %(oben) percentami celkovej funkcionality zdrojoveho kodu.";
+    "Aktualny stav napoveda, ze mate %(Module) modulov, ktore pozostavaju z %(Zeilen) riadkov kodu. To je medzi %(unten) a %(oben) percentami celkovej funkcionality.";
+    diary_entry "Zdrojovy kod pokryva %(Zeilen) LOC v %(Module) moduloch. Funkcionalita je pokryta na %(unten) az %(oben) percent.";
+  end message;
+
+-----------------------------------------------------
+
+  message Befunde_in_Pruefbericht
+   (welcher : Pruefbericht;
+                         Fehler  : integer;
+                         Verluste: real) is
+    "Vysledky posudzovania zahrnute v reporte %(welcher) su: %(Fehler) chyb a %(Verluste) chybajucich FP.";
+    "Report %(welcher) ukazuje, ze bolo najdenych %(Fehler) chyb a %(Verluste) chybajucich FP.";
+    "Report %(welcher) naznacuje, ze v dokumente bolo najdenych %(Fehler) chyb a %(Verluste) chybajucich FP.";
+    "%(Fehler) chyb a %(Verluste) chybajucich FP. Celkom dobry vysledok pre report: %(welcher).";
+    diary_entry "Vysledky posudzovania zahrnute v reporte %(welcher) su: %(Fehler) chyb a %(Verluste) chybajucich FP.";
+  end message;
+
+-----------------------------------------------------
+
+  message Keine_Pruefung_stattgefunden is
+    "Doposial ziadny posudok/recenzia/test nebol(a) vykonany/vykonana.";
+    diary_entry "Doposial ziadny posudok/recenzia/test nebol(a) vykonany/vykonana.";
+  end message;
+
+-----------------------------------------------------
+
+  message Fehler_und_Verluste_in_Pruefbericht_ohne_Restfehler
+			(welcher : Pruefbericht;
+                         Fehler  : integer;
+                         Verluste: real) is
+    "%(Fehler) chyb a %(Verluste) chybajucich FP bolo najdenych pocas poslednej revizie/posudku/testu. Vsetky chyby, spomenute v %(welcher), boli opravene.";
+    diary_entry "%(Fehler) chyb a %(Verluste) chybajucich FP bolo najdenych pocas poslednej revizie/posudku/testu. Vsetky chyby, spomenute v %(welcher), boli opravene.";
+  end message;
+
+-----------------------------------------------------
+
+  message Fehler_und_Verluste_in_Pruefbericht_mit_Restfehler
+			(welcher : Pruefbericht;
+                         Fehler  : integer;
+                         Verluste: real) is
+    "%(Fehler) chyb a %(Verluste) chybajucich FP bolo najdenych pocas poslednej revizie/posudku/testu. dalsie chyby, spomenute v %(welcher), musia byt opravene.";
+    diary_entry "%(Fehler) chyb a %(Verluste) chybajucich FP bolo najdenych pocas poslednej revizie/posudku/testu. dalsie chyby, spomenute v %(welcher), musia byt opravene";
+  end message;
+
+-----------------------------------------------------
+
+  message wieder_verfuegbaren_Entwickler_ausgeben(wer: Entwickler; ab_wann: date) is
+    "%(wer) je znova dostupny/a od dnes, %(ab_wann) a dufa, ze mu/jej bude pridelena nejaka zaujimava uloha.";
+    "%(wer) je znova volny/volna od dnes, %(ab_wann) a caka na najblizsie ulohy.";
+    diary_entry "%(wer) je znova dostupny/a od dnes, %(ab_wann)";
+  end message;
+
+-----------------------------------------------------
+
+  message verfuegbaren_Entwickler_ausgeben(wer: Entwickler; ab_wann: date) is
+    "%(wer) je dostupny/a od %(ab_wann) a dufa, ze mu/jej bude pridelena nejaka zaujimava uloha.";
+    "%(wer) je od %(ab_wann) volna a caka na Vase rozkazy.";
+    "Zatial je %(wer) stale zaneprazdneny/zaneprazdnena, no trufa si na novy job od %(ab_wann).";
+    "Ak poziadate %(wer) o prace na Vasom projekte, urcite neodmietne, pretoze svoju aktualnu pracu ukonci %(ab_wann).";
+    diary_entry "%(wer) je dostupny/a od %(ab_wann)";
+  end message;
+
+-----------------------------------------------------
+
+  message zugeteilten_Entwickler_ausgeben(wer: Entwickler) is
+    "%(wer) bol/a prideleny/pridelena k Vasmu projektu.";
+    "Zamestnali ste %(wer).";
+    "%(wer) ste uz predtym zamestnali.";
+    "%(wer) je uz na vyplatnej paske Vasho projektu.";
+    diary_entry "%(wer) uz na Vasom projekte pracuje.";
+  end message;
+
+-----------------------------------------------------
+
+  message Informationen_zu_Entwickler_ausgeben
+   (wer : Entwickler;
+                         Kosten : real;  -- EUR/h
+                         hohe_E : string;
+                         mittlere_E : string;
+                         geringe_E  : string) is
+    "Za zamestnanca: %(wer) musite platit %(Kosten) EUR na hodinu.
+%(wer) je velmi skuseny/skusena v nasledujucich oblastiach: %(hohe_E). 
+%(wer) ma priemerne skusenosti s %(mittlere_E). 
+Akokolvek, %(wer) ma velmi male znalosti: %(geringe_E).";
+    "%(wer) Vas stoji %(Kosten) EUR na hodinu. 
+%(wer) je velmi skuseny/skusena v nasledujucich odvetviach: %(hohe_E). 
+%(wer) ma ake-take skusenosti s: %(mittlere_E). 
+Avsak, %(wer) ma zanedbatelne skusenosti s: %(geringe_E).";
+    "Plat pre zamestnanca: %(wer) sa pocita so sarzou %(Kosten) EUR na hodinu. 
+%His(wer) primarne schopnosti siahaju do tychto oblasti: %(hohe_E).
+%(wer) ma takisto urcite znalosti o: %(mittlere_E). 
+Na druhej strane, %(wer) ma len chabe skusenosti s: %(geringe_E).";
+    "Na zaklade svojich schopnosti dostava %(wer) %(Kosten) EUR na hodinu.
+%(wer) je velmi dobre oboznameny s oblastami ako: %(hohe_E).
+%(wer) ma urcite znalosti v: %(mittlere_E).
+Nakoniec, poslabsie skusenosti zamestnanca %(wer) su: %(geringe_E).";
+diary_entry "%(wer) dostava %(Kosten) EUR na hodinu. %(wer) je velmi skuseny/skusena v tychto oblastiach: %(hohe_E).
+%(wer) ma priemerne vedomosti o: %(mittlere_E).
+Koniec koncov, ake-take, hoci poslabsie vedomosti ma aj o: %(geringe_E).";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_macht_nichts(wer: Entwickler) is
+    "%(wer) nema momentalne nic na praci a je kvoli tomu velmi frustrovany/frustrovana. Pridelte mu/jej nejake ulohy, ked uz ho/ju platite!";
+    "%(wer) len postava a nic nerobi. Pridelte mu/jej nejaku pracu.";
+    "%(wer) momentalne nerobi nic a nie je z toho velmi nadseny/nadsena.";
+    "Dajte zamestnancovi: %(wer) nejaku pracu. Zamestnali ste ho/ju, no aj tak teraz nic nema na praci. Urcite nic motivujuce, tym si mozete byt isty/a.";
+    diary_entry "%(wer) nerobi teraz vobec nic";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_wird_begutachten(wer: Entwickler) is
+    "%(wer) bude pracovat na posudku/recenzii.";
+    diary_entry "%(wer) bude pracovat na posudku/recenzii";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_begutachtet(wer: Entwickler) is
+    "%(wer) stravi aspon nejaky cas nad pisanim posudku.";
+    "%(wer): Som zaneprazdneny/zaneprazdnena s pisanim posudku, ale moze pracovat na niecom inom popritom.";
+    "Zamestnancovi: %(wer) ste priradili pracu na posudku, ale %(wer) moze robit popritom nieco ine.";
+    "%(wer): Ja? Pracujem na posudku, preco sa pytate?";
+    diary_entry "%(wer) pracuje na posudku";
+  end message;
+
+-----------------------------------------------------
+
+--  message Taetigkeit_des_Entwicklers(wer: Entwickler;
+--                                       was: Dokument) is
+--    "%(wer) is currently working on the %(was)";
+--    "%(wer): Me? I'm occupied with the %(was).";
+--    "Asked about %his(wer) activities, %(wer) says, %(wer) is working at the %(was)";
+--    "%(wer): You assigned me to the %(was). Don't you remember?";
+--    diary_entry "%(wer) is currently working on the %(was)";
+--  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_wird_produzieren(wer: Entwickler;
+                                was: Dokument) is
+    "%(wer) napise %(was).";
+    diary_entry "%(wer) bude pracovat na: %(was)";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_produziert(wer: Entwickler;
+                                was: Dokument) is
+    "%(wer) pise %(was)";
+    "%(wer) momentalne pracuje na: %(was)";
+    "%(wer): Ja? Ja som zaneprazdneny/a s: %(was).";
+    "%(wer) tvrdi, ze pracuje na: %(was)";
+    "%(wer): Priradili ste mi pracu na: %(was). Uz si to nepamatate?";
+    diary_entry "%(wer) momentalne pracuje na: %(was)";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_wird_integr(wer: Entwickler) is
+    "%(wer) bude integrovat system.";
+    diary_entry "%(wer) bude pracovat na integracii systemu";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_integr(wer: Entwickler) is
+    "%(wer): Ja? ja som zaneprazdneny/zaneprazdnena s integraciou systemu.";
+    "%(wer) tvrdi, ze pracuje na integracii systemu.";
+    "%(wer): Pridelili ste mi integraciu systemu. ci uz ste na to zabudli?";
+    diary_entry "%(wer) prave pracuje na integracii systemu.";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_wird_testen(wer: Entwickler) is
+    "%(wer) otestuje kod.";
+    diary_entry "%(wer) otestuje kod";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_testet(wer: Entwickler) is
+    "%(wer) testuje zdrojovy kod.";
+    "%(wer): Ja? Ved ja som zaneprazdneny testmi zdrojovych kodov.";
+    "%(wer) tvrdi, ze pracuje na testoch pre zdrojove kody.";
+    "%(wer): Priradili ste mi testovanie zdrojovych kodov. ci ste na to zabudli?";
+    diary_entry "%(wer) prave testuje zdrojovy kod";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_wird_korrigieren(wer: Entwickler;
+                                was: Dokument) is
+    "%(wer) bude pracovat na oprave/korekcii %(was).";
+    diary_entry "%(wer) bude pracovat na oprave/korekcii %(was)";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_korrigiert(wer: Entwickler;
+                                was: Dokument) is
+    "%(wer) prave pracuje na oprave/korekcii %(was)";
+    "%(wer): Ja? Ale ved ja som zaneprazdneny/a s korekciou - %(was).";
+    "%(wer) tvrdi, ze pracuje na korekcii %(was)";
+    "%(wer): Priradili ste mi opravu - %(was). ci ste zabudli?";
+    diary_entry "%(wer) prave pracuje na oprave/korekcii %(was)";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_wird_alles_korrigieren(wer: Entwickler) is
+    "%(wer) bude opravovat vytvorene dokumenty.";
+    diary_entry "%(wer) bude opravovat vsetky vytvorene dokumenty";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_korrigiert_alles(wer: Entwickler) is
+    "%(wer) prave pracuje na korekcii vytvorenych dokumentov.";
+    "%(wer): Ja? Ja som zaneprazdneny/zaneprazdnena s korekciou dokumentov.";
+    "%(wer) tvrdi, ze pracuje na korekture vyprodukovanych dokumentov.";
+    "%(wer): Priradili ste mi korekturu vsetkych dokumentov. ci ste uz na to zabudli?";
+    diary_entry "%(wer) prave opravuje vsetky dokumenty";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_hat_erstellt    (wer: Entwickler) is
+    "%(wer) pracoval(a) na:";
+    "%(wer) pisal(a):";
+  end message;
+
+  message Entwickler_hat_korrigiert    (wer: Entwickler) is
+    "%(wer) opravoval(a):";
+  end message;
+
+  message Entwickler_hat_Erstellungsaufwand (was: Dokument; wielang: integer) is
+    "%(was) (trvanie): %(wielang) hodin";
+  end message;
+  message Entwickler_hat_Korrekturaufwand (was: Dokument; wielang: integer) is
+    "%(was) (trvanie): %(wielang) hodin";
+  end message;
+  message Entwickler_hat_Reviewaufwand (was: Dokument; wielang: integer) is
+    "%(was) (trvanie): %(wielang) hodin";
+  end message;
+  message Entwickler_hat_begutachtet (wer: Entwickler) is
+    "%(wer) posudzoval:";
+    "%(wer) bol sucastou skupiny, ktora posudzovala: ";
+  end message;
+  message Entwickler_hat_getestet (wer: Entwickler) is
+    "%(wer) sa zucastnil (prac na): ";
+  end message;
+  message Entwickler_testete_Module (wielang: integer) is
+    "test modulov (trvanie): %(wielang) hodin";
+  end message;
+  message Entwickler_testete_Integration (wielang: integer) is
+    "integracny test (trvanie): %(wielang) hodin";
+  end message;
+  message Entwickler_testete_System (wielang: integer) is
+    "test systemu (trvanie): %(wielang) hodin";
+  end message;
+
+
+-----------------------------------------------------
+
+---- sonstiges -----------------------------------------
+
+-----------------------------------------------------
+
+  message Entwickler_wurde_eingestellt(wer: Entwickler) is
+    "Vyvojar(ka) bol(a) zamestnana. Zda sa, ze %(wer) je rad/rada a bude prinosom pre tim.";
+    "%(wer) je stastny/stastna, ze niekto rozpoznal jeho/jej talent a zamestnal ho/ju.";
+    "%(wer) si je isty/ista, ze Vas presvedci o spravnosti Vasej volby zamestnat ho/ju.";
+    "%(wer): Zamestnali ste ma. Co teraz? Ako mozem pomoct?";
+    diary_entry "Vyvojar(ka) %(wer) bol(a) najaty/a.";
+  end message;
+
+-----------------------------------------------------
+
+  message Entwickler_wurde_entlassen(wer: Entwickler) is
+    "Vyvojar(ka) %(wer) bol(a) z projektu prepusteny/prepustena.";
+    "Uvolnili ste z pracovneho pomeru %(wer), takze %(wer) moze byt priradeny/priradena k inemu projektu.";
+    "Pomoc od zamestanca %(wer) uz ocividne nepotrebujete, kedze ste %him(wer) uvolnili z projektu.";
+    "%(wer): Tak co uz, ked ma nepotrebujete... ale to budete este lutovat.";
+    diary_entry "Vyvojar(ka) %(wer) bol(a) prepusteny/prepustena z projektu.";
+  end message;
+
+-----------------------------------------------------
+
+  message keine_Notation_vorgegeben(fuer: Dokument) is
+    "Ktora notacia alebo jazyk ma byt pouzita pre %(fuer)? Prosim, blizsie specifikujte notaciu.";
+    "Pre dokument %(fuer) musite blizsie specifikovat notaciu alebo jazyk.";
+    "Pre dokument %(fuer) musi byt definovana notacia. Prosim, blizsie specifikujte notaciu alebo jazyk.";
+    "Neda sa pokracovat dalej, pokial pre dokument %(fuer) nie je notacia specifikovana. specifikujte ju blizsie, prosim.";
+  end message;
+
+-----------------------------------------------------
+
+  message Notation_wurde_vorgegeben(welche: Notation;
+                                      fuer  : Dokument) is
+    "Notacia %(welche) musi byt pouzita v pripade dokumentu %(fuer)";
+    "Pre dokument %(fuer) je potrebne pouzit notaciu %(welche).";
+    "%(welche) musi byt pouzita pre %(fuer).";
+    "Velky Brat vravi: Pre dokument %(fuer) ma byt pouzita notacia %(welche).";
+    diary_entry "Pre dokument %(fuer) je potrebne pouzit notaciu %(welche).";
+  end message;
+
+-----------------------------------------------------
+
+  message Notation_ist_ungeeignet(welche: Notation;
+                                    fuer: Dokument) is
+    "%(welche) notacia neprislucha %(fuer). Bolo by lepsie pouzit inu notaciu.";
+    "Nevsimli ste si, ze %(welche) nie je aplikovatelna na %(fuer)?";
+    "Notaciu, ktoru ste pre %(fuer) zvolili, konkretne %(welche), nemoze byt pre %(fuer) pouzita.";
+    "Ani pri najvacsom usili nemozete pouzit %(welche) pre %(fuer).";
+    diary_entry "%(welche) notacia neprislucha %(fuer).";
+  end message;
+
+-----------------------------------------------------
+
+  message Notation_darf_nicht_mehr_geaendert_werden(fuer: Dokument) is
+    "Prace na %(fuer) sa uz zacala. Uz nemozete zmenit notaciu pre %(fuer).";
+    " Uz nemozete zmenit notaciu pre %(fuer). Vas tim uz zacal na dokumente pracovat.";
+    "Vas tim uz zacal na dokumente pracovat na %(fuer) a tym padom uz notaciu nezmeni.";
+    "Niekto uz na %(fuer) pracuje. Nemozete zmenit notaciu, ked uz niekto na dokumente pracuje.";
+    diary_entry "Notation for %(fuer) cannot be changed anymore.";
+  end message;
+
+
+-----------------------------------------------------
+
+---- Fehlermeldungen -----------------------------------------
+
+-----------------------------------------------------
+
+  message nicht_eingestellt(wer: Entwickler) is
+    "%(wer) este nie je zamestnany/zamestnana.";
+    "Koho zamestnat? Doposial ste %(wer)(a/u) nezamestnali.";
+    "%(wer) nie je zatial prideleny/pridelena k Vasmu projektu.";
+    "%(wer) bol(a) priradeny/priradena k Vasmu projektu a s radostou Vam s projektom pomoze. Najprv vsak musi byt %him(wer) zamestnana.";
+    diary_entry "%(wer) nie je zatial prideleny/pridelena k Vasmu projektu.";
+  end message;
+
+-----------------------------------------------------
+
+  message Fehlermeldung_illegale_Autor_ID(E: Entwickler) is
+    "Chyba: Nepripustne ID autora (Author-IDs) pre vyvojara %(E).";
+  end message;
+
+-----------------------------------------------------
+
+  message Fehlermeldung_gleiche_Autor_IDs (E1: Entwickler;
+                                           E2: Entwickler) is
+    "Chyba: Identicke ID (Author-IDs) pre vyvojarov %(E1) a %(E2).";	
+  end message;
+
+-----------------------------------------------------
+
+  message Print_String(was: String) is
+    "%(was).";
+  end message;
+
+-----------------------------------------------------
+
+  message Print_String_Integer(was_s: String; was_i: Integer) is
+    "%(was_s): %(was_i).";
+  end message;
+
+-----------------------------------------------------
+
+  message Print_String_Real(was_s:String; was_r: Real) is
+    "%(was_s): %(was_r).";
+  end message;
+
+-----------------------------------------------------
+
+  message Print_Integer(was: Integer) is
+    "%(was).";
+  end message;
+
+-----------------------------------------------------
+
+  message Print_Real(was: Real) is
+    "%(was).";
+  end message;
+
+-----------------------------------------------------
+
+  message Print_Date(was: Date) is
+    "%(was):";
+  end message;
+
+-----------------------------------------------------
+
+  message Print_Aka(von_wem: Person) is
+    "%(von_wem).";
+  end message;
+
+
+-----------------------------------------------------
+
+--                        Tutorausgaben
+
+-----------------------------------------------------
+-- Bei den Nachrichten Zustand_von_Notizen und Zustand_von_*_Dok 
+-- wurden die verschiedenen Fehlerarten zum Typ integer umgewandelt
+-- da man bei der Ausgabe nur ganzzahlige Werte fuer Fehler haben soll
+
+  message Zustand_von_Notizen ( AFP     : real;
+                                Analysefehler          : integer;
+    Anzahl_Fehler_ges      : integer) is
+	"Notifikacie (analyzy) obsahuju %(AFP) AFP(adjusted function points), %(Analysefehler) chyb analyzy a %(Anzahl_Fehler_ges) chyb dokopy.";
+  end message;
+
+-----------------------------------------------------
+
+  message Zustand_von_Spez_Dok ( AFP     : real;
+                                Analysefehler          : integer;
+    Anzahl_Fehler_ges      : integer) is
+    "specifikacia obsahuje %(AFP) AFP(adjusted function points), %(Analysefehler) chyb analyzy a %(Anzahl_Fehler_ges) chyb dokopy.";	
+  end message;
+
+-----------------------------------------------------
+
+  message Zustand_von_Entw_Dok ( AFP     : real;
+                                Analysefehler          : integer;
+           Grobentwurfsfehler     : integer;
+    Anzahl_Fehler_ges      : integer) is
+	"Navrh systemu obsahuje %(AFP) AFP(adjusted function points), %(Analysefehler) chyb analyzy, %(Grobentwurfsfehler) chyb navrhu systemu a %(Anzahl_Fehler_ges) chyb dokopy.";
+  end message;
+
+-----------------------------------------------------
+
+  message Zustand_von_MSpez_Dok ( AFP     : real;
+                                Analysefehler          : integer;
+           Grobentwurfsfehler     : integer;
+           Feinentwurfsfehler     : integer;
+    Anzahl_Fehler_ges      : integer) is
+    "Navrh systemu obsahuje %(AFP) AFP(adjusted function points), %(Analysefehler) chyb analyzy, %(Grobentwurfsfehler) chyb navrhu systemu, %(Feinentwurfsfehler) chyb navrhu modulov a %(Anzahl_Fehler_ges) chyb dokopy.";
+  end message;
+
+-----------------------------------------------------
+
+  message Zustand_von_Code_Dok ( AFP     : real;
+                                Analysefehler          : integer;
+           Grobentwurfsfehler     : integer;
+           Feinentwurfsfehler     : integer;
+           Implementierungsfehler : integer;
+    Anzahl_Fehler_ges      : integer) is
+    "Zdrojovy kod obsahuje %(AFP) AFP(adjusted function points), %(Analysefehler) chyb analyzy, %(Grobentwurfsfehler) chyb v navrhu systemu, %(Feinentwurfsfehler) chyb v navrhu modulov, %(Implementierungsfehler) chyb implementacie a %(Anzahl_Fehler_ges) chyb dokopy.";
+  end message;
+
+-----------------------------------------------------
+
+  message Zustand_von_HB_Dok ( AFP     : real;
+                               Analysefehler          : integer;
+                               Handbuchfehler         : integer;
+          Anzahl_Fehler_ges      : integer) is
+    "Pouzivatelska prirucka obsahuje %(AFP) AFP(adjusted function points), %(Analysefehler) chyb analyzy(analysis errors), %(Handbuchfehler) chyb v dokumentacii a %(Anzahl_Fehler_ges) chyb dokopy.";
+  end message;
+
+-----------------------------------------------------
+
+  message Zustand_von_Analyse(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message;
+
+-----------------------------------------------------
+
+  message Zustand_von_Spezifikation(Aufwand      : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Entwurf(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Modspez(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Code(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Handbuch(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Integration(Aufwand      : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_MTest(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_ITest(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_STest(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_ATest(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_MTest_K(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_ITest_K(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_STest_K(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_ATest_K(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Sreview(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Ereview(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Mreview(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Creview(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Hreview(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Sreview_K(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Ereview_K(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Mreview_K(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Creview_K(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_von_Hreview_K(Aufwand       : real;  -- MM
+       Beginn_Datum     : Date;
+       End_Datum      : Date;
+       Dauer      : integer) is
+    "%(Aufwand), %(Beginn_Datum), %(End_Datum), %(Dauer)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Anzahl_AFP_Kundenwunsch(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Anzahl_AFP_Spezifikation(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Anzahl_AFP_Analyse(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Anzahl_AFP_Entwurf(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Anzahl_AFP_Modspez(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Anzahl_AFP_Code(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Anzahl_AFP_Handbuch(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Gepruefte_AFP_MTest(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Gepruefte_AFP_ITest(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Gepruefte_AFP_STest(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Gepruefte_AFP_ATest(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Gepruefte_AFP_Sreview(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Gepruefte_AFP_Ereview(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Gepruefte_AFP_Mreview(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Gepruefte_AFP_Creview(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Gepruefte_AFP_Hreview(AFP: real) is
+    "%(AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Konsistenz_Spez_Dok(Kons_AF : real) is
+    "%(Kons_AF)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Konsistenz_Entw_Dok(Kons_AF : real;
+       Kons_GF : real) is
+    "%(Kons_AF), %(Kons_GF)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Konsistenz_MSpez_Dok(Kons_AF : real;
+       Kons_GF : real;
+       Kons_FF : real) is
+    "%(Kons_AF), %(Kons_GF), %(Kons_FF)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Konsistenz_HB_Dok(Kons_AF : real) is
+    "%(Kons_AF)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_Fehler_pro_AFP_Notizen(AF_AFP : real;
+       Fehler_pro_AFP : real) is
+    "%(AF_AFP), %(Fehler_pro_AFP)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_Fehler_pro_AFP_Spez_Dok(AF_AFP : real;
+       Fehler_pro_AFP : real;
+       Fehler_Seite : real) is
+    "%(AF_AFP), %(Fehler_pro_AFP), %(Fehler_Seite)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_Fehler_pro_AFP_Entw_Dok(AF_AFP : real;
+        GF_AFP : real;
+       Fehler_pro_AFP : real;
+       Fehler_Seite : real) is
+    "%(AF_AFP), %(GF_AFP), %(Fehler_pro_AFP), %(Fehler_Seite)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_Fehler_pro_AFP_MSpez_Dok(AF_AFP : real;
+        GF_AFP : real;
+        FF_AFP : real;
+       Fehler_pro_AFP : real;
+       Fehler_Seite : real) is
+    "%(AF_AFP), %(GF_AFP), %(FF_AFP), %(Fehler_pro_AFP), %(Fehler_Seite)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_Fehler_pro_AFP_Code_Dok(AF_AFP : real;
+        GF_AFP : real;
+        FF_AFP : real;
+        IF_AFP : real;
+       Fehler_pro_AFP : real;
+       Fehler_KLOC : real) is
+    "%(AF_AFP), %(GF_AFP), %(FF_AFP), %(IF_AFP), %(Fehler_pro_AFP), %(Fehler_KLOC)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_Fehler_pro_AFP_HB_Dok(AF_AFP : real;
+        HF_AFP : real;
+       Fehler_pro_AFP : real;
+       Fehler_Seite : real) is
+    "%(AF_AFP), %(HF_AFP), %(Fehler_pro_AFP), %(Fehler_Seite)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Einhaltung_ZV_Dok(welches: Dokument;
+       Proz_AFP_100 : real;
+       Proz_AFP_ZV : real;
+       Proz_Fehler_pro_Seite_ZV : real) is
+    "%(welches), %(Proz_AFP_100), %(Proz_AFP_ZV), %(Proz_Fehler_pro_Seite_ZV)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Einhaltung_ZV_Code(Proz_AFP_100 : real;
+       Proz_AFP_ZV : real;
+       Proz_Fehler_pro_KLOC_ZV : real) is
+    "%(Proz_AFP_100), %(Proz_AFP_ZV), %(Proz_Fehler_pro_KLOC_ZV)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_Pruefungen(welches: Pruefbericht;
+       Anz_Anf : integer;
+       Anz_Prf : integer;
+       Anz_Fehler_Pro_Prf1 : real;
+       Anz_Fehler_Pro_Prf2 : real;
+       Anz_Fehler_Pro_Prf3 : real;
+       Anz_Fehler_Pro_Prf4 : real;
+       Anz_Fehler_Pro_Prf5 : real;
+       Anz_Fehler_Pro_Prf6 : real;
+       Anz_Fehler_Pro_Prf7 : real;
+       Anz_Fehler_Pro_Prf8 : real;
+       Anz_Fehler_Pro_Prf9 : real;
+       Anz_Fehler_Pro_Prf10 : real) is
+    "%(welches), %(Anz_Anf); %(Anz_Prf), %(Anz_Fehler_Pro_Prf1), %(Anz_Fehler_Pro_Prf2), %(Anz_Fehler_Pro_Prf3), %(Anz_Fehler_Pro_Prf4), %(Anz_Fehler_Pro_Prf5), %(Anz_Fehler_Pro_Prf6), %(Anz_Fehler_Pro_Prf7), %(Anz_Fehler_Pro_Prf8), %(Anz_Fehler_Pro_Prf9), %(Anz_Fehler_Pro_Prf10)";
+  end message; 
+
+-----------------------------------------------------
+
+  message Zustand_Korrektur(welches: Pruefbericht;
+       Ist_leer : boolean;
+       Anz_nicht_korr_Anf : integer;
+       Anz_korr_Fehler_pro_Prf1 : real;
+       Anz_korr_Fehler_pro_Prf2 : real;
+       Anz_korr_Fehler_pro_Prf3 : real;
+       Anz_korr_Fehler_pro_Prf4 : real;
+       Anz_korr_Fehler_pro_Prf5 : real;
+       Anz_korr_Fehler_pro_Prf6 : real;
+       Anz_korr_Fehler_pro_Prf7 : real;
+       Anz_korr_Fehler_pro_Prf8 : real;
+       Anz_korr_Fehler_pro_Prf9 : real;
+       Anz_korr_Fehler_pro_Prf10 : real) is
+    "%(welches), %(Ist_leer), %(Anz_nicht_korr_Anf), %(Anz_korr_Fehler_pro_Prf1), %(Anz_korr_Fehler_pro_Prf2), %(Anz_korr_Fehler_pro_Prf3), %(Anz_korr_Fehler_pro_Prf4), %(Anz_korr_Fehler_pro_Prf5), %(Anz_korr_Fehler_pro_Prf6), %(Anz_korr_Fehler_pro_Prf7), %(Anz_korr_Fehler_pro_Prf8), %(Anz_korr_Fehler_pro_Prf9), %(Anz_korr_Fehler_pro_Prf10)";
+  end message; 
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+--       Ausgabe zum Test auf doppelte Anforderungen
+
+-----------------------------------------------------
+ 
+  message Doppelte_Anforderungen_vorhanden (worin: Dokument;
+                                            welche: integer) is
+    "Dokument %(worin) obsahuje tie iste(duplikatne) poziadavky: %(welche).";
+  end message;
+
+----------------------------------------------------
+-- Hilfetexte fuer SimulationPlus
+----------------------------------------------------
+ help for "@specify@" is
+   "pisat specifikaciu";
+ end help; 
+ 
+ help for "@correctspecification@" is
+   "opravit specifikaciu";
+ end help;
+ 
+ help for "@showmespecification@" is
+   "(*) poziadat o informacie tykajuce sa stave specifikacie";
+ end help;
+ 
+ help for "@talkcustomer@" is
+   "porozpravat sa so zakaznikom";
+ end help;
+ 
+ help for "@designsystem@" is
+   "navrhnut system";
+ end help;
+ 
+ help for "@correctsystemdesign@" is
+   "opravit navrh systemu";
+ end help;
+ 
+ help for "@showmesystemdesign@" is
+   "(*) poziadat o informacie tykajuce sa stave navrhu systemu";
+ end help;
+ 
+ help for "@designmodules@" is
+   "navrhnut moduly";
+ end help;
+ 
+ help for "@correctmoduledesign@" is
+   "opravit navrh modulov";
+ end help;
+ 
+ help for "@showmemoduledesign@" is
+   "(*) poziadat o informacie tykajuce sa stave navrhu modulov";
+ end help;
+ 
+ help for "@code@" is
+   "pisat zdrojovy kod";
+ end help;
+ 
+ help for "@correctreviewedcode@" is
+   "opravit zdrojovy kod po posudeni/prehodnoteni";
+ end help;
+ 
+ help for "@correcttestedcode@" is
+   "opravit zdrojovy kod po vykonani testu";
+ end help;
+ 
+ help for "@showmecode@" is
+   "(*) poziadat o informacie tykajuce sa stave, v ktorom sa nachadza zdrojovy kod";
+ end help;
+ 
+ help for "@testmodules@" is
+   "vykonat test modulov";
+ end help;
+ 
+ help for "@testsystem@" is
+   "vykonat test systemu";
+ end help;
+ 
+ help for "@integrate@" is
+   "integrovat system";
+ end help;
+ 
+ help for "@testintegration@" is
+   "otestovat integraciu systemu";
+ end help;
+ 
+ help for "@twodevelopersreview@" is
+   "vykonat posudok/recenziu/prehodnotenie dvomi vyvojarmi";
+ end help;
+ 
+ help for "@threedevelopersreview@" is
+   "vykonat posudok/recenziu/prehodnotenie tromi vyvojarmi";
+ end help;
+ 
+ help for "@customerparticipateinreviewspecification@" is
+   "prehodnotit/prekontrolovat specifikaciu dvomi developermi a zakaznikom";
+ end help;
+ 
+ help for "@customerparticipateinreviewdocumentation@" is
+   "prehodnotit/prekontrolovat dokumentaciu dvomi vyvojarmi a zakaznikom";
+ end help;
+ 
+ help for "@showmereviewreport@" is
+   "(*) poziadat o informacie o stave konecneho reportu posudku/recenzie";
+ end help;
+ 
+ help for "@finishreviewdocument@" is
+   "dokoncit posudok/recenziu";
+ end help;
+ 
+ help for "@writedocumentation@" is
+   "napisat dokumentaciu";
+ end help;
+ 
+ help for "@correctdocumentation@" is
+   "opravit dokumentaciu po posudeni";
+ end help;
+ 
+ help for "@showmedocumentation@" is
+   "(*) poziadat o informacie o stave dokumentacie";
+ end help;
+ 
+ help for "@customerperformacceptancetest@" is
+   "iniciovat vykonanie akceptacneho testu zakaznikom bez ucasti vyvojarov";
+ end help;
+ 
+ help for "@deliversystem@" is
+   "dorucit system zakaznikovi, od ktoreho sa nasledne ocakava spatna vazba";
+ end help;
+ 
+ help for "@finishproject@" is
+   "prerusit projekt, a to bez dorucenia; akokolvek, aspon s nejakou spatnou vazbou od zakaznika";
+ end help;
+ 
+ help for "@informationaboutspentresources@" is
+   "(*) ukazat straveny cas a pouzite financne prostriedky";
+ end help;
+ 
+ help for "@quitactivity@" is
+   "prerusit okamzite vykonavanu cinnost; posudky NEbudu dokoncene";
+ end help;
+ 
+ help for "@finishactivity@" is
+  "vyvojar dokonci vykonavanu cinnost okamzite, ako to bude mozne a doruci dokument(y), na ktorom/ktorych pracoval; tento prikaz neplati pre posudky/recenzie";
+ end help;
+ 
+ help for "@release@" is
+   "(*) prepustit vyvojara";
+ end help;
+ 
+ help for "@hire@" is
+   "(*) najat/zamestnat vyvojara";
+ end help;
+ 
+ help for "@showmemyteammembers@" is
+   "zobrazit vsetkych najatych/zamestnanych vyvojarov";
+ end help;
+ 
+ help for "@showmeavailabledevelopers@" is
+   "zobrazit vsetkych dostupnych vyvojarov";
+ end help;
+ 
+ help for "@showmetasksof@" is
+   "ziskat zoznam vsetkych uloh";
+ end help;
+ 
+ help for "@correctalldocuments@" is
+   "opravit vsetky dokumenty pouzitim vybraneho reportu (posudok/test)";
+ end help;
+ 
+ help for "@informationaboutdeveloper@" is
+   "(*) zistit profil (specializaciu, naklady) vyvojara";
+ end help;
+ 
+ help for "@usenotation@" is
+   "zvolit patricnu notaciu pre tvorbu dokumentu";
+ end help;
+ 
+ help for "@showmeactivity@" is
+   "(*) ziskat informacie o druhu cinnosti, ktoru vyvojar prave vykonava";
+ end help;
+ 
+end dictionary;
