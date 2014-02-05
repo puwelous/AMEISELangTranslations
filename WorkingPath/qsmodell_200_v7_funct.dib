@@ -2020,7 +2020,7 @@ Koniec koncov, ake-take, hoci poslabsie vedomosti ma aj o: %(geringe_E).";
 
   message Fehlermeldung_gleiche_Autor_IDs (E1: Entwickler;
                                            E2: Entwickler) is
-    "Chyba: Identicke ID (Author-IDs) pre vyvojarov %(E1) a %(E2).";	
+    "Chyba: Identicke ID (Author-IDs) pre vyvojarov %(E1) a %(E2).";    
   end message;
 
 -----------------------------------------------------
@@ -2078,7 +2078,7 @@ Koniec koncov, ake-take, hoci poslabsie vedomosti ma aj o: %(geringe_E).";
   message Zustand_von_Notizen ( AFP     : real;
                                 Analysefehler          : integer;
     Anzahl_Fehler_ges      : integer) is
-	"Notifikacie (analyzy) obsahuju %(AFP) AFP(adjusted function points), %(Analysefehler) chyb analyzy a %(Anzahl_Fehler_ges) chyb dokopy.";
+    "Notifikacie (analyzy) obsahuju %(AFP) AFP(adjusted function points), %(Analysefehler) chyb analyzy a %(Anzahl_Fehler_ges) chyb dokopy.";
   end message;
 
 -----------------------------------------------------
@@ -2086,7 +2086,7 @@ Koniec koncov, ake-take, hoci poslabsie vedomosti ma aj o: %(geringe_E).";
   message Zustand_von_Spez_Dok ( AFP     : real;
                                 Analysefehler          : integer;
     Anzahl_Fehler_ges      : integer) is
-    "specifikacia obsahuje %(AFP) AFP(adjusted function points), %(Analysefehler) chyb analyzy a %(Anzahl_Fehler_ges) chyb dokopy.";	
+    "specifikacia obsahuje %(AFP) AFP(adjusted function points), %(Analysefehler) chyb analyzy a %(Anzahl_Fehler_ges) chyb dokopy.";    
   end message;
 
 -----------------------------------------------------
@@ -2095,7 +2095,7 @@ Koniec koncov, ake-take, hoci poslabsie vedomosti ma aj o: %(geringe_E).";
                                 Analysefehler          : integer;
            Grobentwurfsfehler     : integer;
     Anzahl_Fehler_ges      : integer) is
-	"Navrh systemu obsahuje %(AFP) AFP(adjusted function points), %(Analysefehler) chyb analyzy, %(Grobentwurfsfehler) chyb navrhu systemu a %(Anzahl_Fehler_ges) chyb dokopy.";
+    "Navrh systemu obsahuje %(AFP) AFP(adjusted function points), %(Analysefehler) chyb analyzy, %(Grobentwurfsfehler) chyb navrhu systemu a %(Anzahl_Fehler_ges) chyb dokopy.";
   end message;
 
 -----------------------------------------------------
