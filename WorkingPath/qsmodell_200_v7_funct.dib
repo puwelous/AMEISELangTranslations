@@ -361,13 +361,14 @@ end map;
 -----------------------------------------------------
 
   command lasse_Systementwurf_nach_Review_korrigieren(ein_Entwickler : Entwickler) is
-	"oprav[uj] (navrh systemu|systemovy navrh)", ask "Kto ma opravit navrh systemu?" => ein_Entwickler;
-	"(oprava|opravovanie|korekcia|korektura) (navrhu systemu|systemoveho navrhu)", ask "Kto ma opravit systemovy navrh?" => ein_Entwickler;  
-    "((poziadaj [o] (opravu|opravovanie|korekciu|korekturu))|(korekcia|korektura)) (posudeneho|posudzovaneho) navrhu systemu",
+    "oprav [posudeny|posudzovany] (navrh systemu|systemovy navrh)", ask "Kto ma opravit navrh systemu?" => ein_Entwickler;
+    "(oprava|korekcia) (navrhu systemu|systemoveho navrhu)", ask "Kto ma opravit systemovy navrh?" => ein_Entwickler;  
+    "((poziadaj [o] (opravu|korekciu))|(korekcia)) (posudeneho|posudzovaneho) navrhu systemu",
       ask "Kto ma pracovat na oprave/korekcii navrhu systemu?" => ein_Entwickler;
-    "poziadaj [o] (opravu|opravovanie|korekciu|korekturu) (navrhu systemu|systemoveho navrhu) [po (posudku|posudeni|posudzovani|recenzii)]",
+    "poziadaj [o] (opravu|korekciu) (navrhu systemu|systemoveho navrhu) [po (posudku|posudeni|posudzovani|recenzii)]",
       ask "Kto ma pracovat na oprave/korekcii navrhu systemu?" => ein_Entwickler;
-    "poziadaj %(ein_Entwickler) o (opravu|opravovanie|korekciu|korekturu) ([(posudeneho|posudzovaneho)] (navrhu systemu|systemoveho navrhu)|(navrhu systemu|systemoveho navrhu) [po (posudku|posudeni|posudzovani|recenzii)])";
+    "%(ein_Entwickler) oprav [posudeny|posudzovany] (navrh systemu|systemovy navrh)";
+    "poziadaj %(ein_Entwickler) o (opravu|korekciu) ([(posudeneho|posudzovaneho)] (navrhu systemu|systemoveho navrhu)|(navrhu systemu|systemoveho navrhu) [po (posudku|posudeni|posudzovani|recenzii)])";
     diary_entry "Zamestnanec: %(ein_Entwickler) bol oboznameny(a) s tym, ze ma pracovat na oprave/korekcii prehodnoteneho navrhu systemu.";
   end command;
 
@@ -402,14 +403,15 @@ end map;
 -----------------------------------------------------
 
   command lasse_Handbuch_nach_Review_korrigieren(ein_Entwickler : Entwickler) is
-    "oprav[uj] ([(posudenu|posudzovanu)] ([systemovu] dokumentaciu|prirucku)|[(posudene|posudzovane)] [pouzivatelske] manualy)",
+    "oprav ([(posudenu|posudzovanu)] ([systemovu] dokumentaciu|prirucku)|[(posudene|posudzovane)] [pouzivatelske] manualy)",
       ask "Kto ma pracovat na oprave/korekcii dokumentacie?" => ein_Entwickler;
     "((poziadaj [o] (korekciu|korekturu))|(korekcia|korektura)) ([(posudenej|posudzovanej)] ([systemovej] dokumentacie|prirucky)|[(posudenych|posudzovanych)] [pouzivatelskych] manualov)",
       ask "Kto ma pracovat na oprave/korekcii dokumentacie?" => ein_Entwickler;
     "((poziadaj [o] (korekciu|korekturu))|(korekcia|korektura)) ([systemovej] dokumentacie|prirucky|[pouzivatelskych] manualov) po (posudku|posudeni|posudzovani|recenzii)",
       ask "Kto ma pracovat na oprave/korekcii dokumentacie?" => ein_Entwickler;
-    "poziadaj %(ein_Entwickler) o (korekciu|korekturu) ([(posudenej|posudzovanej)] ([systemovej] dokumentacie|prirucky)|[(posudenych|posudzovanych)] [pouzivatelskych] manualov)";
-    "poziadaj %(ein_Entwickler) o (korekciu|korekturu) ([systemovej] dokumentacie|prirucky|[pouzivatelskych] manualov) po (posudku|posudeni|posudzovani|recenzii)";
+    "%(ein_Entwickler) oprav ([(posudenu|posudzovanu)] ([systemovu] dokumentaciu|prirucku)|[(posudene|posudzovane)] [pouzivatelske] manualy)";      
+    "poziadaj %(ein_Entwickler) o (opravu|korekciu) ([(posudenej|posudzovanej)] ([systemovej] dokumentacie|prirucky)|[(posudenych|posudzovanych)] [pouzivatelskych] manualov)";
+    "poziadaj %(ein_Entwickler) o (opravu|korekciu) ([systemovej] dokumentacie|prirucky|[pouzivatelskych] manualov) po (posudku|posudeni|posudzovani|recenzii)";
     diary_entry "%(ein_Entwickler) bol(a) oboznameny(a) s tym, ze ma pracovat na oprave/korekcii chyb najdenych v dokumentacii.";
   end command;
 
@@ -418,25 +420,26 @@ end map;
   command lasse_Code_nach_Test_korrigieren
    (ein_Entwickler : Entwickler;
    ein_Bericht     : Testbericht) is
-    "oprav[uj] [o]testovany kod",
+    "oprav [o]testovany kod",
       ask "Kto ma opravit kod?" => ein_Entwickler,
-      ask "Ktory testovaci report ma byt pouzity?" => ein_Bericht;	  
-    "((poziadaj [o] (opravu|opravovanie|korekciu|korekturu))|(korekcia|korektura)) [o]testovaneho kodu",
-      ask "Kto ma opravit kod?" => ein_Entwickler,
-      ask "Ktory testovaci report ma byt pouzity?" => ein_Bericht;
-    "((poziadaj [o] (opravu|opravovanie|korekciu|korekturu))|(korekcia|korektura)) kodu po (teste|testoch)",
+      ask "Ktory testovaci report ma byt pouzity?" => ein_Bericht;      
+    "((poziadaj [o] (opravu|opravovanie|korekciu))|(korekcia)) [o]testovaneho kodu",
       ask "Kto ma opravit kod?" => ein_Entwickler,
       ask "Ktory testovaci report ma byt pouzity?" => ein_Bericht;
-    "poziadaj %(ein_Entwickler) o (opravu|opravovanie|korekciu|korekturu) [o]testovaneho kodu",
+    "((poziadaj [o] (opravu|opravovanie|korekciu))|(korekcia)) kodu po (teste|testoch)",
+      ask "Kto ma opravit kod?" => ein_Entwickler,
       ask "Ktory testovaci report ma byt pouzity?" => ein_Bericht;
-    "poziadaj %(ein_Entwickler) o (opravu|opravovanie|korekciu|korekturu) kodu po (teste|testoch)",
+    "poziadaj %(ein_Entwickler) o (opravu|opravovanie|korekciu) [o]testovaneho kodu",
       ask "Ktory testovaci report ma byt pouzity?" => ein_Bericht;
-    "((poziadaj [o] (opravu|opravovanie|korekciu|korekturu))|(korekcia|korektura)) [o]testovaneho kodu (podla|na zaklade|pomocou) [[testovacieho] reportu] %(ein_Bericht)",
+    "poziadaj %(ein_Entwickler) o (opravu|opravovanie|korekciu) kodu po (teste|testoch)",
+      ask "Ktory testovaci report ma byt pouzity?" => ein_Bericht;
+    "((poziadaj [o] (opravu|opravovanie|korekciu))|(korekcia)) [o]testovaneho kodu (podla|na zaklade|pomocou) [[testovacieho] reportu] %(ein_Bericht)",
       ask "Kto ma opravit kod?" => ein_Entwickler;
-    "((poziadaj [o] (opravu|opravovanie|korekciu|korekturu))|(korekcia|korektura)) kodu po (teste|testoch) (podla|na zaklade|pomocou) [[testovacieho] reportu] %(ein_Bericht)",
+    "((poziadaj [o] (opravu|opravovanie|korekciu))|(korekcia)) kodu po (teste|testoch) (podla|na zaklade|pomocou) [[testovacieho] reportu] %(ein_Bericht)",
       ask "Kto ma opravit kod?" => ein_Entwickler;
-    "poziadaj %(ein_Entwickler) o (opravu|opravovanie|korekciu|korekturu) [o]testovaneho kodu (podla|na zaklade|pomocou)  [[testovacieho] reportu]  %(ein_Bericht)";
-    "poziadaj %(ein_Entwickler) o (opravu|opravovanie|korekciu|korekturu) kodu po (teste|testoch)(podla|na zaklade|pomocou) [[testovacieho]reportu] %(ein_Bericht)";
+    "%(ein_Entwickler) oprav [o]testovany kod podla testovacieho reportu %(ein_Bericht)";
+    "poziadaj %(ein_Entwickler) o (opravu|opravovanie|korekciu) [o]testovaneho kodu (podla|na zaklade|pomocou)  [[testovacieho] reportu]  %(ein_Bericht)";
+    "poziadaj %(ein_Entwickler) o (opravu|opravovanie|korekciu) kodu po (teste|testoch)(podla|na zaklade|pomocou) [[testovacieho]reportu] %(ein_Bericht)";
     diary_entry "%(ein_Entwickler) bol(a) oboznameny(a) s tym, ze ma pracovat na oprave/korekcii vsetkych chyb v zdrojovom kode na zaklade reportu %(ein_Bericht).";
   end command;
 
@@ -448,12 +451,13 @@ end map;
     "oprav vsetky dokumenty",
       ask "Kto ma opravit dokumenty?" => ein_Entwickler,
       ask "Ktory report ma byt pouzity" => ein_Bericht;						 
-    "((poziadaj [o] (korekciu|korekturu))|(korekcia|korektura)) vsetkych dokumentov",
+    "((poziadaj [o] (korekciu))|(korekcia)) vsetkych dokumentov",
       ask "Kto ma opravit dokumenty?" => ein_Entwickler,
       ask "Ktory report ma byt pouzity" => ein_Bericht;
-    "((poziadaj [o] (korekciu|korekturu))|(korekcia|korektura)) vsetkych dokumentov (podla|na zaklade|pomocou) [reportu] %(ein_Bericht)",
+    "((poziadaj [o] (korekciu))|(korekcia)) vsetkych dokumentov (podla|na zaklade|pomocou) [reportu] %(ein_Bericht)",
       ask "Kto ma opravit dokumenty" => ein_Entwickler;
-     "poziadaj %(ein_Entwickler) o (opravu|opravovanie|korekciu|korekturu) vsetkych dokumentov (podla|na zaklade|pomocou) [reportu] %(ein_Bericht)";
+    "%(ein_Entwickler) oprav vsetky dokumenty pomocou %(ein_Bericht)";
+     "poziadaj %(ein_Entwickler) o (opravu|opravovanie|korekciu) vsetkych dokumentov (podla|na zaklade|pomocou) [reportu] %(ein_Bericht)";
      diary_entry "%(ein_Entwickler) bol(a) oboznameny(a) s tym, ze ma pracovat na oprave/korekcii vsetkych nezrovnalosti vo vsetkych dokumentoch na zaklade testovacieho reportu %(ein_Bericht).";
   end command;
 
