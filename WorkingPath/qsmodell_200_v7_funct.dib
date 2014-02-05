@@ -444,7 +444,7 @@ end map;
   command lasse_alle_Dokumente_korrigieren
    (ein_Entwickler : Entwickler;
                          ein_Bericht    : Pruefbericht) is
-    "oprav[uj] vsetky dokumenty",
+    "oprav vsetky dokumenty",
       ask "Kto ma opravit dokumenty?" => ein_Entwickler,
       ask "Ktory report ma byt pouzity" => ein_Bericht;						 
     "((poziadaj [o] (korekciu|korekturu))|(korekcia|korektura)) vsetkych dokumentov",
