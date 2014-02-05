@@ -86,8 +86,8 @@ end map;
 
   command lasse_spezifizieren(ein_Entwickler : Entwickler) is
     "specifikuj", ask "Kto ma vykonat specifikaciu?" => ein_Entwickler;
-	"poziadaj [o] specifikaciu", ask "Kto ma pracovat na specifikacii?" => ein_Entwickler;
-	"%(ein_Entwickler) specifikuj";
+    "poziadaj [o] specifikaciu", ask "Kto ma pracovat na specifikacii?" => ein_Entwickler;
+    "%(ein_Entwickler) specifikuj";
     "[poziadaj] [o] ([na]pisanie specifikacie|pracovanie na specifikacii)", ask "Kto ma pracovat na specifikacii?" => ein_Entwickler;
     "poziadaj %(ein_Entwickler) o specifikaciu";
     diary_entry "%(ein_Entwickler) uz vie, ze ma pracovat na specifikacii.";
@@ -108,7 +108,7 @@ end map;
 
   command lasse_Module_spezifizieren(ein_Entwickler : Entwickler) is
     "navrhni modul", ask "Kto ma pracovat na navrhu modulov?" => ein_Entwickler;
-	"specifikuj moduly", ask "Kto ma pracovat na specifikacii modulov?" => ein_Entwickler;
+    "specifikuj moduly", ask "Kto ma pracovat na specifikacii modulov?" => ein_Entwickler;
     "[poziadaj [o]] (napisanie|pisanie|vypracovanie|pracovanie na|pracu na) (specifikacie|specifikacii|navrhu) (modulu|modulov)", ask "Kto ma pracovat na specifikacii modulov?" => ein_Entwickler;
     "poziadaj [o] (dizajn|specifikaciu|navrh) modulov", ask "Kto ma pracovat na specifikacii modulov?" => ein_Entwickler;
        "%(ein_Entwickler) pracuj na (specifikacii|navrhu) (modulu|modulov)";
@@ -165,7 +165,7 @@ end map;
   command lasse_Handbuch_erstellen(ein_Entwickler : Entwickler) is
     "(napis|pis|vyprauj) ([systemovu] dokumentaciu|[pozivatelsku] prirucku|[pouzivatelske] prirucky)", ask "Kto ma pisat dokumentaciu?" => ein_Entwickler;  
     "[poziadaj [o]] (napisanie|pisanie|vypracovanie) ([systemovej] dokumentacie|[pozivatelskej] prirucky|[pouzivatelskych] priruciek)", ask "Kto ma pisat dokumentaciu?" => ein_Entwickler;
-	"poziadaj [o] pracu na ([systemovej] dokumentacii|[pozivatelskej] prirucke|[pouzivatelskych] priruckach)", ask "Kto ma pracovat na dokumentacii?" => ein_Entwickler;
+    "poziadaj [o] pracu na ([systemovej] dokumentacii|[pozivatelskej] prirucke|[pouzivatelskych] priruckach)", ask "Kto ma pracovat na dokumentacii?" => ein_Entwickler;
     "%(ein_Entwickler) pis ([systemovu] dokumentaciu|[pozivatelsku] prirucku|[pouzivatelske] prirucky)";
     "poziadaj %(ein_Entwickler) o (napisanie|pisanie|vypracovanie) ([systemovej] dokumentacie|[pozivatelskej] prirucky|[pouzivatelskych] priruciek)";
       "poziadaj %(ein_Entwickler) o pracu na ([systemovej] dokumentacii|[pozivatelskej] prirucke|[pouzivatelskych] priruckach)";
@@ -176,7 +176,7 @@ end map;
 
   command lasse_Module_testen(ein_Entwickler : Entwickler) is
     "[o]testuj moduly", ask "Kto ma testovat modul(y)?" => ein_Entwickler;
-	"[poziadaj [o]] test modulov", ask "Kto ma testovat modul(y)?" => ein_Entwickler;
+    "[poziadaj [o]] test modulov", ask "Kto ma testovat modul(y)?" => ein_Entwickler;
     "[poziadaj [o]] (vykonanie|spravenie) (testu|testov) modulov", ask "Kto ma testovat modul(y)?" => ein_Entwickler;
     "%(ein_Entwickler) testuj moduly";
      "poziadaj %(ein_Entwickler) o (test[y]|[o]testovanie) modulov";
@@ -187,7 +187,7 @@ end map;
 
   command lasse_Integrationstest_durchfuehren(ein_Entwickler : Entwickler) is
     "[o]testuj integraciu", ask "Kto ma testovat integraciu systemu?" => ein_Entwickler;
-	"[poziadaj [o]] (integracny test|test integracie)", ask "Kto ma testovat integraciu systemu?" => ein_Entwickler;
+    "[poziadaj [o]] (integracny test|test integracie)", ask "Kto ma testovat integraciu systemu?" => ein_Entwickler;
     "poziadaj o vykonanie (testu integracie|testov integracie|integracneho testu|integracnych testov)", ask "Kto ma testovat integraciu systemu?" => ein_Entwickler;
     "%(ein_Entwickler) vykonaj (integracny test|integracne testy|test[ovanie] integracie)";
       "poziadaj %(ein_Entwickler) o (integracny test|integracne testy|test[ovanie] integracie)";
@@ -199,7 +199,7 @@ end map;
 
   command lasse_Systemtest_durchfuehren(ein_Entwickler : Entwickler) is
     "[o]testuj system", ask "Kto ma pracovat na testoch systemu?" => ein_Entwickler;
-	"[poziadaj [o]] test[ovanie] systemu", ask "Kto ma pracovat na testoch systemu?" => ein_Entwickler;
+    "[poziadaj [o]] test[ovanie] systemu", ask "Kto ma pracovat na testoch systemu?" => ein_Entwickler;
     "[poziadaj [o]] vykonanie testu systemu", ask "Kto ma pracovat na testoch systemu?" => ein_Entwickler;
    "%(ein_Entwickler) [o]testuj system";
     "poziadaj %(ein_Entwickler) o (vykonanie testu|[o]testovanie) systemu";
@@ -510,11 +510,12 @@ end map;
 
   command inspiziere_Pruefbericht(ein_Bericht : Pruefbericht) is
     "ukaz [mi] report posudku",
-      ask "Pre ktory posudok (report) chcete vykonat reviziu?" => ein_Bericht;
+      ask "Aky report posudku chcete prezriet?" => ein_Bericht;
     "[poziadaj [o]] (prezretie|preskumanie) reportu posudku",
-      ask "Pre ktory posudok (report) chcete vykonat reviziu?" => ein_Bericht;
+      ask "Aky report posudku chcete prezriet?" => ein_Bericht;
     "[poziadaj [o]] report posudku",
-      ask "Pre ktory posudok (report) chcete vykonat reviziu?" => ein_Bericht;	  
+      ask "Aky report posudku chcete prezriet?" => ein_Bericht;
+    "ukaz [mi] report posudku %(ein_Bericht)";      
     "(poziadaj [o] (prezretie|preskumanie) reportu|ukaz [mi] report) posudku %(ein_Bericht)";
     diary_entry "Vykonanie revizie pre posudok (report) %(ein_Bericht).";
   end command;
@@ -523,7 +524,7 @@ end map;
 
   command zeige_verfuegbare_Entwickler is
     "dostupni vyvojari";
-	"((ukaz|zobraz|vytlac|daj) [mi]) [zoznam] dostupnych vyvojarov";
+    "((ukaz|zobraz|vytlac|daj) [mi]) [zoznam] dostupnych vyvojarov";
     "Ktori vyvojari su dostupni[?]";
     diary_entry "Urcenie zoznamu dostupnych vyvojarov.";
   end command;
@@ -531,7 +532,7 @@ end map;
 -----------------------------------------------------
 
   command zeige_zugeteilte_Mitarbeiter is
-	"(zlozenie|clenovia) [mojho] timu";
+    "(zlozenie|clenovia) [mojho] timu";
     "ukaz [mi] (zlozenie|clenov) [mojho] timu";
     "(ukaz|zobraz|vytlac|urc|zisti) [mi] (zapojenych|zamestnanych|najatych) (zamestnancov|ludi|pracovnikov|vyvojarov)";
     "kto je (zamestnany|najaty)[?]";
@@ -546,7 +547,7 @@ end map;
     "[daj [mi]|poziadaj [o]] informacie o vyvojarovi",
       ask "O kom chcete byt informovany?" => ein_Entwickler;
     "[daj [mi]|poziadaj [o]] informacie o [vyvojarovi[:]] %(ein_Entwickler)";
-    diary_entry "Ziskavanie informacii o zamestnancovi: %(ein_Entwickler)";
+    diary_entry "Ziadost o informacie o zamestnancovi: %(ein_Entwickler)";
   end command;
 
 -----------------------------------------------------
@@ -556,19 +557,19 @@ end map;
       ask "Cie ulohy Vas zaujimaju?" => ein_Entwickler;
     "ukaz [mi] [vsetky] ulohy vyvojara: %(ein_Entwickler)";
     "ukaz [mi] [vsetky] ulohy [vyvojara[:]] %(ein_Entwickler)";
-    diary_entry "Ziadanie o zoznam uloh zamestnanca: %(ein_Entwickler)";
+    diary_entry "Ziadost o zoznam uloh zamestnanca: %(ein_Entwickler)";
   end command;
 
 -----------------------------------------------------
 
   command erfrage_Taetigkeit_von_Entwickler(ein_Entwickler : Entwickler) is
-    "(ukaz|predved) [mi] [svoju] (aktivitu|ulohu|pracu)",
+    "ukaz [mi] [svoju] (aktivitu|ulohu|pracu)",
       ask "O ciej praci sa chcete informovat?" => ein_Entwickler;
     "(ukaz|predved) [mi] (aktivitu|ulohu|pracu) [zamestnanca] %(ein_Entwickler)";
     "poziadaj [o] informacie o (aktivite|ulohe|praci)",
       ask "O ciej praci sa chcete informovat?" => ein_Entwickler;
-	"poziadaj [o] informacie o (aktivite|ulohe|praci) [zamestnanca] %(ein_Entwickler)";	  
     "[spytaj sa[,]] na com %(ein_Entwickler) (robi|pracuje)[?]";
+    "poziadaj [o] informacie o (aktivite|ulohe|praci) [zamestnanca] %(ein_Entwickler)";
     "[spytaj sa] %(ein_Entwickler) na [(jeho|jej)] (aktivitu|ulohu|pracu)";
     diary_entry "Ziskavanie informacii o ulohe, na ktorej prave %(ein_Entwickler) pracuje.";
   end command;
@@ -583,7 +584,7 @@ end map;
     "[poziadaj [o]] (dokoncenie|zavrsenie) [svojej] [aktualnej] (aktivity|ulohy|prace)",
       ask "Kto ma dokoncit svoju aktualnu pracu?" => ein_Entwickler;
     "poziadaj %(ein_Entwickler) o (dokoncenie|zavrsenie) [(jeho|jej)] [aktualnej] (aktivity|ulohy|prace)";
-	"poziadaj %(ein_Entwickler) (dokoncit|zavrsit) [(jeho|jej)] [aktualne] (aktivity|ulohy|prace)";
+    "poziadaj %(ein_Entwickler) (dokoncit|zavrsit) [(jeho|jej)] [aktualne] (aktivity|ulohy|prace)";
     diary_entry "Zamestnancovi: %(ein_Entwickler) bolo povedane, aby svoju aktualnu ulohu priviedol do konca.";
   end command;
 
@@ -593,10 +594,10 @@ end map;
     "(prerus|zastav) [svoju] [aktualnu] (aktivitu|ulohu|pracu)",
       ask "Kto ma prerusit svoju aktualnu pracu?" => ein_Entwickler;
     "[poziadaj [o]] (prerusenie|zastavenie) [aktualnej] (aktivity|ulohy|prace)",
-      ask "Kto ma prerusit svoju aktualnu ulohu?" => ein_Entwickler;	  
+      ask "Kto ma prerusit svoju aktualnu ulohu?" => ein_Entwickler;      
     "%(ein_Entwickler) prerus [svoju] [aktualnu] (aktivitu|ulohu|pracu)";
     "poziadaj %(ein_Entwickler) o (prerusenie|zastavenie) [(jeho|jej)] [aktualnej] (aktivity|ulohy|prace)";
-	"poziadaj %(ein_Entwickler) (prerusit|zastavit) [(jeho|jej)] [aktualnu] (aktivitu|ulohu|pracu)";
+    "poziadaj %(ein_Entwickler) (prerusit|zastavit) [(jeho|jej)] [aktualnu] (aktivitu|ulohu|pracu)";
     diary_entry "(ein_Entwickler)(ovi) bolo povedane, aby prerusil/ponechal svoju aktualnu pracu.";
   end command;
 
@@ -604,8 +605,8 @@ end map;
 
   command lasse_Reviews_beenden(ein_Dokument : Dokument) is
     "(dokonci|zavrsi) posudok [dokumentu]",
-	  ask "Dokoncit posudok ktoreho dokumentu?" => ein_Dokument;
-	"[poziadaj [o]]  (dokoncenie|zavrsenie) posudku [dokumentu]",
+      ask "Dokoncit posudok ktoreho dokumentu?" => ein_Dokument;
+    "[poziadaj [o]]  (dokoncenie|zavrsenie) posudku [dokumentu]",
       ask "Dokoncit posudok ktoreho dokumentu?" => ein_Dokument;
        "dokonci posudok (dokumentu|pre dokument) %(ein_Dokument)";
     "[poziadaj [o]]  (dokoncenie|zavrsenie) posudku [(dokumentu|pre dokument)] %(ein_Dokument)";
