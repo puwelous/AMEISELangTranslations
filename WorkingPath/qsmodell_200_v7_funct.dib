@@ -77,7 +77,7 @@ end map;
 --====== Produktions-Kommandos ================================
 
   command lasse_mit_Kunden_sprechen(ein_Entwickler: Entwickler) is
-    "[poziadaj o] [roz]hovor so zakaznikom", ask "Kto ma hovorit so zakaznikom?" => ein_Entwickler;
+    "porozpravaj sa so zakaznikom", ask "Kto ma hovorit so zakaznikom?" => ein_Entwickler;
     "poziadaj %(ein_Entwickler) o [roz]hovor so zakaznikom";
     diary_entry "%(ein_Entwickler) uz vie, ze sa ma porozpravat so zakaznikom.";
   end command;
@@ -87,9 +87,9 @@ end map;
   command lasse_spezifizieren(ein_Entwickler : Entwickler) is
     "specifikuj", ask "Kto ma vykonat specifikaciu?" => ein_Entwickler;
 	"poziadaj [o] specifikaciu", ask "Kto ma pracovat na specifikacii?" => ein_Entwickler;
+	"%(ein_Entwickler) specifikuj";
     "[poziadaj] [o] ([na]pisanie specifikacie|pracovanie na specifikacii)", ask "Kto ma pracovat na specifikacii?" => ein_Entwickler;
     "poziadaj %(ein_Entwickler) o specifikaciu";
-    "poziadaj %(ein_Entwickler) o ([na]pisanie specifikacie|(pracu|pracovanie) na specifikacii)";
     diary_entry "%(ein_Entwickler) uz vie, ze ma pracovat na specifikacii.";
   end command;
 
