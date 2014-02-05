@@ -224,12 +224,12 @@ end map;
       ask "Ktory dokument ma byt prehodnoteny/posudeny?" => ein_Dokument,
       ask "Kto je prvou osobou, ktora ma vykonat posudok?" => Gutachter_1,
       ask "Kto je druhou osobou, ktora ma vykonat posudok?" => Gutachter_2;
-    "poziadaj (dvoch|2) (vyvojarov|posudkarov) o [vykonanie|ujatie [sa]] posudku dokumentu %(ein_Dokument)",
+    "poziadaj (dvoch|2) (vyvojarov|posudkarov) o posudok dokumentu %(ein_Dokument)",
       ask "Kto je prvou osobou, ktora ma vykonat posudok?" => Gutachter_1,
       ask "Kto je druhou osobou, ktora ma vykonat posudok?" => Gutachter_2;
-    "poziadaj %(Gutachter_1) a %(Gutachter_2) o [vykonanie|ujatie [sa]] posudku",
+    "poziadaj %(Gutachter_1) a %(Gutachter_2) o (vykonanie|ujatie [sa]) posudku",
       ask "Ktory dokument ma byt prehodnoteny/posudeny?" => ein_Dokument;
-    "poziadaj %(Gutachter_1) (a|,) %(Gutachter_2) o [vykonanie|ujatie [sa]] posudku dokumentu %(ein_Dokument)";
+    "poziadaj %(Gutachter_1) (a|,) %(Gutachter_2) o (vykonanie|ujatie [sa]) posudku dokumentu %(ein_Dokument)";
     diary_entry "%(Gutachter_1) a %(Gutachter_2) boli oboznameni s tym, ze maju posudit/recenzovat dokument: %(ein_Dokument)";
   end command;
 
@@ -375,28 +375,26 @@ end map;
 -----------------------------------------------------
 
   command lasse_Modulspez_nach_Review_korrigieren(ein_Entwickler : Entwickler) is
-	"oprav[uj] (navrh|specifikaciu|dizajn|design) (modulu|modulov)", ask "Kto ma opravit navrh modulu/modulov?" => ein_Entwickler;
-    "(oprava|opravovanie|korekcia|korektura) [(posudeneho|posudzovaneho)] (navrhu|dizajnu|designu) modulu",
+    "oprav (navrh|specifikaciu|dizajn|design) (modulu|modulov)", ask "Kto ma opravit navrh modulu/modulov?" => ein_Entwickler;
+    "(oprava|korekcia) [(posudeneho|posudzovaneho)] (navrhu|dizajnu|designu) modulu",
       ask "Kto ma pracovat na oprave/korekcii navrhu modulov/modulu?" => ein_Entwickler;
-    "(oprava|opravovanie|korekcia|korektura) [(posudenej|posudzovaneej)] specifikacie modulu",
-      ask "Kto ma pracovat na oprave/korekcii navrhu modulov/modulu?" => ein_Entwickler;	  
-    "poziadaj [o] (opravu|opravovanie|korekciu|korekturu) (navrhu|specifikacie|dizajnu|designu) (modulov|modulu) [po (posudku|posudeni|posudzovani|recenzii)]",
+    "(oprava|korekcia) [(posudenej|posudzovaneej)] specifikacie modulu",
       ask "Kto ma pracovat na oprave/korekcii navrhu modulov/modulu?" => ein_Entwickler;
-    "poziadaj %(ein_Entwickler) o (opravu|opravovanie|korekciu|korekturu) (posudeneho|posudzovaneho) (navrhu|dizajnu|designu) modulu[po (posudku|posudeni|posudzovani|recenzii)]";
-	"poziadaj %(ein_Entwickler) o (opravu|opravovanie|korekciu|korekturu) (posudenej|posudzovanej) (specifikacie) modulu[po (posudku|posudeni|posudzovani|recenzii)]";
+    "%(ein_Entwickler) oprav (navrh|specifikaciu|dizajn|design) (modulu|modulov)";
+    "poziadaj %(ein_Entwickler) o (opravu|korekciu) (posudeneho|posudzovaneho) (navrhu|dizajnu|designu) modulu";
+    "poziadaj %(ein_Entwickler) o (opravu|korekciu) (posudenej|posudzovanej) specifikacie modulu";
     diary_entry "%(ein_Entwickler) bol(a) oboznameny(a) s tym, ze ma pracovat na oprave/korekcii prehodnoteneho navrhu modulov.";
   end command;
 
 -----------------------------------------------------
 
   command lasse_Code_nach_Review_korrigieren(ein_Entwickler : Entwickler) is
-    "oprav[uj] ([(posudeny|posudzovany)] kod|[(posudenu|posudzovanu)] implementaciu)",
+    "oprav ([(posudeny|posudzovany)] kod|[(posudenu|posudzovanu)] implementaciu)",
       ask "Kto ma pracovat na oprave/korekcii zdrojoveho kodu?" => ein_Entwickler;    
-	"((poziadaj [o] (opravu|opravovanie|korekciu|korekturu))|(korekcia|korektura)) ([(posudeneho|posudzovaneho)] kodu|[posudenej|posudzovanej] implementacie)",
+    "((poziadaj [o] (opravu|korekciu))|(korekcia|korektura)) ([(posudeneho|posudzovaneho)] kodu|[posudenej|posudzovanej] implementacie)",
       ask "Kto ma pracovat na oprave/korekcii zdrojoveho kodu?" => ein_Entwickler;
-    "((poziadaj [o] (opravu|opravovanie|korekciu|korekturu))|(korekcia|korektura)) (kodu|implementacie) [po (posudku|posudeni|posudzovani|recenzii)]",
-      ask "Kto ma pracovat na oprave/korekcii zdrojoveho kodu?" => ein_Entwickler;
-    "poziadaj %(ein_Entwickler) o (opravu|opravovanie|korekciu|korekturu) ([(posudeneho|posudzovaneho)] kodu|kodu [po (posudku|posudeni|posudzovani|recenzii)])";
+    "%(ein_Entwickler) oprav ([(posudeny|posudzovany)] kod|kod [po (posudku|posudeni|posudzovani|recenzii)])";
+    "poziadaj %(ein_Entwickler) o (opravu|korekciu) ([(posudeneho|posudzovaneho)] kodu)";
     diary_entry "%(ein_Entwickler) bol(a) oboznameny(a) s tym, ze ma pracovat na oprave/korekcii chyb najdenych v implementacii pocas vykonavania kontroly/prehodnocovania.";
   end command;
 
@@ -584,7 +582,7 @@ end map;
 
 
   command lasse_Taetigkeit_beenden(ein_Entwickler : Entwickler) is
-    "(dokonc|zavrs) [svoju] [aktualnu] (aktivitu|ulohu|pracu)",
+    "(dokonci|zavrs) [svoju] [aktualnu] (aktivitu|ulohu|pracu)",
       ask "Kto ma zavrsit(priviest do konca) svoju aktualnu pracu?" => ein_Entwickler;  
     "[poziadaj [o]] (dokoncenie|zavrsenie) [svojej] [aktualnej] (aktivity|ulohy|prace)",
       ask "Kto ma dokoncit svoju aktualnu pracu?" => ein_Entwickler;
@@ -1647,7 +1645,7 @@ end message;
 
 -----------------------------------------------------
 
-  message Null_Seiten_von_Dokument		 (welches: Dokument) is
+  message Null_Seiten_von_Dokument         (welches: Dokument) is
     "Dokument %(welches) je prazdny.";
     diary_entry "Dokument: %(welches) obsahuje 0 stran.";
   end message;
@@ -1668,7 +1666,7 @@ end message;
         oben  : integer) is
     "Zdrojovy kod pokryva %(Module) modulov, co predstavuje dokopy %(Zeilen) riadkov kodu. Odhadom to vychadza na %(unten) az %(oben) percent pozadovanej funkcionality.";
     "Kod vzrastol na %(Zeilen) riadkov s ohladom na %(Module) modulov. Akokolvek, nieco medzi %(unten) a %(oben) percentami celkovej funkcionality je pokrytej doposial.";
-    "%(Module) modulov, co sa tyka zdrojoveho kodu, predstavuju dokopy %(Zeilen) riadkov kodu. Spravili ste zatial, co sa dalo a podarilo sa Vam dosiahnut nieco medzi %(unten) a %(oben) percentami celkovej funkcionality zdrojoveho kodu.";
+    "%(Module) modul(ov), co sa tyka zdrojoveho kodu, predstavuje/predstavuju dokopy %(Zeilen) riadkov kodu. Spravili ste zatial, co sa dalo a podarilo sa Vam dosiahnut nieco medzi %(unten) a %(oben) percentami celkovej funkcionality zdrojoveho kodu.";
     "Aktualny stav napoveda, ze mate %(Module) modulov, ktore pozostavaju z %(Zeilen) riadkov kodu. To je medzi %(unten) a %(oben) percentami celkovej funkcionality.";
     diary_entry "Zdrojovy kod pokryva %(Zeilen) LOC v %(Module) moduloch. Funkcionalita je pokryta na %(unten) az %(oben) percent.";
   end message;
@@ -1696,7 +1694,7 @@ end message;
 -----------------------------------------------------
 
   message Fehler_und_Verluste_in_Pruefbericht_ohne_Restfehler
-			(welcher : Pruefbericht;
+            (welcher : Pruefbericht;
                          Fehler  : integer;
                          Verluste: real) is
     "%(Fehler) chyb a %(Verluste) chybajucich FP bolo najdenych pocas poslednej revizie/posudku/testu. Vsetky chyby, spomenute v %(welcher), boli opravene.";
@@ -1706,7 +1704,7 @@ end message;
 -----------------------------------------------------
 
   message Fehler_und_Verluste_in_Pruefbericht_mit_Restfehler
-			(welcher : Pruefbericht;
+            (welcher : Pruefbericht;
                          Fehler  : integer;
                          Verluste: real) is
     "%(Fehler) chyb a %(Verluste) chybajucich FP bolo najdenych pocas poslednej revizie/posudku/testu. dalsie chyby, spomenute v %(welcher), musia byt opravene.";
@@ -1758,7 +1756,7 @@ Akokolvek, %(wer) ma velmi male znalosti: %(geringe_E).";
 %(wer) ma ake-take skusenosti s: %(mittlere_E). 
 Avsak, %(wer) ma zanedbatelne skusenosti s: %(geringe_E).";
     "Plat pre zamestnanca: %(wer) sa pocita so sarzou %(Kosten) EUR na hodinu. 
-%His(wer) primarne schopnosti siahaju do tychto oblasti: %(hohe_E).
+Primarne schopnosti zamestnanca %(wer) siahaju do tychto oblasti: %(hohe_E).
 %(wer) ma takisto urcite znalosti o: %(mittlere_E). 
 Na druhej strane, %(wer) ma len chabe skusenosti s: %(geringe_E).";
     "Na zaklade svojich schopnosti dostava %(wer) %(Kosten) EUR na hodinu.
@@ -1954,7 +1952,7 @@ Koniec koncov, ake-take, hoci poslabsie vedomosti ma aj o: %(geringe_E).";
   message Entwickler_wurde_entlassen(wer: Entwickler) is
     "Vyvojar(ka) %(wer) bol(a) z projektu prepusteny/prepustena.";
     "Uvolnili ste z pracovneho pomeru %(wer), takze %(wer) moze byt priradeny/priradena k inemu projektu.";
-    "Pomoc od zamestanca %(wer) uz ocividne nepotrebujete, kedze ste %him(wer) uvolnili z projektu.";
+    "Pomoc od zamestanca %(wer) uz ocividne nepotrebujete, kedze ste ho/ju uvolnili z projektu.";
     "%(wer): Tak co uz, ked ma nepotrebujete... ale to budete este lutovat.";
     diary_entry "Vyvojar(ka) %(wer) bol(a) prepusteny/prepustena z projektu.";
   end message;
@@ -2011,7 +2009,7 @@ Koniec koncov, ake-take, hoci poslabsie vedomosti ma aj o: %(geringe_E).";
     "%(wer) este nie je zamestnany/zamestnana.";
     "Koho zamestnat? Doposial ste %(wer)(a/u) nezamestnali.";
     "%(wer) nie je zatial prideleny/pridelena k Vasmu projektu.";
-    "%(wer) bol(a) priradeny/priradena k Vasmu projektu a s radostou Vam s projektom pomoze. Najprv vsak musi byt %him(wer) zamestnana.";
+    "%(wer) bol(a) priradeny/priradena k Vasmu projektu a s radostou Vam s projektom pomoze. Najprv vsak musi byt %(wer) zamestnana.";
     diary_entry "%(wer) nie je zatial prideleny/pridelena k Vasmu projektu.";
   end message;
 
