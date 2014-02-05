@@ -111,7 +111,7 @@ end map;
 	"specifikuj moduly", ask "Kto ma pracovat na specifikacii modulov?" => ein_Entwickler;
     "[poziadaj [o]] (napisanie|pisanie|vypracovanie|pracovanie na|pracu na) (specifikacie|specifikacii|navrhu) (modulu|modulov)", ask "Kto ma pracovat na specifikacii modulov?" => ein_Entwickler;
     "poziadaj [o] (dizajn|specifikaciu|navrh) modulov", ask "Kto ma pracovat na specifikacii modulov?" => ein_Entwickler;
-        "%(ein_Entwickler) pracuj na (specifikacii|navrhu) (modulu|modulov)";
+       "%(ein_Entwickler) pracuj na (specifikacii|navrhu) (modulu|modulov)";
     "poziadaj %(ein_Entwickler) o (napisanie|pisanie|vypracovanie|pracovanie na|pracu na) (specifikacie|specifikacii|navrhu) (modulu|modulov)";
     "poziadaj %(ein_Entwickler) o (dizajn|specifikaciu|navrh) modulov";
     diary_entry "%(ein_Entwickler) bol(a) oboznameny/a, ze ma pracovat na specifikacii modulov.";
@@ -152,10 +152,10 @@ end map;
 --  end command;
 --
 -----------------------------------------------------
---TODO: [[,]aby]
   command lasse_integrieren(ein_Entwickler : Entwickler) is
     "integruj system", ask "Kto ma vykonat integraciu?" => ein_Entwickler;
     "[poziadaj [o]] (integraciu|integrovanie) systemu", ask "Kto ma vykonat integraciu?" => ein_Entwickler;
+    "%(ein_Entwickler) integruj [system]";
     "poziadaj %(ein_Entwickler) o (integrovanie|integraciu) [systemu]";
     diary_entry "Zamestnanec: %(ein_Entwickler) bol oboznameny s tym, ze ma pracovat na integracii systemu.";
   end command;
@@ -166,8 +166,9 @@ end map;
     "(napis|pis|vyprauj) ([systemovu] dokumentaciu|[pozivatelsku] prirucku|[pouzivatelske] prirucky)", ask "Kto ma pisat dokumentaciu?" => ein_Entwickler;  
     "[poziadaj [o]] (napisanie|pisanie|vypracovanie) ([systemovej] dokumentacie|[pozivatelskej] prirucky|[pouzivatelskych] priruciek)", ask "Kto ma pisat dokumentaciu?" => ein_Entwickler;
 	"poziadaj [o] pracu na ([systemovej] dokumentacii|[pozivatelskej] prirucke|[pouzivatelskych] priruckach)", ask "Kto ma pracovat na dokumentacii?" => ein_Entwickler;
+    "%(ein_Entwickler) pis ([systemovu] dokumentaciu|[pozivatelsku] prirucku|[pouzivatelske] prirucky)";
     "poziadaj %(ein_Entwickler) o (napisanie|pisanie|vypracovanie) ([systemovej] dokumentacie|[pozivatelskej] prirucky|[pouzivatelskych] priruciek)";
-	"poziadaj %(ein_Entwickler) o pracu na ([systemovej] dokumentacii|[pozivatelskej] prirucke|[pouzivatelskych] priruckach)";
+      "poziadaj %(ein_Entwickler) o pracu na ([systemovej] dokumentacii|[pozivatelskej] prirucke|[pouzivatelskych] priruckach)";
     diary_entry "Zamestnancovi: %(ein_Entwickler) bolo povedane, aby napisal pouzivatelsku prirucku/systemovu dokumentaciu.";
   end command;
 
@@ -177,8 +178,8 @@ end map;
     "[o]testuj moduly", ask "Kto ma testovat modul(y)?" => ein_Entwickler;
 	"[poziadaj [o]] test modulov", ask "Kto ma testovat modul(y)?" => ein_Entwickler;
     "[poziadaj [o]] (vykonanie|spravenie) (testu|testov) modulov", ask "Kto ma testovat modul(y)?" => ein_Entwickler;
-    "poziadaj %(ein_Entwickler) o (test[y]|[o]testovanie) modulov";
-    "poziadaj %(ein_Entwickler) o vykonanie (testu|testov) modulov";
+    "%(ein_Entwickler) testuj moduly";
+     "poziadaj %(ein_Entwickler) o (test[y]|[o]testovanie) modulov";
     diary_entry "Zamestnancovi: %(ein_Entwickler) bolo povedane, aby pracoval na testoch pre modul(y).";
   end command;
 
@@ -188,9 +189,9 @@ end map;
     "[o]testuj integraciu", ask "Kto ma testovat integraciu systemu?" => ein_Entwickler;
 	"[poziadaj [o]] (integracny test|test integracie)", ask "Kto ma testovat integraciu systemu?" => ein_Entwickler;
     "poziadaj o vykonanie (testu integracie|testov integracie|integracneho testu|integracnych testov)", ask "Kto ma testovat integraciu systemu?" => ein_Entwickler;
-    "poziadaj %(ein_Entwickler) o (integracny test|integracne testy|test[ovanie] integracie)";
-	"poziadaj %(ein_Entwickler) o pracu na (integracnom teste|integracnych testoch|teste integracie|testoch integracie) [systemu]";
-	"poziadaj %(ein_Entwickler) o vykonanie (integracneho testu|integracnych testov|testu integracie|testov integracie) [systemu]";
+    "%(ein_Entwickler) vykonaj (integracny test|integracne testy|test[ovanie] integracie)";
+      "poziadaj %(ein_Entwickler) o (integracny test|integracne testy|test[ovanie] integracie)";
+     "poziadaj %(ein_Entwickler) o vykonanie (integracneho testu|integracnych testov|testu integracie|testov integracie) [systemu]";
     diary_entry "Zamestnanec: %(ein_Entwickler) bol oboznameny s tym, aby otestoval integraciu systemu.";
   end command;
 
@@ -200,7 +201,7 @@ end map;
     "[o]testuj system", ask "Kto ma pracovat na testoch systemu?" => ein_Entwickler;
 	"[poziadaj [o]] test[ovanie] systemu", ask "Kto ma pracovat na testoch systemu?" => ein_Entwickler;
     "[poziadaj [o]] vykonanie testu systemu", ask "Kto ma pracovat na testoch systemu?" => ein_Entwickler;
-    "poziadaj %(ein_Entwickler) [o]testovat system";
+   "%(ein_Entwickler) [o]testuj system";
     "poziadaj %(ein_Entwickler) o (vykonanie testu|[o]testovanie) systemu";
     diary_entry "Zamestnancovi: %(ein_Entwickler) bolo povedane, aby pracoval na systemovych testoch.";
   end command;
@@ -208,6 +209,7 @@ end map;
 -----------------------------------------------------
 
   command lasse_Kunde_Abnahmetest_durchfuehren is
+     "zakaznik vykonaj akceptacny test";
     "poziadaj zakaznika (o vykonanie akceptacneho testu|,aby vykonal akceptacny test)";
     diary_entry "Zakaznikovi bolo povedane, ze produkt je pripraveny na vykonanie akceptacneho testu.";
   end command;
