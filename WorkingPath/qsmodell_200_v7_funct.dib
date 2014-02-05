@@ -594,6 +594,7 @@ end map;
       ask "Kto ma prerusit svoju aktualnu pracu?" => ein_Entwickler;
     "[poziadaj [o]] (prerusenie|zastavenie) [aktualnej] (aktivity|ulohy|prace)",
       ask "Kto ma prerusit svoju aktualnu ulohu?" => ein_Entwickler;	  
+    "%(ein_Entwickler) prerus [svoju] [aktualnu] (aktivitu|ulohu|pracu)";
     "poziadaj %(ein_Entwickler) o (prerusenie|zastavenie) [(jeho|jej)] [aktualnej] (aktivity|ulohy|prace)";
 	"poziadaj %(ein_Entwickler) (prerusit|zastavit) [(jeho|jej)] [aktualnu] (aktivitu|ulohu|pracu)";
     diary_entry "(ein_Entwickler)(ovi) bolo povedane, aby prerusil/ponechal svoju aktualnu pracu.";
@@ -602,10 +603,11 @@ end map;
 -----------------------------------------------------
 
   command lasse_Reviews_beenden(ein_Dokument : Dokument) is
-    "(dokonc|zavrsi) posudok [dokumentu]",
+    "(dokonci|zavrsi) posudok [dokumentu]",
 	  ask "Dokoncit posudok ktoreho dokumentu?" => ein_Dokument;
 	"[poziadaj [o]]  (dokoncenie|zavrsenie) posudku [dokumentu]",
       ask "Dokoncit posudok ktoreho dokumentu?" => ein_Dokument;
+       "dokonci posudok (dokumentu|pre dokument) %(ein_Dokument)";
     "[poziadaj [o]]  (dokoncenie|zavrsenie) posudku [(dokumentu|pre dokument)] %(ein_Dokument)";
     diary_entry "Povedat vyvojarom, aby dotiahli do konca posudok dokumentu: %(ein_Dokument)";
   end command;
@@ -631,17 +633,6 @@ end map;
   end command;
 
 -----------------------------------------------------
--- TODO: how to translate NOTATION???
---  command setze_Notation_ein_fuer(eine_Notation : Notation;
---                                  ein_Dokument  : Dokument) is
---    "use notation",
---     ask "Which notation should be used?" => eine_Notation,
---     ask "For which document should this notation be used?" => ein_Dokument;
---    "use [the] %(eine_Notation) [notation]",
---   ask "For which document should this notation be used?" => ein_Dokument;
---   "use [the] %(eine_Notation) [notation] for [the] [document] %(ein_Dokument)";
---    diary_entry "Told developers to use %(eine_Notation) notation for %(ein_Dokument).";
--- end command;
 
   command setze_Notation_ein_fuer(eine_Notation : Notation;
                                   ein_Dokument  : Dokument) is
@@ -660,15 +651,15 @@ end map;
 
 
   command beende_Projekt is
-    "(ukonci|skonci|zastav|stopni|opusti|zrus) projekt";
-    diary_entry "Priviest projekt do konca/ Ukoncit projekt.";
+    "(dokonci|skonci|zastav|stopni|opusti|zrus) projekt";
+    diary_entry "Projekt ukonceny.";
   end command;
 
 -----------------------------------------------------
 
   command uebergib_System_an_Kunden is
     "(doruc|nainstaluj|nasad) system";
-    diary_entry "Dorucit projekt zakaznikovi.";
+    diary_entry "Projekt doruceny zakaznikovi.";
   end command;
 
 -----------------------------------------------------
@@ -895,7 +886,7 @@ end map;
 -----------------------------------------------------
 
   message begonnen_alles_zu_korrigieren(wer: Entwickler) is
-    "%(wer) hlasi, ze opravi chyby najdene vo vsetkych dokumentoch. Potrva to urcity cas. %he(wer) nevyzera velmi nadsene.";
+    "%(wer) hlasi, ze opravi chyby najdene vo vsetkych dokumentoch. Potrva to urcity cas. %(wer) nevyzera velmi nadsene.";
     "%(wer): Je potrebne udrzat vsetky dokumenty v konzistencii. Je to moj job, takze to urobim.";
     "%(wer) si mysli, ze je pre neho/nu nefer opravovat chyby za niekym inym.";
     "%(wer): Pouvazujem nad tym... Akokolvek, musime udrzat vsetky tie dokumenty v konzistencii, takze mi ich doneste, spravim to.";
