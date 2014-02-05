@@ -349,11 +349,12 @@ end map;
 --====== Korrektur-Kommandos ==================================
 
   command lasse_Spezifikation_nach_Review_korrigieren(ein_Entwickler : Entwickler) is
-    "oprav[uj] specifikaciu", ask "Kto ma opravit specifikaciu?" => ein_Entwickler;
-	"(oprava|opravovanie|korekcia|korektura) specifikacie", ask "Kto ma opravit specifikaciu?" => ein_Entwickler;  
-    "poziadaj [o] (opravu|opravovanie|korekciu|korekturu) (posudenej|posudzovanej) specifikacie [po (posudku|posudeni|posudzovani|recenzii)]",
+    "oprav specifikaciu", ask "Kto ma opravit specifikaciu?" => ein_Entwickler;
+    "(oprava|korekcia|korektura) specifikacie", ask "Kto ma opravit specifikaciu?" => ein_Entwickler;  
+    "poziadaj [o] (opravu|korekciu|korekturu) (posudenej|posudzovanej) specifikacie [po (posudku|posudeni|posudzovani|recenzii)]",
       ask "Kto ma pracovat na oprave/korekcii specifikacie?" => ein_Entwickler;
-    "poziadaj %(ein_Entwickler) o (opravu|opravovanie|korekciu|korekturu) ([(posudenej|posudzovanej)] specifikacie|specifikacie [po (posudku|posudeni|posudzovani|recenzii)])";
+    "%(ein_Entwickler) oprav (posudenu|posudzovanu) specifikaciu";
+    "poziadaj %(ein_Entwickler) o (opravu|korekciu) ([(posudenej|posudzovanej)] specifikacie|specifikacie [po (posudku|posudeni|posudzovani|recenzii)])";
     diary_entry "Zamestnanec: %(ein_Entwickler) bol oboznameny s tym, ze ma pracovat na oprave/korekcii prehodnotenej specifikacie.";
   end command;
 
