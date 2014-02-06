@@ -1228,7 +1228,7 @@ Kedze system musi odzrkadlovat planovane reformy vo firme Vasho zakaznika, musit
 Kvoli stiesnenemu casovemu planu zakaznik suhlasil a udelil Vam rozpocet okolo %(Budget) EUR.
 
 Niekolko vyvojarov je momentalne dostupnych, resp. nie su prideleny k ziadnemu inemu projektu. Niektorych z nich si mozete vybrat a zapojit ich do svojho projektu. 
-Pre rozne dokumenty nemusite volit notacie. Zakaznik sa uz rozhodol, ze kod musi byt napisany v jazyku Ada95 a prirucky musia byt napisane v slovencine(?TODO). To tiez plati pre vsetky interne dokumenty. 
+Pre rozne dokumenty nemusite volit notacie. Zakaznik sa uz rozhodol, ze kod musi byt napisany v jazyku Ada95 a prirucky musia byt napisane v nemcine. To tiez plati pre vsetky interne dokumenty. 
 
 co dodat: Vela stastia!
  ";
@@ -1241,7 +1241,7 @@ Kvoli stiesnenemu casovemu planu zakaznik suhlasil a udelil nam rozpocet vo vysk
 V stanoveny datum bude zakaznik ocakavat produkt, ktory pokryva poziadavky zamerane na uplnost a spravnost systemu \(vid nizsie\).
 
 Niekolko vyvojarov je momentalne dostupnych, resp. nie su prideleny k ziadnemu inemu projektu.
-Pre rozne dokumenty sa nemusia volit notacie. Zakaznik sa uz rozhodol, ze kod musi byt napisany v jazyku Ada95 a prirucky musia byt napisane v slovencine(?TODO). To tiez plati pre vsetky interne dokumenty.";
+Pre rozne dokumenty sa nemusia volit notacie. Zakaznik sa uz rozhodol, ze kod musi byt napisany v jazyku Ada95 a prirucky musia byt napisane v nemcine. To tiez plati pre vsetky interne dokumenty.";
   end message;
 
 -----------------------------------------------------
@@ -1367,14 +1367,12 @@ message Korrektur_nach_Abnahmetest_beendet is
 end message;
 
 -----------------------------------------------------
--- TODO: upper management
 message Projektabbruch_bei_Kostenueberlauf is
   "Vyssi management prave zrusil projekt. Uz v tomto case naklady presahuju dvojnasobnu ciastku stanovenu na zaciatku projektu. Pre projektoveho manazera, akym ste Vy, je to velmi zla skusenost.";
   diary_entry "Vyssi management zrusil projekt. Naklady presahuju dvojnasobnu ciastku nez bola stanovenu na zaciatku projektu.";
 end message;
 
 -----------------------------------------------------
---TODO: upper management?
 message Projektabbruch_bei_Terminueberlauf is
   "Vyvoj systemu tohoto casu trva dvakrat dlhsie nez bolo naplanovane. Vyssi management prave zrusil projekt. Nikto uz neveri, ze dorucite produkt v prijatelnom casovom ramci. Pre Vas, ako pre manazera, je tato skusenost velmi zla.";
   diary_entry "Vyssi management zrusil projekt. Vyvoj systemu uz teraz trva dvakrat dlhsie nez bolo naplanovane.";
