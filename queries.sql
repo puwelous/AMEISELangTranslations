@@ -64,7 +64,7 @@ VALUES (700,"Durée - positif","Durée - positif","Excellent! Vous n'avez pas dépa
 
 INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
 VALUES (7000,"Trvanie - pozitívne","Trvanie - pozitívne","Excelentne! Limit 270 dní ste neprekroèili.",
-"fr",1);
+"sk",1);
 /* xxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid)
 VALUES (1,"*",null,1,1,1);
@@ -274,11 +274,11 @@ VALUES (10,"ZV AFP Code - negativ","ZV AFP Code negativ","Achtung! Sie haben * %
 
 INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
 VALUES (704,"PFAs réalisés - négatif","PFAs réalisés - négatif","Attention! Vous n'avez implémenté que *% de PFAs alors qu'au moins 95% de PFAs doivent être implémentés!",
-"sk",5);
+"fr",5);
 
 INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
 VALUES (7004,"AFPs v kóde - negatívne","AFPs v kóde - negatívne","Pozor! Zimplementovali ste len * % AFPs v zdrojovom kóde. Poadovanı limit je 95 %!",
-"fr",5);
+"sk",5);
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid)
 VALUES (5,"*",null,5,3,5);
@@ -1074,7 +1074,7 @@ Tento diagram znázoròuje chyby zostávajúce v dokumentoch. (Hodnoty: *)
 
 Vzsvetlenie/Odporúèania:
 Ak špecifikácia obsahuje viac ako 30 chıb, potom ste tento dokument neprezreli poriadne. V neskorších fázach je oprava dokumentov drahšia nielen finanène ale aj èasovo paralelne s narastajúcim poètom chıb poèas projektu. U v skorších fázach projektu by ste mali vytvára dokumenty, ktoré sú správne(korektné) a úplné.",
-"sk","Errors","Documents",14);
+"sk","Chyby","Dokumenty",14);
 /* xxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (18,"specification",null,14,12,null);
@@ -1317,7 +1317,7 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (260,"Nombre total des erreurs","Total","fr",23);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
-VALUES (50060,"chyby dokopy","Total","sk",23);
+VALUES (50060,"Chyby dokopy","Total","sk",23);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (17,'all errors',
@@ -1511,7 +1511,7 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (264,"Erreurs dans la conception du système","ECS","fr",27);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
-VALUES (50064,"chyby návrhu systému","ChNS","sk",27);
+VALUES (50064,"Chyby návrhu systému","ChNS","sk",27);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (21,'system design errors',
