@@ -6099,7 +6099,7 @@ WHERE zarmstype.zid = s_relation.zid AND (zarmstype.z_type="TESTET_INTEGRATION"
 AND (document = "code")) AND s_relation.gid=%game and success = 1)) as value;',null);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (3234,"test num",
-'select count(*) as value from (select distinct date from turn where gid = %game and (command like "%akceptacneho testu%" OR command like command like "%akceptacny test%" ) and LOCATE(path, \"%path\")=1) a;',null);
+'select count(*) as value from (select distinct date from turn where gid = %game and command like "%akceptacny test%" and LOCATE(path, "%path")=1) a;',null);
 
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3511,"Duration (d)",3507,3126,3141,NULL);
@@ -6270,55 +6270,55 @@ command like "informuj% o pouzitych zdrojoch" and game.gid=%game and LOCATE(s_en
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (3132,'Specification report inspections',
 'select count(*) as value from turn s_entity, game where game.gid = s_entity.gid and
-command like "poziadaj%prezretie reportu posudku%Specificationreviewreport" and game.gid=%game and LOCATE(s_entity.path, \"%path\")=1;',
+command like "ukaz%report posudku%Specificationreviewreport" and game.gid=%game and LOCATE(s_entity.path, \"%path\")=1;',
 '***');
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (3133,'Design report inspections',
 'select count(*) as value from turn s_entity, game where game.gid = s_entity.gid and
-command like "poziadaj%prezretie reportu posudku%Systemdesignreviewreport" and game.gid=%game and LOCATE(s_entity.path, \"%path\")=1;',
+command like "ukaz%report posudku%Systemdesignreviewreport" and game.gid=%game and LOCATE(s_entity.path, \"%path\")=1;',
 '***');
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (3134,'Module design report inspections',
 'select count(*) as value from turn s_entity, game where game.gid = s_entity.gid and
-command like "poziadaj%prezretie reportu posudku%Moduledesignreviewreport" and game.gid=%game and LOCATE(s_entity.path, \"%path\")=1;',
+command like "ukaz%report posudku%Moduledesignreviewreport" and game.gid=%game and LOCATE(s_entity.path, \"%path\")=1;',
 '***');
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (3135,'Code report inspections',
 'select count(*) as value from turn s_entity, game where game.gid = s_entity.gid and
-command like "poziadaj%prezretie reportu posudku%Codereviewreport" and game.gid=%game and LOCATE(s_entity.path, \"%path\")=1;',
+command like "ukaz%report posudku%Codereviewreport" and game.gid=%game and LOCATE(s_entity.path, \"%path\")=1;',
 '***');
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (3136,'Manual report inspections',
 'select count(*) as value from turn s_entity, game where game.gid = s_entity.gid and
-command like "poziadaj%prezretie reportu posudku%Manualsreviewreport" and game.gid=%game and LOCATE(s_entity.path, \"%path\")=1;',
+command like "ukaz%report posudku%Manualsreviewreport" and game.gid=%game and LOCATE(s_entity.path, \"%path\")=1;',
 '***');
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (3137,'Mtest report inspections',
 'select count(*) as value from turn s_entity, game where game.gid = s_entity.gid and
-command like "poziadaj%prezretie reportu posudku%Moduletestreport" and game.gid=%game and LOCATE(s_entity.path, \"%path\")=1;',
+command like "ukaz%report posudku%Moduletestreport" and game.gid=%game and LOCATE(s_entity.path, \"%path\")=1;',
 '***');
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (3138,'Stest report inspections',
 'select count(*) as value from turn s_entity, game where game.gid = s_entity.gid and
-command like "poziadaj%prezretie reportu posudku%Systemtestreport" and game.gid=%game and LOCATE(s_entity.path, \"%path\")=1;',
+command like "ukaz%report posudku%Systemtestreport" and game.gid=%game and LOCATE(s_entity.path, \"%path\")=1;',
 '***');
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (3139,'Itest report inspections',
 'select count(*) as value from turn s_entity, game where game.gid = s_entity.gid and
-command like "poziadaj%prezretie reportu posudku%Integrationtestreport" and game.gid=%game and LOCATE(s_entity.path, \"%path\")=1;',
+command like "ukaz%report posudku%Integrationtestreport" and game.gid=%game and LOCATE(s_entity.path, \"%path\")=1;',
 '***');
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (3140,'Atest report inspections',
 'select count(*) as value from turn s_entity, game where game.gid = s_entity.gid and
-command like "poziadaj%prezretie reportu posudku%Acceptancetestreport" and game.gid=%game and LOCATE(s_entity.path, \"%path\")=1;',
+command like "ukaz%report posudku%Acceptancetestreport" and game.gid=%game and LOCATE(s_entity.path, \"%path\")=1;',
 '***');
 
 
@@ -6744,16 +6744,16 @@ where
       s_entity.gid = game.gid AND game.gid = %game AND LOCATE(s_entity.path, \"%path\")=1 order by tnid desc limit 1;',null);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (3161,"Revisors",
-'select SUBSTRING_INDEX(SUBSTRING_INDEX(command," ",2)," ",-1) as value from turn where gid = %game and command like "poziadaj% o opravu%podla%Moduletestreport%" and LOCATE(path, \"%path\")=1;',null);
+'select SUBSTRING_INDEX(command," ",1) as value from turn where gid = %game and command like "%oprav%podla%Moduletestreport%" and LOCATE(path, \"%path\")=1;',null);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (3162,"Revisors",
-'select SUBSTRING_INDEX(SUBSTRING_INDEX(command," ",2)," ",-1) as value from turn where gid = %game and command like "poziadaj% o opravu%podla%Systemtestreport%" and LOCATE(path, \"%path\")=1;',null);
+'select SUBSTRING_INDEX(command," ",1) as value from turn where gid = %game and command like "%oprav%podla%Systemtestreport%" and LOCATE(path, \"%path\")=1;',null);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (3163,"Revisors",
-'select SUBSTRING_INDEX(SUBSTRING_INDEX(command," ",2)," ",-1) as value from turn where gid = %game and command like "poziadaj% o opravu%podla%Integrationtestreport%" and LOCATE(path, \"%path\")=1;',null);
+'select SUBSTRING_INDEX(command," ",1) as value from turn where gid = %game and command like "%oprav%podla%Integrationtestreport%" and LOCATE(path, \"%path\")=1;',null);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (3164,"Revisors",
-'select SUBSTRING_INDEX(SUBSTRING_INDEX(command," ",2)," ",-1) as value from turn where gid = %game and command like "poziadaj% o opravu%podla%Acceptancetestreport%" and LOCATE(path, \"%path\")=1;',null);
+'select SUBSTRING_INDEX(command," ",1) as value from turn where gid = %game and command like "%oprav%podla%Acceptancetestreport%" and LOCATE(path, \"%path\")=1;',null);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (3209,"Testers",
 'select count(*) as value from (SELECT DISTINCT s_relation.person as value
@@ -6781,19 +6781,19 @@ INSERT INTO query(qid,attribute,statement,z_path) VALUES (3212,"Testers",
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (3213,"Revisors",
 'select count(*) as value from
-(select distinct SUBSTRING_INDEX(SUBSTRING_INDEX(command," ",2)," ",-1) as value from turn where gid = %game and command like "poziadaj% o opravu%podla%Moduletestreport%" and LOCATE(path, \"%path\")=1) a;',null);
+(select distinct SUBSTRING_INDEX(command," ",1) as value from turn where gid = %game and command like "%oprav%podla%Moduletestreport%" and LOCATE(path, \"%path\")=1) a;',null);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (3214,"Revisors",
 'select count(*) as value from
-(select distinct SUBSTRING_INDEX(SUBSTRING_INDEX(command," ",2)," ",-1) as value from turn where gid = %game and command like "poziadaj% o opravu%podla%Systemtestreport%" and LOCATE(path, \"%path\")=1) a;',null);
+(select distinct SUBSTRING_INDEX(command," ",1) as value from turn where gid = %game and command like "%oprav%podla%Systemtestreport%" and LOCATE(path, \"%path\")=1) a;',null);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (3215,"Revisors",
 'select count(*) as value from
-(select distinct SUBSTRING_INDEX(SUBSTRING_INDEX(command," ",2)," ",-1) as value from turn where gid = %game and command like "poziadaj% o opravu%podla%Integrationtestreport%" and LOCATE(path, \"%path\")=1) a;',null);
+(select distinct SUBSTRING_INDEX(command," ",1) as value from turn where gid = %game and command like "%oprav%podla%Integrationtestreport%" and LOCATE(path, \"%path\")=1) a;',null);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (3216,"Revisors",
 'select count(*) as value from
-(select distinct SUBSTRING_INDEX(SUBSTRING_INDEX(command," ",2)," ",-1) as value from turn where gid = %game and command like "poziadaj% o opravu%podla%Acceptancetestreport%" and LOCATE(path, \"%path\")=1) a;',null);
+(select distinct SUBSTRING_INDEX(command," ",1) as value from turn where gid = %game and command like "%oprav%podla%Acceptancetestreport%" and LOCATE(path, \"%path\")=1) a;',null);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (3217,"Module test",
 'select count(*) as value from
@@ -6803,7 +6803,7 @@ WHERE
 game.gid = s_relation.gid and zarmstype.zid = s_relation.zid  and z_type = "TESTET_MODULE" and document = "Code" and eorr = "R"
 and success = 1 AND game.gid=%game AND LOCATE(s_relation.path, \"%path\")=1
 union
-select distinct SUBSTRING_INDEX(SUBSTRING_INDEX(command," ",2)," ",-1) as value from turn where gid = %game and (command like "%poziadaj%prav%kodu%Moduletestreport%" or command like "%poziadaj%korek%kodu%Moduletestreport%") and LOCATE(path, \"%path\")=1)  as value;',"****");
+select distinct SUBSTRING_INDEX(command," ",1) as value from turn where gid = %game and command like "%oprav%podla%Moduletestreport%" and LOCATE(path, \"%path\")=1)  as value;',"****");
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (3218,"System test",
 'select count(*) as value from
@@ -6813,7 +6813,7 @@ WHERE
 game.gid = s_relation.gid and zarmstype.zid = s_relation.zid  and z_type = "TESTET_SYSTEM" and document = "Code" and eorr = "R"
 and success = 1 AND game.gid=%game AND LOCATE(s_relation.path, \"%path\")=1
 union
-select distinct SUBSTRING_INDEX(SUBSTRING_INDEX(command," ",2)," ",-1) as value from turn where gid = %game and (command like "%poziadaj%prav%kodu%Systemtestreport%" or command like "%poziadaj%korek%kodu%Systemtestreport%") and LOCATE(path, \"%path\")=1) as value;',"****");
+select distinct SUBSTRING_INDEX(command," ",1) as value from turn where gid = %game and command like "%oprav%podla%Systemtestreport%" and LOCATE(path, \"%path\")=1) as value;',"****");
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (3219,"Integration test",
 'select count(*) as value from
@@ -6823,11 +6823,11 @@ WHERE
 game.gid = s_relation.gid and zarmstype.zid = s_relation.zid  and z_type = "TESTET_INTEGRATION" and document = "Code" and eorr = "R"
 and success = 1 AND game.gid=%game AND LOCATE(s_relation.path, \"%path\")=1
 union
-select distinct SUBSTRING_INDEX(SUBSTRING_INDEX(command," ",2)," ",-1) as value from turn where gid = %game and (command like "%poziadaj%prav%kodu%Integrationtestreport%" or command like "%poziadaj%korek%kodu%Integrationtestreport%") and LOCATE(path, "%path")=1) as value;',"****");
+select distinct SUBSTRING_INDEX(command," ",1) as value from turn where gid = %game and command like "%oprav%podla%Integrationtestreport%" and LOCATE(path, "%path")=1) as value;',"****");
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (3220,"Acceptance test",
 'select count(*) as value from
-(select distinct SUBSTRING_INDEX(SUBSTRING_INDEX(command," ",2)," ",-1) as value from turn where gid = %game and (command like "%poziadaj%prav%kodu%Acceptancetestreport%" OR command like "%poziadaj%korek%kodu%Acceptancetestreport%") and LOCATE(path, "%path")=1) as value;',"****");
+(select distinct SUBSTRING_INDEX(command," ",1) as value from turn where gid = %game and command like "%oprav%podla%Acceptancetestreport%" and LOCATE(path, "%path")=1) as value;',"****");
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (3094,"Team",
 'select DISTINCT s_relation.person as value
@@ -8829,39 +8829,39 @@ INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (3235,'MNCA',
-'select date,"inspect" as command from turn where gid = %game and (command like "%poziadaj%prav%vsetkych dokumentov%" or command like "%poziadaj%korek%vsetkych dokumentov%") and command like "%Manualsreviewreport%" AND LOCATE(path, \"%path\")=1;',null);
+'select date,"inspect" as command from turn where gid = %game and command like "%oprav%vsetky%dokument%" and command like "%Manualsreviewreport%" AND LOCATE(path, \"%path\")=1;',null);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (3236,'CDCA',
-'select date,"inspect" as command from turn where gid = %game and (command like "%poziadaj%prav%vsetkych dokumentov%" or command like "%poziadaj%korek%vsetkych dokumentov%") and command like "%Codereviewreport%" AND LOCATE(path, \"%path\")=1;',null);
+'select date,"inspect" as command from turn where gid = %game and command like "%oprav%vsetky%dokument%" and command like "%Codereviewreport%" AND LOCATE(path, \"%path\")=1;',null);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (3237,'MDCA',
-'select date,"inspect" as command from turn where gid = %game and (command like "%poziadaj%prav%vsetkych dokumentov%" or command like "%poziadaj%korek%vsetkych dokumentov%") and command like "%Moduledesignreviewreport%" AND LOCATE(path, \"%path\")=1;',null);
+'select date,"inspect" as command from turn where gid = %game and command like "%oprav%vsetky%dokument%" and command like "%Moduledesignreviewreport%" AND LOCATE(path, \"%path\")=1;',null);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (3238,'SDCA',
-'select date,"inspect" as command from turn where gid = %game and (command like "%poziadaj%prav%vsetkych dokumentov%" or command like "%poziadaj%korek%vsetkych dokumentov%") and command like "%Systemdesignreviewreport%" AND LOCATE(path, \"%path\")=1;',null);
+'select date,"inspect" as command from turn where gid = %game and command like "%oprav%vsetky%dokument%" and command like "%Systemdesignreviewreport%" AND LOCATE(path, \"%path\")=1;',null);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (3239,'SPCA',
-'select date,"inspect" as command from turn where gid = %game and (command like "%poziadaj%prav%vsetkych dokumentov%" or command like "%poziadaj%korek%vsetkych dokumentov%") and command like "%Specificationreviewreport%" AND LOCATE(path, \"%path\")=1;',null);
+'select date,"inspect" as command from turn where gid = %game and command like "%oprav%vsetky%dokument%" and command like "%Specificationreviewreport%" AND LOCATE(path, \"%path\")=1;',null);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (3240,'MTCA',
-'select date,"inspect" as command from turn where gid = %game and (command like "%poziadaj%prav%vsetkych dokumentov%" or command like "%poziadaj%korek%vsetkych dokumentov%") and command like "%Moduletestreport%" AND LOCATE(path, \"%path\")=1;',null);
+'select date,"inspect" as command from turn where gid = %game and command like "%oprav%vsetky%dokument%" and command like "%Moduletestreport%" AND LOCATE(path, \"%path\")=1;',null);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (3241,'ITCA',
-'select date,"inspect" as command from turn where gid = %game and (command like "%poziadaj%prav%vsetkych dokumentov%" or command like "%poziadaj%korek%vsetkych dokumentov%") and command like "%Integrationtestreport%" AND LOCATE(path, \"%path\")=1;',null);
+'select date,"inspect" as command from turn where gid = %game and command like "%oprav%vsetky%dokument%" and command like "%Integrationtestreport%" AND LOCATE(path, \"%path\")=1;',null);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (3242,'STCA',
-'select date,"inspect" as command from turn where gid = %game and (command like "%poziadaj%prav%vsetkych dokumentov%" or command like "%poziadaj%korek%vsetkych dokumentov%") and command like "%Systemtestreport%" AND LOCATE(path, \"%path\")=1;',null);
+'select date,"inspect" as command from turn where gid = %game and command like "%oprav%vsetky%dokument%" and command like "%Systemtestreport%" AND LOCATE(path, \"%path\")=1;',null);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (3243,'ATCA',
-'select date,"inspect" as command from turn where gid = %game and (command like "%poziadaj%prav%vsetkych dokumentov%" or command like "%poziadaj%korek%vsetkych dokumentov%") and command like "%Acceptancetestreport%" AND LOCATE(path, \"%path\")=1;',null);
+'select date,"inspect" as command from turn where gid = %game and command like "%oprav%vsetky%dokument%" and command like "%Acceptancetestreport%" AND LOCATE(path, "%path")=1;',null);
 
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3692,"Atest all corrections",3691,3134,3243,NULL);
