@@ -454,7 +454,7 @@ end map;
       ask "Ktory report ma byt pouzity" => ein_Bericht;
     "((poziadaj [o] (korekciu))|(korekcia)) vsetkych dokumentov (podla|na zaklade|pomocou) [reportu] %(ein_Bericht)",
       ask "Kto ma opravit dokumenty" => ein_Entwickler;
-    "%(ein_Entwickler) oprav vsetky dokumenty pomocou %(ein_Bericht)";
+    "%(ein_Entwickler) oprav vsetky dokumenty podla %(ein_Bericht)";
      "poziadaj %(ein_Entwickler) o (opravu|opravovanie|korekciu) vsetkych dokumentov (podla|na zaklade|pomocou) [reportu] %(ein_Bericht)";
      diary_entry "%(ein_Entwickler) bol(a) oboznameny(a) s tym, ze ma pracovat na oprave/korekcii vsetkych nezrovnalosti vo vsetkych dokumentoch na zaklade testovacieho reportu %(ein_Bericht).";
   end command;
@@ -1599,7 +1599,7 @@ message Performanz_ausgeben(Proz_Kosten_ZV : real;
        Mittelwert_Vollst_ZV : real;
        Mittelwert_Vollst : real;
        Mittelwert_Korrekt_ZV : real) is
-    "Ak prisudime cielom stanovenym zakaznikom hodnotu 100 percent a vezmeme do uvahy kladne odchylky(i.e. ak ste podulohu zvladli lepsie nez bolo ocakavane) s hodnotami vacsimi nez 100 a zaporne odchylky s hodnotami mensimi nez 100, v porovnani s poziadavkami zakaznika ste si viedli nasledovne: splnenie rozpoctu: %(Proz_Kosten_ZV) percent, splnenie casoveho limitu: %(Proz_Dauer_ZV) percent, naplnenie funkcionality (v porovnani s cielmi zakaznika): %(Mittelwert_Vollst_ZV) percent, naplnenie funkcionality (v porovnani s celou funkcionalitou): %(Mittelwert_Vollst) percent, splnenie kvality (spravnostat): %(Mittelwert_Korrekt_ZV) percent.";
+    "Ak prisudime cielom stanovenym zakaznikom hodnotu 100 percent a vezmeme do uvahy kladne odchylky(i.e. ak ste podulohu zvladli lepsie nez bolo ocakavane) s hodnotami vacsimi nez 100 a zaporne odchylky s hodnotami mensimi nez 100, v porovnani s poziadavkami zakaznika ste si viedli nasledovne: splnenie rozpoctu: %(Proz_Kosten_ZV) percent, splnenie casoveho limitu: %(Proz_Dauer_ZV) percent, naplnenie funkcionality (v porovnani s cielmi zakaznika): %(Mittelwert_Vollst_ZV) percent, naplnenie funkcionality (v porovnani s celou funkcionalitou): %(Mittelwert_Vollst) percent, splnenie kvality (spravnost): %(Mittelwert_Korrekt_ZV) percent.";
 end message; 
 
 ---------------------------------------------------------

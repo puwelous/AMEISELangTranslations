@@ -5625,7 +5625,7 @@ INSERT INTO query(qid,attribute,statement,z_path) VALUES (3123,"Spec. rev.",
 'select ifnull((select distinct "true" as value from turn where gid = %game and (command like "%posud%" or command like "%prehodnoten%") and command like "%specifikacie%" and LOCATE(path,"%path")=1),"false") as value;',null);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (3124,"Spec. rev.",
-'select count(*) as value from turn where (command like "%posud%" or command like "%prehodnoten%") and command like "%specifikacie%" and gid = %game and LOCATE(path,"%path")=1;',null);
+'select count(*) as value from turn where (command like "%posudz%specifikacie%" or command like "%prehodnoten%specifikacie%" or command like "%posud%dokumentu%Specification%") and gid = %game and LOCATE(path,"%path")=1;',null);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (3125,"Doc. rev.",
 'select ifnull((select distinct "true" as value from turn where gid = %game and (command like "%posud%" or command like "%prehodnoten%") and command like "%dokumentacie%" and LOCATE(path,"%path")=1),"false") as value;',null);
