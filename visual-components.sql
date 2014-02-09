@@ -9353,7 +9353,7 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 
 
 insert into query (qid, attribute, statement)
-values(3244,"","select feedback as explanation, -1 as points from turn where gid = %gid% and feedback like '%The customer has tested%'");
+values(3244,"","select feedback as explanation, -1 as points from turn where gid = %gid% and feedback like '%Zakaznik%otestoval system%'");
 
 
 /**********************************/
