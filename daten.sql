@@ -19,25 +19,27 @@ set FOREIGN_KEY_CHECKS=1;
 create database AMEISE;
 use AMEISE;
 
-source tables-4.0.sql;			/* checked */
-source modelladenEURO-V7.sql;	/* loading models! This is point of interest of mine! */
-source modelladenMini-V7.sql;	/* loading models! Purpose is the same as previous, but another model is used */
-set FOREIGN_KEY_CHECKS=0;       /* --------------------------------------------------- */
-source insertV2.sql;			/* inserting users and assigning them their roles */
-source zarmsdatenEURO.sql; 		/* German expressions. ZARMS entities, their types, atributes and relations to real simulation entities. Not necessary to translate. */
-source zarmsdatenMini.sql;		/* same issue */
-source queries.sql;				/* translate! */
-source visual-components.sql;	/* tanslate!  */
-source spaid_needs_zt.sql;		/* not necessary, no translations */
-source vfreund.sql;				/* CALLS FOR ANOTHER 'vf_' PREFIXED SQL SOURCE FILES */
-source zarms_logic.sql;			/* ZARMS data and their (calculation) logic */
-source milestone.sql;			/* calculation relations, so far DE and EN present, no FR ... Edit a dictionary as well? */
-source hmk_components.sql;		/* enabled or disabled components, no need to modify */
-/* focus*/						/* --------------------------------------------------- */
-source tabellen_csAssessment.sql; /* ??? */
-source analysecandidates.sql;	/* So far DE and EN present, no FR ... but needed to be translated */
-source evalRules.sql;			/* no need to translate */
-source relRules.sql;			/* no need to translate */
-source fokus.sql;				/* So far DE and EN present, no FR ... but needed to be translated */
+source tables-4.0.sql;
+source modelladenEURO-V7.sql;
+/*source modelladenEURO-sk.sql;*/
+source modelladenMini-V7.sql;
+set FOREIGN_KEY_CHECKS=0;
+source insertV2.sql;
+source zarmsdatenEURO.sql; 
+source zarmsdatenMini.sql;
+source queries.sql;
+source visual-components.sql;
+/*source visual-components-sk.sql;*/
+source spaid_needs_zt.sql;
+source vfreund.sql;
+source zarms_logic.sql;
+source milestone.sql;
+source hmk_components.sql;
+/* focus*/
+source tabellen_csAssessment.sql;
+source analysecandidates.sql;
+source evalRules.sql;
+source relRules.sql;
+source fokus.sql;
 set FOREIGN_KEY_CHECKS=1;
 
