@@ -1797,6 +1797,9 @@ VALUES (40,"Gesamtfehler","GES","de",32);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (369,"Nombre total des erreurs","Total","fr",32);
 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50069,"Chyby dokopy","Chyby total","sk",32);
+
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (26,'all errors',
 'select distinct s_entity.value
@@ -1826,6 +1829,9 @@ VALUES (42,"Analysefehler","AF","de",33);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (270,"Erreurs d´analyse","EA","fr",33);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50070,"Chyby analızy","ChA","sk",33);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (27,'analysis errors',
@@ -1857,6 +1863,9 @@ VALUES (44,"Grobentwurfsfehler","GF","de",34);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (271,"Erreurs de la conception du système","ECS","fr",34);
 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50071,"Chyby návrhu systému","ChNS","sk",34);
+
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (28,'system design errors',
 'select distinct s_entity.value
@@ -1887,6 +1896,9 @@ VALUES (46,"Feinentwurfsfehler","FF","de",35);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (272,"Erreurs de la conception des modules","ECM","fr",35);
 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50072,"Chyby návrhu modulov","ChNM","sk",35);
+
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (29,'module design errors',
 'select distinct s_entity.value
@@ -1916,6 +1928,9 @@ VALUES (48,"Implementationsfehler","IF","de",36);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (273,"Erreurs d'implémentation","EI","fr",36);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50073,"Chyby implementácie","ChI","sk",36);
 
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
@@ -1953,6 +1968,9 @@ VALUES (26,"Restfehler im Handbuch","de",13);
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (512,"Erreurs dans la documentation","fr",13);
 
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5012,"Chyby v dokumentácii","sk",13);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid(spaidid,description,diagram,layout,aiddid) 
 VALUES (19,'Errors in the documentation',1,'V',13);
@@ -1986,6 +2004,15 @@ Peut être, vous avez oublié d'inviter le client pour participer dans la révision
 Si le développement du système est dans ses premières phases, le client peut trouver les fonctionnalités manquantes qui peuvent être intégrées facilement dans le système.
 S´il y a toujours des erreurs après plusieurs révisions de la documentation, alors il faut revoir la composante du groupe de révision. Probablement, vous avez choisi des personnes moins compétentes.",
 "fr","Erreurs","Type d´erreur",19);
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,yaxis,xaxis,spaidid)
+VALUES (7020,'Chyby v dokumentácii','Chyby v dokumentácii',"Popis: 
+Diagram zobrazuje zvyšné chyby v dokumentácii. Chyby sú zoskupené na základe typu. (Hodnoty: *)
+
+Vysvetlenie/Odporúèania:
+Ak dokumentácie obsahuje ve¾a chıb, potom ste neurobili posudok dokumentu poriadne. Mono ste zabudli zahrnú zákazníka do posudzovania dokumentácie. Zákazník by mal stále by súèasou tímu, ktorı posudzuje dokument, pretoe vie odhali mnoho chıb, ktoré by inımi internımi zamestnancami vykonávajúcimi posudok. Zákazník taktie dokáe nájs chıbajúcu funkcionalitu, ktorá môe by jednoducho integrovaná do systému, ak je jeho vıvoj ešte len v poèiatoènıch fázach. Ak dokumentácia bola posúdená viac ne raz a napriek tomu obsahuje chyby, mali by ste da šancu inému zloeniu posudzujúceho tímu. Mono ste nezvolili správnych vıvojárov.",
+"sk","Chyby","Typ chyby",19);
+
 /* xxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (37,"errors",null,19,31,null);
@@ -1998,6 +2025,9 @@ VALUES (50,"Gesamtfehler","GES","de",37);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (274,"Nombre total des erreurs","Total","fr",37);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50074,"Chyby dokopy","Total","sk",37);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (31,'all errors',
@@ -2029,6 +2059,9 @@ VALUES (52,"Analysefehler","AF","de",38);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (275,"Erreurs d´analyse","EA","fr",38);
 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50075,"Chyby analızy","ChA","sk",38);
+
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (32,'analysis errors',
 'select distinct s_entity.value
@@ -2058,6 +2091,9 @@ VALUES (54,"Handbuchfehler","HF","de",39);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (276,"Erreurs dans le manuel","EM","fr",39);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50076,"Chyby manuálu","ChM","sk",39);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (33,'documentation errors',
@@ -2093,6 +2129,8 @@ VALUES (28,"Effizienz der Spezifikationsreviews","de",14);
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (513,"Rendement de la révision des spécifications","fr",14);
 
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5013,"Efektivita posudzovania špecifikácií","sk",14);
 
 /* xxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid (spaidid,description,diagram,layout,aiddid) 
@@ -2132,6 +2170,19 @@ La troisième barre montre l´effort consenti pour la correction du document.
 Le diagramme donne une idée sur le coût et les retombés de la révision.
 On peut constater l´utilité de la révision dans la recherche des erreurs.",
 "fr","x","y",20);
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,yaxis,xaxis,spaidid)
+VALUES (7021,"Efektivita posudzovania špecifikácií","Efektivita posudzovania špecifikácií","Popis: 
+Diagram poukazuje na efektivitu posudzovania špecifikácií. (Hodnoty: *)
+
+Vysvetlenie/Odporúèania:
+Prvı ståpec zobrazuje úsilie vynaloené na posudzovanie špecifikácií.
+Druhı ståpec predstavuje nájdené chyby.
+Tretí ståpec zobrazuje úsilie vynaloené na opravu dokumentu.
+
+Tento diagram Vám dáva priblinú predstavu o nákladoch a prospechoch z posudzovania. Môete sa presvedèi o tom, èi vynaloené úsilie bolo oprávnené, teda, èi posudzujúci tím odhalil dostatok chıb s oh¾adom na vynaloené úsilie.",
+"sk","x","y",20);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (40,"review",null,20,34,null);
@@ -2144,6 +2195,9 @@ VALUES (56,"*","RA","de",40);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (277,"*","RE","fr",40);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50077,"*","PO","sk",40);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (34,'review effort',
@@ -2175,6 +2229,9 @@ VALUES (58,"gefundene Fehler","gF","de",41);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (278,"Erreurs détectées","ED","fr",41);
 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50078,"Odhalené chyby","OCh","sk",41);
+
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (35,'detected errors',
 'select distinct s_entity.value
@@ -2204,6 +2261,9 @@ VALUES (60,"korrigierte Fehler","kF","de",42);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (279,"Erreurs corrigées","EC","fr",42);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50079,"Opravené chyby","OCh","sk",42);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (36,'correction effort',
@@ -2239,6 +2299,9 @@ VALUES (30,"Effizienz der Systemdesignreviews","de",15);
 
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (514,"Rendement de révision de la conception du système","fr",15);
+
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5014,"Efektivita posudzovania návrhu systému","sk",15);
 
 /* xxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid
@@ -2279,6 +2342,19 @@ La troisième barre montre l´effort consenti pour la correction du document.
 Le diagramme donne une idée sur le coût et les retombés de la révision.
 On peut constater l´utilité de la révision dans la recherche des erreurs.",
 "fr","x","y",21);
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,yaxis,xaxis,spaidid)
+VALUES (7022,'Efektivita posudzovania návrhu systému','Efektivita posudzovania návrhu systému',"Popis: 
+Diagram popisuje efektivitu posudzovania návrhu systému. (Hodnoty: *)
+
+Vysvetlenie/Odporúèania:
+Prvı ståpec reprezentuje úsilie vynaloené na posudzovanie návrhu systému.
+Druhı ståpec ukazuje odhalené chyby.
+Tretí ståpec predstavuje úsilie vynaloené na opravu dokumentu.
+
+Tento diagram Vám dáva akúsi predstavu o nákladoch na posudzovanie a prospechu zoò. Môete sa presvedèi, èi úsilie bolo oprávnené, èo znamená, èi posudzujúci tím odhalil dostatok chıb s oh¾adom na vynaloené úsilie.",
+"sk","x","y",21);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (43,"*",null,21,37,null);
@@ -2291,6 +2367,9 @@ VALUES (62,"*","RA","de",43);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (280,"*","RE","fr",43);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50080,"*","SP","sk",43);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (37,'review effort',
@@ -2322,6 +2401,9 @@ VALUES (64,"gefundene Fehler","gF","de",44);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (281,"Erreurs détectées","ED","fr",44);
 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50081,"Odhalené chyby","OCh","sk",44);
+
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (38,'detected errors',
 'select distinct s_entity.value
@@ -2351,6 +2433,9 @@ VALUES (66,"korrigierte Fehler","kF","de",45);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (282,"Erreurs corrigées","EC","fr",45);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50082,"Opravené chyby","OCh","sk",45);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (39,'correction effort',
@@ -2385,6 +2470,9 @@ VALUES (32,"Effizienz der Moduldesignreviews","de",16);
 
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (515,"Rendement de révision de la conception des modules","fr",16);
+
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5015,"Efektivita posudzovania návrhu modulov","sk",16);
 
 /* xxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid
@@ -2426,6 +2514,18 @@ Le diagramme donne une idée sur le coût et les retombés de la révision.
 On peut constater l´utilité de la révision dans la recherche des erreurs.",
 "fr","x","y",22);
 
+INSERT INTO spec_aid_lang(said,description,title,text,language,yaxis,xaxis,spaidid)
+VALUES (7023,'Efektivita posudzovania návrhu modulov','Efektivita posudzovania návrhu modulov',"Popis: 
+Diagram popisuje efektivitu posudzovania návrhu modulov. (Hodnoty: *)
+
+Vysvetlenie/Odporúèania:
+Prvı ståpec ukazuje snahu vynaloenú na posudzovanie návrhu modulov.
+Druhı ståpec reprezentuje odhalené chyby.
+Tretí ståpec znázoròuje snahu vynaloenú na opravy dokumentu.
+
+Tento diagram vytvára predstavu o nákladoch a prospechu z posudzovania. Môete vidie, èi úsilie na posudzovanie bolo oprávnené, a teda, èi posudzujúci tím našiel dostatok chıb s oh¾adom na vynaloené úsilie.",
+"sk","x","y",22);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (46,"*",null,22,40,null);
@@ -2438,6 +2538,9 @@ VALUES (68,"*","RA","de",46);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (283,"*","RE","fr",46);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50083,"*","SP","sk",46);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (40,'review effort',
@@ -2469,6 +2572,9 @@ VALUES (70,"gefundene Fehler","gF","de",47);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (284,"Erreurs détectées","ED","fr",47);
 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50084,"Odhalené chyby","OCh","sk",47);
+
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (41,'detected errors',
 'select distinct s_entity.value
@@ -2498,6 +2604,9 @@ VALUES (72,"korrigierte Fehler","kF","de",48);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (285,"Erreurs corrigées","EC","fr",48);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50085,"Opravené chyby","Och","sk",48);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (42,'Correction effort',
@@ -2532,6 +2641,9 @@ VALUES (34,"Effizienz der Codereviews","de",17);
 
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (516,"Rendement de la révision du code","fr",17);
+
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5016,"Efektivita posudzovania kódu","sk",17);
 
 /* xxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid
@@ -2573,6 +2685,18 @@ Le diagramme donne une idée sur le coût et les retombés de la révision.
 On peut constater l´utilité de la révision dans la recherche des erreurs.",
 "fr","x","y",23);
 
+INSERT INTO spec_aid_lang(said,description,title,text,language,yaxis,xaxis,spaidid)
+VALUES (7024,"Efektivita posudzovania kódu","Efektivita posudzovania kódu","Popis: 
+Diagram predstavuje efektivitu posudzovania kódu. (Hodnoty: *)
+
+Vysvetlenie/Odporúèania:
+Prvı ståpec zobrazuje snahu vynaloenú na posudzovanie kódu.
+Druhı ståpec reprezentuje odhalené chyby.
+Tretí ståpec zachytáva snahu vynaloenú na opravu dokumentu.
+
+Tento diagram poskytuje urèitı poh¾ad na náklady a prospech z posudzovania. Môete vidie, èi vynaloené úsilie na posudzovanie bolo oprávnené, a teda, èi posudzujúci tém našiel dostatok chıb s oh¾adom na vynaloené úsilie.",
+"sk","x","y",23);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (49,"*",null,23,43,null);
@@ -2585,6 +2709,9 @@ VALUES (74,"*","RA","de",49);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (286,"*","RE","fr",49);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50086,"*","SP","sk",49);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (43,'review effort',
@@ -2616,6 +2743,9 @@ VALUES (76,"gefundene Fehler","gF","de",50);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (287,"Erreurs détectées","ED","fr",50);
 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50087,"Odhalené chyby","OCh","sk",50);
+
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (44,'detected errors',
 'select distinct s_entity.value
@@ -2645,6 +2775,9 @@ VALUES (78,"korrigierte Fehler","kF","de",51);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (288,"Erreurs corrigées","EC","fr",51);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50088,"Opravené chyby","OCh","sk",51);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (45,'correction effort',
@@ -2679,6 +2812,9 @@ VALUES (36,"Effizienz der Handbuchreviews","de",18);
 
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (517,"Rendement de la révision du manuel","fr",18);
+
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5017,"Efektivita posudzovania manuálov","sk",18);
 
 /* xxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid
@@ -2719,6 +2855,21 @@ La troisième barre montre l´effort consenti pour la correction du document.
 Le diagramme donne une idée sur le coût et les retombés de la révision.
 On peut constater l´utilité de la révision dans la recherche des erreurs.",
 "fr","x","y",24);
+
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,yaxis,xaxis,spaidid)
+VALUES (7025,"Efektivita posudzovania dokumentácie","Efektivita posudzovania dokumentácie","Popis: 
+The diagram shows the efficiency of the documentation reviews. (Values: *)
+Diagram poukazuje na efektivitu posudzovania dokumentácie. (Hodnoty: *)
+
+Vysvetlenie/Odporúèania:
+Prvı ståpec ukazuje snahu vynaloenú na posudzovanie dokumentácie.
+Druhı ståpec reprezentuje odhalené chyby.
+Tretí ståpec znázoròuje snahu vynaloenú na opravy dokumentu.
+
+Tento diagram vytvára predstavu o nákladoch a prospechu z posudzovania. Môete vidie, èi úsilie na posudzovanie bolo oprávnené, a teda, èi posudzujúci team našiel dostatok chıb s oh¾adom na vynaloené úsilie.",
+"sk","x","y",24);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (52,"*",null,24,46,null);
@@ -2731,6 +2882,9 @@ VALUES (80,"*","REA","de",52);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (289,"*","RE","fr",52);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50089,"*","SP","sk",52);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (46,'review effort',
@@ -2762,6 +2916,9 @@ VALUES (82,"gefundene Fehler","gF","de",53);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (290,"Erreurs détectées","ED","fr",53);
 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50090,"Odhalené chyby","OCh","sk",53);
+
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (47,'detected errors',
 'select distinct s_entity.value
@@ -2791,6 +2948,9 @@ VALUES (84,"gefundene Fehler","kF","de",54);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (291,"Erreurs corrigées","EC","fr",54);
+ 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50091,"Opravené chyby","OCh","sk",54);
  
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (48,'correction effort',
@@ -2825,6 +2985,9 @@ VALUES (38,"Effizienz der Modultests","de",19);
 
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (518,"Rendement du test  des modules","fr",19);
+
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5018,"Efektivita testovania modulov","sk",19);
 
 /* xxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid
@@ -2865,6 +3028,18 @@ La troisième barre montre l´effort consenti pour la correction du code.
 Le diagramme donne une idée sur le coût et les résultats du test.
 On peut constater si les tests effectués ont permis de trouver beaucoup d'erreurs.",
 "fr","x","y",25);
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,yaxis,xaxis,spaidid)
+VALUES (7026,"Efektivita testovania modulov","Efektivita testovania modulov","Popis: 
+Diagram popisuje efektivitu testovania modulov. (Hodnoty: *)
+
+Vysvetlenie/Odporúèania:
+Prvı ståpec ukazuje snahu vynaloenú na testovanie modulov.
+Druhı ståpec reprezentuje odhalené chyby.
+Tretí ståpec znázoròuje snahu vynaloenú na opravy kódu.
+
+Tento diagram vytvára predstavu o nákladoch a prospechu z testovania. Môete vidie, èi úsilie vynaloené na testovanie bolo oprávnené, a teda, èi testujúci tím našiel dostatok chıb s oh¾adom na vynaloené úsilie.",
+"sk","x","y",25);
 /* xxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (55,"*",null,25,49,null);
@@ -2877,6 +3052,9 @@ VALUES (86,"*","TA","de",55);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (292,"*","ET","fr",55);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50092,"*","ST","sk",55);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (49,'test effort',
@@ -2908,6 +3086,9 @@ VALUES (88,"gefundene Fehler","gF","de",56);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (293,"Erreurs détectées","ED","fr",56);
 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50093,"Odhalené chyby","OCh","sk",56);
+
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (50,'detected errors',
 'select distinct s_entity.value
@@ -2937,6 +3118,9 @@ VALUES (90,"korrigierte Fehler","kF","de",57);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (294,"Erreurs corrigées","EC","fr",57);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50094,"Opravené chyby","OCh","sk",57);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (51,'Correction effort',
@@ -2971,6 +3155,9 @@ VALUES (40,"Effizienz der Systemtests","de",20);
 
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (519,"Rendement du test  du système","fr",20);
+
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5019,"Efektivita testovania systému","sk",20);
 
 /* xxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid
@@ -3012,6 +3199,17 @@ Le diagramme donne une idée sur le coût et les résultats du test.
 On peut constater si les tests effectués ont permis de trouver beaucoup d'erreurs.",
 "fr","x","y",26);
 
+INSERT INTO spec_aid_lang(said,description,title,text,language,yaxis,xaxis,spaidid)
+VALUES (7027,"Efektivita testovania systému","Efektivita testovania systému","Popis: 
+Diagram popisuje efektivitu testovania systému. (Hodnoty: *)
+
+Vysvetlenie/Odporúèania:
+Prvı ståpec ukazuje snahu vynaloenú na testovanie systému.
+Druhı ståpec reprezentuje odhalené chyby.
+Tretí ståpec znázoròuje snahu vynaloenú na opravy kódu.
+
+Tento diagram vytvára predstavu o nákladoch a prospechu z testovania. Môete vidie, èi úsilie vynaloené na testovanie bolo oprávnené, a teda, èi testujúci tím našiel dostatok chıb s oh¾adom na vynaloené úsilie.",
+"sk","x","y",26);
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (58,"*",null,26,52,null);
@@ -3024,6 +3222,9 @@ VALUES (92,"*","TA","de",58);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (295,"*","ET","fr",58);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50095,"*","ST","sk",58);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (52,'test effort',
@@ -3055,6 +3256,9 @@ VALUES (94,"gefundene Fehler","gF","de",59);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (296,"Erreurs détectées","ED","fr",59);
 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50096,"Odhalené chyby","OCh","sk",59);
+
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (53,'detected errors',
 'select distinct s_entity.value
@@ -3084,6 +3288,9 @@ VALUES (96,"korrigierte Fehler","kF","de",60);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (297,"Erreurs corrigées","EC","fr",60);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50097,"Opravené chyby","OCh","sk",60);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (54,'correction effort',
@@ -3118,6 +3325,9 @@ VALUES (42,"Effizienz der Integrationstests","de",21);
 
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (520,"Rendement du test  d'intégration","fr",21);
+
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5020,"Efektivita integraènıch testov","sk",21);
 
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid
@@ -3158,6 +3368,19 @@ La troisième barre montre l´effort consenti pour la correction du code.
 Le diagramme donne une idée sur le coût et les résultats du test.
 On peut constater si les tests effectués ont permis de trouver beaucoup d'erreurs.",
 "fr","x","y",27);
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,yaxis,xaxis,spaidid)
+VALUES (7028,"Efektivita integraènıch testov","Efektivita integraènıch testov","Popis: 
+The diagram shows the efficiency of the integration tests. (Values: *)
+Diagram popisuje efektivitu integraèného testovania. (Hodnoty: *)
+
+Vysvetlenie/Odporúèania:
+Prvı ståpec ukazuje snahu vynaloenú na testovanie integrácie.
+Druhı ståpec reprezentuje odhalené chyby.
+Tretí ståpec znázoròuje snahu vynaloenú na opravy kódu.
+
+Tento diagram vytvára predstavu o nákladoch a prospechu z testovania. Môete vidie, èi úsilie vynaloené na testovanie bolo oprávnené, a teda, èi testujúci tím našiel dostatok chıb s oh¾adom na vynaloené úsilie.",
+"sk","x","y",27);
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (61,"*",null,27,55,null);
@@ -3170,6 +3393,9 @@ VALUES (98,"*","TA","de",61);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (298,"*","ET","fr",61);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50098,"*","ST","sk",61);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (55,'test effort',
@@ -3201,6 +3427,9 @@ VALUES (100,"gefundene Fehler","gF","de",62);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (299,"Erreurs détectées","ED","fr",62);
 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50099,"Odhalené chyby","OCh","sk",62);
+
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (56,'detected errors',
 'select distinct s_entity.value
@@ -3230,6 +3459,9 @@ VALUES (102,"korrigierte Fehler","kF","de",63);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (300,"Erreurs corrigées","EC","fr",63);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50100,"Opravené chyby","OCh","sk",63);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (57,'correction effort',
@@ -3264,6 +3496,9 @@ VALUES (44,"Effizienz der Abnahmetests","de",22);
 
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (521,"Rendement du test  d'acceptance","fr",22);
+
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5021,"Efektivita akceptaènıch testov","sk",22);
 
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid
@@ -3307,6 +3542,20 @@ Le diagramme donne une idée sur le coût et les résultats du test.
 On peut constater si les tests effectués ont permis de trouver beaucoup d'erreurs.
 Attention! Ceci montre les capacités du client en matière de test.",
 "fr","x","y",28);
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,yaxis,xaxis,spaidid)
+VALUES (7029,"Efektivita akceptaènıch testov","Efektivita akceptaènıch testov","Popis: 
+Diagram popisuje efektivitu akceptaènıch testov. (Hodnoty: *)
+
+Vysvetlenie/Odporúèania:
+Prvı ståpec ukazuje snahu vynaloenú na akceptaèné testovanie.
+Druhı ståpec reprezentuje odhalené chyby.
+Tretí ståpec znázoròuje snahu vynaloenú na opravy kódu.
+
+Tento diagram vytvára predstavu o nákladoch a prospechu z testovania. Môete vidie, èi úsilie vynaloené na testovanie bolo oprávnené, a teda, èi testujúci tím našiel dostatok chıb s oh¾adom na vynaloené úsilie.
+Pozor! Je to znázornenie kvalifikácie zákazníka ako testujúceho.",
+"sk","x","y",28);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (64,"*",null,28,58,null);
@@ -3319,6 +3568,9 @@ VALUES (104,"*","TA","de",64);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (301,"*","ET","fr",64);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50101,"*","ST","sk",64);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (58,'test effort',
@@ -3350,6 +3602,9 @@ VALUES (106,"gefundene Fehler","gF","de",65);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (302,"Erreurs détectées","ED","fr",65);
 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50102,"Odhalené chyby","OCh","sk",65);
+
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (59,'detected errors',
 'select distinct s_entity.value
@@ -3379,6 +3634,9 @@ VALUES (108,"korrigierte Fehler","kF","de",66);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (303,"Erreurs corrigées","EC","fr",66);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50103,"Opravené chyby","OCh","sk",66);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (60,'correction effort',
@@ -3414,6 +3672,9 @@ VALUES (46,"Effektivität der Spezifikationsreviews","de",23);
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (522,"Efficacité de la révision des spécifications","fr",23);
 
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5022,"Efektivita posudzovania špecifikácie","sk",23);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid(spaidid,description,diagram,layout,aiddid)
 VALUES (29,"Effectiveness of specification reviews",1,'V',23);
@@ -3447,6 +3708,18 @@ La première barre montre le nombre des erreurs détectées durant la révision.
 La seconde barre montre les erreurs non détectées. Les nombres montrés permettent de constater si vous avez choisi les bonnes personnes pour la révision. Un nombre faible d'erreurs détectées parmi toutes les existantes signifie que les personnes engagées sont efficaces, sinon elles ne sont pas.",
 "fr","x","y",29);
 
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,yaxis,xaxis,spaidid)
+VALUES (7030,"Efektivita posudzovania špecifikácie","Efektivita posudzovania špecifikácie","Popis: 
+Diagram popisuje efektivitu posudzovania špecifikácie. (Hodnoty: *)
+
+Vysvetlenie/Odporúèania:
+Prvı ståpec ukazuje poèet chıb odhalenıch posudkami.
+Druhı ståpec reprezentuje chyby, ktoré u sú v dokumente.
+
+Tımito hodnotami sa môete presvedèi o svojom (ne)vhodnom vıbere posudzujúcich. Ak posudzujúci odhalili len nieko¾ko zo všetkıch chıb, potom ste nezvolili najkvalifikovanejších zamestnancov. Naopak, ak posudzujúci odhalili mnoho chıb, potom ste zvolili kvalifikovanıch vıvojárov.",
+"sk","x","y",29);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (67,"errors",null,29,61,null);
@@ -3459,6 +3732,9 @@ VALUES (110,"Gesamtfehler","GES","de",67);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (304,"Nombre total des erreurs","Total","fr",67);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50104,"Chyby dokopy","Chyby total","sk",67);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (61,'detected errors in reviews',
@@ -3489,6 +3765,9 @@ VALUES (112,"korrigierte Fehler","kF","de",68);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (305,"Erreurs corrigées","EC","fr",68);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50105,"Opravené chyby","OCh","sk",68);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (62,'contained errors in document ',
@@ -3524,6 +3803,9 @@ VALUES (48,"Effektivität der Systemdesignreviews","de",24);
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (523,"Efficacité de révision de la conception du système","fr",24);
 
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5023,"Efektivita posudzovania návrhu systému","sk",24);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid(spaidid,description,diagram,layout,aiddid)
 VALUES (30,"Effectiveness of system design reviews",1,'V',24);
@@ -3556,6 +3838,18 @@ VALUES (731,"Efficacité de révision de la conception du système","Efficacité de 
 La première barre montre le nombre des erreurs détectées durant la révision.
 La seconde barre montre les erreurs non détectées. Les nombres montrés permettent de constater si vous avez choisi les bonnes personnes pour la révision. Un nombre faible d'erreurs détectées parmi toutes les existantes signifie que les personnes engagées sont efficaces, sinon elles ne sont pas.",
 "fr","x","y",30);
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,yaxis,xaxis,spaidid)
+VALUES (7031,"Efektivita posudzovania návrhu systému","Efektivita posudzovania návrhu systému","Popis: 
+Diagram popisuje efektivitu posudzovania posudzovania návrhu systému. (Hodnoty: *)
+
+Vysvetlenie/Odporúèania:
+Prvı ståpec ukazuje poèet chıb odhalenıch posudkami.
+Druhı ståpec reprezentuje chyby, ktoré u sú v dokumente.
+
+Tımito hodnotami sa môete presvedèi o svojom (ne)vhodnom vıbere posudzujúcich. Ak posudzujúci odhalili len nieko¾ko zo všetkıch chıb, potom ste nezvolili najkvalifikovanejších zamestnancov. Naopak, ak posudzujúci odhalili mnoho chıb, potom ste zvolili kvalifikovanıch vıvojárov.",
+"sk","x","y",30);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (69,"detected errors",null,30,63,null);
@@ -3568,6 +3862,9 @@ VALUES (114,"gefundene Fehler","gF","de",69);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (306,"Erreurs détectées","ED","fr",69);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50106,"Odhalené chyby","OCh","sk",69);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (63,'detected errors in reviews',
@@ -3598,6 +3895,9 @@ VALUES (116,"korrigierte Fehler","kF","de",70);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (307,"Erreurs corrigées","EC","fr",70);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50107,"Opravené chyby","OCh","sk",70);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (64,'contained errors in document',
@@ -3633,6 +3933,9 @@ VALUES (50,"Effektivität der Moduldesignreviews","de",25);
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (524,"Efficacité de révision de la conception des modules","fr",25);
 
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5024,"Efektivita posudzovania návrhu modulov","sk",25);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid(spaidid,description,diagram,layout,aiddid)
 VALUES (31,"Effectiveness of module design reviews",1,'V',25);
@@ -3666,6 +3969,16 @@ La première barre montre le nombre des erreurs détectées durant la révision.
 La seconde barre montre les erreurs non détectées. Les nombres montrés permettent de constater si vous avez choisi les bonnes personnes pour la révision. Un nombre faible d'erreurs détectées parmi toutes les existantes signifie que les personnes engagées sont efficaces, sinon elles ne sont pas.",
 "fr","x","y",31);
 
+INSERT INTO spec_aid_lang(said,description,title,text,language,yaxis,xaxis,spaidid)
+VALUES (7032,"Efektivita posudzovania návrhu modulov","Efektivita posudzovania návrhu modulov","Popis: 
+Diagram popisuje efektivitu posudzovania návrhu modulov. (Hodnoty: *)
+
+Vysvetlenie/Odporúèania:
+Prvı ståpec ukazuje poèet chıb odhalenıch posudkami.
+Druhı ståpec reprezentuje chyby, ktoré u sú v dokumente.
+
+Tımito hodnotami sa môete presvedèi o svojom (ne)vhodnom vıbere posudzujúcich. Ak posudzujúci odhalili len nieko¾ko zo všetkıch chıb, potom ste nezvolili najkvalifikovanejších zamestnancov. Naopak, ak posudzujúci odhalili mnoho chıb, potom ste zvolili kvalifikovanıch vıvojárov.",
+"sk","x","y",31);
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (71,"detected errors",null,31,65,null);
@@ -3678,6 +3991,9 @@ VALUES (118,"gefundene Fehler","gF","de",71);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (308,"Erreurs détectées","ED","fr",71);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50108,"Odhalené chyby","OCh","sk",71);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (65,'detected errors in reviews',
@@ -3708,6 +4024,9 @@ VALUES (120,"korrigierte Fehler","kF","de",72);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (309,"Erreurs corrigées","EC","fr",72);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50109,"Opravené chyby","OCh","sk",72);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (66,'contained errors in document',
@@ -3743,6 +4062,9 @@ VALUES (52,"Effektivität der Codereviews","de",26);
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (525,"Efficacité de la révision du code","fr",26);
 
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5025,"Efektivita posudzovania kódu","sk",26);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid(spaidid,description,diagram,layout,aiddid)
 VALUES (32,"Effectiveness of code reviews",1,'V',26);
@@ -3776,6 +4098,17 @@ La première barre montre le nombre des erreurs détectées durant la révision.
 La seconde barre montre les erreurs non détectées. Les nombres montrés permettent de constater si vous avez choisi les bonnes personnes pour la révision. Un nombre faible d'erreurs détectées parmi toutes les existantes signifie que les personnes engagées sont efficaces, sinon elles ne sont pas.",
 "fr","x","y",32);
 
+INSERT INTO spec_aid_lang(said,description,title,text,language,yaxis,xaxis,spaidid)
+VALUES (7033,"Efektivita posudzovania kódu","Efektivita posudzovania kódu","Popis: 
+Diagram popisuje efektivitu posudzovania kódu. (Hodnoty: *)
+
+Vysvetlenie/Odporúèania:
+Prvı ståpec ukazuje poèet chıb odhalenıch posudkami.
+Druhı ståpec reprezentuje chyby, ktoré u sú v dokumente.
+
+Tımito hodnotami sa môete presvedèi o svojom (ne)vhodnom vıbere posudzujúcich. Ak posudzujúci odhalili len nieko¾ko zo všetkıch chıb, potom ste nezvolili najkvalifikovanejších zamestnancov. Naopak, ak posudzujúci odhalili mnoho chıb, potom ste zvolili kvalifikovanıch vıvojárov.",
+"sk","x","y",32);
+
 /* xxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (73,"detected errors",null,32,67,null);
@@ -3788,6 +4121,9 @@ VALUES (122,"gefundene Fehler","gF","de",73);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (310,"Erreurs détectées","ED","fr",73);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50110,"Odhalené chyby","OCh","sk",73);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (67,'detected errors in reviews',
@@ -3818,6 +4154,9 @@ VALUES (124,"korrigierte Fehler","kF","de",74);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (311,"Erreurs corrigées","EC","fr",74);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50111,"Opravené chyby","OCh","sk",74);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (68,'contained errors in code',
@@ -3853,6 +4192,9 @@ VALUES (54,"Effektivität der Handbuchreviews","de",27);
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (526,"Efficacité de révision de la documentation","fr",27);
 
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5026,"Efektivita posudzovania dokumentácie","sk",27);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid(spaidid,description,diagram,layout,aiddid)
 VALUES (33,"Effectiveness of documentation reviews",1,'V',27);
@@ -3885,6 +4227,18 @@ VALUES (734,"Efficacité de révision de la documentation","Efficacité de révision
 La première barre montre le nombre des erreurs détectées durant la révision.
 La seconde barre montre les erreurs non détectées. Les nombres montrés permettent de constater si vous avez choisi les bonnes personnes pour la révision. Un nombre faible d'erreurs détectées parmi toutes les existantes signifie que les personnes engagées sont efficaces, sinon elles ne sont pas.",
 "fr","x","y",33);
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,yaxis,xaxis,spaidid)
+VALUES (7034,"Efektivita posudzovania dokumentácie","Efektivita posudzovania dokumentácie","Popis: 
+Diagram popisuje efektivitu posudzovania dokumentácie. (Hodnoty: *)
+
+Vysvetlenie/Odporúèania:
+Prvı ståpec ukazuje poèet chıb odhalenıch posudkami.
+Druhı ståpec reprezentuje chyby, ktoré u sú v dokumente.
+
+Tımito hodnotami sa môete presvedèi o svojom (ne)vhodnom vıbere posudzujúcich. Ak posudzujúci odhalili len nieko¾ko zo všetkıch chıb, potom ste nezvolili najkvalifikovanejších zamestnancov. Naopak, ak posudzujúci odhalili mnoho chıb, potom ste zvolili kvalifikovanıch vıvojárov.",
+"sk","x","y",33);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (75,"detected errors",null,33,69,null);
@@ -3897,6 +4251,9 @@ VALUES (126,"gefundene Fehler","gF","de",75);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (312,"Erreurs détectées","ED","fr",75);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50112,"Odhalené chyby","OCh","sk",75);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (69,'detected errors in reviews',
@@ -3927,6 +4284,9 @@ VALUES (128,"korrigierte Fehler","kF","de",76);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (313,"Erreurs corrigées","EC","fr",76);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50113,"Opravené chyby","OCh","sk",76);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (70,'contained errors in document',
@@ -3964,6 +4324,9 @@ VALUES (56,"Verluste durch Reviews","de",28);
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (527,"PFAs manqués durant la révision","fr",28);
 
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5027,"Nespracované AFPs v posudkoch","sk",28);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid (spaidid,description,diagram,layout,aiddid) 
 VALUES (38,"AFPs lost in reviews",1,'V',28);
@@ -3990,6 +4353,13 @@ VALUES (735,"PFAs manqués durant la révision","PFAs manqués durant la révision",
 La raison de cela peut résider dans la non qualification du groupe chargé de la révision. Donc, il faut revoir la composante du groupe de révision.",
 "fr","PFAs","Révision",38);
 
+INSERT INTO spec_aid_lang(said,description,title,text,language,yaxis,xaxis,spaidid)
+VALUES (7035,"Nespracované AFPs v posudkoch","Nespracované AFPs v posudkoch","Popis:
+Tento diagram zobrazuje poèet AFP, ktoré ostali nespracované v posudkoch. Èím menší poèet AFP, tım lepší proces posudzovania. (Hodnoty: *)
+
+Vysvetlenie/Odporúèania:
+Nesplnenie nieko¾kıch AFP je prijate¾né. Zamerajte sa na tie posudky, ktoré viedli k vyšším stratám a vylepšite proces posudzovania dbaním na èlenov tímu a konsitenciu medzi dokumentmi. Najmä v skorıch fázach a v prípade posudzovania manuálov/dokumentácie by mal by súèasou posudzujúceho tímu aj zákazník.",
+"sk","AFPs","Posudky",38);
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (85,"AFPs lost",null,38,79,null);
@@ -4002,6 +4372,9 @@ VALUES (130,"Spezifikation","S","de",85);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (314,"spécification","S","fr",85);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50114,"špecifikácia","Š","sk",85);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (79,'specification review',
@@ -4033,6 +4406,9 @@ VALUES (132,"Systemdesign","SD","de",86);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (315,"Conception du système","CS","fr",86);
 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50115,"Návrh systému","NS","sk",86);
+
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (80,'system design review',
 'select distinct s_entity.value
@@ -4062,6 +4438,9 @@ VALUES (134,"Moduldesign","MD","de",87);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (316,"Conception des modules","CM","fr",87);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50116,"Návrh modulov","NM","sk",87);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (81,'module design review',
@@ -4093,6 +4472,9 @@ VALUES (136,"Code","C","de",88);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (317,"code","C","fr",88);
 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50117,"kód","K","sk",88);
+
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (82,'code review',
 'select distinct s_entity.value
@@ -4122,6 +4504,9 @@ VALUES (138,"Handbuch","HB","de",89);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (318,"manuel","M","fr",89);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50118,"manuály","M","sk",89);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (83,'manual review',
@@ -4157,6 +4542,9 @@ VALUES (58,"Verluste durch Tests","de",29);
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (528,"PFAs manqués pendant le test","fr",29);
 
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5028,"AFPs nespracované testami","sk",29);
+
 /* xxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid (spaidid,description,diagram,layout,aiddid) 
 VALUES (39,"AFPs lost in tests",1,'V',29);
@@ -4183,6 +4571,13 @@ VALUES (736,"PFAs manqués pendant le test","PFAs manqués pendant le test","Le di
 La raison de cela peut résider dans la non qualification du testeur. Donc, il faut revoir les qualifications du testeur.",
 "fr","PFAs","Test",39);
 
+INSERT INTO spec_aid_lang(said,description,title,text,language,yaxis,xaxis,spaidid)
+VALUES (7036,"AFPs nespracované testami","AFPs nespracované testami","Popis:
+Tento diagram zobrazuje poèet AFP, ktoré ostali nespracované testami. Èím menší poèet AFP, tım lepší proces testovania a opráv. (Hodnoty: *)
+
+Vysvetlenie/Odporúèania:
+Nesplnenie nieko¾kıch AFP je prijate¾né. Zamerajte sa na tie testy, ktoré viedli k vyšším stratám a vylepšite proces testovania a opráv kontrolou kvalifikácie èlenov testovacieho tímu.",
+"sk","AFPs","Testy",39);
 /* xxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (90,"module test",null,39,84,null);
@@ -4195,6 +4590,9 @@ VALUES (140,"Modultest","MT","de",90);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (319,"Test des modules","TM","fr",90);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50119,"Testovanie modulov","TM","sk",90);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (84,'module test',
@@ -4226,6 +4624,9 @@ VALUES (142,"Integrationtest","IT","de",91);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (320,"Test d'intégration","TI","fr",91);
 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50120,"testovanie integrácie","TI","sk",91);
+
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (85,'integration test',
 'select distinct s_entity.value
@@ -4255,6 +4656,9 @@ VALUES (144,"Systemtest","ST","de",92);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (321,"Test du système","TS","fr",92);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50121,"Testovanie systému","TS","sk",92);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (86,'system test',
@@ -4286,6 +4690,9 @@ VALUES (146,"Akzeptanztest","AT","de",93);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (322,"Test d'acceptance","TA","fr",93);
 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50122,"akceptaèné testy","AT","sk",93);
+
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (87,'acceptance test',
 'select distinct s_entity.value
@@ -4304,8 +4711,6 @@ where
       s_entity.gid = game.gid AND game.gid = %game AND LOCATE(s_entity.path, \"%path\")=1 order by s_entity.tnid desc;',
 "**ABNAHMETESTBERICHT*Acceptancetestreport*VERLUSTE");
 
-
-
 /* Aufwandsverteilung */
 
 INSERT INTO aid_description(aiddid,description,detail,kaidid,mid) 
@@ -4320,13 +4725,16 @@ VALUES (60,"Aufwandsverteilung","de",30);
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (529,"Distribution de l'effort","fr",30);
 
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (5029,"Rozloenie úsilia","sk",30);
+
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO specific_aid (spaidid,description,diagram,layout,aiddid) 
 VALUES (40,"Distribution of effort",1,'V',30);
 
 INSERT INTO spec_aid_lang(said,description,title,text,language,yaxis,xaxis,spaidid)
 VALUES (75,"Distribution of effort","Distribution of effort","Description: 
-This diagram shows the distribution of the ressources for several project phases. (Values: *). Please note that the diagram can only be drawn after delivering the system.
+This diagram shows the distribution of the resources for several project phases. (Values: *). Please note that the diagram can only be drawn after delivering the system.
 
 Explanation/Recommendations:
 If the effort for the specification is low, this would indicate that the specification was not a good reference document for the system design. Uncorrect reference documents result in uncorrect code, which could only be improved by testing. A high effort for testing indicates that the reference documents were incorrect and incomplete. A high effort in the specification and the design phase leads often to a low effort in testing.",
@@ -4348,6 +4756,14 @@ Se reférer à des documents non fiables resulte en code non fiable dont la qualit
 Un grand effort de test indique que les documents de référence sont incorrects et incomplets.
 Un grand effort dans les phases de spécification et conception implique souvent un petit effort dans le test.",
 "fr","Effort","Phases",40);
+
+INSERT INTO spec_aid_lang(said,description,title,text,language,yaxis,xaxis,spaidid)
+VALUES (7037,"Rozloenie úsilia","Rozloenie úsilia","Popis: 
+Tento diagram zobrazuje rozloenie zdrojov s oh¾adom na nieko¾ko fáz projektu. (Hodnoty: *). Majte na pamäti, prosím, e diagram môe by vykreslenı a po doruèení systému.
+
+Vysvetlenie/Odporúèania:
+Ak úsilie vynaloené na špecifikáciu je nízke, indikuje to, e špecifikácia nebola dobrım referenènım dokumentom pre návrh systému. Chybné referenèné dokumenty majú dopad na chybnı kód, èo by mohlo by vylepšené testovaním. Väèšia snaha v testovaní indikuje, e referenèné dokumenty boli chybné a nekompletné. Väèšia snaha vo fáze návrhu a špecifikácie èasto vediet k niším snahám vo fáze testovania.",
+"sk","Snaha","Fázy",40);
 /* xxxxxxxxxxxxxxxxxxxxxxxx */
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (94,"specification",null,40,88,null);
@@ -4360,6 +4776,9 @@ VALUES (148,"Spezifikation","S","de",94);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (323,"spécification","S","fr",94);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50123,"Špecifikácia","Š","sk",94);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (88,'specification',
@@ -4391,6 +4810,9 @@ VALUES (150,"Entwurf","E","de",95);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (324,"Conception","C","fr",95);
 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50124,"Návrh","N","sk",95);
+
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (89,'design',
 'select max(s_entity.value) as value
@@ -4420,6 +4842,9 @@ VALUES (152,"Code","C","de",96);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (325,"code","I","fr",96);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50125,"Kód","K","sk",96);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (90,'code',
@@ -4451,6 +4876,9 @@ VALUES (154,"Test","T","de",97);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (326,"Test","T","fr",97);
 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50126,"Test","T","sk",97);
+
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (91,'test',
 'select max(s_entity.value) as value
@@ -4480,6 +4908,9 @@ VALUES (156,"Handbuch","H","de",98);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (327,"manuel","M","fr",98);
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (50127,"Manuály","M","sk",98);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (92,'manuals',
@@ -4516,6 +4947,9 @@ VALUES (84,"Costs per man month","en",36);
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (85,"Kosten pro Personenmonat","de",36);
 
+INSERT INTO aid_desc_lang(did,description,language,aiddid)
+VALUES (86,"Náklady / èlovekomesiac","sk",36);
+
 INSERT INTO specific_aid(spaidid,description,diagram,aiddid)
 VALUES (36,"Costs per man month",0,36);
 
@@ -4531,6 +4965,10 @@ VALUES (967,"Kosten pro Personenmonat ","Kosten pro Personenmonat ","Kosten pro 
 
 INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
 VALUES (968,"Costs per man month","Costs per man month ","Costs per man month: * EUR ","fr",3900); 
+
+/* In case of FR entry ID jumped from 700 to 900 (768 - 968), so we set instead of 9068 better 7068+200 (like if it continued) */
+INSERT INTO spec_aid_lang(said,description,title,text,language,spaidid)
+VALUES (7268,"Náklady / èlovekomesiac","Náklady / èlovekomesiac ","Náklady / èlovekomesiac: * EUR ","sk",3900); 
 
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (109,"*",null,3900,109,602);
