@@ -4,31 +4,70 @@
 
 INSERT INTO aid_description(aiddid,description,detail,kaidid,mid) VALUES(500,"Review Information",NULL,1,1);
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(2000,"Review Information","en",500);
+/* daÚo */
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(2001,"Review Information","de",500);
+/* daÚo */
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(2002,"Inform·cie o posudzovanÌ","sk",500);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3800,"Review Information",0,"T",NULL,500);
-INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (900,"Review Information","
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (962,"Review Information","
 Description:
 This table shows which employees reviewed and corrected which document and if the customer participated in these activities.
 
 Explanation/Recommendations:
 Not available yet.
 ","",null,null,"en",3800);
+/* TODO: daÚo */
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (963,"Review Information","
+Description:
+This table shows which employees reviewed and corrected which document and if the customer participated in these activities.
+
+Explanation/Recommendations:
+Not available yet.
+","",null,null,"de",3800);
+/* daÚo */
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (9063,"Inform·cie o posudzovanÌ","
+Popis:
+T·to tabuæka ukazuje, ktorÌ zamestnanci sa podieæali na posudzovanÌ a korekcii t˝ch-ktor˝ch dokumentov a taktieû Ëi s·m z·kaznÌk sa z˙Ëastnil t˝chto aktivÌt.
+
+Vysvetlenie/Odpor˙Ëania:
+éiadne.
+","",null,null,"sk",3800);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (6000,"root",NULL,3800,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44000,"root",null,"en",6000);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144000,"root",null,"de",6000);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144001,"root",null,"sk",6000);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (6001,"",6000,3800,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44001,"","Phases","en",6001);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144002,"","Phases","de",6001);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144003,"","Phases","sk",6001);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (6002,"Team",6001,3800,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44002,"Team","","en",6002);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144004,"Team","","de",6002);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144005,"Team","","sk",6002);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (6003,"Date",6001,3800,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44100,"Date","","en",6003);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144006,"Date","","de",6003);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144007,"Date","","sk",6003);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (6004,"Customer",6001,3800,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44200,"Customer","","en",6004);
-
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144008,"Customer","","de",6004);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144009,"Customer","","sk",6004);
 
 /* zeilen einf¸gen f¸r Manual, Moduldesign etc.*/
 
@@ -270,114 +309,232 @@ and success = 1 AND game.gid=%game AND LOCATE(s_relation.path, \"%path\")=1 grou
 /**** ZEILE REVIEW Specification ****/
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5000,"SP Review",6002,3800,4000,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44003,"SP Review","","en",5000);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144010,"SP Review","","de",5000);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144011,"SP Review","","sk",5000);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5002,"SP Review",6003,3800,4002,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44005,"SP Review","","en",5002);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144012,"SP Review","","de",5002);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144013,"SP Review","","sk",5002);
+
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5004,"SP Review",6004,3800,4004,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44007,"SP Review","","en",5004);
-
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144014,"SP Review","","de",5004);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144015,"SP Review","","sk",5004);
 
 /**** Zeile KOrrektur Spezification ***/
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5001,"SP Correction",5000,3800,4001,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44004,"SP Correction","","en",5001);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144016,"SP Correction","","de",5001);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144017,"SP Correction","","sk",5001);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5003,"SP Correction",5002,3800,4003,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44006,"SP Correction","","en",5003);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144018,"SP Correction","","de",5003);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144019,"SP Correction","","sk",5003);
 
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5005,"SP Correction",5004,3800,4005,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44008,"SP Correction","","en",5005);
-
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144020,"SP Correction","","de",5005);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144021,"SP Correction","","sk",5005);
 
 /**** Zeile Reveiw Systemdesign ***/
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5006,"SD Review",5001,3800,4006,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44009,"SD Review","","en",5006);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144022,"SD Review","","de",5006);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144023,"SD Review","","sk",5006);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5007,"SD Review",5003,3800,4007,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44010,"SD Review","","en",5007);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144024,"SD Review","","de",5007);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144025,"SD Review","","sk",5007);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5008,"SD Review",5005,3800,4008,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44011,"SD Review","","en",5008);
-
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144026,"SD Review","","de",5008);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144027,"SD Review","","sk",5008);
 
 /**** Zeile Korrektur Systemdesign ***/
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5009,"SD Correction",5006,3800,4009,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44012,"SD Correction","","en",5009);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144028,"SD Correction","","de",5009);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144029,"SD Correction","","sk",5009);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5010,"SD Correction",5007,3800,4010,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44013,"SD Correction","","en",5010);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144030,"SD Correction","","de",5010);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144031,"SD Correction","","sk",5010);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5011,"SD Correction",5008,3800,4011,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44014,"SD Correction","","en",5011);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144032,"SD Correction","","de",5011);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144033,"SD Correction","","sk",5011);
 
 /**** Zeile Reveiw Moduldesign ***/
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5012,"MD Review",5009,3800,4012,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44015,"MD Review","","en",5012);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144034,"MD Review","","de",5012);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144035,"MD Review","","sk",5012);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5013,"MD Review",5010,3800,4013,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44016,"MD Review","","en",5013);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144036,"MD Review","","de",5013);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144037,"MD Review","","sk",5013);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5014,"MD Review",5011,3800,4014,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44017,"MD Review","","en",5014);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144038,"MD Review","","de",5014);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144039,"MD Review","","sk",5014);
 
 /**** Zeile Korrektur Moduldesign ***/
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5015,"MD Correctur",5012,3800,4015,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44018,"MD Correctur","","en",5015);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144040,"MD Correctur","","de",5015);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144041,"MD Correctur","","sk",5015);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5016,"MD Correctur",5013,3800,4016,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44019,"MD Correctur","","en",5016);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144042,"MD Correctur","","de",5016);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144043,"MD Correctur","","sk",5016);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5017,"MD Correctur",5014,3800,4017,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44020,"MD Correctur","","en",5017);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144044,"MD Correctur","","de",5017);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144045,"MD Correctur","","sk",5017);
 
 /**** Zeile Reveiw Code***/
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5018,"Code Review",5015,3800,4018,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44021,"Code Review","","en",5018);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144046,"Code Review","","de",5018);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144047,"Code Review","","sk",5018);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5019,"Code Review",5016,3800,4019,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44022,"Code Review","","en",5019);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144048,"Code Review","","de",5019);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144049,"Code Review","","sk",5019);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5020,"Code Review",5017,3800,4020,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44023,"Code Review","","en",5020);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144050,"Code Review","","de",5020);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144051,"Code Review","","sk",5020);
 
 
 /**** Zeile Korrektur Code***/
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5021,"Code Correction",5018,3800,4021,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44024,"Code Correction","","en",5021);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144052,"Code Correction","","de",5021);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144053,"Code Correction","","sk",5021);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5022,"Code Correction",5019,3800,4022,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44025,"Code Correction","","en",5022);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144054,"Code Correction","","de",5022);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144055,"Code Correction","","sk",5022);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5023,"Code Correction",5020,3800,4023,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44026,"Code Correction","","en",5023);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144056,"Code Correction","","de",5023);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144057,"Code Correction","","sk",5023);
 
 /**** Zeile Reveiw Manuals ***/
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5024,"Manual Review",5021,3800,4024,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44027,"Manual Review","","en",5024);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144058,"Manual Review","","de",5024);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144059,"Manual Review","","sk",5024);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5025,"Manual Review",5022,3800,4025,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44028,"Manual Review","","en",5025);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144060,"Manual Review","","de",5025);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144061,"Manual Review","","sk",5025);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5026,"Manual Review",5023,3800,4026,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44029,"Manual Review","","en",5026);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144062,"Manual Review","","de",5026);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144063,"Manual Review","","sk",5026);
 
 /** Zeile korrektur manual ***/
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5027,"Manual Correction",5024,3800,4027,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44030,"Manual Correction","","en",5027);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144064,"Manual Correction","","de",5027);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144065,"Manual Correction","","sk",5027);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5028,"Manual Correction",5025,3800,4028,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44031,"Manual Correction","","en",5028);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144066,"Manual Correction","","de",5028);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144067,"Manual Correction","","sk",5028);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (5029,"Manual Correction",5026,3800,4029,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (44032,"Manual Correction","","en",5029);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144068,"Manual Correction","","de",5029);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (144069,"Manual Correction","","sk",5029);
 
 
 
@@ -393,7 +550,7 @@ VALUES (1200,"Performance","en",400);
 
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (1201,"Performanz","de",400);
-
+/* daÚo */
 INSERT INTO aid_desc_lang(did,description,language,aiddid)
 VALUES (5201,"Naplnenie","sk",400);
 
@@ -1287,6 +1444,9 @@ INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1216,"Module d
 /* maier */
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1217,"Module design and coding","de",408);
 
+/* daÚo */
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5217,"Module design and coding","sk",408);
+
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3108,"Module design and coding",1,"G",NULL,408);
 
 INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (816,"Module design and coding","
@@ -1312,6 +1472,20 @@ Diese Graphik zeigt den/die Autor(en) von Dokumenten und die Mitglieder der Modu
 Erkl‰rung/Empfehlungen:
 Je mehr das Projekt dem Wasserfallmodell folgt, desto eher basieren nachfolgende Phasen auf getesteten und finalisierten Zwischenprodukten fr¸herer Phasen. Das ‹berlappen von Phasen spart Zeit, was aber auch zu mehr Aufwand f¸hrt, um die Konsistenz zwischen den verschiedenen Zwischenprodukten sicherzustellen.",
 "Specification and design","Date","Phase","de",3108);
+
+/* daÚo */
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (8016,"Module design and coding","
+Legenda:
+MD ... n·vrh modulov (zaËiatok-koniec, autor(i)), MDRev ... posudzovanie n·vrhu modulov (zaËiatok-koniec, autor(i)), MDCorr ... opravy n·vrhu modulov (zaËiatok-koniec, autor(i)).
+CD ... implement·cia (zaËiatok-koniec, autor(i)),  CDRev ... posudzovanie kÛdu (zaËiatok-koniec, autor(i)), CDCorr ... opravy kÛdu (zaËiatok-koniec, autor(i)).
+Rozhodnutia a prÌkazy manaûÈra projektu, ktorÈ neviedli ku ûiadnej aktivite s˙ oznaËenÈ Ëiernym trojuholnÌkom.
+
+Popis:
+Tento diagram vizualizuje autorov dokumentov a Ëlenov tÌmu vykon·vaj˙cich n·vrh alebo implement·ciu modulov.
+
+Vysvetlenie/Odpor˙Ëania:
+»Ìm viac sa projekt drûÌ vodop·dovÈho modelu, t˝m viac je cÌtiù, ûe f·zy, ktorÈ nasleduj˙, s˙ zaloûenÈ na otestovan˝ch a sfinalizovan˝ch artefaktoch predch·dzaj˙cich f·z. Akokoævek, s cieæom uöetriù Ëas je moûnÈ prekr˝vaù f·zy, Ëo znamen·, ûe je potrebnÈ ˙silie na zaistenie konzistencie medzi artefaktmi.",
+"Specification and design","Date","Phase","sk",3108);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3164,"root",NULL,3108,null,NULL);
 
@@ -1622,6 +1796,15 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43025,"Module design","MD","de",3170);
 /* */
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143020,"Code corrections","CDCorr","sk",3165);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143021,"Code review","CDRev","sk",3166);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143022,"Code","CD","sk",3167);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143023,"Module design corrections","MDCorr","sk",3168);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143024,"Module design review","MDRev","sk",3169);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143025,"Module design","MD","sk",3170);
+/* */
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3171,"Code corrections",3165,3108,2870,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3172,"Code review",3166,3108,2869,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3173,"Code",3167,3108,2868,NULL);
@@ -1645,6 +1828,14 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43031,"Module design","CDCorr","de",3176);
 /* */
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143026,"Code corrections","MD","sk",3171);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143027,"Code review","MDRev","sk",3172);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143028,"Code","MDCorr","sk",3173);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143029,"Module design corrections","CD","sk",3174);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143030,"Module design review","CDRev","sk",3175);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143031,"Module design","CDCorr","sk",3176);
+/* */
 
 /**********************************/
 /*  MONITORING   */
@@ -1657,6 +1848,9 @@ INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1218,"Monitori
 
 /* maier */
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1219,"Monitoring","de",409);
+
+/* daÚo */
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5219,"Monitoring","sk",409);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3004,"Monitoring",1,"G",NULL,409);
 INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (765,"Monitoring","
@@ -1680,6 +1874,17 @@ Erkl‰rung/Empfehlungen:
 Kontrolle ist eine wesentliche Aktivit‰t in einem guten Projektmanagement. Zu viele gesetzte Kontrollaktivit‰ten kˆnnen aber auch als Verlust der Kontrolle ¸ber den Projektverlauf interpretiert werden.",
 "Inspection","Date","Type","de",3004);
 
+/* daÚo */
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (7065,"Monitoring","
+Legenda:
+AI ... monitorovanie (d·tum). Rozhodnutia projektovho manaûÈra a prÌkazy neved˙ce k v˝sledkom s˙ oznaËenÈ mal˝m Ëiernym trojuholnÌkom.
+
+Popis:
+Tento diagram vizualizuje vöetky monitorovacie aktivity poËas projektu.
+
+Vysvetlenie/Odpor˙Ëania:
+Monitorovacie aktivity s˙ ûivotne dÙleûitÈ pre dobr˝ manaûment projektu. Akokoævek, prÌliö veæa monitorovania mÙûe byù tieû vnÌmanÈ ako strata kontroly nad projektom.",
+"Inspection","Date","Type","sk",3004);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3033,"root",NULL,3004,null,NULL);
 
@@ -1730,6 +1935,16 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43038,"Resources","RI","de",3495);
 /* */
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143032,"Specification","SP","sk",3034);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143033,"Design","DS","sk",3035);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143034,"Module design","MD","sk",3036);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143035,"Code","CD","sk",3037);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143036,"Documentation","DC","sk",3038);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143037,"Activity","AI","sk",3039);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143038,"Resources","RI","sk",3495);
+/* */
+
 /**********************************/
 /*  Number of errors per AFP     */
 /**********************************/
@@ -1739,6 +1954,7 @@ INSERT INTO aid_description(aiddid,description,detail,kaidid,mid) VALUES(410,"Nu
 
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1220,"Number of Errors per AFP","en",410);
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1221,"Number of Errors per AFP","de",410);
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5221,"PoËet ch˝b na AFP","sk",410);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3109,"Number of Errors per AFP",1,"V",NULL,410);
 INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (818,"Number of Errors per AFP","
@@ -1760,6 +1976,16 @@ Dieses Diagramm faﬂt die Restfehler im Dokument im Verh‰ltnis zu den AFPs zusamm
 Erkl‰rung/Empfehlungen:
 Nicht vorhanden.",
 "Documents quality","Docs","Errors/AFP","de",3109);
+
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (8018,"PoËet ch˝b na AFP","
+Legenda:
+S ... chyby v öpecifik·cii (na AFP), SD ... chyby v n·vrhu systÈmu (na AFP), MD ... chyby v n·vrhu modulov (na AFP), C ... chyby v kÛde (na AFP), M ... chyby v manu·loch/dokument·cii (na AFP).
+
+Popis:
+Tento diagram sumarizuje ost·vaj˙ce chyby vo vzùahu k AFPs v dokuumente/dokumentoch. (Hodnoty: *)
+
+Vysvetlenie/Odpor˙Ëania:
+éiadne.","Documents quality","Docs","Errors/AFP","sk",3109);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (2871,"Specification err.",
 'select distinct "SPEC ERR" as description, s_entity.value
@@ -1864,6 +2090,13 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42113,"Code","C","de",3180);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42114,"Dokumentation","M","de",3181);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (142110,"Spezifikation","S","sk",3177);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (142111,"Design","SD","sk",3178);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (142112,"Moduldesign","MD","sk",3179);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (142113,"Code","C","sk",3180);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (142114,"Dokumentation","M","sk",3181);
+
 /**********************************/
 /*   Review efficiency    */
 /**********************************/
@@ -1873,6 +2106,7 @@ INSERT INTO aid_description(aiddid,description,detail,kaidid,mid) VALUES(411,"Re
 
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1222,"Review efficiency","en",411);
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1223,"Review efficiency","de",411);
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1223,"Efektivita posudzovania","sk",411);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3110,"Review efficiency",1,"V",NULL,411);
 INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (820,"Review efficiency","Description:
@@ -1886,6 +2120,12 @@ Diese Graphik zeigt den Aufwand (in Stunden) zum Schreiben, Reviewen und Korrigi
 
 Erkl‰rung/Empfehlung:
 Nicht vorhanden.","Review efficiency","Phase","Effort","de",3110);
+
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (8020,"Efektivita posudzovania","Popis:
+Tento diagram predstavuje snahu (v hodin·ch) potrebnp na napÌsanie, pos˙denie a opravuj rÙznych druhov dokumentov. (Hodnoty: *)
+
+Vysvetlenie/Odpor˙Ëania:
+éiadne.","Efektivita posudzovania","Phase","Effort","sk",3110);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (2876,"Specification",
 'select distinct "spec aufwand" as description, s_entity.value
@@ -2192,6 +2432,22 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (52223,"Man. Korr.","MK","de",3195);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (52224,"Man. Feh.","MF","de",3196);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (52210,"Spez","SP","sk",3182);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (52211,"Spez. Korr.","SK","sk",3183);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (52212,"Spez. Feh.","SF","sk",3184);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (52213,"Design","D","sk",3185);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (52214,"Des. Korr.","DK","sk",3186);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (52215,"Des. Feh.","DF","sk",3187);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (52216,"MSpez","MD","sk",3188);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (52217,"MSpez. Korr.","MK","sk",3189);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (52218,"MSpez. Feh.","MF","sk",3190);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (52219,"Code","CD","sk",3191);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (52220,"Code Korr.","CK","sk",3192);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (52221,"Code Feh.","CF","sk",3193);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (52222,"Manual","MN","sk",3194);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (52223,"Man. Korr.","MK","sk",3195);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (52224,"Man. Feh.","MF","sk",3196);
 
 /**********************************/
 /*  Test efficiency    */
@@ -2202,6 +2458,8 @@ INSERT INTO aid_description(aiddid,description,detail,kaidid,mid) VALUES(412,"Te
 
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1224,"Test efficiency","en",412);
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1225,"Test efficiency","de",412);
+/* daÚo */
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5225,"Efektivita testovania","sk",412);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3111,"Test efficiency",1,"V",NULL,412);
 INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (822,"Test efficiency","Description:
@@ -2217,6 +2475,13 @@ Diese Graphik zeigt den Aufwand (in Stunden) zum Testen und Korrigieren des Code
 Erkl‰rung/Empfehlung:
 Nicht vorhanden.",
 "Test efficiency","Phase","Effort","de",3111);
+
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (8022,"Efektivita testovania","Popis:
+Tento diagram vizualizuje snahu (v hodin·ch) potrebn˙ na otestovanie a opravu kÛdu. (Hodnoty: *)
+
+Vysvetlenie/Odpor˙Ëania:
+éiadne.",
+"Efektivita testovania","Phase","Effort","sk",3111);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (2891,"Module test",
 '
@@ -2462,6 +2727,19 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (62135,"Atest Korr.","AK","de",3207);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (62136,"Atest Feh.","AF","de",3208);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (62125,"Modultests","MT","sk",3197);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (62126,"Mtest Korr.","MK","sk",3198);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (62127,"Mtest Feh.","MF","sk",3199);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (62128,"Integrationstest","IT","sk",3200);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (62129,"Itest Korr.","IK","sk",3201);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (62130,"Itest Feh.","IF","sk",3202);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (62131,"Systemtest","ST","sk",3203);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (62132,"Stest Korr.","SK","sk",3204);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (62133,"Stest Feh.","SF","sk",3205);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (62134,"Akzeptanztest","AT","sk",3206);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (62135,"Atest Korr.","AK","sk",3207);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (62136,"Atest Feh.","AF","sk",3208);
 
 
 /**********************************/
@@ -2474,6 +2752,9 @@ INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1240,"Phases a
 
 /* maier */
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1241,"Phases and Milestones",'de',420);
+
+/* daÚo */
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5241,"F·zy a mÌæniky",'sk',420);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3119,"Phases and Milestones",1,"G",NULL,420);
 
@@ -2500,11 +2781,27 @@ Erkl‰rung/Empfehlungen:
 Je mehr das Projekt dem Wasserfallmodell folgt, desto eher basieren nachfolgende Phasen auf getesteten und finalisierten Zwischenprodukten fr¸herer Phasen. Das ‹berlappen von Phasen spart Zeit, was aber auch zu mehr Aufwand f¸hrt, um die Konsistenz zwischen den verschiedenen Zwischenprodukten sicherzustellen.",
 "","Date","Phase",'de',3119);
 
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (8039,"F·zy a mÌæniky","
+Legenda:
+SP ... f·za öpecifik·cie (zaËiatok-koniec), SD ... f·za n·vrhu systÈmu (zaËiatok-koniec), MD ...f·za n·vrhu modulov (zaËiatok-koniec), CD ... f·za programovania (zaËiatok-koniec), MN ... prÌprava manu·lov a dokument·cie (zaËiatok-koniec), IN ... f·za integr·cie (zaËiatok-koniec).
+
+Rozhodnutia projektovÈho manaûÈra a prÌkazy neved˙ce k aktivit·m s˙ oznaËenÈ mal˝m Ëiernym trojuholnÌkom.
+
+Popis:
+Tento Gantt diagram vizualizuje sekvenciu hlavn˝ch f·z projektu. Vöimnite si, prosÌm, ûe testy a posudzovania nie s˙ zahrnutÈ v tomto diagrame.
+
+Vysvetlenie/Odpor˙Ëania:
+»Ìm viac sa projekt drûÌ vodop·dovÈho modelu, t˝m viac je cÌtiù, ûe f·zy, ktorÈ nasleduj˙, s˙ zaloûenÈ na otestovan˝ch a sfinalizovan˝ch artefaktoch predch·dzaj˙cich f·z. Akokoævek, s cieæom uöetriù Ëas je moûnÈ prekr˝vaù f·zy, Ëo znamen·, ûe je potrebnÈ ˙silie na zaistenie konzistencie medzi artefaktmi.",
+"","Date","Phase",'sk',3119);
+
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3411,"root",NULL,3119,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42528,"root",null,'en',3411);
 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43039,"root",null,'de',3411);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143039,"root",null,'sk',3411);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (3062,"Specification",
 'select distinct "SPECIFICATION" as description, max(s_entity.value) as date
@@ -2727,6 +3024,14 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43044,"Specification","SP",'de',3561);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43045,"System design","SD",'de',3417);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143040,"Integration","IN",'sk',3413);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143041,"Manual","MN",'sk',3414);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143042,"Code","CD",'sk',3415);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143043,"Module design","MD",'sk',3416);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143044,"Specification","SP",'sk',3561);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143045,"System design","SD",'sk',3417);
+
 
 
 
@@ -2738,6 +3043,7 @@ INSERT INTO aid_description(aiddid,description,detail,kaidid,mid) VALUES(429,"Em
 
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1258,"Employee diagram",'en',429);
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1259,"Employee diagram","de",429);
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5259,"Diagram zamestnancov","sk",429);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3128,"Employee diagram",1,"G",NULL,429);
 INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (856,"Employee diagram","
@@ -2762,6 +3068,19 @@ Erkl‰rung/Empfehlungen:
 Der richtige Einsatz der Angestellten (Entwickler) ist ausschlaggebend f¸r den Projekterfolg. Ein guter Projektmanager stellt sicher, daﬂ jeder Angestellte Aufgaben zu erf¸llen hat und daﬂ es nicht zu viele Leerzeiten gibt. Kleine L¸cken (Leerzeiten) sind normal, aber zu viele f¸hren zu einem Ansteigen der durchschnittlichen Kosten eines Personenmonats.",
 "","Date","Person","de",3128);
 
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (8057,"Diagram zamestnancov","
+Legenda:
+Employed/Zamestnan˝ ... »as, keÔ je zamestnanec na v˝platnej p·ske projektu (zaËiatok-koniec), Busy/Zanepr·zdnen˝ ... »as, keÔ zamestnanec pracuje  na projekte / prispieva k projektu (zaËiatok-koniec).
+Rozhodnutia manaûÈra projektu a prÌkazy, ktorÈ neviedli k ûiadnej aktivite s˙ oznaËenÈ mal˝m Ëiern˝m trojuholnÌkom.
+
+Popis:
+Tento Gantt diagram ukazuje, kedy v˝voj·ri boli najmutÌ alebo doËasne prepusten˝ a keÔ boli zamestnan˝.
+
+Vysvetlenie/Odpor˙Ëania:
+Nasadenie zamestnancov je kæ˙ËovÈ k dosiahnutiu ˙spechu projektu. Dobr˝ projektov˝ manaûÈr sa uisùuje, ûe kaûd˝ zamestnanec m· ˙lohy, ktorÈ plnÌ a nie veæa Ëasu na fl·kanie. Menöie medzery s˙ v poriadku, ale ak ich je prÌliö mnoho, zvyöuj˙ sa priemernÈ n·klady (Ëlovekomesiac).",
+"","Date","Person","sk",3128);
+
+
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (3170,"Employee diagram",
 "SELECT s_relation.tnid, zarmstype.z_type, s_relation.person, s_relation.document,
 s_relation.reference_doc, s_relation.starting_date,
@@ -2774,6 +3093,8 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43046,"Employee diagram","ED","de",3540);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143046,"Diagram zamestnancov","ED","sk",3540);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (3171,"Activity",
 "SELECT s_relation.tnid, zarmstype.z_type, s_relation.person, s_relation.document,
@@ -2790,7 +3111,8 @@ VALUES (42676,"Activity","A","en",3541);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (42677,"Activity","A","de",3541);
 
-
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (142677,"Aktivita","A","sk",3541);
 
 
 /**********************************/
@@ -2802,6 +3124,9 @@ INSERT INTO aid_description(aiddid,description,detail,kaidid,mid) VALUES(432,"Te
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1263,"Test Phases",'en',432);
 /* maier */
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1275,"Test Phases",'de',432);
+
+/* daÚo */
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5275,"F·zy testovania",'sk',432);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3131,"Test Phases",1,"G",NULL,432);
 
@@ -2827,11 +3152,27 @@ Erkl‰rung/Empfehlungen:
 ‹berlappende Tests kˆnnen darauf hinweisen, daﬂ die Tests auf fehlerhaften Zwischenprodukten basieren oder daﬂ zumindest ein Aufwand betrieben werden muss, um diese konsistent zu halten. Fehlende Tests sind der Hauptgrund f¸r schlechte Qualit‰t bei nachfolgenden (und abh‰ngigen) Zwischenprodukten.",
 "","Date","Phase",'de',3131);
 
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (8061,"Test Phases","
+Legenda:
+MT... f·za testovania modulov (zaËiatok-koniec), IT ... f·za testovania integr·cie (zaËiatok-koniec), ST ... f·za testovania systÈmu (zaËiatok-koniec), AT ... akceptaËnÈ testovanie (zaËiatok-koniec).
+Rozhodnutia projektovÈho manaûÈra a prÌkazy neved˙ce k aktivit·m s˙ oznaËenÈ mal˝m Ëiernym trojuholnÌkom.
+
+Popis:
+Tento Gantt diagram vizualizuje sekvenciu aktivÌt testovania poËas projektu.
+
+Vysvetlenie/Odpor˙Ëania:
+Prekr˝vaj˙ce sa testy mÙûu indikovaù, ûe testy vych·dzaj˙ z chybn˝ch artefaktov alebo, ûe aspoÚ nejak· snaha je potrebn· na ich udrûanie v konzistentnom stave. Ch˝baj˙ce testy s˙ hlavn˝m dÙvodom nÌzkej kvality artefaktov, ktorÈ nasleduj˙ (a nadv‰zuj˙).",
+"","Date","Phase",'sk',3131);
+
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3581,"root",NULL,3131,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42718,"root",null,'en',3581);
 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43047,"root",null,'de',3581);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143047,"root",null,'sk',3581);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (2710,"Module tests",
 'select distinct "MTEST" as description, max(s_entity.value) as date
@@ -3015,7 +3356,11 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43050,"Integration test","IT",'de',3584);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43051,"Module test","MT",'de',3585);
 
-
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143048,"Acceptance test","AT",'sk',3582);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143049,"System test","ST",'sk',3583);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143050,"Integration test","IT",'sk',3584);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143051,"Module test","MT",'sk',3585);
 
 
 /**********************************/
@@ -3028,6 +3373,9 @@ INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1226,"Goal ach
 
 /* maier */
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1227,"Goal achievement","de",413);
+
+/* daÚo */
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5227,"Dosiahnutie cieæov","sk",413);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3112,"Goal achievement",0,"T",NULL,413);
 INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (824,"Goal achievement","
@@ -3053,17 +3401,36 @@ zusammen.
 Erkl‰rung/Empfehlungen:
 Zielerreichung ist ein Muss f¸r jeden Projektmanager. Jedoch kˆnnen in einigen Situationen kleine Abweichungen durch den Kunden annehmbar sein. In Abschnitt 8 ist feststellbar, ob aufgrund des Kundenfeedback der Kunde das Endprodukt schlieﬂlich annimmt oder nicht.","",null,null,"de",3112);
 
+/* daÚo */
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (8024,"Dosiahnutie cieæov","
+Legenda:
+Duration ... trvanie projektu (v dÚoch), Costs ... n·klady na projekt (v EUR), C(%) ... AFPs zahrnut˝ch v kÛde (v percent·ch), #E/KLOC ... poËet ch˝b (na 1000 riadkov kÛdu), Man(%) ... AFPs zahrnut˝ch v pouûÌvateæsk˝ch prÌruËkach (v percent·ch), #E/Page ... poËet ch˝b (na jednu stranu pouûÌvateæskej prÌruËky).
+
+Popis:
+T·to tabuæka sumarizuje dosiahnutie cieæov (GA) jednej simul·cie. Riadok 'Results' sumarizuje aktu·lne v˝sledky, riadok 'Goals' sumarizuje hodnoty, ktorÈ poûaduje z·kaznÌk.
+
+Vysvetlenie/Odpor˙Ëania:
+Dosiahnutie cieæov je nevyhnutnosùou pre kaûdÈho projektovÈho manaûÈra. Akokoævek, v niektor˝ch situ·ci·ch mÙûu byù menöie odch˝lky z·kaznÌkom akceptovanÈ. Mali by ste sa pozrieù na sekciu 8, kde V·m z·kaznÌkova sp‰tn· v‰zba povie, Ëi je v˝sledn˝ produkt akceptovan˝ alebo nie.",
+"",null,null,"sk",3112);
+
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3209,"root",NULL,3112,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42137,"root",null,"en",3209);
 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43052,"root",null,"de",3209);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143052,"root",null,"sk",3209);
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3210,"",3209,3112,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42138,"","GA","en",3210);
 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43053,"","GA","de",3210);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143053,"","GA","sk",3210);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3211,"Duration",3210,3112,null,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3212,"Costs",3210,3112,null,NULL);
@@ -3086,6 +3453,14 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43057,"#E/KLOC","FC","de",3214);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43058,"Man(%)","AFPM","de",3215);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43059,"#E/Page","FM","de",3216);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143054,"Duration","LE","sk",3211);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143055,"Costs","CO","sk",3212);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143056,"C(%)","AFPC","sk",3213);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143057,"#E/KLOC","FC","sk",3214);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143058,"Man(%)","AFPM","sk",3215);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143059,"#E/Page","FM","sk",3216);
 
 /* 21.08.07 turn? */
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (2903," ",
@@ -3211,6 +3586,15 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43065,"Results","PO","de",3222);
 /* */
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143060,"Results","","sk",3217);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143061,"Results","PO","sk",3218);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143062,"Results","PO","sk",3219);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143063,"Results","PO","sk",3220);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143064,"Results","PO","sk",3221);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143065,"Results","PO","sk",3222);
+/* */
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3544,"Goals",3217,3112,3176,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3545,"Goals",3218,3112,3177,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3546,"Goals",3219,3112,3178,NULL);
@@ -3234,6 +3618,14 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43071,"Goals","OBJ","de",3549);
 /* */
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143066,"Goals","OBJ","sk",3544);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143067,"Goals","OBJ","sk",3545);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143068,"Goals","OBJ","sk",3546);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143069,"Goals","OBJ","sk",3547);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143070,"Goals","OBJ","sk",3548);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143071,"Goals","OBJ","sk",3549);
+/* */
 
 
 /**********************************/
@@ -3244,6 +3636,7 @@ INSERT INTO aid_description(aiddid,description,detail,kaidid,mid) VALUES(414,"To
 
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1228,"Total costs","en",414);
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1229,"Total costs","de",414);
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5229,"CelkovÈ n·klady","sk",414);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3113,"Total costs",0,"T",NULL,414);
 INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (826,"Total costs","
@@ -3266,17 +3659,34 @@ Erkl‰rung/Empfehlungen:
 F¸r ein kleines/mittelgroﬂes Projekt dieser Art weisen Werte nahe (oder unter) 10.000 EUR auf einen ziemlich guten Einsatz der Arbeitskraft hin. Werte grˆsser als 10.000 EUR zeigen an, daﬂ es zu viel Leerzeiten gegeben hat. F¸r eine ausf¸hrliche Analyse betrachte man Abschnitt 4 (Personaleinsatzzeit) genauer.",
 "",null,null,"de",3113);
 
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (8026,"CelkovÈ n·klady","
+Legenda:
+Total costs ... n·klady na projekt (v EUR), Total effort ... pracovnÈ ˙silie (v Ëlovekomesiacoch), Costs per PM ... priemern˝ n·klad na 1 Ëlovekomesiac pre projekt (v EUR).
+
+Popis:
+PriemernÈ n·klady na Ëlovekomesiac s˙ vypoËÌtanÈ len na z·klade Ëasu, kedy s˙ zamestnanci ËinnÌ (celkovÈ ˙silie). CelkovÈ n·klady podelenÈ celkov˝m ˙silÌm potom vedie k priemernej hodnote n·kladov na jeden Ëlovekomesiac pre projekt.
+
+Vysvetlenie/Odpor˙Ëania:
+V prÌpade mal˝ch/stredn˝ch projektov tohoto typu s˙ hodnoty blÌzke (alebo niûöie neû) 10.000 EUR znakom celkom dobrej pracovnej sily. Hodnoty vyööie neû 10.000 EUR indikuj˙, ûe bolo prÌtomn˝ch prÌliö veæa obdobÌ bez pr·ce. Pre detailnejöiu anal˝zu by ste sa mali pozrieù na sekciu 4 (»as nasadenia).
+","",null,null,"sk",3113);
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3223,"root",NULL,3113,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42331,"root",null,"en",3223);
 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43072,"root",null,"de",3223);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143072,"root",null,"sk",3223);
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3224,"Costs",3223,3113,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42332,"Costs","TC","en",3224);
 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43073,"Costs","TC","de",3224);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143073,"Costs","TC","sk",3224);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3225,"Total costs",3224,3113,null,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3226,"Total effort",3224,3113,null,NULL);
@@ -3290,6 +3700,11 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43074,"Total costs","TC","de",3225);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43075,"Total effort","TE","de",3226);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43076,"Costs per PM","CPMM","de",3227);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143074,"Total costs","TC","sk",3225);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143075,"Total effort","TE","sk",3226);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143076,"Costs per PM","CPMM","sk",3227);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (2909," ",
 'select  max(cast(s_entity.value as signed)) as value
@@ -3368,6 +3783,10 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43078," ","TC","de",3229);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43079," ","TC","de",3230);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143077," ","TC","sk",3228);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143078," ","TC","sk",3229);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143079," ","TC","sk",3230);
 
 
 
@@ -3379,6 +3798,7 @@ INSERT INTO aid_description(aiddid,description,detail,kaidid,mid) VALUES(415,"Er
 
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1230,"Errors found during reviews","en",415);
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1231,"Errors found during reviews","de",415);
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5231,"Errors found during reviews","sk",415);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3114,"Errors found during reviews",0,"T",NULL,415);
 INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (828,"Errors found during reviews","Legend:
@@ -3399,17 +3819,33 @@ Erkl‰rung/Empfehlungen:
 Abh‰ngig von der Qualifikation des Reviewteams und der Anzahl angesetzter Reviews kˆnnen mehr Fehler gefunden (und sp‰ter korrigiert) werden. Typischerweise werden w‰hrend eines zweiten Reviews weniger Fehler gefunden.",
 "",null,null,"de",3114);
 
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (8028,"Errors found during reviews","Legend:
+Phase ... rÙzne f·zy projektu, Rev. 1 ... poËet ch˝b n·jden˝ch poËas prvÈho posudzovania, Rev. 2 ... poËet ch˝b n·jden˝ch poËas druhÈho posudzovania, Rev. 3 ... poËet ch˝b n·jden˝ch poËas tretieho posudzovania, Total ... Celkov˝ poËet ch˝b n·jden˝ch poËas rÙznych posudkoch.
+
+Popis:
+T·to tabuæka sumarizuje efektivitu (v zmysle poËtu n·jden˝ch ch˝b) niekoæk˝ch posudk·rskych sedenÌ s ohæadom na rÙzne dokumenty.
+
+Vysvetlenie/Odpor˙Ëania:
+V z·vislosti od kvalifik·cie posudzuj˙ceho tÌmu a poËtu vykonan˝ch posudkov v‰ËöÌ poËet ch˝b je odhalen˝ (a neskÙr opraven˝ch). Typicky, poËas druhÈho posudzovania je objaven˝ch menej ch˝b.",
+"",null,null,"sk",3114);
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3231,"root",NULL,3114,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42339,"root",null,"en",3231);
 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43080,"root",null,"de",3231);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143080,"root",null,"sk",3231);
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3232,"Errors found",3231,3114,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42340,"Errors found","Phase","en",3232);
 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43081,"Errors found","Phase","de",3232);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143081,"Errors found","Phase","sk",3232);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3233,"Rev. 1",3232,3114,null,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3234,"Rev. 2",3232,3114,null,NULL);
@@ -3426,6 +3862,12 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43083,"Rev. 2","E2","de",3234);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43084,"Rev. 3","E3","de",3235);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43085,"Total","TE","de",3237);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143082,"Rev. 1","E1","sk",3233);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143083,"Rev. 2","E2","sk",3234);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143084,"Rev. 3","E3","sk",3235);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143085,"Total","TE","sk",3237);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (2912," ",
 'select distinct max(cast(s_entity.value as signed)) as value
@@ -4103,6 +4545,12 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43088,"Spec. rev.","TC","de",3240);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43089,"Spec. rev.","TC","de",3242);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143086,"Spec. rev.","TC","sk",3238);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143087,"Spec. rev.","TC","sk",3239);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143088,"Spec. rev.","TC","sk",3240);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143089,"Spec. rev.","TC","sk",3242);
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3243,"Spec. cor.",3238,3114,2917,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3244,"Spec. cor.",3239,3114,2918,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3245,"Spec. cor.",3240,3114,2919,NULL);
@@ -4118,6 +4566,12 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43091,"Spec. cor.","TC","de",3244);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43092,"Spec. cor.","TC","de",3245);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43093,"Spec. cor.","TC","de",3247);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143090,"Spec. cor.","TC","sk",3243);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143091,"Spec. cor.","TC","sk",3244);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143092,"Spec. cor.","TC","sk",3245);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143093,"Spec. cor.","TC","sk",3247);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3248,"SD rev.",3243,3114,2922,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3249,"SD rev.",3244,3114,2923,NULL);
@@ -4135,6 +4589,12 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43096,"SD rev.","TC","de",3250);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43097,"SD rev.","TC","de",3252);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143094,"SD rev.","TC","sk",3248);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143095,"SD rev.","TC","sk",3249);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143096,"SD rev.","TC","sk",3250);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143097,"SD rev.","TC","sk",3252);
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3253,"SD corr.",3248,3114,2927,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3254,"SD corr.",3249,3114,2928,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3255,"SD corr.",3250,3114,2929,NULL);
@@ -4150,6 +4610,12 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43099,"SD corr.","TC","de",3254);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43100,"SD corr.","TC","de",3255);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43101,"SD corr.","TC","de",3257);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143098,"SD corr.","TC","sk",3253);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143099,"SD corr.","TC","sk",3254);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143100,"SD corr.","TC","sk",3255);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143101,"SD corr.","TC","sk",3257);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3258,"MD rev.",3253,3114,2932,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3259,"MD rev.",3254,3114,2933,NULL);
@@ -4167,6 +4633,12 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43104,"MD rev.","TC","de",3260);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43105,"MD rev.","TC","de",3262);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143102,"MD rev.","TC","sk",3258);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143103,"MD rev.","TC","sk",3259);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143104,"MD rev.","TC","sk",3260);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143105,"MD rev.","TC","sk",3262);
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3263,"MD corr.",3258,3114,2937,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3264,"MD corr.",3259,3114,2938,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3265,"MD corr.",3260,3114,2939,NULL);
@@ -4182,6 +4654,12 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43107,"MD corr.","TC","de",3264);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43108,"MD corr.","TC","de",3265);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43109,"MD corr.","TC","de",3267);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143106,"MD corr.","TC","sk",3263);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143107,"MD corr.","TC","sk",3264);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143108,"MD corr.","TC","sk",3265);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143109,"MD corr.","TC","sk",3267);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3268,"Code rev.",3263,3114,2942,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3269,"Code rev.",3264,3114,2943,NULL);
@@ -4199,6 +4677,12 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43112,"Code rev.","TC","de",3270);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43113,"Code rev.","TC","de",3272);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143110,"Code rev.","TC","sk",3268);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143111,"Code rev.","TC","sk",3269);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143112,"Code rev.","TC","sk",3270);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143113,"Code rev.","TC","sk",3272);
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3273,"Code corr.",3268,3114,2947,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3274,"Code corr.",3269,3114,2948,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3275,"Code corr.",3270,3114,2949,NULL);
@@ -4214,6 +4698,12 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43115,"Code corr.","TC","de",3274);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43116,"Code corr.","TC","de",3275);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43117,"Code corr.","TC","de",3277);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143114,"Code corr.","TC","sk",3273);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143115,"Code corr.","TC","sk",3274);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143116,"Code corr.","TC","sk",3275);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143117,"Code corr.","TC","sk",3277);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3278,"MN rev.",3273,3114,2952,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3279,"MN rev.",3274,3114,2953,NULL);
@@ -4231,6 +4721,12 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43120,"MN rev.","TC","de",3280);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43121,"MN rev.","TC","de",3282);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143118,"MN rev.","TC","sk",3278);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143119,"MN rev.","TC","sk",3279);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143120,"MN rev.","TC","sk",3280);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143121,"MN rev.","TC","sk",3282);
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3283,"MN corr.",3278,3114,2957,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3284,"MN corr.",3279,3114,2958,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3285,"MN corr.",3280,3114,2959,NULL);
@@ -4241,11 +4737,17 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42393,"MN corr.","TC","en",3285);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42395,"MN corr.","TC","en",3287);
 
-/* maier */
-INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43122,"MN corr.","TC","en",3283);
-INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43123,"MN corr.","TC","en",3284);
-INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43124,"MN corr.","TC","en",3285);
-INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43125,"MN corr.","TC","en",3287);
+/* maier, fixed by daÚo: en->de */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43122,"MN corr.","TC","de",3283);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43123,"MN corr.","TC","de",3284);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43124,"MN corr.","TC","de",3285);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43125,"MN corr.","TC","de",3287);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143122,"MN corr.","TC","sk",3283);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143123,"MN corr.","TC","sk",3284);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143124,"MN corr.","TC","sk",3285);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143125,"MN corr.","TC","sk",3287);
 
 
 
@@ -4257,6 +4759,7 @@ INSERT INTO aid_description(aiddid,description,detail,kaidid,mid) VALUES(416,"Er
 
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1232,"Errors found during tests","en",416);
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1233,"Errors found during tests","de",416);
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5233,"Chyby n·jdenÈ poËas testovania","sk",416);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3115,"Errors found during tests",0,"T",NULL,416);
 INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (830,"Errors found during tests","Legend:
@@ -4267,6 +4770,7 @@ This table summarizes the efficiency (in terms of numbers of errors found) of th
 
 Explanation/Recommendations:
 Depending on the qualification of the test team and the number of tests conducted more errors can be detected (and later on corrected).","",null,null,"en",3115);
+
 INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (831,"Errors found during tests","Legende:
 Phase ... Unterschiedliche Phasen im Projekt (MT - Modultest, IT - Integrationstest, ST - Systemtest, AT - Abnahmetest ), Test 1 ... gefundene Fehler w‰hrend des ersten Testlaufs, Test 2 ... gefundene Fehler w‰hrend des zweiten Testlaufs, Test 3 ... gefundene Fehler w‰hrend des dritten Testlaufs, Total ... Gesamtanzahl gefundender Fehler in den verschiedenen Testl‰ufen.
 
@@ -4277,17 +4781,31 @@ Erkl‰rung/Empfehlungen:
 Abh‰ngig von der Qualifikation des Testteams und der Anzahl angesetzter Tests kˆnnen mehr Fehler gefunden (und sp‰ter korrigiert) werden.",
 "",null,null,"de",3115);
 
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (8030,"Chyby n·jdenÈ poËas testovania","Legenda:
+Phase ... rÙzne f·zy projektu (MT - test modulov, IT - integraËn˝ test, ST - test systÈmu, AT - akceptaËn˝ test ), Test 1 ... PoËet ch˝b n·jden˝ch pomocou prvÈho spustenia testov, Test 2 ... PoËet ch˝b n·jden˝ch pomocou druhÈho spustenia testov, Test 3 ... PoËet ch˝b n·jden˝ch pomocou tretieho spustenia testov, Total ... Celkov˝ poËet ch˝b n·jden˝ch rÙznymi spusteniami testov.
+
+Popis:
+T·to tabuæka sumarizuje efektivitu (v zmysle poËtu n·jden˝ch ch˝b) testov s ohæadom na rÙzne dokumenty.
+
+Vysvetlenie/Odpor˙Ëania:
+V z·vislosti na kvalifik·cii testuj˙ceho tÌmu a poËte vykonan˝ch testov viac ch˝b mÙûe byù odhalen˝ch (a neskÙr opraven˝ch).",
+"",null,null,"sk",3115);
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3288,"root",NULL,3115,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42396,"root",null,"en",3288);
 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43126,"root",null,"de",3288);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143126,"root",null,"sk",3288);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3289,"Errors found",3288,3115,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42397,"Errors found","Phase","en",3289);
 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43127,"Errors found","Phase","de",3289);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143127,"Errors found","Phase","sk",3289);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3290,"Test 1",3289,3115,null,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3291,"Test 2",3289,3115,null,NULL);
@@ -4304,6 +4822,12 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43129,"Test 2","E2","de",3291);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43130,"Test 3","E3","de",3292);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43131,"Total","TE","de",3294);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143128,"Test 1","E1","sk",3290);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143129,"Test 2","E2","sk",3291);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143130,"Test 3","E3","sk",3292);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143131,"Total","TE","sk",3294);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (2962," ",
 'select distinct max(cast(s_entity.value as signed)) as value
@@ -4954,7 +5478,39 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43162,"AT corr.","TC","de",3331);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43163,"AT corr.","TC","de",3332);
 
-
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143132,"MT","TC","sk",3299);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143133,"MT","TC","sk",3295);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143134,"MT","TC","sk",3296);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143135,"MT","TC","sk",3297);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143136,"MT corr.","TC","sk",3304);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143137,"MT corr.","TC","sk",3300);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143138,"MT corr.","TC","sk",3301);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143139,"MT corr.","TC","sk",3302);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143140,"IT","TC","sk",3309);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143141,"IT","TC","sk",3305);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143142,"IT","TC","sk",3306);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143143,"IT","TC","sk",3307);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143144,"IT corr.","TC","sk",3314);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143145,"IT corr.","TC","sk",3310);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143146,"IT corr.","TC","sk",3311);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143147,"IT corr.","TC","sk",3312);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143148,"ST","TC","sk",3319);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143149,"ST","TC","sk",3315);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143150,"ST","TC","sk",3316);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143151,"ST","TC","sk",3317);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143152,"ST corr.","TC","sk",3324);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143153,"ST corr.","TC","sk",3320);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143154,"ST corr.","TC","sk",3321);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143155,"ST corr.","TC","sk",3322);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143156,"AT","TC","sk",3329);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143157,"AT","TC","sk",3325);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143158,"AT","TC","sk",3326);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143159,"AT","TC","sk",3327);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143160,"AT corr.","TC","sk",3334);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143161,"AT corr.","TC","sk",3330);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143162,"AT corr.","TC","sk",3331);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143163,"AT corr.","TC","sk",3332);
 
 /**********************************/
 /*   Efficiency of Reviews           */
@@ -4963,6 +5519,7 @@ INSERT INTO aid_description(aiddid,description,detail,kaidid,mid) VALUES(417,"Ef
 
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1234,"Efficiency of Reviews","en",417);
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1235,"Efficiency of Reviews","de",417);
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5235,"Efektivita posudzovania","sk",417);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3116,"Efficiency of Reviews",0,"T",NULL,417);
 INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (832,"Efficiency of Reviews","Legend:
@@ -4982,6 +5539,15 @@ Diese Tabelle faﬂt die Effizienz (ausgedr¸ckt in der Anzahl gefundener Fehler) d
 Erkl‰rung/Empfehlungen:
 Nicht vorhanden.",
 "",null,null,"de",3116);
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (8032,"Efektivita posudzovania","Legenda:
+Phase ... RÙzne f·zy projektu, Rev.effort ... Hdiny potrebnÈ na vykonanie posudzovacÌch aktivÌt, Corr.error ... Hodiny potrebnÈ na vykonanie opr·v, #Err ... PoËet ch˝b n·jden˝ch a opraven˝ch v danej f·ze.
+
+Popis:
+T·to tabuæka sumarizuje efektivitu (v zmysle poËtu n·jden˝ch ch˝b) v procese vykon·vania opr·v.
+
+Vysvetlenie/Odpor˙Ëania:
+éiadne.","",null,null,"sk",3116);
+
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3335,"root",NULL,3116,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42452,"root",null,"en",3335);
@@ -4989,11 +5555,17 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43164,"root",null,"de",3335);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143164,"root",null,"sk",3335);
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3336,"Effort and Errors",3335,3116,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42453,"Effort and Errors","Phase","en",3336);
 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43165,"Effort and Errors","Phase","de",3336);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143165,"Snaha a chyby","Phase","sk",3336);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3337,"Rev.effort (h)",3336,3116,null,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3338,"Corr.effort (h)",3336,3116,null,NULL);
@@ -5007,6 +5579,11 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43166,"Rev.effort (h)","E1","de",3337);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43167,"Corr.effort (h)","E2","de",3338);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43168,"#Err","E3","de",3339);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143166,"Rev.effort (h)","E1","sk",3337);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143167,"Corr.effort (h)","E2","sk",3338);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143168,"#Err","E3","sk",3339);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (3002," ",
 'select distinct max(cast(s_entity.value as signed)) as value
@@ -5312,6 +5889,25 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43183,"Manual","TC","de",3354);
 
 
+/* daÚo */
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143169,"Specification","TC","sk",3340);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143170,"Specification","TC","sk",3341);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143171,"Specification","TC","sk",3342);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143172,"System design","TC","sk",3343);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143173,"System design","TC","sk",3344);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143174,"System design","TC","sk",3345);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143175,"Module design","TC","sk",3346);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143176,"Module design","TC","sk",3347);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143177,"Module design","TC","sk",3348);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143178,"Code","TC","sk",3349);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143179,"Code","TC","sk",3350);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143180,"Code","TC","sk",3351);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143181,"Manual","TC","sk",3352);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143182,"Manual","TC","sk",3353);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143183,"Manual","TC","sk",3354);
+
+
 /**********************************/
 /*   Milestones                     */
 /**********************************/
@@ -5321,7 +5917,7 @@ INSERT INTO aid_description(aiddid,description,detail,kaidid,mid) VALUES(419,"Mi
 
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1238,"Milestones","en",419);
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1239,"Milestones","de",419);
-
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5239,"MedznÌky","sk",419);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3118,"Milestones",0,"T",NULL,419);
 INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (836,"Milestones","Legend:
@@ -5341,18 +5937,30 @@ Diese Tabelle faﬂt die wichtigsten Meilensteine bez¸glich des Projekts zusammen.
 Erkl‰rung/Empfehlungen:
 Nicht vorhanden.",
 "",null,null,"de",3118);
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (8036,"MedznÌky","Legenda:
+Phase ... RÙzne mÌæniky s ohæadom na zdroje a f·zy poËas behu projektu, Begin date ... D·tum prvej aktivity t˝kaj˙cej sa danej f·zy, End date ... D·tum poslednej aktivity t˝kaj˙cej sa danej f·zy, Duration ... poËet dnÌ str·ven˝ch v danej f·ze.
+
+Popis:
+T·to tabuæka sumarizuje najpodstatnejöie kæ˙ËovÈ d·tumy t˝kaj˙ce sa projektu. Ilustruje, kedy sa f·za zaËÌna a konËÌ a pon˙ka aj sp‰tn˙ v‰zbu ber˙c do ˙vahy spotrebu rozpoËtu.
+
+Vysvetlenie/Odpor˙Ëania:
+éiadne.","",null,null,"sk",3118);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3387,"root",NULL,3118,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42504,"root",null,"en",3387);
 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43184,"root",null,"de",3387);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143184,"root",null,"sk",3387);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3388,"Milestones",3387,3118,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42505,"Milestones and phases","Phase","en",3388);
 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43185,"Milestones and phases","Phase","de",3388);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143185,"Milestones and phases","Phase","sk",3388);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3389,"Begin date",3388,3118,null,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3390,"End date",3388,3118,null,NULL);
@@ -5366,6 +5974,11 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43186,"Begin date","","de",3389);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43187,"End date","","de",3390);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43188,"Duration","","de",3550);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143186,"Begin date","","sk",3389);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143187,"End date","","sk",3390);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143188,"Duration","","sk",3550);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (3042," ",
 'select min(t.date) as value from turn t, ms_info mi, milestone m, aid_desc_lang l,aid_description a
@@ -5669,6 +6282,39 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43218,"100% Resources","","de",3560);
 
 
+/* daÚo */
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143189,"Specification","SP","sk",3391);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143190,"Specification","SP","sk",3392);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143191,"Specification","SP","sk",3551);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143192,"System design","DE","sk",3393);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143193,"System design","DE","sk",3394);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143194,"System design","DE","sk",3552);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143195,"Module design","","sk",3395);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143196,"Module design","","sk",3396);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143197,"Module design","","sk",3553);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143198,"Code","","sk",3397);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143199,"Code","","sk",3398);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143200,"Code","","sk",3554);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143201,"Manual","","sk",3399);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143202,"Manual","","sk",3400);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143203,"Manual","","sk",3555);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143204,"20% Resources","","sk",3401);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143205,"20% Resources","","sk",3402);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143206,"20% Resources","","sk",3556);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143207,"40% Resources","","sk",3403);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143208,"40% Resources","","sk",3404);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143209,"40% Resources","","sk",3557);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143210,"50% Resources","","sk",3405);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143211,"50% Resources","","sk",3406);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143212,"50% Resources","","sk",3558);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143213,"75% Resources","","sk",3407);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143214,"75% Resources","","sk",3408);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143215,"75% Resources","","sk",3559);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143216,"100% Resources","","sk",3409);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143217,"100% Resources","","sk",3410);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143218,"100% Resources","","sk",3560);
+
 
 /**********************************/
 /*   Customer participation         */
@@ -5678,6 +6324,7 @@ INSERT INTO aid_description(aiddid,description,detail,kaidid,mid) VALUES(425,"Cu
 
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1250,"Customer","en",425);
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1251,"Customer","de",425);
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5251,"Customer","sk",425);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3124,"Customer",0,"T",NULL,425);
 INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (848,"Customer","
@@ -5699,12 +6346,26 @@ Diese Tabelle faﬂt die Kundeneinbindung und -aktivit‰ten w‰hrend des Projekts zu
 Erkl‰rung/Empfehlungen:
 Speziell in fr¸hen Phasen bringt eine Kundeneinbindung brauchbares Feedback. Die Einbeziehung des Kunden in Reviews ist eine gute Idee.",
 "","","","de",3124);
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (8048,"Z·kaznÌk","
+Legenda:
+Analysis ... Zamestnanec navötevuje z·kaznÌka a rozober· anal˝zu dokuemtnu (·no/nie, koæko kr·t), Spec. rev. ... Z·kaznÌk sa podieæa na posudzovanÌ öpecifik·cie (·no/nie, koæko kr·t), Doc. rev. ... Z·kaznÌk sa podieæa na posudzovanÌ dokument·cie/manu·lov (·no/nie, koæko kr·t), Acc. rev. ... Z·kaznÌk vykon·va akceptaËn˝ test (·no/nie, koæko kr·t).
+
+Popis:
+T·to tabuæka sumarizuje zaËlenenie a aktivity z·kaznÌka do projektu.
+
+Vysvetlenie/Odpor˙Ëania:
+Najm‰ v skor˝ch f·zach projektu vie z·kaznÌk zabezpeËiù opodstatnen˙ sp‰tn˙ v‰zbu. Jeho zaËlenenie do posudzovanie je dobr˝m n·padom.",
+"","","","sk",3124);
+
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3481,"root",NULL,3124,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42599,"root",null,'en',3481);
 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43219,"root",null,'de',3481);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143219,"root",null,'sk',3481);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (3121,"Analysis",
 'select ifnull((select distinct "true" as value from turn where gid = %game and command like "%poziadaj%hovor%zakaznikom%" and LOCATE(path,"%path")=1),"false") as value;',null);
@@ -5777,6 +6438,19 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43229,"Acc. test","",'de',3490);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43230,"Acc. test","",'de',3491);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143220,"Customer participation","",'sk',3492);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143221,"Took place?","",'sk',3482);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143222,"Number","",'sk',3483);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143223,"Analysis","",'sk',3484);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143224,"Analysis","",'sk',3485);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143225,"Spec. rev.","",'sk',3486);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143226,"Spec. rev.","",'sk',3487);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143227,"Doc. rev.","",'sk',3488);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143228,"Doc. rev.","",'sk',3489);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143229,"Acc. test","",'sk',3490);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143230,"Acc. test","",'sk',3491);
+
 /**********************************/
 /*   Test information                     */
 /**********************************/
@@ -5786,6 +6460,7 @@ INSERT INTO aid_description(aiddid,description,detail,kaidid,mid) VALUES(427,"Te
 
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1254,"Tests info",'en',427);
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1255,"Tests info","de",427);
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5255,"Info o testoch","sk",427);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3126,"Tests info",0,"T",NULL,427);
 INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (852,"Tests info","
@@ -5796,7 +6471,8 @@ Description:
 This table summarizes the effort spent on testing activities.
 
 Explanation/Recommendation:
-Tests are essential for preserving the quality of the product. Be sure that all four type of tests were conducted.","","","",'en',3126);
+Tests are essential for preserving the quality of the product. Be sure that all four type of tests were conducted.",
+"","","",'en',3126);
 
 INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (853,"Tests info","Legende:
 Length ... Dauer der Aktivit‰t (in Tagen), Effort ... Aufwand f¸r Aktivit‰t (in Stunden), Corr ... Aufwand f¸r Korrektur (in Stunden), Det. errors ... gefundene Fehler (Gesamtanzahl), Err. in docs ... in Dokumenten verbleibende Fehler, Reviews ... Anzahl Reviews in einem Dokument (Gesamtanzahl), Test ... Anzahl Testaktivit‰ten (Gesamtanzahl).
@@ -5808,17 +6484,32 @@ Erkl‰rung/Empfehlungen:
 Tests sind f¸r die Aufrechterhaltung der Qualit‰t des Produkts entscheidend. Stelle sicher, daﬂ alle vier Testarten durchgef¸hrt wurden.",
 "","","","de",3126);
 
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (8052,"Info o testoch","
+Legenda:
+Length ... Trvanie aktivity (v dÚoch), Effort ... ⁄silie (v hodin·ch), Corr ... Snahy o korekciu (v hodin·ch), Det. errors ... PoËet odhalen˝ch ch˝b (celkovo), Err. in docs ... Ost·vaj˙ce chyby v dokumentoch, Reviews ... poËet posudzovanÌ dokumentu (celkovo), Test ... PoËet testovacÌch aktivÌt (celkovo).
+
+Popis:
+T·to tabuæka sumarizuje ˙silie vynaloûenÈ na testovacie aktivity.
+
+Vysvetlenie/Odpor˙Ëania:
+Testy s˙ z·kladom pre zachovanie kvality produktu. Uistite sa, ûe vöetky ötyri typy testov boli vykonanÈ.",
+"","","","sk",3126);
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3505,"root",NULL,3126,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42634,"root",null,'en',3505);
 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43231,"root",null,'de',3505);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143231,"root",null,'sk',3505);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3506,"Test information",3505,3126,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42635,"Test information","","en",3506);
 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43232,"Test information","","de",3506);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143232,"Test information","","sk",3506);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3507,"Mod. tests",3506,3126,null,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3508,"Sys. tests",3506,3126,null,NULL);
@@ -5835,6 +6526,12 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43234,"Sys. tests","ST","de",3508);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43235,"Int. tests","IT","de",3509);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43236,"Acc. tests","AT","de",3510);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143233,"Mod. tests","MT","sk",3507);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143234,"Sys. tests","ST","sk",3508);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143235,"Int. tests","IT","sk",3509);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143236,"Acc. tests","AT","sk",3510);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (3141,"Length",
 'select distinct datediff(
@@ -6265,6 +6962,27 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43255,"Tests","DE","de",3689);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43256,"Tests","DE","de",3690);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143237,"Length","LE","sk",3511);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143238,"Length","LE","sk",3512);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143239,"Length","LE","sk",3513);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143240,"Length","LE","sk",3514);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143241,"Effort","EF","sk",3515);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143242,"Effort","EF","sk",3516);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143243,"Effort","EF","sk",3517);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143244,"Effort","EF","sk",3518);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143245,"Corr. effort","CE","sk",3519);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143246,"Corr. effort","CE","sk",3520);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143247,"Corr. effort","CE","sk",3521);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143248,"Corr. effort","CE","sk",3522);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143249,"Det. errors","DE","sk",3523);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143250,"Det. errors","DE","sk",3524);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143251,"Det. errors","DE","sk",3525);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143252,"Det. errors","DE","sk",3526);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143253,"Tests","DE","sk",3687);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143254,"Tests","DE","sk",3688);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143255,"Tests","DE","sk",3689);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143256,"Tests","DE","sk",3690);
 
 /**********************************/
 /*   Monitoring                     */
@@ -6276,6 +6994,8 @@ INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1262,"Monitori
 
 /* maier */
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1274,"Monitoring",'de',431);
+/* daÚo */
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5274,"Monitorovanie",'sk',431);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3130,"Monitoring",0,"T",NULL,431);
 INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (876,"Monitoring","Legend:
@@ -6298,11 +7018,23 @@ Erkl‰rung/Empfehlungen:
 Nicht vorhanden."
 ,"","","",'de',3130);
 
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (8076,"Monitorovanie","Legenda:
+Status investigation ... Monitorovacie aktivity s ohæadom na öpecifick˝ produkt alebo dokument (\"Aktivita\" tu sl˙ûi na vyjadrenie monitorovania pracovnej z·ùaûe v˝voj·rov), Number of activities ... PoËet vöetk˝ch aktivÌt.
+
+Popis:
+T·to tabuæka sumarizuje, ako Ëasto sa projektov˝ manaûÈr zaujÌmal o stav dokumentov alebo aktivity v˝voj·rov.
+
+Vysvetlenie/Odpor˙Ëania:
+éiadne.","","","",'sk',3130);
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3580,"root",NULL,3130,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42699,"root",null,'en',3580);
 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43257,"root",null,'de',3580);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143257,"root",null,'sk',3580);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3562,"Monitoring",3580,3130,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42700,"Monitoring","Status investigation","en",3562);
@@ -6310,11 +7042,17 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43258,"Monitoring","Status investigation","de",3562);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143258,"Monitoring","Status investigation","sk",3562);
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3563,"Number of activities",3562,3130,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42701,"Number of activities","","en",3563);
 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43259,"Number of activities","","de",3563);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143259,"Number of activities","","sk",3563);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES
 (2806,'specification inspections',
@@ -6465,6 +7203,24 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43274,"Activity","","de",3578);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43275,"Resources","","de",3579);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143260,"Specification report","","sk",3564);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143261,"System design report","","sk",3565);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143262,"Module design report","","sk",3566);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143263,"Code report","","sk",3567);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143264,"Manual report","","sk",3568);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143265,"Module test report","","sk",3569);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143266,"System test report","","sk",3570);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143267,"Integration test report","","sk",3571);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143268,"Acceptance report","","sk",3572);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143269,"Specification","","sk",3573);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143270,"System design","","sk",3574);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143271,"Module design","","sk",3575);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143272,"Code","","sk",3576);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143273,"Manual","","sk",3577);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143274,"Activity","","sk",3578);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143275,"Resources","","sk",3579);
+
 
 /**********************************/
 /*   Task assignment                        */
@@ -6476,6 +7232,9 @@ INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1264,"Tasks as
 
 /* maier */
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1276,"Tasks assignment",'de',433);
+
+/* daÚo */
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5276,"Priradenie ˙loh",'sk',433);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3132,"Tasks assignment",0,"T",NULL,433);
 INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (865,"Tasks assignment","
@@ -6493,11 +7252,22 @@ Beschreibung:
 Diese Tabelle faﬂt die Angestellten (Entwickler), denen Aufgaben bez¸glich einer bestimmten Phase zugeteilt wurden, zusammen.",
 "","","",'de',3132);
 
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (8065,"Priradenie ˙loh","
+Legenda:
+Phase ... HlavnÈ f·zy projektu, Employees names ... men· zamestnancov, ktorÌ s˙ priradenÌ ˙lohe v danej (öpecifickej) f·ze, Number of employees ... poËet zamestnancov priraden˝ch ˙loh·m s ohæadom na öpecifick˙ f·zu (celkov˝ poËet).
+
+Popis:
+T·to tabuæka sumarizuje zamestnancov (v˝voj·rov) priraden˝ch öpecifick˝m f·zam projektu.","","","",'sk',3132);
+
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3586,"root",NULL,3132,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42723,"root",null,'en',3586);
 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43276,"root",null,'de',3586);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143276,"root",null,'sk',3586);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3587,"Task assignment",3586,3132,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42724,"Task assignment","Phase","en",3587);
@@ -6505,6 +7275,8 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43277,"Task assignment","Phase","de",3587);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143277,"Task assignment","Phase","sk",3587);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3588,"Employees names",3587,3132,null,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3589,"Number of employees",3587,3132,null,NULL);
@@ -7203,6 +7975,50 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43318,"Manual corr.","","de",3628);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43319,"Total (MN)","","de",3629);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143278,"Employees names","","sk",3588);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143279,"Number of employees","","sk",3589);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143280,"Specification","","sk",3590);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143281,"Specification review","","sk",3591);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143282,"Specification corr.","","sk",3592);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143283,"Total (SP)","","sk",3593);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143284,"Specification","","sk",3610);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143285,"Specification review","","sk",3611);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143286,"Specification corr.","","sk",3612);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143287,"Total (SP)","","sk",3613);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143288,"System design","","sk",3594);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143289,"System design review","","sk",3595);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143290,"System design corr.","","sk",3596);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143291,"Total (SD)","","sk",3597);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143292,"System design","","sk",3614);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143293,"System design review","","sk",3615);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143294,"System design corr.","","sk",3616);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143295,"Total (SD)","","sk",3617);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143296,"Module design","","sk",3598);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143297,"Module design review","","sk",3599);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143298,"Module design corr.","","sk",3600);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143299,"Total (MD)","","sk",3601);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143300,"Module design","","sk",3618);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143301,"Module design review","","sk",3619);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143302,"Module design corr.","","sk",3620);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143303,"Total (MD)","","sk",3621);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143304,"Code","","sk",3602);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143305,"Code review","","sk",3603);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143306,"Code corr.","","sk",3604);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143307,"Total (CD)","","sk",3605);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143308,"Code","","sk",3622);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143309,"Code review","","sk",3623);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143310,"Code corr.","","sk",3624);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143311,"Total (CD)","","sk",3625);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143312,"Manual","","sk",3606);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143313,"Manual review","","sk",3607);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143314,"Manual corr.","","sk",3608);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143315,"Total (MN)","","sk",3609);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143316,"Manual","","sk",3626);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143317,"Manual review","","sk",3627);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143318,"Manual corr.","","sk",3628);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143319,"Total (MN)","","sk",3629);
+
 
 /**********************************/
 /*   Task assignment - tests          */
@@ -7215,6 +8031,9 @@ INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1269,"Tasks as
 
 /* maier */
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1270,"Tasks assignment",'de',438);
+
+/* daÚo */
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5270,"Priradenie ˙loh",'sk',438);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3137,"Tasks assignment - Test Phases",0,"T",NULL,438);
 INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (867,"Tasks assignment - Test Phases","
@@ -7232,17 +8051,30 @@ Description:
 This table summarizes the employees (developers) assigned to specific testing phases in the project.",
 "","","",'de',3137);
 
+/* daÚo */
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (8067,"Priradenie ˙loh - Testovacie f·zy","
+Legenda:
+Phase ... HlavnÈ f·zy projektu, Employees names ... men· zamestnancov, ktorÌ s˙ priradenÌ s ohæadom na öpecifick˙ f·zu, Number of employees ... poËet zamestnancov priraden˝ch ˙loh·m s ohæadom na öpecifick˙ f·zu (celkov˝ poËet).
+
+Popis:
+T·to tabuæka sumarizuje zamestnancov (v˝voj·rov) priraden˝ch öpecifick˝m testovacÌm f·zam projektu.","","","",'sk',3137);
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3757,"root",NULL,3137,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42882,"root",null,'en',3757);
 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43320,"root",null,'de',3757);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143320,"root",null,'sk',3757);
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3758,"Tasks assignment - Test Phases",3757,3137,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42883,"Tasks assignment - Test Phases","Phase","en",3758);
 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43321,"Tasks assignment - Test Phases","Phase","de",3758);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143321,"Priradenie ˙loh - Testovacie f·zy","Phase","sk",3758);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3759,"Employees names",3758,3137,null,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3760,"Number of employees",3758,3137,null,NULL);
@@ -7343,7 +8175,34 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43346,"Acceptance test corr.","","de",3783);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43347,"Total (AT)","","de",3784);
 
+/* daÚo */
 
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143322,"Employees names","","sk",3759);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143323,"Number of employees","","sk",3760);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143324,"Module test","","sk",3761);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143325,"Module test corr.","","sk",3762);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143326,"Total (MT)","","sk",3763);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143327,"Module test","","sk",3764);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143328,"Module test corr.","","sk",3765);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143329,"Total (MT)","","sk",3766);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143330,"System test","","sk",3767);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143331,"System test corr.","","sk",3768);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143332,"Total (ST)","","sk",3769);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143333,"System test","","sk",3770);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143334,"System test corr.","","sk",3771);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143335,"Total (ST)","","sk",3772);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143336,"Integration test","","sk",3773);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143337,"Integration test corr.","","sk",3774);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143338,"Total (IT)","","sk",3775);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143339,"Integration test","","sk",3776);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143340,"Integration test corr.","","sk",3777);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143341,"Total (IT)","","sk",3778);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143342,"Acceptance test","","sk",3779);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143343,"Acceptance test corr.","","sk",3780);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143344,"Total (AT)","","sk",3781);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143345,"Acceptance test","","sk",3782);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143346,"Acceptance test corr.","","sk",3783);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143347,"Total (AT)","","sk",3784);
 
 /**********************************/
 /*    Employees per phase                */
@@ -7353,6 +8212,7 @@ INSERT INTO aid_description(aiddid,description,detail,kaidid,mid) VALUES(428,"Em
 
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1256,"Employees per phase",'en',428);
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1257,"Employees per phase","de",428);
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1257,"Zamestnanci na f·zu","sk",428);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3127,"Employees per phase",1,"V",NULL,428);
 INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (854,"Employees per phase","
@@ -7375,6 +8235,17 @@ Erkl‰rung/Empfehlungen:
 F¸r diese Art von Projekt ist es ausreichend, mit 1-2 Personen (wegen des Kommunikations-Overheads) in der Spezifikationsphase zu beginnen, und 2-3 Angestellte w‰hrend der Design- und Kodierungsphase einzusetzen.",
 "Employees pro phase","Phase","Number","de",3127);
 
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (8054,"Zamestnanci na f·zu","
+Legenda:
+SP ... f·za öpecifik·cie, SD ... f·za n·vrhu systÈmu, MD ... f·za n·vrhu modulov, CD ... f·za implement·cie, MN ... prÌprava manu·lov/dokument·cie, MT ... f·za testovania modulov, ST ... f·za testovania systÈmu, IT ... f·za testovania integr·cie, AT ... akceptaËnÈ testovanie.
+
+Popis:
+Tento diagram vizualizuje, koæko osÙb bolo zapojen˝ch do v˝voja v prÌsluön˝ch f·zach (okrem aktivÌt posudzovania).
+
+Vysvetlenie/Odpor˙Ëania:
+Pre tento typ projektu je postaËuj˙ce zaËaù s 1-2 osobami (kvÙli komunikaËnej rÈûii) vo f·ze öpecifik·cie, 2-3 zamestnancami poËas n·vrhu a implement·cie.","Employees per phase","Phase","Number","sk",3127);
+
+
 
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (3535,"Specification",null,3127,3189,null);
@@ -7385,6 +8256,10 @@ VALUES (42671,"Specification","SP","en",3535);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (42672,"Specification","SP","de",3535);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (142672,"Specification","SP","sk",3535);
+
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (3536,"System design",3535,3127,3190,null);
 
@@ -7393,6 +8268,10 @@ VALUES (42673,"System design","SD","en",3536);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (42664,"System design","SD","de",3536);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (142664,"System design","SD","sk",3536);
 
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (3537,"Module design",3536,3127,3191,null);
@@ -7403,6 +8282,10 @@ VALUES (42665,"Module design","MD","en",3537);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (42666,"Module design","MD","de",3537);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (142666,"Module design","MD","sk",3537);
+
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (3538,"Code",3537,3127,3192,null);
 
@@ -7411,6 +8294,10 @@ VALUES (42667,"Code","CD","en",3538);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (42668,"Code","CD","de",3538);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (142668,"Code","CD","sk",3538);
 
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (3539,"Manual",3538,3127,3193,null);
@@ -7421,6 +8308,10 @@ VALUES (42669,"Manual","MN","en",3539);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (42670,"Manual","MN","de",3539);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (142670,"Manual","MN","sk",3539);
+
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (3654,"MT",3539,3127,3217,null);
 
@@ -7429,6 +8320,10 @@ VALUES (42791,"Module test","MT","en",3654);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (72791,"Modultest","MT","de",3654);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (172791,"Modultest","MT","sk",3654);
 
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (3655,"ST",3654,3127,3218,null);
@@ -7439,6 +8334,10 @@ VALUES (42792,"System test","ST","en",3655);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (72792,"Systemtest","ST","de",3655);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (172792,"Systemtest","ST","sk",3655);
+
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (3656,"IT",3655,3127,3219,null);
 
@@ -7447,6 +8346,10 @@ VALUES (42793,"Integration test","IT","en",3656);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (72793,"Integrationstest","IT","de",3656);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (172793,"Integrationstest","IT","sk",3656);
 
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (3657,"AT",3656,3127,3220,null);
@@ -7457,6 +8360,9 @@ VALUES (42794,"Acceptance test","AT","en",3657);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (72794,"Akzeptanztest","AT","de",3657);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (172794,"Acceptance test","AT","sk",3657);
 
 /**********************************/
 /*   Employees per review phase         */
@@ -7467,6 +8373,7 @@ INSERT INTO aid_description(aiddid,description,detail,kaidid,mid) VALUES(441,"Em
 
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1272,"Employees per review phase",'en',441);
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1273,"Employees per review phase","de",441);
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5273,"Zamestnanci pripadaj˙ci na f·zu posudzovania","sk",441);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3140,"Employees per review phase",1,"V",NULL,441);
 INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (870,"Employees per review phase","
@@ -7489,6 +8396,18 @@ Erkl‰rung/Empfehlungen:
 Typischerweise sollte der Autor des jeweiligen Dokuments nicht Teil des Reviewteams sein.
 ","Employees pro Review-Phase","Phase","Anzahl",'de',3140);
 
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (8070,"Zamestnanci pripadaj˙ci na f·zu posudzovania","
+Legenda:
+SP ... f·za posudzovania öpecifik·cie, SD ... f·za posudzovania n·vrhu systÈmu, MD ... f·za posudzovania n·vrhu modulov, CD ... posudzovanie kÛdu, MN ... posudzovanie manu·lov/dokument·cie.
+
+Popis:
+Tento diagram vizualizuje, koæko osÙb bolo zaËlenen˝ch do posudzovania öpecifick˝ch dokumentov (okrem z·kaznÌka).
+
+Vysvetlenie/Odpor˙Ëania:
+Typicky, autor dokumentu by nemal byù s˙Ëasùou posudzuj˙ceho tÌmu.",
+"Zamestnanci pripadaj˙ci na f·zu posudzovania","F·za","»Ìslo",'sk',3140);
+
+
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (3801,"Specification rev.",null,3140,3194,null);
 
@@ -7497,6 +8416,10 @@ VALUES (42923,"Specification rev.","SP","en",3801);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (72923,"Spezificationsrev.","SP","de",3801);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (172923,"Posudz. öpecifik·cie","Pä","sk",3801);
 
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (3802,"System design rev.",3801,3140,3195,null);
@@ -7507,6 +8430,10 @@ VALUES (42924,"System design rev.","SD","en",3802);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (72924,"Systemdesignrev.","SD","de",3802);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (172924,"Posudz. n·vrhu syst.","PNS","sk",3802);
+
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (3803,"Module design",3802,3140,3196,null);
 
@@ -7515,6 +8442,10 @@ VALUES (42925,"Module design","MD","en",3803);
 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (72925,"Moduldesign","MD","de",3803);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (172925,"Posudz. n·vrhu mod.","PNM","sk",3803);
 
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (3804,"Code",3803,3140,3197,null);
@@ -7525,6 +8456,10 @@ VALUES (42926,"Code","CD","en",3804);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (72926,"Code","CD","de",3804);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (172926,"Posudz. kÛdu","PK","sk",3804);
+
 INSERT INTO aid_instance (instid,description,predecessor,spaidid,qid,rlid)
 VALUES (3805,"Manual",3804,3140,3198,null);
 
@@ -7534,7 +8469,9 @@ VALUES (42927,"Manual","MN","en",3805);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
 VALUES (72927,"Manual","MN","de",3805);
 
-
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid)
+VALUES (172927,"Manu·ly/PrÌruËky","M/P","sk",3805);
 
 /**********************************/
 /*   System and module design          */
@@ -7547,6 +8484,9 @@ INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1265,"System a
 
 /* maier */
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1277,"System and module design","de",434);
+
+/* daÚo */
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5277,"N·vrh systÈmu a modulov","sk",434);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3133,"System and module design",1,"G",NULL,434);
 
@@ -7573,6 +8513,19 @@ Erkl‰rung/Empfehlungen:
 Je mehr das Projekt dem Wasserfallmodell folgt, desto eher basieren nachfolgende Phasen auf getesteten und finalisierten Zwischenprodukten fr¸herer Phasen. Das ‹berlappen von Phasen spart Zeit, was aber auch zu mehr Aufwand f¸hrt, um die Konsistenz zwischen den verschiedenen Zwischenprodukten sicherzustellen.",
 "System and module design","Date","Phase","de",3133);
 
+/* daÚo */
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (8064,"N·vrh systÈmu a modulov","Legenda:
+SD ... n·vrh systÈmu (zaËiatok-koniec, author(i)), SDRev ... posudzovanie n·vrhu systÈmu (zaËiatok-koniec, author(i)), SDCorr ... oprava n·vrhu systÈmu (zaËiatok-koniec, author(i)).
+MD ... f·za n·vrhu modulov (zaËiatok-koniec, author(i)), MDRev ... posudzovanie n·vrhu modulov (zaËiatok-koniec, author(i)), MDCorr ... oprava n·vrhu modulov (zaËiatok-koniec, author(i)).
+Rozhodnutia projektovho manaûÈra a prÌkazy neved˙ce k aktivite s˙ oznaËenÈ mal˝m Ëiernym trojuholnÌkom.
+
+Popis:
+Tento diagram vizualizuje autora/autorov dokumentov a Ëlena/Ëlenov posudzuj˙ceho/opravuj˙ceho tÌmu/tÌmov vo f·ze n·vrhu modulov.
+
+Vysvetlenie/Odpor˙Ëania:
+»Ìm viac sa projekt drûÌ vodop·dovÈho modelu, t˝m viac je cÌtiù, ûe f·zy, ktorÈ nasleduj˙, s˙ zaloûenÈ na otestovan˝ch a sfinalizovan˝ch artefaktoch predch·dzaj˙cich f·z. Akokoævek, s cieæom uöetriù Ëas je moûnÈ prekr˝vaù f·zy, Ëo znamen·, ûe je potrebnÈ ˙silie na zaistenie konzistencie medzi artefaktmi.",
+"System and module design","Date","Phase","sk",3133);
+
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3658,"root",NULL,3133,null,NULL);
 
@@ -7598,6 +8551,14 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43352,"Module design review","MDRev","de",3660);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43353,"Module design","MD","de",3661);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143348,"System design corrections","SDCor","sk",3662);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143349,"System design review","SDRev","sk",3663);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143350,"System design","SD","sk",3664);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143351,"Module design corrections","MDCor","sk",3659);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143352,"Module design review","MDRev","sk",3660);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143353,"Module design","MD","sk",3661);
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3665,"System design",3664,3133,2856,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3666,"System design review",3663,3133,2857,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3667,"System design corrections",3662,3133,2858,NULL);
@@ -7620,8 +8581,13 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43358,"Module design review","MDRev","de",3669);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43359,"Module design","MD","de",3670);
 
-
-
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143354,"System design","SD","sk",3665);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143355,"System design review","SDRev","sk",3666);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143356,"System design corrections","SDCor","sk",3667);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143357,"Module design corrections","MDCer","sk",3668);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143358,"Module design review","MDRev","sk",3669);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143359,"Module design","MD","sk",3670);
 
 
 
@@ -7658,6 +8624,22 @@ Diese Graphik zeigt den/die Autor(en) des Codes und die Mitglieder der Review-/K
 Erkl‰rung/Empfehlungen:
 Je mehr das Projekt dem Wasserfallmodell folgt, desto eher basieren nachfolgende Phasen auf getesteten und finalisierten Zwischenprodukten fr¸herer Phasen. Das ‹berlappen von Phasen spart Zeit, was aber zu mehr Aufwand f¸hrt, um die Konsistenz zwischen den verschiedenen Zwischenprodukten sicherzustellen.",
 "Testing activity","Date","Phase","de",3001);
+
+/* daÚo */
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (7057,"Implement·cia a testovanie","
+Legenda:
+CD ... implement·cia (zaËiatok-koniec, author(i)), CDRev ... posudzovanie kÛdu (zaËiatok-koniec, author(i)), CDCorr ... korekcia kÛdu (zaËiatok-koniec, author(i)).
+MT ... testovanie modulov (zaËiatok-koniec, author(i)), MTCorr ... opravy (zaËiatok-koniec, author(i)).
+
+Rozhodnutia projektovÈho manaûÈra a prÌkazy neved˙ce k aktivit·m s˙ oznaËenÈ mal˝m Ëiernym trojuholnÌkom.
+
+Popis:
+Tento diagram vizualizuje autora/autorov kÛdu a Ëlena/Ëlenov posudzuj˙ceho/opravuj˙ceho tÌmu/tÌmov pouûitÈho/pouûit˝ch v implementaËnej a testovacej f·ze.
+
+Vysvetlenie/Odpor˙Ëania:
+
+»Ìm viac sa projekt drûÌ vodop·dovÈho modelu, t˝m viac je cÌtiù, ûe f·zy, ktorÈ nasleduj˙, s˙ zaloûenÈ na otestovan˝ch a sfinalizovan˝ch artefaktoch predch·dzaj˙cich f·z. Akokoævek, s cieæom uöetriù Ëas je moûnÈ prekr˝vaù f·zy, Ëo znamen·, ûe je potrebnÈ ˙silie na zaistenie konzistencie medzi artefaktmi.",
+"Testing activity","Date","Phase","sk",3001);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3022,"root",NULL,3001,null,NULL);
 
@@ -7978,6 +8960,13 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43363,"Code review","CDrev","de",3673);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43364,"Code","CD","de",3674);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143360,"Module test","MT","sk",3137);
+/*INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143361,"Module test corrections","MTCorr","sk",3136);*/
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143362,"Code corrections","CDCorr","sk",3671);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143363,"Code review","CDrev","sk",3673);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143364,"Code","CD","sk",3674);
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3672,"Code corrections",3671,3001,2870,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3675,"Code review",3673,3001,2869,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3676,"Code",3674,3001,2868,NULL);
@@ -7995,10 +8984,14 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43366,"Code review","CDRev","de",3675);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43367,"Code","CD","de",3676);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43368,"Module test","MT","de",3023);
-/*INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43369,"Module test corrections","MT","de",3138);
-*/
+/*INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43369,"Module test corrections","MT","de",3138);*/
 
-
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143365,"Code","CDCorr","sk",3672);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143366,"Code review","CDRev","sk",3675);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143367,"Code","CD","sk",3676);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143368,"Module test","MT","sk",3023);
+/*INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43369,"Module test corrections","MT","sk",3138);*/
 
 
 /**********************************/
@@ -8010,6 +9003,9 @@ INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1271,"Testing 
 
 /* maier */
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1278,"Testing phases","de",440);
+
+/* daÚo */
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5278,"Testovacia f·za","sk",440);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3139,"Testing phases",1,"G",NULL,440);
 INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (872,"Testing phases","
@@ -8035,6 +9031,20 @@ Erkl‰rung/Empfehlungen:
 Je mehr das Projekt dem Wasserfallmodell folgt, desto eher basieren nachfolgende Phasen auf getesteten und finalisierten Zwischenprodukten fr¸herer Phasen. Das ‹berlappen von Phasen spart Zeit, was aber auch zu mehr Aufwand f¸hrt, um die Konsistenz zwischen den verschiedenen Zwischenprodukten sicherzustellen.",
 "Testing activity","Date","Phase","de",3139);
 
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (8072,"Testovacia f·za","
+Legenda:
+ST ... f·za testovania systÈmu (zaËiatok-koniec, author(i)), STCorr ... korekcia systÈmu(zaËiatok-koniec, author(i)), AT ... akceptaËn˝ test (zaËiatok-koniec, author(i)), ATCorr ... korekcia pre potreby akcept·cie (zaËiatok-koniec, author(i)).
+Rozhodnutia projektovÈho manaûÈra a prÌkazy neved˙ce k aktivit·m s˙ oznaËenÈ mal˝m Ëiernym trojuholnÌkom.
+
+Popis:
+Tento diagram vizualizuje Ëlena/Ëlenov posudzuj˙ceho/opravuj˙ceho tÌmu/tÌmov nasadenÈho/nasaden˝ch vo f·ze testovania a opr·v.
+
+Vysvetlenie/Odpor˙Ëania:
+
+»Ìm viac sa projekt drûÌ vodop·dovÈho modelu, t˝m viac je cÌtiù, ûe f·zy, ktorÈ nasleduj˙, s˙ zaloûenÈ na otestovan˝ch a sfinalizovan˝ch artefaktoch predch·dzaj˙cich f·z. Akokoævek, s cieæom uöetriù Ëas je moûnÈ prekr˝vaù f·zy, Ëo znamen·, ûe je potrebnÈ ˙silie na zaistenie konzistencie medzi artefaktmi.",
+"Testing activity","Date","Phase","sk",3139);
+
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3798,"root",NULL,3139,null,NULL);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3018,"Atests corrections",3798,3139,2834,NULL);
@@ -8059,6 +9069,14 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43374,"Stests corrections","STCorr","de",3020);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43375,"Atests corrections","ATCorr","de",3018);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143370,"Integration tests","IT","sk",3135);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143371,"System tests","ST","sk",3021);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143372,"Acceptance tests","AT","sk",3019);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143373,"Itests corrections","ITCorr","sk",3134);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143374,"Stests corrections","STCorr","sk",3020);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143375,"Atests corrections","ATCorr","sk",3018);
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3024,"Integration tests",3135,3139,2713,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3025,"System tests",3021,3139,2715,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3026,"Acceptance tests",3019,3139,2717,NULL);
@@ -8081,6 +9099,13 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43380,"Stests corrections","STCorr","de",3140);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43381,"Atests corrections","ATCorr","de",3141);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143376,"Integration tests","IT","sk",3024);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143377,"System tests","ST","sk",3025);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143378,"Acceptance tests","AT","sk",3026);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143379,"Itests corrections","ITCorr","sk",3139);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143380,"Stests corrections","STCorr","sk",3140);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143381,"Atests corrections","ATCorr","sk",3141);
 
 
 /**********************************/
@@ -8091,6 +9116,7 @@ INSERT INTO aid_description(aiddid,description,detail,kaidid,mid) VALUES(422,"Re
 
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1244,"Review info",'en',422);
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1245,"Review info","de",422);
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5245,"Review info","sk",422);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3121,"Review info",0,"T",NULL,422);
 INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (842,"Review info","
@@ -8112,17 +9138,33 @@ Erkl‰rung/Empfehlungen:
 Reviews sind f¸r die Aufrechterhaltung der Qualit‰t der Dokumente entscheidend. Je mehr Zeit in die Qualit‰t der Basisdokumente (Spezifikation, Design) investiert wird, desto besser wird die Qualit‰t der nachfolgenden Dokumente.",
 "","","","de",3121);
 
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (8042,"Info ohæadom posudzovania","
+Legenda:
+Length ... trvanie aktivity (v dÚoch), Effort ... ˙silie vynaloûenÈ na aktivitu (v dÚoch), Corr ... ˙silie vynaloûenÈ na opravy (v hodin·ch), Det. errors ... poËet odhalen˝ch ch˝b (dokopy), Err. in docs ... ost·vaj˙ce chyby v dokumentoch, Reviews ... poËet posudkov dokumentu (dokopy), Corr.total number ... poËet aktivÌt spojen˝ch s opravami (dokopy).
+
+Popis:
+T·to tabuæka sumarizuje ˙silie vynaloûenÈ na posudzovacie aktivity niekoæk˝ch dokumentov.
+
+Vysvetlenie/Odpor˙Ëania:
+Posudky s˙ z·kladom pre udrûanie kvality dokumentov. »Ìm viac Ëasu sa investuje do kvality z·kladn˝ch dokumentov (öpecifik·cia, dizajn), t˝m je lepöia kvalita dokumentov, ktorÈ nasleduj˙. ","","","","sk",3121);
+
+
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3420,"root",NULL,3121,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42538,"root",null,'en',3420);
 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43382,"root",null,'de',3420);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143382,"root",null,'sk',3420);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3421,"Review information",3420,3121,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42539,"Review information","","en",3421);
 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43383,"Review information","","de",3421);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143383,"Review information","","sk",3421);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3422,"Spec.",3421,3121,null,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3423,"Sys.Design",3421,3121,null,NULL);
@@ -8142,6 +9184,13 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43386,"Mod.Design","MS","de",3424);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43387,"Code","CD","de",3425);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43388,"Manual","MA","de",3426);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143384,"Spec.","SP","sk",3422);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143385,"Sys.Design","DE","sk",3423);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143386,"Mod.Design","MS","sk",3424);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143387,"Code","CD","sk",3425);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143388,"Manual","MA","sk",3426);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (3069,"Length",
 'select distinct datediff(
@@ -8891,6 +9940,44 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43422,"Corr.total","","de",3685);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43423,"Corr.total","","de",3686);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143389,"Length (d)","LE","sk",3427);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143390,"Length (d)","LE","sk",3428);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143391,"Length (d)","LE","sk",3429);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143392,"Length (d)","LE","sk",3430);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143393,"Length (d)","LE","sk",3431);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143394,"Effort (h)","EF","sk",3432);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143395,"Effort (h)","EF","sk",3433);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143396,"Effort (h)","EF","sk",3434);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143397,"Effort (h)","EF","sk",3435);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143398,"Effort (h)","EF","sk",3436);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143399,"Corr. (h)","CE","sk",3437);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143400,"Corr. (h)","CE","sk",3438);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143401,"Corr. (h)","CE","sk",3439);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143402,"Corr. (h)","CE","sk",3440);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143403,"Corr. (h)","CE","sk",3441);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143404,"Det. errors","DE","sk",3442);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143405,"Det. errors","DE","sk",3443);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143406,"Det. errors","DE","sk",3444);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143407,"Det. errors","DE","sk",3445);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143408,"Det. errors","DE","sk",3446);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143409,"Err. in docs","ED","sk",3447);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143410,"Err. in docs","ED","sk",3448);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143411,"Err. in docs","ED","sk",3449);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143412,"Err. in docs","ED","sk",3450);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143413,"Err. in docs","ED","sk",3451);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143414,"Reviews","","sk",3677);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143415,"Reviews","","sk",3678);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143416,"Reviews","","sk",3679);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143417,"Reviews","","sk",3680);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143418,"Reviews","","sk",3681);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143419,"Corr.total","","sk",3682);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143420,"Corr.total","","sk",3683);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143421,"Corr.total","","sk",3684);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143422,"Corr.total","","sk",3685);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143423,"Corr.total","","sk",3686);
+
+
 /**********************************/
 /*Corrections of all documents       */
 /**********************************/
@@ -8899,6 +9986,9 @@ INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1266,"Preservi
 
 /* maier */
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1267,"Preserving consistency I","de",435);
+
+/* daÚo */
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1267,"Zachov·vanie konzistencie I","sk",435);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3134,"Preserving consistency I",1,"G",NULL,435);
 INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (874,"Preserving consistency I","
@@ -8915,6 +10005,16 @@ Dieses Diagramm zeigt alle Korrekturaktivit‰ten bez¸glich der Dokumente im Proje
 Erkl‰rung/Empfehlungen:
 Jedesmal wenn Fehler gefunden werden und daher ein Dokument zu korrigieren ist, m¸ssen auch alle vorangehenden Dokumente korrigiert werden.",
 "",null,null,"de",3134);
+
+/* daÚo */
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (8074,"Zachov·vanie konzistencie I","
+Popis:
+This chart vizualizes all correction activities related to the documents in the project. Activities containing the suffix all are activities that also correct all preceeding documents.
+
+Vysvetlenie/Odpor˙Ëania:
+St·le, keÔ sa n·jdu chyby a vykonaj˙ sa zmeny v dokumentoch, musia byù zmenenÈ aj dokumenty, ktorÈ od predch·dzajpcich z·visia.",
+"",null,null,"sk",3134);
+
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3691,"root",NULL,3134,null,NULL);
 
@@ -8983,6 +10083,16 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43435,"Integration test corr.","ITCorr","de",3697);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43436,"Module test corr.","MTCorr","de",3699);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143424,"AT Correct all","ATCA","sk",3692);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143425,"ST Correct all","STCA","sk",3694);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143426,"IT Correct all","ITCA","sk",3696);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143427,"MT Correct all","MTCA","sk",3698);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143433,"Acceptance test corr.","ATCorr","sk",3693);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143434,"System test corr.","STCorr","sk",3695);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143435,"Integration test corr.","ITCorr","sk",3697);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143436,"Module test corr.","MTCorr","sk",3699);
+
 
 /**********************************/
 /*Corrections of all documents II      */
@@ -8991,6 +10101,8 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_description(aiddid,description,detail,kaidid,mid) VALUES(535,"Preserving consistency II",NULL,1,1);
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(2266,"Preserving consistency II","en",535);
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(2267,"Preserving consistency II","de",535);
+/* daÚo */
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5267,"Zaistenie konzistencie II","sk",535);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3234,"Preserving consistency II",1,"G",NULL,535);
 INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (964,"Preserving consistency II","
@@ -9005,6 +10117,16 @@ This chart vizualizes all correction activities related to the documents in the 
 
 Explanation/Recommendations:
 Every time errors are identified and changes are made to documents, all preceeding documents have to be corrected, too.","Preserving consistency II",null,null,"de",3234);
+
+/* daÚo */
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (9064,"Zaistenie konzistencie II","
+Popis:
+Tento diagram vizualizuje vöetky aktivity t˝kaj˙ce sa korekciÌ s ohæadom na projektovÈ dokumenty. Aktivity so sufixom s˙ aktivity, ktorÈ taltieû napr·vajp vöetky predoölÈ dokumenty.
+
+Vysvetlenie/Odpor˙Ëania:
+
+St·le, keÔ sa n·jdu chyby a vykonaj˙ sa zmeny v dokumentoch, musia byù zmenenÈ aj dokumenty, ktorÈ od predch·dzajpcich z·visia.",
+"Preserving consistency II",null,null,"sk",3234);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (7691,"root",NULL,3234,null,NULL);
 
@@ -9043,6 +10165,17 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43440,"System design corr.","SDCorr","de",7699);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43441,"Specification corr.","SPCorr","de",7701);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143428,"MN Correct all","MNCA","sk",7692);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143429,"CD Correct all","CDCA","sk",7694);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143430,"MD Correct all","MDCA","sk",7696);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143431,"SD Correct all","SDCA","sk",7698);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143432,"SP Correct all","SPCA","sk",7700);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143437,"Manual corr.","MNCorr","sk",7693);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143438,"Code corr.","CDCorr","sk",7695);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143439,"Module design corr.","MDCorr","sk",7697);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143440,"System design corr.","SDCorr","sk",7699);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143441,"Specification corr.","SPCorr","sk",7701);
 
 /**********************************/
 /*  Errors remaining in documents      */
@@ -9053,6 +10186,7 @@ INSERT INTO aid_description(aiddid,description,detail,kaidid,mid) VALUES(418,"Er
 
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1236,"Errors remaining in documents","en",418);
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1237,"Errors remaining in documents","de",418);
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5237,"Zost·vaj˙ce chyby v dokumentoch","sk",418);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (3117,"Errors remaining in documents",0,"T",NULL,418);
 INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (834,"Errors remaining in documents","Legend:
@@ -9075,17 +10209,34 @@ Erkl‰rung/Empfehlungen:
 Fehler vermehren sich im Life-Cycle von Dokumenten. Jedesmal wenn ein neues Dokument entsteht, tauchen auch neue Fehler auf. Durch Reviews werden verschiedene Fehlerarten identifiziert. Daher sollte nicht nur das begutachtete Dokument korrigiert werden, sondern auch dessen vorangegangenen Dokumente.",
 "",null,null,"de",3117);
 
+/* daÚo */
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (8034,"Zost·vaj˙ce chyby v dokumentoch","Legenda:
+Document ... obsahuje rozliËnÈ typy ch˝b öpecifik·cie, systÈmovÈho n·vrhu a n·vrhu modulov, kÛdu a prÌruËiek.
+
+Popis:
+T·to tabuæka sumarizuje rÙzne typy ch˝b vöetk˝ch dokumentov. äpecifik·cia obsahuje len chyby ana˝zy, dokument n·vrhu systÈmu obsahuje chyby z anal˝zy a chyby n·vrhu systÈmu, a tak Ôalej.
+
+Vysvetlenie/Odpor˙Ëania:
+Chyby sa öÌria v ûivotn˝ch cykloch dokumentov. Zakaûd˝m, keÔ sa vytvorÈ nov˝ dokument, objavia sa novÈ chyby. S t˝m, ako posudky identifikuj˙ rÙzne typy ch˝b, nie len posudzovanÈ dokumenty by mali byù opravenÈ, ale aj predch·dzaj˙ce.",
+"",null,null,"sk",3117);
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3355,"root",NULL,3117,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42472,"root",null,"en",3355);
 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43480,"root",null,"de",3355);
 
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143480,"root",null,"sk",3355);
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3356,"Type of errors",3355,3117,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (42473,"Type of errors","Document","en",3356);
 
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43442,"Type of errors","Document","de",3356);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143442,"Type of errors","Document","sk",3356);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3357,"Analysis",3356,3117,null,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (3358,"Sys.Des.",3356,3117,null,NULL);
@@ -9108,6 +10259,15 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43446,"Code","E4","de",3360);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43447,"Manual","TE","de",3361);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43448,"Total","TE","de",3711);
+
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143443,"Analysis","E1","sk",3357);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143444,"Sys.Des.","E2","sk",3358);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143445,"Mod.Des.","E3","sk",3359);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143446,"Code","E4","sk",3360);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143447,"Manual","TE","sk",3361);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143448,"Total","TE","sk",3711);
 
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (3017," ",
 'select distinct s_entity.value as value
@@ -9437,6 +10597,38 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43478,"Manual","TC","de",3386);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (43479,"Manual","TC","de",3716);
 
+/* daÚo */
+
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143449,"Spec.","TC","sk",3362);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143450,"Spec.","TC","sk",3363);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143451,"Spec.","TC","sk",3364);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143452,"Spec.","TC","sk",3365);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143453,"Spec.","TC","sk",3366);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143455,"Spec.","TC","sk",3712);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143456,"Sys.Des.","TC","sk",3367);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143457,"Sys.Des.","TC","sk",3368);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143458,"Sys.Des.","TC","sk",3369);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143459,"Sys.Des.","TC","sk",3370);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143460,"Sys.Des.","TC","sk",3371);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143461,"Sys.Des.","TC","sk",3713);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143462,"Mod.Des.","TC","sk",3372);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143463,"Mod.Des.","TC","sk",3373);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143464,"Mod.Des.","TC","sk",3374);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143465,"Mod.Des.","TC","sk",3375);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143466,"Mod.Des.","TC","sk",3376);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143467,"Mod.Des.","TC","sk",3714);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143468,"Code","TC","sk",3377);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143469,"Code","TC","sk",3378);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143470,"Code","TC","sk",3379);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143471,"Code","TC","sk",3380);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143472,"Code","TC","sk",3381);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143473,"Code","TC","sk",3715);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143474,"Manual","TC","sk",3382);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143475,"Manual","TC","sk",3383);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143476,"Manual","TC","sk",3384);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143477,"Manual","TC","sk",3385);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143478,"Manual","TC","sk",3386);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (143479,"Manual","TC","sk",3716);
 
 /**********************************/
 /* CLIENT FEEDBACK   */
@@ -9691,6 +10883,24 @@ INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1288,"All docu
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1289,"Efficiency",'de',436);
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1290,"Test efficiency",'de',437);
 
+
+/*INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1215,"Specification and system design","sk",407);*/
+/*INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1217,"Module design and coding","sk",408);*/
+/*INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1219,"Monitoring","sk",409);*/
+/*INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1241,"Phases and Milestones",'sk',420);*/
+
+
+/*INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1280,"Test Phases",'sk',432);*/
+/*INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1281,"Goal achievement","sk",413);*/
+/*INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1282,"Monitoring",'sk',431);*/
+/*INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1283,"Tasks assignment",'sk',433);*/
+/*INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1284,"Tasks assignment",'sk',438);*/
+/*INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1285,"System and module design","sk",434);*/
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5286,"Coding and testing","sk",361);
+/*INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(1287,"Testing phase","sk",440);*/
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5288,"All documents corrections","sk",435);
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5289,"Efficiency",'sk',436);
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(5290,"Test efficiency",'sk',437);
 
 -- 3901: Table title: Quality per Phase
 -- author: Zofia DomaÒska, Mai 2008 (A2PPT project)
@@ -10066,8 +11276,18 @@ Beschreibung:
 Diese Tabelle fa?t die Qualit‰t-Resultaten von Spezifikation, Kodierung und Tests des Simulationslaufs zusammen.
 
 Erkl?rung/Empfehlungen:
--.', NULL, NULL, 'de', 3901);
+-.', NULL, NULL, 'de', 3901),
+(7270, 'Quality per phase', "", 'Legenda:
+.. AFP v öpecifik·cii, ... AFP in Code, ... PM öpecifik·cie ... n·klady na öpecifik·ciu (v Ä), ... PM testov, ... n·klady na testy (v Ä), ... suma n·kladov na öpecifik·ciu a testy (v Ä).
 
+
+
+Popis:
+T·to tabuæka sumarizuje dosiahnutie cieæov kvality öpecifik·cie, kÛdu a testov
+
+Explanation/Recommendations:
+-.', NULL, NULL, 'sk', 3901);
+/* daÚo ID for "sk" entry set to 7270 according to numbering rules we defined in QUERIES.SQL, "en"'s 700 is "sk"'s 7000. "en"'s 970 is "sk"'s 7270 */
 --
 -- Table `spaid_needs_zt` (6)
 --
@@ -10085,7 +11305,8 @@ INSERT INTO `spaid_needs_zt` (`spaidid`, `zid`) VALUES
 
 INSERT INTO `aid_desc_lang` (`did`, `description`, `language`, `aiddid`) VALUES
 (2268, 'Quality per phase', 'en', 5534),
-(2269, 'Quality per phase', 'de', 5534);
+(2269, 'Quality per phase', 'de', 5534),
+(5269, 'Quality per phase', 'sk', 5534);
 
 
 --
@@ -10104,36 +11325,52 @@ INSERT INTO `aid_desc_lang` (`did`, `description`, `language`, `aiddid`) VALUES
 INSERT INTO `aid_inst_lang` (`aiid`, `description`, `abbreviation`, `language`, `instid`) VALUES
 (72928, 'root', NULL, 'en', 7702),
 (72929, 'root', NULL, 'de', 7702),
+(172929, 'root', NULL, 'sk', 7702),
 (72932, 'S(AFP)', 'S(AFP)', 'en', 7704),
 (72933, 'S(AFP)', 'S(AFP)', 'de', 7704),
+(172933, 'S(AFP)', 'S(AFP)', 'sk', 7704),
 (72934, 'Code(AFP)', 'Code(AFP)', 'en', 7705),
 (72935, 'Code(AFP)', 'Code(AFP)', 'de', 7705),
+(172935, 'Code(AFP)', 'Code(AFP)', 'sk', 7705),
 (72936, 'S(PM)', 'S(PM)', 'en', 7706),
 (72937, 'S(PM)', 'S(PM)', 'de', 7706),
+(172937, 'S(PM)', 'S(PM)', 'sk', 7706),
 (72938, 'S(EUR)', 'S(EUR)', 'en', 7707),
 (72939, 'S(EUR)', 'S(EUR)', 'de', 7707),
+(172939, 'S(EUR)', 'S(EUR)', 'sk', 7707),
 (72940, 'Tests(PM)', 'Tests(PM)', 'en', 7708),
 (72941, 'Tests(PM)', 'Tests(PM)', 'de', 7708),
+(172941, 'Tests(PM)', 'Tests(PM)', 'sk', 7708),
 (72942, 'Tests(EUR)', 'Tests(EUR)', 'en', 7709),
 (72943, 'Tests(EUR)', 'Tests(EUR)', 'de', 7709),
+(172943, 'Tests(EUR)', 'Tests(EUR)', 'sk', 7709),
 (72944, 'Sum(EUR)', 'Sum(EUR)', 'en', 7710),
 (72945, 'Sum(EUR)', 'Sum(EUR)', 'de', 7710),
+(172945, 'Sum(EUR)', 'Sum(EUR)', 'sk', 7710),
 (72946, ' ', 'S(AFP)', 'en', 7711),
 (72947, '  ', 'S(AFP)', 'de', 7711),
+(172947, '  ', 'S(AFP)', 'sk', 7711),
 (72948, ' ', 'Code(AFP)', 'en', 7712),
 (72949, ' ', 'Code(AFP)', 'de', 7712),
+(172949, ' ', 'Code(AFP)', 'sk', 7712),
 (72950, ' ', 'S(PM)', 'en', 7713),
 (72951, ' ', 'S(PM)', 'de', 7713),
+(172951, ' ', 'S(PM)', 'sk', 7713),
 (72952, ' ', 'S(EUR)', 'en', 7714),
 (72953, '', 'S(EUR)', 'de', 7714),
+(172953, '', 'S(EUR)', 'sk', 7714),
 (72954, ' ', 'Tests(PM)', 'en', 7715),
 (72955, ' ', 'Tests(PM)', 'de', 7715),
+(172955, ' ', 'Tests(PM)', 'sk', 7715),
 (72956, ' ', 'Tests(EUR)', 'en', 7716),
 (72957, ' ', 'Tests(EUR)', 'de', 7716),
+(172957, ' ', 'Tests(EUR)', 'sk', 7716),
 (72958, ' ', 'Sum(EUR)', 'en', 7717),
 (72959, ' ', 'Sum(EUR)', 'de', 7717),
+(172959, ' ', 'Sum(EUR)', 'sk', 7717),
 (72960, 'Quality per phase', 'Quality', 'en', 7703),
-(72961, 'Quality per phase', 'Quality', 'de', 7703);
+(72961, 'Quality per phase', 'Quality', 'de', 7703),
+(172961, 'Quality per phase', 'Quality', 'sk', 7703);
 
 
 
@@ -10502,7 +11739,15 @@ Explanation/Recommendations:', NULL, NULL, 'en', 3902),
 Beschreibung:
 Diese Tabelle fa?t der Einfluss von Spezifikation Revision-Teams.
 
-Erkl?rung/Empfehlungen:', NULL, NULL, 'de', 3902);
+Erkl?rung/Empfehlungen:', NULL, NULL, 'de', 3902),
+(7271, 'Influence of review teams on the number of faults', '""', 'Legenda:
+.. Authors, ... chyby v öpecifik·cii, ... Reviewers, ... poËet n·jden˝ch ch˝b, ... Correctors, ... poËet opraven˝ch ch˝b, ost·vaj˙ce chyby
+
+
+Popis:
+T·to tabuæka sumarizuje vplyv posudzuj˙ceho/posudzuj˙cich tÌmu/tÌmov na poËet z·vad v öpecifik·cii
+
+Vysvetlenie/Odpor˙Ëania:', NULL, NULL, 'sk', 3902);
 
 --
 -- Table `spaid_needs_zt` (6)
@@ -10517,7 +11762,8 @@ INSERT INTO `spaid_needs_zt` (`spaidid`, `zid`) VALUES
 
 INSERT INTO `aid_desc_lang` (`did`, `description`, `language`, `aiddid`) VALUES
 (2270, 'Influence of review teams on the number of faults', 'en', 5535),
-(2271, 'Influence of review teams on the number of faults', 'de', 5535);
+(2271, 'Influence of review teams on the number of faults', 'de', 5535),
+(5271, 'Influence of review teams on the number of faults', 'sk', 5535);
 
 --
 -- Table `aid_inst_lang` (8)
@@ -10526,72 +11772,106 @@ INSERT INTO `aid_desc_lang` (`did`, `description`, `language`, `aiddid`) VALUES
 INSERT INTO `aid_inst_lang` (`aiid`, `description`, `abbreviation`, `language`, `instid`) VALUES
 (72965, 'root', NULL, 'en', 7718),
 (72966, 'root', NULL, 'de', 7718),
+(172966, 'root', NULL, 'sk', 7718),
 (72971, 'Authors', 'Authors', 'en', 7721),
 (72972, 'Authors', 'Authors', 'de', 7721),
+(172972, 'Authors', 'Authors', 'sk', 7721),
 (72973, '# Errors', '# Errors', 'en', 7722),
 (72974, '# Errors', '# Errors', 'de', 7722),
+(172974, '# Errors', '# Errors', 'sk', 7722),
 (72975, 'Reviewers', 'Reviewers', 'en', 7723),
 (72976, 'Reviewers', 'Reviewers', 'de', 7723),
+(172976, 'Reviewers', 'Reviewers', 'sk', 7723),
 (72977, '#Err. found', '#Err. found', 'en', 7724),
 (72978, '#Err. found', '#Err. found', 'de', 7724),
+(172978, '#Err. found', '#Err. found', 'sk', 7724),
 (72979, 'Correctors', 'Correctors', 'en', 7725),
 (72980, 'Correctors', 'Correctors', 'de', 7725),
+(172980, 'Correctors', 'Correctors', 'sk', 7725),
 (72981, '#Err. correct.', '#Err. correct.', 'en', 7726),
 (72982, '#Err. correct.', '#Err. correct.', 'de', 7726),
+(172982, '#Err. correct.', '#Err. correct.', 'sk', 7726),
 (72983, '#Err. remained', '#Err. remained', 'en', 7727),
 (72984, '#Err. remained', '#Err. remained', 'de', 7727),
+(172984, '#Err. remained', '#Err. remained', 'sk', 7727),
 (72987, 'Rev. 1', 'Authors', 'en', 7729),
 (72988, 'Rev. 1', 'Authors', 'de', 7729),
+(172988, 'Rev. 1', 'Authors', 'sk', 7729),
 (72989, 'Rev. 1', '# Errors', 'en', 7730),
 (72990, 'Rev. 1', '# Errors', 'de', 7730),
+(172990, 'Rev. 1', '# Errors', 'sk', 7730),
 (72991, 'Rev. 1', 'Reviewers', 'en', 7731),
 (72992, 'Rev. 1', 'Reviewers', 'de', 7731),
+(172992, 'Rev. 1', 'Reviewers', 'sk', 7731),
 (72993, 'Rev. 1', '#Err. found', 'en', 7732),
 (72994, 'Rev. 1', '#Err. found', 'de', 7732),
+(172994, 'Rev. 1', '#Err. found', 'sk', 7732),
 (72995, 'Rev. 1', 'Correctors', 'en', 7733),
 (72996, 'Rev. 1', 'Correctors', 'de', 7733),
+(172996, 'Rev. 1', 'Correctors', 'sk', 7733),
 (72997, 'Rev. 1', '#Err. correct.', 'en', 7734),
 (72998, 'Rev. 1', '#Err. correct.', 'de', 7734),
+(172998, 'Rev. 1', '#Err. correct.', 'sk', 7734),
 (72999, 'Rev. 1', '#Err. remained', 'en', 7735),
 (73000, 'Rev. 1', '#Err. remained', 'de', 7735),
+(173000, 'Rev. 1', '#Err. remained', 'sk', 7735),
 (73001, 'Influence of review teams on the number of faults', 'Rev.', 'en', 7719),
 (73002, 'Influence of review teams on the number of faults', 'Rev.', 'de', 7719),
+(173002, 'Influence of review teams on the number of faults', 'Rev.', 'sk', 7719),
 (73003, 'Rev. 2', 'Authors', 'en', 7736),
 (73004, 'Rev. 2', 'Authors', 'de', 7736),
+(173004, 'Rev. 2', 'Authors', 'sk', 7736),
 (73005, 'Rev. 2', '# Errors', 'en', 7737),
 (73006, 'Rev. 2', '# Errors', 'de', 7737),
+(173006, 'Rev. 2', '# Errors', 'sk', 7737),
 (73007, 'Rev. 2', 'Reviewers', 'en', 7738),
 (73008, 'Rev. 2', 'Reviewers', 'de', 7738),
+(173008, 'Rev. 2', 'Reviewers', 'sk', 7738),
 (73009, 'Rev. 2', '#Err. found', 'en', 7739),
 (73010, 'Rev. 2', '#Err. found', 'de', 7739),
+(173010, 'Rev. 2', '#Err. found', 'sk', 7739),
 (73011, 'Rev. 2', 'Correctors', 'en', 7740),
 (73012, 'Rev. 2', 'Correctors', 'de', 7740),
+(173012, 'Rev. 2', 'Correctors', 'sk', 7740),
 (73013, 'Rev. 2', '#Err. correct.', 'en', 7741),
 (73014, 'Rev. 2', '#Err. correct.', 'de', 7741),
+(173014, 'Rev. 2', '#Err. correct.', 'sk', 7741),
 (73015, 'Rev. 2', '#Err. remained', 'en', 7742),
 (73016, 'Rev. 2', '#Err. remained', 'de', 7742),
+(173016, 'Rev. 2', '#Err. remained', 'sk', 7742),
 (73017, 'Rev. 3', 'Authors', 'en', 7743),
 (73018, 'Rev. 3', 'Authors', 'de', 7743),
+(173018, 'Rev. 3', 'Authors', 'sk', 7743),
 (73019, 'Rev. 3', '# Errors', 'en', 7744),
 (73020, 'Rev. 3', '# Errors', 'de', 7744),
+(173020, 'Rev. 3', '# Errors', 'sk', 7744),
 (73021, 'Rev. 3', 'Reviewers', 'en', 7745),
 (73022, 'Rev. 3', 'Reviewers', 'de', 7745),
+(173022, 'Rev. 3', 'Reviewers', 'sk', 7745),
 (73023, 'Rev. 3', '#Err. found', 'en', 7746),
 (73024, 'Rev. 3', '#Err. found', 'de', 7746),
+(173024, 'Rev. 3', '#Err. found', 'sk', 7746),
 (73025, 'Rev. 3', 'Correctors', 'en', 7747),
 (73026, 'Rev. 3', 'Correctors', 'de', 7747),
+(173026, 'Rev. 3', 'Correctors', 'sk', 7747),
 (73027, 'Rev. 3', '#Err. correct.', 'en', 7748),
 (73028, 'Rev. 3', '#Err. correct.', 'de', 7748),
+(173028, 'Rev. 3', '#Err. correct.', 'sk', 7748),
 (73029, 'Rev. 3', '#Err. remained', 'en', 7749),
 (73030, 'Rev. 3', '#Err. remained', 'de', 7749),
+(173030, 'Rev. 3', '#Err. remained', 'sk', 7749),
 (73031, 'Cust.', 'Cust.', 'en', 7728),
 (73032, 'Cust.', 'Cust.', 'de', 7728),
+(173032, 'Cust.', 'Cust.', 'sk', 7728),
 (73033, 'Rev. 1', 'Cust.', 'en', 7752),
 (73034, 'Rev. 1', 'Cust.', 'de', 7752),
+(173034, 'Rev. 1', 'Cust.', 'sk', 7752),
 (73035, 'Rev. 2', 'Cust.', 'en', 7753),
 (73036, 'Rev. 2', 'Cust.', 'de', 7753),
+(173036, 'Rev. 2', 'Cust.', 'sk', 7753),
 (73037, 'Rev. 3', 'Cust.', 'en', 7754),
-(73038, 'Rev. 3', 'Cust.', 'de', 7754);
+(73038, 'Rev. 3', 'Cust.', 'de', 7754),
+(173038, 'Rev. 3', 'Cust.', 'sk', 7754);
 
 -- 3903: Table title : Effot of project phases in hours
 -- author: Zofia DomaÒska, July 2008 (A2PPT project)
@@ -11080,7 +12360,8 @@ INSERT INTO `aid_instance` (`instid`, `description`, `predecessor`, `spaidid`, `
 --
 INSERT INTO `spec_aid_lang` (`said`, `description`, `title`, `text`, `xaxis`, `yaxis`, `language`, `spaidid`) VALUES
 (973, 'Effort of project phases in hours', ' ', 'something', NULL, NULL, 'en', 3903),
-(974, 'Effort of project phases in hours', ' ', 'etwas', NULL, NULL, 'de', 3903);
+(974, 'Effort of project phases in hours', ' ', 'etwas', NULL, NULL, 'de', 3903),
+(7274, 'Effort of project phases in hours', ' ', 'nieËo', NULL, NULL, 'sk', 3903);
 
 
 --
@@ -11097,7 +12378,8 @@ INSERT INTO `spaid_needs_zt` (`spaidid`, `zid`) VALUES
 
 INSERT INTO `aid_desc_lang` (`did`, `description`, `language`, `aiddid`) VALUES
 (2272, 'Effort of project phases in hours', 'en', 5536),
-(2273, 'Effort of project phases in hours', 'de', 5536);
+(2273, 'Effort of project phases in hours', 'de', 5536),
+(5273, 'Effort of project phases in hours', 'sk', 5536);
 
 --
 -- Table `aid_inst_lang` (8)
@@ -11106,28 +12388,40 @@ INSERT INTO `aid_desc_lang` (`did`, `description`, `language`, `aiddid`) VALUES
 INSERT INTO `aid_inst_lang` (`aiid`, `description`, `abbreviation`, `language`, `instid`) VALUES
 (73039, 'root', NULL, 'en', 7755),
 (73040, 'root', NULL, 'de', 7755),
+(173040, 'root', NULL, 'sk', 7755),
 (73041, 'Effort of project phases in hours', 'Time', 'en', 7756),
 (73042, 'Effort of project phases in hours', 'Time', 'de', 7756),
+(173042, 'Effort of project phases in hours', 'Time', 'sk', 7756),
 (73043, 'S(h)', 'S(h)', 'en', 7757),
 (73044, 'S(h)', 'S(h)', 'de', 7757),
+(173044, 'S(h)', 'S(h)', 'sk', 7757),
 (73045, 'SD(h)+MD(h)', 'SD(h)+MD(h)', 'en', 7758),
 (73046, 'SD(h)+MD(h)', 'SD(h)+MD(h)', 'de', 7758),
+(173046, 'SD(h)+MD(h)', 'SD(h)+MD(h)', 'sk', 7758),
 (73047, 'C(h)', 'C(h)', 'en', 7759),
 (73048, 'C(h)', 'C(h)', 'de', 7759),
+(173048, 'C(h)', 'C(h)', 'sk', 7759),
 (73049, 'T(h)', 'T(h)', 'en', 7760),
 (73050, 'T(h)', 'T(h)', 'de', 7760),
+(173050, 'T(h)', 'T(h)', 'sk', 7760),
 (73053, ' ', 'S(h)', 'en', 7762),
 (73054, ' ', 'S(h)', 'de', 7762),
+(173054, ' ', 'S(h)', 'sk', 7762),
 (73055, ' ', 'SD(h)+MD(h)', 'en', 7763),
 (73056, ' ', 'SD(h)+MD(h)', 'de', 7763),
+(173056, ' ', 'SD(h)+MD(h)', 'sk', 7763),
 (73057, ' ', 'C(h)', 'en', 7764),
 (73058, ' ', 'C(h)', 'de', 7764),
+(173058, ' ', 'C(h)', 'sk', 7764),
 (73059, ' ', 'T(h)', 'en', 7765),
 (73060, ' ', 'T(h)', 'de', 7765),
+(173060, ' ', 'T(h)', 'sk', 7765),
 (73061, 'HB(h)', 'HB(h)', 'en', 7766),
 (73062, 'HB(h)', 'T(h)', 'de', 7766),
+(173062, 'HB(h)', 'T(h)', 'sk', 7766),
 (73063, ' ', 'HB(h)', 'en', 7767),
-(73064, ' ', 'HB(h)', 'de', 7767);
+(73064, ' ', 'HB(h)', 'de', 7767),
+(173064, ' ', 'HB(h)', 'sk', 7767);
 
 
 -- 3904: Table title : Effot of project activities in hours
@@ -11784,7 +13078,8 @@ INSERT INTO `aid_instance` (`instid`, `description`, `predecessor`, `spaidid`, `
 --
 INSERT INTO `spec_aid_lang` (`said`, `description`, `title`, `text`, `xaxis`, `yaxis`, `language`, `spaidid`) VALUES
 (975, 'Effort of project activities in hours', 'Effort', 'Effort for all project activities', NULL, NULL, 'en', 3904),
-(976, 'Aufwand von Aktivitaeten in Stunden', 'Aufwand', 'Aufwand von Projektativitaeten', NULL, NULL, 'de', 3904);
+(976, 'Aufwand von Aktivitaeten in Stunden', 'Aufwand', 'Aufwand von Projektativitaeten', NULL, NULL, 'de', 3904),
+(7276, '⁄silie aktivÌt spojen˝ch s projektom v hodin·ch', '⁄silie', '⁄silie vöetk˝ch aktivÌt spojen˝ch s projektom', NULL, NULL, 'sk', 3904);
 
 
 --
@@ -11801,7 +13096,8 @@ INSERT INTO `spaid_needs_zt` (`spaidid`, `zid`) VALUES
 
 INSERT INTO `aid_desc_lang` (`did`, `description`, `language`, `aiddid`) VALUES
 (2274, 'Effort of project phases in hours', 'en', 5537),
-(2275, 'Effort of project phases in hours', 'de', 5537);
+(2275, 'Effort of project phases in hours', 'de', 5537),
+(5275, '⁄silie vynaloû. na jedn. f·zy projektu v hod.', 'sk', 5537);
 
 --
 -- Table `aid_inst_lang` (8)
@@ -11810,123 +13106,171 @@ INSERT INTO `aid_desc_lang` (`did`, `description`, `language`, `aiddid`) VALUES
 INSERT INTO `aid_inst_lang` (`aiid`, `description`, `abbreviation`, `language`, `instid`) VALUES
 (73065, 'root', NULL, 'en', 7768),
 (73066, 'root', NULL, 'de', 7768),
+(173066, 'root', NULL, 'sk', 7768),
 (73067, 'Effort of project activities in hours', 'Time', 'en', 7769),
 (73068, 'Effort of project activities in hours', 'Time', 'de', 7769),
+(173068, '⁄silie vynaloû. na aktivity projektu v hodin·ch', '»as', 'sk', 7769),
 --
 (73069, 'Specification in hours',   'S(h)', 'en', 7770),
 (73070, 'Spezifikation in Stunden', 'S(h)', 'de', 7770),
+(173070, 'äpecifik·cia v hodin·ch', 'ä(h)', 'sk', 7770),
 (73071, ' ', 'S(h)', 'en', 7771),
 (73072, ' ', 'S(h)', 'de', 7771),
+(173072, ' ', 'ä(h)', 'sk', 7771),
 --
 (73073, 'Specification review in hours',   'SR(h)', 'en', 7772),
 (73074, 'Spezifikationsreview in Stunden', 'SR(h)', 'de', 7772),
+(173074, 'Posudzovanie öpecifi. v hodin·ch', 'Pä(h)', 'sk', 7772),
 (73075, ' ', 'SR(h)', 'en', 7773),
 (73076, ' ', 'SR(h)', 'de', 7773),
+(173076, ' ', 'Pä(h)', 'sk', 7773),
 --
 (73077, 'Specification correction in hours',   'SC(h)', 'en', 7774),
 (73078, 'Spezifikationskorrektur in Stunden',  'SC(h)', 'de', 7774),
+(173078, 'Opravy öpecifik·cie v hodin·ch',  'Oä(h)', 'sk', 7774),
 (73079, ' ', 'SC(h)', 'en', 7775),
 (73080, ' ', 'SC(h)', 'de', 7775),
+(173080, ' ', 'Oä(h)', 'sk', 7775),
 --
 (73081, 'System design in hours',   'SD(h)', 'en', 7776),
 (73082, 'Systemdesign in Stunden',  'SD(h)', 'de', 7776),
+(173082, 'N·vrh systÈmu v hodin·ch',  'NS(h)', 'sk', 7776),
 (73083, ' ', 'SD(h)', 'en', 7777),
 (73084, ' ', 'SD(h)', 'de', 7777),
+(173084, ' ', 'NS(h)', 'sk', 7777),
 --
 (73085, 'System design review in hours',  'SDR(h)', 'en', 7778),
 (73086, 'Systemdesignreview in Stunden',  'SDR(h)', 'de', 7778),
+(173086, 'Posudzovanie n·vrhu systÈmu v hodin·ch',  'PNS(h)', 'sk', 7778),
 (73087, ' ', 'SDR(h)', 'en', 7779),
 (73088, ' ', 'SDR(h)', 'de', 7779),
+(173088, ' ', 'PNS(h)', 'sk', 7779),
 --
 (73089, 'System design correction in hours',  'SDC(h)', 'en', 7780),
 (73090, 'Systemdesign Korrektur in Stunden',  'SDC(h)', 'de', 7780),
+(173090, 'Opravy n·vrhu systÈmu v hodin·ch',  'ONS(h)', 'sk', 7780),
 (73091, ' ', 'SDC(h)', 'en', 7781),
 (73092, ' ', 'SDC(h)', 'de', 7781),
+(173092, ' ', 'ONS(h)', 'sk', 7781),
 --
 (73093, 'Module design in hours',  'MD(h)', 'en', 7782),
 (73094, 'Moduldesign in Stunden',  'MD(h)', 'de', 7782),
+(173094, 'N·vrh modulov v hodin·ch',  'NM(h)', 'sk', 7782),
 (73095, ' ', 'MD(h)', 'en', 7783),
 (73096, ' ', 'MD(h)', 'de', 7783),
+(173096, ' ', 'NM(h)', 'sk', 7783),
 --
 (73097, 'Module design review in hours',  'MDR(h)', 'en', 7784),
 (73098, 'Moduldesignreview in Stunden',  'MDR(h)', 'de', 7784),
+(173098, 'Posudzovanie n·vrhu modulov v hodin·ch',  'PNM(h)', 'sk', 7784),
 (73099, ' ', 'MDR(h)', 'en', 7785),
 (73100, ' ', 'MDR(h)', 'de', 7785),
+(173100, ' ', 'PNM(h)', 'sk', 7785),
 --
 (73101, 'Module design correction in hours',  'MDC(h)', 'en', 7786),
 (73102, 'Moduldesign Korrektur in Stunden',  'MDC(h)', 'de', 7786),
+(173102, 'Opravy n·vrhu modulov v hodin·ch',  'ONM(h)', 'sk', 7786),
 (73103, ' ', 'MDC(h)', 'en', 7787),
 (73104, ' ', 'MDC(h)', 'de', 7787),
+(173104, ' ', 'ONM(h)', 'sk', 7787),
 --
 (73105, 'Coding in hours',  'C(h)', 'en', 7788),
 (73106, 'Kodierung in Stunden',  'C(h)', 'de', 7788),
+(173106, 'Implement·cia v hodin·ch',  'I(h)', 'sk', 7788),
 (73107, ' ', 'C(h)', 'en', 7789),
 (73108, ' ', 'C(h)', 'de', 7789),
+(173108, ' ', 'I(h)', 'sk', 7789),
 --
 (73109, 'Code review in hours',  'CR(h)', 'en', 7790),
 (73110, 'Codereview in Stunden',  'CR(h)', 'de', 7790),
+(173110, 'Posudzovanie kÛdu v hodin·ch',  'PK(h)', 'sk', 7790),
 (73111, ' ', 'CR(h)', 'en', 7791),
 (73112, ' ', 'CR(h)', 'de', 7791),
+(173112, ' ', 'PK(h)', 'sk', 7791),
 --
 (73113, 'Code correction in hours',  'CRC(h)', 'en', 7792),
 (73114, 'Code Korrektur in Stunden',  'CRC(h)', 'de', 7792),
+(173114, 'Opravy kÛdu v hodin·ch',  'OK(h)', 'sk', 7792),
 (73115, ' ', 'CRC(h)', 'en', 7793),
 (73116, ' ', 'CRC(h)', 'de', 7793),
+(173116, ' ', 'OK(h)', 'sk', 7793),
 --
 (73117, 'Manual in hours',  'M(h)', 'en', 7794),
 (73118, 'Handbuch in Stunden',  'M(h)', 'de', 7794),
+(173118, 'PrÌruËky v hodin·ch',  'P(h)', 'sk', 7794),
 (73119, ' ', 'M(h)', 'en', 7795),
 (73120, ' ', 'M(h)', 'de', 7795),
+(173120, ' ', 'P(h)', 'sk', 7795),
 --
 (73121, 'Manual review in hours',  'MR(h)', 'en', 7796),
 (73122, 'Handbuch Review in Stunden',  'MR(h)', 'de', 7796),
+(173122, 'Posudzovanie prÌruËiek v hodin·ch',  'PP(h)', 'sk', 7796),
 (73123, ' ', 'MR(h)', 'en', 7797),
 (73124, ' ', 'MR(h)', 'de', 7797),
+(173124, ' ', 'PP(h)', 'sk', 7797),
 --
 (73125, 'Manual correction in hours',  'MRC(h)', 'en', 7798),
 (73126, 'Handbuch Korrektur in Stunden',  'MRC(h)', 'de', 7798),
+(173126, 'Opravy prÌruËiek v hodin·ch',  'OP(h)', 'sk', 7798),
 (73127, ' ', 'MRC(h)', 'en', 7799),
 (73128, ' ', 'MRC(h)', 'de', 7799),
+(173128, ' ', 'OP(h)', 'sk', 7799),
 --
 (73129, 'Module test in hours',  'MT(h)', 'en', 7800),
 (73130, 'Modultest in Stunden',  'MT(h)', 'de', 7800),
+(173130, 'Testovanie modulov v hodin·ch',  'TM(h)', 'sk', 7800),
 (73131, ' ', 'MT(h)', 'en', 7801),
 (73132, ' ', 'MT(h)', 'de', 7801),
+(173132, ' ', 'TM(h)', 'sk', 7801),
 --
 (73133, 'Module test correction in hours',  'MTC(h)', 'en', 7802),
 (73134, 'Modultest Korrektur in Stunden',  'MTC(h)', 'de', 7802),
+(173134, 'Opravy modulov v hodin·ch',  'OM(h)', 'sk', 7802),
 (73135, ' ', 'MTC(h)', 'en', 7803),
 (73136, ' ', 'MTC(h)', 'de', 7803),
+(173136, ' ', 'OM(h)', 'sk', 7803),
 --
 (73137, 'Integration test in hours',  'IT(h)', 'en', 7804),
 (73138, 'Integrationstest in Stunden',  'IT(h)', 'de', 7804),
+(173138, 'Testovanie integr·cie v hodin·ch',  'TI(h)', 'sk', 7804),
 (73139, ' ', 'IT(h)', 'en', 7805),
 (73140, ' ', 'IT(h)', 'de', 7805),
+(173140, ' ', 'TI(h)', 'sk', 7805),
 --
 (73141, 'Integration test correction in hours',  'ITC(h)', 'en', 7806),
 (73142, 'Integrationstest Korrektur in Stunden',  'ITC(h)', 'de', 7806),
+(173142, 'Opravy pre potreby integr·cie v hodin·ch',  'OPPI(h)', 'sk', 7806),
 (73143, ' ', 'ITC(h)', 'en', 7807),
 (73144, ' ', 'ITC(h)', 'de', 7807),
+(173144, ' ', 'OPPI(h)', 'sk', 7807),
 --
 (73145, 'System test in hours',  'ST(h)', 'en', 7808),
 (73146, 'Systemtest in Stunden',  'ST(h)', 'de', 7808),
+(173146, 'Testovanie systÈmu v hodin·ch',  'TS(h)', 'sk', 7808),
 (73147, ' ', 'ST(h)', 'en', 7809),
 (73148, ' ', 'ST(h)', 'de', 7809),
+(173148, ' ', 'TS(h)', 'sk', 7809),
 --
 (73149, 'System test correction in hours',  'STC(h)', 'en', 7810),
 (73150, 'Systemtest Korrektur in Stunden',  'STC(h)', 'de', 7810),
+(173150, 'Opravy z testovanie systÈmu v hodin·ch',  'OzTS(h)', 'sk', 7810),
 (73151, ' ', 'STC(h)', 'en', 7811),
 (73152, ' ', 'STC(h)', 'de', 7811),
+(173152, ' ', 'OzTS(h)', 'sk', 7811),
 --
 (73153, 'Acceptance test in hours',  'AT(h)', 'en', 7812),
 (73154, 'Akzeptanztest in Stunden',  'AT(h)', 'de', 7812),
+(173154, 'AkceptaËn˝ test v hodin·ch',  'AT(h)', 'sk', 7812),
 (73155, ' ', 'AT(h)', 'en', 7813),
 (73156, ' ', 'AT(h)', 'de', 7813),
+(173156, ' ', 'AT(h)', 'sk', 7813),
 --
 (73157, 'Acceptance test correction in hours',  'ATC(h)', 'en', 7814),
 (73158, 'Akzeptanztest Korrektur in Stunden',  'ATC(h)', 'de', 7814),
+(173158, 'Opravy z akceptaËnÈho testovania v hodin·ch',  'OzAT(h)', 'sk', 7814),
 (73159, ' ', 'ATC(h)', 'en', 7815),
-(73160, ' ', 'ATC(h)', 'de', 7815);
+(73160, ' ', 'ATC(h)', 'de', 7815),
+(173160, ' ', 'OzAT(h)', 'sk', 7815);
 
 
 
@@ -11940,6 +13284,8 @@ INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(91226,"Goal ac
 
 /* maier */
 INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(91227,"Goal achievement","de",9413);
+/* daÚo */
+INSERT INTO aid_desc_lang(did,description,language,aiddid) VALUES(191227,"Goal achievement","sk",9413);
 
 INSERT INTO specific_aid(spaidid,description,diagram,layout,qualification,aiddid) VALUES (93112,"Goal achievement",0,"T",NULL,9413);
 INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (9824,"Goal achievement","
@@ -11965,15 +13311,32 @@ zusammen.
 Erkl‰rung/Empfehlungen:
 Zielerreichung ist ein Muss f¸r jeden Projektmanager. Jedoch kˆnnen in einigen Situationen kleine Abweichungen durch den Kunden annehmbar sein. In Abschnitt 8 ist feststellbar, ob aufgrund des Kundenfeedback der Kunde das Endprodukt schlieﬂlich annimmt oder nicht.","",null,null,"de",93112);
 
+/* daÚo */
+INSERT INTO spec_aid_lang(said,description,text,title,xaxis,yaxis,language,spaidid) VALUES (19825,"Dosiahnutie cieæov","
+Legenda:
+Duration ... dÂûka projektu (v dÚoch), Costs ... n·klady na projekt (v EUR), C(%) ... AFPs zahrnutÈ v kÛde (v percent·ch), #E/KLOC ... poËet ch˝b (pripadaj˙cich na 1000 riadkov kÛdu), Man(%) ... AFPs zahrnutÈ dokument·cii pre pouûÌvateæa (v percent·ch), #E/Page ... poËet ch˝b (pripadaj˙cich na stranu dokument·cie pre pouûÌvateæa).
+
+Popis:
+T·to tabuæka sumarizuje dosiahnutie cieæov (GA) spustenia simul·cie. Riadok 'Results' sumarizuje aktu·lne v˝sledky, riadok 'Goals' sumarizuje hodnoty tak, ako ich poûaduje z·kaznÌk.
+
+Vysvetlenie/Odpor˙Ëania:
+Dosiahnutie cieæov je nevyhnutnosùou pre kaûdÈho projektovÈho manaûÈra. Akokoævek, v niektor˝ch situ·ci·ch mÙûu byù menöie odch˝lky z·kaznÌkom akceptovanÈ. Mali by ste sa pozrieù na sekciu 8, kde V·m z·kaznÌkova sp‰tn· v‰zba povie, Ëi je v˝sledn˝ produkt akceptovan˝ alebo nie.",
+"",null,null,"sk",93112);
+
+
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (93209,"root",NULL,93112,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (942137,"root",null,"en",93209);
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (943052,"root",null,"de",93209);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (1943052,"root",null,"sk",93209);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (93210,"",93209,93112,null,NULL);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (942138,"","GA","en",93210);
 /* maier */
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (943053,"","GA","de",93210);
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (1943053,"","GA","sk",93210);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (999999,"Team",93210,93112,null,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (93211,"Duration",93210,93112,null,NULL);
@@ -11999,6 +13362,15 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (943057,"#E/KLOC","FC","de",93214);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (943058,"Man(%)","AFPM","de",3215);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (943059,"#E/Page","FM","de",93216);
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (19999992,"Team","TE","sk",999999);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (1943054,"Duration","LE","sk",93211);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (1943055,"Costs","CO","sk",93212);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (1943056,"C(%)","AFPC","sk",93213);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (1943057,"#E/KLOC","FC","sk",93214);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (1943058,"Man(%)","AFPM","sk",3215);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (1943059,"#E/Page","FM","sk",93216);
 
 /* 21.08.07 turn? */
 INSERT INTO query(qid,attribute,statement,z_path) VALUES (92903," ",
@@ -12134,6 +13506,14 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (943064,"Results","PO","de",93221);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (943065,"Results","PO","de",93222);
 /* */
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (1999992,"Results","","sk",99999933);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (1943060,"Results","","sk",93217);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (1943061,"Results","PO","sk",93218);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (1943062,"Results","PO","sk",93219);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (1943063,"Results","PO","sk",93220);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (1943064,"Results","PO","sk",93221);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (1943065,"Results","PO","sk",93222);
 
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (999888,"Goals",99999933,93112,999999,NULL);
 INSERT INTO aid_instance(instid,description,predecessor,spaidid,qid,rlid) VALUES (93544,"Goals",93217,93112,93176,NULL);
@@ -12158,4 +13538,14 @@ INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES 
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (943069,"Goals","OBJ","de",93547);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (943070,"Goals","OBJ","de",93548);
 INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (943071,"Goals","OBJ","de",93549);
+/* */
+
+/* daÚo */
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (1999882,"Goals","OBJ","sk",999888);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (1943066,"Goals","OBJ","sk",93544);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (1943067,"Goals","OBJ","sk",93545);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (1943068,"Goals","OBJ","sk",93546);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (1943069,"Goals","OBJ","sk",93547);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (1943070,"Goals","OBJ","sk",93548);
+INSERT INTO aid_inst_lang(aiid,description,abbreviation,language,instid) VALUES (1943071,"Goals","OBJ","sk",93549);
 /* */
